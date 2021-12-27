@@ -1,5 +1,6 @@
 package model.Maps.Builders;
 
+import model.Elements.Pacman;
 import model.Elements.Wall;
 import model.Maps.Map;
 import model.Position;
@@ -28,6 +29,13 @@ public class MapReader implements MapBuilder {
 
         m.setWalls(readWalls(br));
 
+        // arranjar maneira melhor aqui. Não existe o .reset...
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
+
+        m.setPacman(readPacman(br));
         return m;
     }
 
@@ -45,6 +53,22 @@ public class MapReader implements MapBuilder {
 
         return walls;
     }
+
+    private Pacman readPacman(BufferedReader br) throws IOException {
+        Pacman pacman = null;
+        for (int i = 0; i < height; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < line.length(); j++) {
+                if (line.charAt(j) == 'c') {
+                    pacman = new Pacman(new Position(i * 8 + 1, j * 12 - 1));
+                    break;
+                }
+            }
+        }
+
+        return pacman;
+    }
+
 
 }
 

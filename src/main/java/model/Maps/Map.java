@@ -1,15 +1,10 @@
 package model.Maps;
-
-//import model.Elements.Ghosts.model.Elements.Ghost.Ghost;
-//import model.Elements.Pellets.PowerPellet;
-//import model.Elements.Pellets.SmallPellet;
-
-import model.Elements.Wall;
-
+import model.Elements.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
+    private Pacman pacman;
     private List<Wall> walls;
     private final int width;
     private final int height;
@@ -20,14 +15,17 @@ public class Map {
         this.height = height;
     }
 
+    public Pacman getPacman() {
+        return pacman;
+    }
 
     public List<Wall> getWalls() {
         return walls;
     }
 
-
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
 
+    public void setPacman(Pacman readPacman) {pacman = readPacman;}
 }
