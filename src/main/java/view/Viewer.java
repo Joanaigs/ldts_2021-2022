@@ -51,4 +51,8 @@ public abstract class Viewer<T extends Model> {
     public void setGraphics(TextGraphics graphics) {
         this.graphics = graphics;
     }
+
+    public Screen getScreen() {
+        return screen;
+    }
 }
