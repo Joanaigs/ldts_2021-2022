@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainMenu implements Model {
+public class MainMenuModel implements Model {
     List<MenuElement> options;
     int selected;
 
-    public MainMenu() {
+    public MainMenuModel() {
         options = new ArrayList<>();
         for(MenuOptions temp: MenuOptions.values()){
             options.add(new MenuElement(temp.getText(), new TextColor.RGB(255, 255, 255), new TextColor.RGB(255, 255, 255)));

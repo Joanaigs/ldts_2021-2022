@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class MainMenuTest {
     @Test
     public void selectNext(){
-        MainMenu main=new MainMenu();
+        MainMenuModel main=new MainMenuModel();
         Assertions.assertEquals("START", main.getSelected());
         main.selectNext();
         main.selectNext();
@@ -14,7 +14,7 @@ public class MainMenuTest {
     }
     @Test
     public void selectPrevious(){
-        MainMenu main=new MainMenu();
+        MainMenuModel main=new MainMenuModel();
         Assertions.assertEquals("START", main.getSelected());
         main.selectNext();
         main.selectNext();
