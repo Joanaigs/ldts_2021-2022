@@ -95,6 +95,7 @@ public class GameModel implements Model{
             pacman.nextDirection();
         }
     }
+
     public void update(long deltatime){
         for(int i = 0; i<3;i++)
             updateAux(deltatime);
