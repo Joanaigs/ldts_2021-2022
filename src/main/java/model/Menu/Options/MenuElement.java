@@ -7,11 +7,11 @@ public class MenuElement<T> {
     private TextColor fillColor;
     private TextColor borderColor;
 
-    public MenuElement(T id, TextColor fillColor, TextColor borderColor){
+    public MenuElement(T id){
         this.id = id;
         this.selected = false;
-        this.fillColor = fillColor;
-        this.borderColor = borderColor;
+        this.fillColor = new TextColor.RGB(255, 255, 255);
+        this.borderColor = new TextColor.RGB(255, 255, 255);
     }
 
     public String getIdentifier() {
@@ -23,6 +23,7 @@ public class MenuElement<T> {
     }
 
     public void select(){
+
         this.selected = true;
     }
 
@@ -36,6 +37,14 @@ public class MenuElement<T> {
 
     public TextColor getBorderColor() {
         return borderColor;
+    }
+
+    public void setFillColor(TextColor fillColor) {
+        this.fillColor = fillColor;
+    }
+
+    public void setBorderColor(TextColor borderColor) {
+        this.borderColor = borderColor;
     }
 }
 
