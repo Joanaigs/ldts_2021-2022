@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public abstract class Viewer<T extends Model> {
     protected T model;
-    protected Screen screen;
+    private Screen screen;
     protected TextGraphics graphics;
 
     public Viewer(T model){
@@ -42,13 +42,9 @@ public abstract class Viewer<T extends Model> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
-    public void screenClear(){
-        screen.clear();
-    }
-    public void screenRefresh() throws IOException {
-        screen.refresh();
-    }
+
 
     public abstract void draw() throws IOException;
 
@@ -58,8 +54,5 @@ public abstract class Viewer<T extends Model> {
 
     public Screen getScreen() {
         return screen;
-    }
-    public T getModel() {
-        return model;
     }
 }

@@ -17,7 +17,7 @@ public class MapReader implements MapBuilder {
     public Map createMap(String mapName) throws IOException {
         Map m = new Map(width, height);
         String rootPath = new File(System.getProperty("user.dir")).getPath();
-        String mapLocation = rootPath + "//src//main//resources//" + mapName;
+        String mapLocation = rootPath + "\\src\\main\\resources\\" + mapName;
 
         FileReader fr = new FileReader(new File(mapLocation));
         BufferedReader br = new BufferedReader(fr);
