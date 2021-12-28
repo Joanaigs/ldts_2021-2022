@@ -2,7 +2,8 @@ package control;
 
 import com.googlecode.lanterna.input.KeyStroke;
 
-public interface Observer {
+import java.io.IOException;
 
-    public void processKey(KeyStroke key);
+public interface Observer {
+   void processKey(KeyStroke key) throws IOException, InterruptedException;
 }
