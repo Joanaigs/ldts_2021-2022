@@ -7,11 +7,17 @@ import java.util.Objects;
 public class Wall extends Element{
 
     private int width, height;
+    private Collider collider;
 
     public Wall(Position position, int width, int height) {
         super(position);
         this.width = width;
         this.height = height;
+        collider = new Collider(new Position(position.getRow(), position.getCol()), 12, 8);
+    }
+
+    public Collider getCollider() {
+        return collider;
     }
 
     @Override
@@ -26,4 +32,9 @@ public class Wall extends Element{
 
     public int getHeight() { return height;}
 
+
+    @Override
+    public void update(long deltatime) {
+
+    }
 }

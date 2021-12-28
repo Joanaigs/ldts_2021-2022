@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class WallTest extends Assertions {
+public class WallTest extends Assertions{
 
     @Test
     void readWallTest() throws IOException{
@@ -39,8 +39,5 @@ public class WallTest extends Assertions {
         assertEquals(true, map.getWalls().containsAll(wallList));
 
     }
-
-
-
 
 }

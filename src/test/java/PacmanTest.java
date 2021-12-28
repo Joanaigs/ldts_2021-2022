@@ -1,5 +1,3 @@
-package Elements;
-
 import model.Elements.Direction;
 import model.Elements.Pacman;
 import model.Maps.Builders.MapBuilder;
@@ -11,9 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PacmanTest {
+public class PacmanTest extends Assertions{
 
     private Pacman pacman;
 
@@ -22,37 +19,37 @@ public class PacmanTest {
         pacman = new Pacman(new Position(3*8+1, 3*12-1));
     }
 
-    //Tests if the pacman is being correctly readed from the map.
     @Test
+    //Tests if the pacman is being correctly readed from the map.
     void readPacmanTest() throws IOException {
         MapBuilder mapbuilder = new MapReader();
         Map map = mapbuilder.createMap("mapTest"); // here we are using a 3x3 map to test if the functions are working.
         assertEquals(map.getPacman().getPosition(), new Position(1*8+1,1*12-1));
     }
 
-    // On the following 4 testes, is being tested if pacman changes direction correctly.
     @Test
-    void moveUp() {
+    // On the following 4 testes, is being tested if pacman changes direction correctly.
+    void moveUpTest() {
         assertEquals(Direction.Up, pacman.moveUp());
     }
 
     @Test
-    void moveDown(){
+    void moveDownTest(){
         assertEquals(Direction.Down, pacman.moveDown());
     }
     @Test
-    void moveLeft(){
+    void moveLeftTest(){
         assertEquals(Direction.Left, pacman.moveLeft());
     }
 
     @Test
-    void moveRight(){
+    void moveRightTest(){
         assertEquals(Direction.Right, pacman.moveRight());
     }
 
-    // Tests if the position is being changed correctly
     @Test
-    void changePosition(){
+    // Tests if the position is being changed correctly
+    void changePositionTest(){
         long deltatime = -8/62/3;
         double velocity = 62/3;
         Position pos1 = pacman.move(deltatime, Direction.Up);

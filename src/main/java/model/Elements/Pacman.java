@@ -16,8 +16,12 @@ public class Pacman extends Element{
         nextDirection = Direction.None;
         mouthOpen = true;
     }
+    // +5, -2, 26, 11
 
-
+    public Collider getCollider() {
+        return new Collider(new Position(position.getRow(), position.getCol()), 34, 14);
+    }
+    // 32, 14
     public Direction moveUp() {return Direction.Up;}
 
     public Direction moveDown() {return Direction.Down;}
@@ -26,6 +30,7 @@ public class Pacman extends Element{
 
     public Direction moveRight() {return Direction.Right;}
 
+    public void setDirection(Direction direction){ this.nextDirection = direction;}
 
     @Override
     public void setPosition(Position position) {
@@ -46,10 +51,32 @@ public class Pacman extends Element{
         }
         return new Position(position.getRow(), position.getCol());
     }
+    public Position moveNextDirection(long deltatime){
+        return move(deltatime, nextDirection);
+    }
 
+    public Position moveCurrentDirection(long deltatime){
+        return move(deltatime, currentDirection);
+    }
+
+    public Direction getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public Direction getNextDirection() {
+        return nextDirection;
+    }
+
+    public void nextDirection(){
+        currentDirection = nextDirection;
+    }
 
     public boolean isOpen(){
         return mouthOpen;
     }
 
+    @Override
+    public void update(long deltatime) {
+
+    }
 }
