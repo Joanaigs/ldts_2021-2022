@@ -1,13 +1,13 @@
 package model.Menu.Options;
 import com.googlecode.lanterna.TextColor;
 
-public class MenuElement {
-    private String id;
+public class MenuElement<T> {
+    private T id;
     private boolean selected;
     private TextColor fillColor;
     private TextColor borderColor;
 
-    public MenuElement(String id, TextColor fillColor, TextColor borderColor){
+    public MenuElement(T id, TextColor fillColor, TextColor borderColor){
         this.id = id;
         this.selected = false;
         this.fillColor = fillColor;
@@ -15,7 +15,7 @@ public class MenuElement {
     }
 
     public String getIdentifier() {
-        return id;
+        return id.toString();
     }
 
     public boolean isSelected(){

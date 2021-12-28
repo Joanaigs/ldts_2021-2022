@@ -1,17 +1,18 @@
 package model.Menu.Options;
 
-public enum MenuOptions {
+public enum MenuOption {
     START("START"),
     SETTINGS("SETTINGS"),
     RANKINGS("RANKINGS"),
     EXIT("EXIT");
     private final String text;
 
-    MenuOptions(String text) {
+    MenuOption(String text) {
         this.text=text;
     }
 
-    public String getText() {
+    @Override
+    public String toString() {
         return text;
     }
 }

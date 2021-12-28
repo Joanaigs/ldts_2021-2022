@@ -1,8 +1,8 @@
 package model.Menu;
 
 import com.googlecode.lanterna.TextColor;
+import model.Menu.Options.MenuOption;
 import model.Menu.Options.MenuElement;
-import model.Menu.Options.MenuOptions;
 import model.Model;
 
 import java.util.ArrayList;
@@ -10,13 +10,13 @@ import java.util.List;
 
 
 public class MainMenuModel implements Model {
-    List<MenuElement> options;
+    List<MenuElement<MenuOption>> options;
     int selected;
 
     public MainMenuModel() {
         options = new ArrayList<>();
-        for(MenuOptions temp: MenuOptions.values()){
-            options.add(new MenuElement(temp.getText(), new TextColor.RGB(255, 255, 255), new TextColor.RGB(255, 255, 255)));
+        for(MenuOption temp: MenuOption.values()){
+            options.add(new MenuElement(temp, new TextColor.RGB(255, 255, 255), new TextColor.RGB(255, 255, 255)));
         }
         this.selected = 0;
     }
@@ -39,6 +39,8 @@ public class MainMenuModel implements Model {
     }
 
     public String getSelected() {
-        return options.get(selected).getIdentifier();
+        return options.get(selected).getIdentifier().toString();
     }
+
+    public List<MenuElement<MenuOption>> getOptions(){return options;}
 }
