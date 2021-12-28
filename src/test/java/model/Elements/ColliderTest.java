@@ -1,3 +1,5 @@
+package model.Elements;
+
 import model.Elements.Collider;
 import model.Elements.Direction;
 import model.Elements.Pacman;

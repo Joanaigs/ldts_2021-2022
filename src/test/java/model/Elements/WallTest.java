@@ -1,3 +1,4 @@
+package model.Elements;
 
 import model.Elements.Wall;
 import model.Maps.Builders.MapBuilder;
@@ -20,10 +21,10 @@ public class WallTest extends Assertions{
         Map map = mapbuilder.createMap("mapTest"); // here we are using a 3x3 map to test if the functions are working.
 
 
-        //To see if it's reading the right number of walls
+        //To see if it's reading the right number of power coins
         assertEquals(8, map.getWalls().size());
 
-        // List of each wall position on the map "mapTest"
+        // List of each power coin position on the map "mapTest"
         ArrayList<Wall> wallList = new ArrayList<>(
                 Arrays.asList(  new Wall(new Position(0*8,0*12), 12, 8),
                         new Wall(new Position(0*8,1*12), 12, 8),
