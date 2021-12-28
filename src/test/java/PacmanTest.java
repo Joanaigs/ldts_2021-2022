@@ -1,3 +1,5 @@
+package Elements;
+
 import model.Elements.Direction;
 import model.Elements.Pacman;
 import model.Maps.Builders.MapBuilder;
@@ -20,8 +22,8 @@ public class PacmanTest {
         pacman = new Pacman(new Position(3*8+1, 3*12-1));
     }
 
-    @Test
     //Tests if the pacman is being correctly readed from the map.
+    @Test
     void readPacmanTest() throws IOException {
         MapBuilder mapbuilder = new MapReader();
         Map map = mapbuilder.createMap("mapTest"); // here we are using a 3x3 map to test if the functions are working.
@@ -48,9 +50,8 @@ public class PacmanTest {
         assertEquals(Direction.Right, pacman.moveRight());
     }
 
-
-    @Test
     // Tests if the position is being changed correctly
+    @Test
     void changePosition(){
         long deltatime = -8/62/3;
         double velocity = 62/3;
