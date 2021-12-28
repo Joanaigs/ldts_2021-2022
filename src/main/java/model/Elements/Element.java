@@ -10,11 +10,12 @@ public abstract class Element {
         this.position = position;
     }
 
-
     public Position getPosition(){ return position;};
 
     public void setPosition(Position position){ this.position=position;}
 
     public abstract void update(long deltatime);
+
+    public abstract Collider getCollider();
 
 }

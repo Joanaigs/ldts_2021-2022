@@ -60,5 +60,12 @@ public class PacmanTest extends Assertions{
     }
 
 
-
+    @Test
+        // Tests if the score is being updated correctly
+    void increaseScoreTest(){
+        pacman.increaseScore(PowerCoin.PowerCoinValue);
+        assertEquals(200, pacman.getScore());
+        pacman.increaseScore(SmallCoin.SmallCoinValue);
+        assertEquals(210, pacman.getScore());
+    }
 }

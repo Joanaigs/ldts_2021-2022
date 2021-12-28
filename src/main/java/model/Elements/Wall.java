@@ -16,6 +16,7 @@ public class Wall extends Element{
         collider = new Collider(new Position(position.getRow(), position.getCol()), 12, 8);
     }
 
+    @Override
     public Collider getCollider() {
         return collider;
     }

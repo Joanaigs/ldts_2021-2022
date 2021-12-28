@@ -8,4 +8,5 @@ public abstract class Coins extends Element{
         super(position);
     }
 
+    public abstract Collider getCollider();
 }

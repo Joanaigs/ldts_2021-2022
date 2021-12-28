@@ -18,6 +18,7 @@ public class Pacman extends Element{
     }
     // +5, -2, 26, 11
 
+    @Override
     public Collider getCollider() {
         return new Collider(new Position(position.getRow(), position.getCol()), 34, 14);
     }
@@ -78,5 +79,13 @@ public class Pacman extends Element{
     @Override
     public void update(long deltatime) {
 
+    }
+
+    public void increaseScore(int score){
+        highscore += score;
+    }
+
+    public int getScore(){
+        return highscore;
     }
 }
