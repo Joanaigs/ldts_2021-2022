@@ -2,29 +2,41 @@ package control;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
-import model.GameModel;
 
-import javax.swing.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ReadKeys implements Runnable {
-    Screen screen;
-    GameModel gameModel;
-    PacmanController pacmanController;
-    public ReadKeys(Screen screen, GameModel gameModel){
+    volatile Screen screen = null;
+    volatile ArrayList<Observer> observers;
+
+    public ReadKeys(){
+        observers = new ArrayList<Observer>();
+    }
+
+    public void addObserver(Observer obs){
+        observers.add(obs);
+    }
+
+    public void removeObserver(Observer obs){
+        observers.remove(obs);
+    }
+
+    public void setScreen(Screen screen) {
         this.screen = screen;
-        this.gameModel=gameModel;
-        pacmanController = new PacmanController(gameModel.getMap().getPacman());
     }
 
     public void run() {
         try {
             while (true) {
-                KeyStroke keyStroke = screen.readInput();
-                System.out.println(keyStroke);
-                pacmanController.processKey(keyStroke);
-                //Thread.sleep(100);
+                if(screen ==null || observers.isEmpty())
+                    continue;
 
+                KeyStroke keyStroke = screen.readInput();
+                for(Observer observer: observers){
+                    observer.processKey(keyStroke);
+                }
+                //Thread.sleep(100);
             }
         } catch (IOException  e) {
             e.printStackTrace();

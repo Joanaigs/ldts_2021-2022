@@ -72,4 +72,8 @@ public class GameModel implements Model{
         for(int i = 0; i<3;i++)
             updateAux(deltatime);
     }
+
+    public boolean isRunning(){         // TO CHANGE LATER
+        return true;
+    }
 }

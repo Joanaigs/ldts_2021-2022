@@ -3,7 +3,7 @@ package control;
 import com.googlecode.lanterna.input.KeyStroke;
 import model.Elements.Pacman;
 
-public class PacmanController {
+public class PacmanController implements Observer {
     private Pacman pacman;
 
     public PacmanController(Pacman pacman){
@@ -11,7 +11,7 @@ public class PacmanController {
     }
 
 
-    void processKey(KeyStroke key) {
+    public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowUp:
                 pacman.setDirection(pacman.moveUp());
