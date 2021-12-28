@@ -6,10 +6,11 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import model.Elements.Pacman;
 
+
 public class PacmanView extends View {
 
     private Pacman pacman;
-    private static final String[] pac_open = {
+    private static final String[] pac_open_right = {
 
             "     #####",
             "   #########",
@@ -22,6 +23,49 @@ public class PacmanView extends View {
             "  ###########",
             "   #########",
             "     #####"};
+
+    private static final String[] pac_open_left = {
+
+            "     #####",
+            "   #########",
+            "  ##### #####",
+            "    #########",
+            "       #######",
+            "         ####",
+            "       #######",
+            "    #########",
+            "  ###########",
+            "   #########",
+            "     #####"};
+
+    private static final String[] pac_open_up = {
+
+            "   #       #",
+            "  ###     ###",
+            " #####   #####",
+            "####### #######",
+            "### ###########",
+            "###############",
+            "##############",
+            " ############",
+            "  ##########",
+            "   ########",
+            "    ######"};
+
+
+    private static final String[] pac_open_down = {
+
+            "    ######",
+            "   ########",
+            " ############",
+            "###############",
+            "###############",
+            "###############",
+            "########### ###",
+            "####### ######",
+            " #####   #####",
+            "  ###     ###",
+            "   #       #"};
 
     private static final String[] pac_close = {
 
@@ -50,13 +94,31 @@ public class PacmanView extends View {
 
         int y = 0;
         // draw pacman, square by square
-        String[] pacDraw;
-        if( pacman.isOpen())
-            pacDraw = pac_open;
+        String[] pacDraw = new String[0];
+
+        if( pacman.isOpen()){
+            switch (pacman.getCurrentDirection()){
+                case Right:
+                    pacDraw = pac_open_right;
+                    break;
+                case Left:
+                    pacDraw = pac_open_left;
+                    break;
+                case Up:
+                    pacDraw = pac_open_up;
+                    break;
+                case Down:
+                    pacDraw = pac_open_down;
+                    break;
+                case None:
+                    break;
+            }
+        }
+
         else
             pacDraw = pac_close;
 
-        for (String s : pacDraw ){
+        for (String s : pacDraw){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
                     graphics.fillRectangle(new TerminalPosition(
@@ -66,6 +128,4 @@ public class PacmanView extends View {
             y++;
         }
     }
-
-
 }
