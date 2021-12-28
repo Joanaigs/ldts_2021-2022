@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="model.Menu.MainMenuTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-12-27T20:31:57" hostname="LENOVO" time="0.014">
-  <properties/>
-  <testcase name="selectNext()" classname="model.Menu.MainMenuTest" time="0.013"/>
-  <testcase name="selectPrevious()" classname="model.Menu.MainMenuTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public abstract class Viewer<T extends Model> {
     protected T model;
-    private Screen screen;
+    protected Screen screen;
     protected TextGraphics graphics;
 
     public Viewer(T model){
