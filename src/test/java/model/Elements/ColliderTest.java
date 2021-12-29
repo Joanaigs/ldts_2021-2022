@@ -1,3 +1,8 @@
+package model.Elements;
+
+import model.Elements.Coins.Coin;
+import model.Elements.Coins.PowerCoin;
+import model.Elements.Coins.SmallCoin;
 import model.Elements.Collider;
 import model.Elements.Direction;
 import model.Elements.Pacman;
@@ -36,6 +41,20 @@ public class ColliderTest extends Assertions {
         Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
 
         Assertions.assertFalse(wallCollider.colision(pacmanCollider));
+    }
+
+    @Test
+        //Tests if the pacman collides with coin.
+    void pacmanNotCollidesCoin() throws IOException {
+        Pacman pacman = new Pacman(new Position(1*8+1, 3*12-1));
+        Coin coin1 = new PowerCoin(new Position(3*8+1, 3*12-1));
+        pacman.setPosition(new Position(1*8+1, 3*12-1));
+        Coin coin2 = new SmallCoin(new Position(1*8+1, 3*12-1));
+        Collider coin1Collider = new Collider(coin1.getPosition(), coin1.getCollider().getWidth(), coin1.getCollider().getHeight());
+        Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
+        Collider coin2Collider = new Collider(coin2.getPosition(), coin2.getCollider().getWidth(), coin2.getCollider().getHeight());
+        Assertions.assertFalse(coin1Collider.colision(pacmanCollider));
+        Assertions.assertTrue(coin2Collider.colision(pacmanCollider));
     }
 
 

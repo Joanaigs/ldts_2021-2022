@@ -1,5 +1,7 @@
-import model.Elements.Direction;
-import model.Elements.Pacman;
+package model.Elements;
+
+import model.Elements.Coins.PowerCoin;
+import model.Elements.Coins.SmallCoin;
 import model.Maps.Builders.MapBuilder;
 import model.Maps.Builders.MapReader;
 import model.Maps.Map;
@@ -20,7 +22,7 @@ public class PacmanTest extends Assertions{
     }
 
     @Test
-    //Tests if the pacman is being correctly readed from the map.
+    //Tests if the pacman is being correctly read from the map.
     void readPacmanTest() throws IOException {
         MapBuilder mapbuilder = new MapReader();
         Map map = mapbuilder.createMap("mapTest"); // here we are using a 3x3 map to test if the functions are working.
@@ -28,7 +30,7 @@ public class PacmanTest extends Assertions{
     }
 
     @Test
-    // On the following 4 testes, is being tested if pacman changes direction correctly.
+    // On the following 4 tests, is being tested if pacman changes direction correctly.
     void moveUpTest() {
         assertEquals(Direction.Up, pacman.moveUp());
     }
@@ -58,5 +60,12 @@ public class PacmanTest extends Assertions{
     }
 
 
-
+    @Test
+        // Tests if the score is being updated correctly
+    void increaseScoreTest(){
+        pacman.increaseScore(PowerCoin.PowerCoinValue);
+        assertEquals(200, pacman.getScore());
+        pacman.increaseScore(SmallCoin.SmallCoinValue);
+        assertEquals(210, pacman.getScore());
+    }
 }
