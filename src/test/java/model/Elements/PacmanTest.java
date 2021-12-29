@@ -1,7 +1,7 @@
 package model.Elements;
 
-import model.Elements.Direction;
-import model.Elements.Pacman;
+import model.Elements.Coins.PowerCoin;
+import model.Elements.Coins.SmallCoin;
 import model.Maps.Builders.MapBuilder;
 import model.Maps.Builders.MapReader;
 import model.Maps.Map;

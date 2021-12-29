@@ -4,10 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import model.Elements.Coins;
-import model.Elements.PowerCoin;
-
-import java.util.List;
+import model.Elements.Coins.PowerCoin;
 
 public class PowerCoinView extends CoinsView{
     private PowerCoin powerCoin;
@@ -19,17 +16,14 @@ public class PowerCoinView extends CoinsView{
 
     private static final String[] powCoin = {
 
-            "     #####",
-            "    ##    ##",
-            "   #        #",
-            "  #          #",
-            " #            #",
-            " #            #",
-            " #            #",
-            " #            #",
-            "  #          #",
-            "   ##      ##",
-            "     #####"
+            "   ###### ",
+            "  ##    ##",
+            " ##      ##",
+            " ##      ##",
+            " ##      ##",
+            " ##      ##",
+            "  ##    ##",
+            "   ######",
     };
 
 
@@ -43,7 +37,7 @@ public class PowerCoinView extends CoinsView{
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
                     graphics.fillRectangle(new TerminalPosition(
-                                    powerCoin.getPosition().getCol() + x *2, powerCoin.getPosition().getRow() + y),
+                                    powerCoin.getPosition().getCol() + x *2 -3, powerCoin.getPosition().getRow() + y),
                             new TerminalSize(2, 1), ' ');
             }
             y++;

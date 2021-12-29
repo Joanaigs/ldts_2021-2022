@@ -1,12 +1,16 @@
 package model.Maps;
 import model.Elements.*;
+import model.Elements.Coins.Coin;
+import model.Elements.Coins.PowerCoin;
+import model.Elements.Coins.SmallCoin;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
     private Pacman pacman;
     private List<Wall> walls;
-    private List<Coins> coins;
+    private List<Coin> coins;
     private List<PowerCoin> powerCoins;
     private List<SmallCoin> smallCoins;
     private final int width;
@@ -26,7 +30,7 @@ public class Map {
         return walls;
     }
 
-    public List<Coins> getCoins() {
+    public List<Coin> getCoins() {
         return coins;
     }
 
@@ -44,7 +48,7 @@ public class Map {
 
     public void setPacman(Pacman pacman) {this.pacman = pacman;}
 
-    public void setCoins(List<Coins> coins) {this.coins = coins;}
+    public void setCoins(List<Coin> coins) {this.coins = coins;}
 
     public void setPowerCoins(List<PowerCoin> powerCoins) {this.powerCoins = powerCoins;}
 

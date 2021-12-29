@@ -1,9 +1,10 @@
-package model.Elements;
+package model.Elements.Coins;
 
+import model.Elements.Collider;
 import model.Position;
 
 
-public class SmallCoin extends Coins{
+public class SmallCoin extends Coin {
     public final static int SmallCoinValue = 10;
 
     public SmallCoin(Position position) {
@@ -17,7 +18,7 @@ public class SmallCoin extends Coins{
 
     @Override
     public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 34, 14);
+        return new Collider(new Position(position.getRow(), position.getCol()), 10, 5);
     }
 
 }

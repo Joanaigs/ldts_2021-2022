@@ -55,4 +55,8 @@ public abstract class Viewer<T extends Model> {
     public Screen getScreen() {
         return screen;
     }
+
+    public T getModel() {
+        return model;
+    }
 }

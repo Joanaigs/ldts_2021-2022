@@ -1,8 +1,9 @@
-package model.Elements;
+package model.Elements.Coins;
 
+import model.Elements.Collider;
 import model.Position;
 
-public class PowerCoin extends Coins{
+public class PowerCoin extends Coin {
     public final static int PowerCoinValue = 200;
 
     public PowerCoin(Position position) {
@@ -11,7 +12,7 @@ public class PowerCoin extends Coins{
 
     @Override
     public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 34, 14);
+        return new Collider(new Position(position.getRow(), position.getCol()), 15, 6);
     }
 
     @Override

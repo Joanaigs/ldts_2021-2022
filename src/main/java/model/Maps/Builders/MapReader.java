@@ -1,6 +1,9 @@
 package model.Maps.Builders;
 
 import model.Elements.*;
+import model.Elements.Coins.Coin;
+import model.Elements.Coins.PowerCoin;
+import model.Elements.Coins.SmallCoin;
 import model.Maps.Map;
 import model.Position;
 
@@ -33,10 +36,27 @@ public class MapReader implements MapBuilder {
         br = new BufferedReader(fr);
         width = Integer.parseInt(br.readLine());
         height = Integer.parseInt(br.readLine());
-
         m.setPacman(readPacman(br));
+
+        // arranjar maneira melhor aqui. Não existe o .reset...
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
         m.setCoins(readCoins(br));
+
+        // arranjar maneira melhor aqui. Não existe o .reset...
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
         m.setPowerCoins(readPowerCoins(br));
+
+        // arranjar maneira melhor aqui. Não existe o .reset...
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
         m.setSmallCoins(readSmallCoins(br));
         return m;
     }
@@ -70,8 +90,8 @@ public class MapReader implements MapBuilder {
         return pacman;
     }
 
-    private List<Coins> readCoins(BufferedReader br) throws IOException {
-        List<Coins> coins = new ArrayList<Coins>();
+    private List<Coin> readCoins(BufferedReader br) throws IOException {
+        List<Coin> coins = new ArrayList<Coin>();
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {

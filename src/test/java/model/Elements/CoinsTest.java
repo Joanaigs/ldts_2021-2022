@@ -1,5 +1,8 @@
 package model.Elements;
 
+import model.Elements.Coins.Coin;
+import model.Elements.Coins.PowerCoin;
+import model.Elements.Coins.SmallCoin;
 import model.Maps.Builders.MapBuilder;
 import model.Maps.Builders.MapReader;
 import model.Maps.Map;
@@ -23,7 +26,7 @@ public class CoinsTest extends Assertions {
         assertEquals(4, map.getCoins().size());
 
         // List of each power coin position on the map "mapTest"
-        ArrayList<Coins> coinsList = new ArrayList<Coins>(
+        ArrayList<Coin> coinsList = new ArrayList<Coin>(
                 Arrays.asList(new PowerCoin(new Position(2 * 8 + 1, 12 * 12 - 1)),
                         new PowerCoin(new Position(2 * 8 + 1, 30 * 12 - 1)),
                         new SmallCoin(new Position(2 * 8 + 1, 14 * 12 - 1)),

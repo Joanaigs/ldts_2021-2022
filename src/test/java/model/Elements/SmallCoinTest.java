@@ -1,5 +1,6 @@
 package model.Elements;
 
+import model.Elements.Coins.SmallCoin;
 import model.Maps.Builders.MapBuilder;
 import model.Maps.Builders.MapReader;
 import model.Maps.Map;
