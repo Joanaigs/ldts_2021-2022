@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CoinsTest extends Assertions {
     @Test
@@ -26,16 +27,21 @@ public class CoinsTest extends Assertions {
         assertEquals(4, map.getCoins().size());
 
         // List of each power coin position on the map "mapTest"
-        ArrayList<Coin> coinsList = new ArrayList<Coin>(
-                Arrays.asList(new PowerCoin(new Position(2 * 8 + 1, 12 * 12 - 1)),
-                        new PowerCoin(new Position(2 * 8 + 1, 30 * 12 - 1)),
-                        new SmallCoin(new Position(2 * 8 + 1, 14 * 12 - 1)),
-                        new SmallCoin(new Position(2 * 8 + 1, 16 * 12 - 1))));
+        List<Coin> coinsList = new ArrayList<Coin>();
+        coinsList.add(new PowerCoin(new Position(2 * 8 + 1, 12 * 12 - 1)));
+        coinsList.add(new PowerCoin(new Position(2 * 8 + 1, 30 * 12 - 1)));
+        coinsList.add(new SmallCoin(new Position(2 * 8 + 1, 14 * 12 - 1)));
+        coinsList.add(new SmallCoin(new Position(2 * 8 + 1, 16 * 12 - 1)));
 
-        //To see if it's reading the correct power coins
-        assertEquals(true, coinsList.containsAll(map.getPowerCoins()));
-        assertEquals(true, coinsList.containsAll(map.getSmallCoins()));
+        for (Coin p: map.getCoins()) {
+            System.out.println(p.getPosition().getRow());
+            System.out.println(p.getPosition().getCol());
+        }
+
+        //To see if it's reading the correct coins
+        assertTrue(coinsList.containsAll(map.getPowerCoins()));
+        assertTrue(coinsList.containsAll(map.getSmallCoins()));
         assertEquals(true, coinsList.containsAll(map.getCoins()));
-        assertEquals(true, map.getPowerCoins().containsAll(coinsList));
+        assertEquals(true, map.getCoins().containsAll(coinsList));
     }
 }

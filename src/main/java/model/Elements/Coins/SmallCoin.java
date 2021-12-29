@@ -21,4 +21,5 @@ public class SmallCoin extends Coin {
         return new Collider(new Position(position.getRow(), position.getCol()), 10, 5);
     }
 
+
 }

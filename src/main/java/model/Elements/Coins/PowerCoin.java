@@ -19,4 +19,5 @@ public class PowerCoin extends Coin {
     public void update(long deltatime) {
 
     }
+
 }

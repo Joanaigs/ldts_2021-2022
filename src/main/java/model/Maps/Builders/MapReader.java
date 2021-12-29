@@ -96,13 +96,10 @@ public class MapReader implements MapBuilder {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
                 if (line.charAt(j) == 'O') {
-                    PowerCoin powerCoin = new PowerCoin(new Position(i * 8 + 1, j * 12 - 1));
-                    coins.add(powerCoin);
+                    coins.add(new PowerCoin(new Position(i * 8 + 1, j * 12 - 1)));
                 }
-                else if(line.charAt(j) == '.'){
-                    SmallCoin smallCoin = new SmallCoin(new Position(i * 8 + 1, j * 12 - 1));
-                    coins.add(smallCoin);
-                }
+                else if(line.charAt(j) == '.')
+                    coins.add(new SmallCoin(new Position(i * 8 + 1, j * 12 - 1)));
             }
         }
         return coins;
@@ -113,10 +110,8 @@ public class MapReader implements MapBuilder {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
-                if (line.charAt(j) == 'O') {
-                    PowerCoin powerCoin = new PowerCoin(new Position(i * 8 + 1, j * 12 - 1));
-                    powerCoins.add(powerCoin);
-                }
+                if (line.charAt(j) == 'O')
+                    powerCoins.add(new PowerCoin(new Position(i * 8 + 1, j * 12 - 1)));
             }
         }
         return powerCoins;
@@ -127,10 +122,8 @@ public class MapReader implements MapBuilder {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
-                if(line.charAt(j) == '.'){
-                    SmallCoin smallCoin = new SmallCoin(new Position(i * 8 + 1, j * 12 - 1));
-                    smallCoins.add(smallCoin);
-                }
+                if(line.charAt(j) == '.')
+                    smallCoins.add(new SmallCoin(new Position(i * 8 + 1, j * 12 - 1)));
             }
         }
         return smallCoins;

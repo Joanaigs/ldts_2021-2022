@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 class PowerCoinTest extends Assertions{
 
@@ -22,15 +23,15 @@ class PowerCoinTest extends Assertions{
 
 
         //To see if it's reading the right number of power coins
-        assertEquals(5, map.getPowerCoins().size());
+        assertEquals(2, map.getPowerCoins().size());
 
         // List of each power coin position on the map "mapTest"
-        ArrayList<PowerCoin> powerCoinsList = new ArrayList<PowerCoin>(
-                Arrays.asList(new PowerCoin(new Position(2 * 8 + 1, 12 * 12 - 1)),
-                        new PowerCoin(new Position(2 * 8 + 1, 30 * 12 - 1))));
+        List<PowerCoin> powerCoinsList = new ArrayList<PowerCoin>();
+        powerCoinsList.add(new PowerCoin(new Position(2 * 8 + 1, 12 * 12 - 1)));
+        powerCoinsList.add(new PowerCoin(new Position(2 * 8 + 1, 30 * 12 - 1)));
 
         //To see if it's reading the correct power coins
-        assertEquals(true, powerCoinsList.containsAll(map.getPowerCoins()));
+        assertTrue(powerCoinsList.containsAll(map.getPowerCoins()));
         assertEquals(true, map.getPowerCoins().containsAll(powerCoinsList));
     }
 
