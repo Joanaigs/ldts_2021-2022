@@ -21,7 +21,7 @@ public class MainMenuTest {
         main.selectNext();
         main.selectNext();
         main.selectPrevious();
-        Assertions.assertEquals("SETTINGS", main.getSelected());
+        Assertions.assertEquals("INSTRUCTIONS", main.getSelected());
     }
 
     @Test
