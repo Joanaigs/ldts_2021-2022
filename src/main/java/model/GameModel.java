@@ -86,7 +86,6 @@ public class GameModel implements Model{
                 }
             }
         }
-
         if (!wasSmallCoin){
             toRemove = new ArrayList<>();
             for (PowerCoin powerCoin : map.getPowerCoins()) {
