@@ -46,12 +46,12 @@ public class ViewMainMenu extends ViewerMenu<MainMenuModel>{
         graphics.setForegroundColor(menuElement.getBorderColor());
         graphics.putString(26, y+1 + i * 3, "-".repeat(menuElement.getIdentifier().length()), SGR.BLINK);
         i++;
-        //settings
+        //INSTRUCTIONS
         menuElement=options.get(1);
         graphics.setForegroundColor(menuElement.getFillColor());
-        graphics.putString(25, y + i * 3, menuElement.getIdentifier(), SGR.BOLD);
+        graphics.putString(23, y + i * 3, menuElement.getIdentifier(), SGR.BOLD);
         graphics.setForegroundColor(menuElement.getBorderColor());
-        graphics.putString(25, y+1 + i * 3, "-".repeat(menuElement.getIdentifier().length()), SGR.BLINK);
+        graphics.putString(23, y+1 + i * 3, "-".repeat(menuElement.getIdentifier().length()), SGR.BLINK);
         i++;
         //RANKINGS
         menuElement=options.get(2);

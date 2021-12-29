@@ -2,7 +2,7 @@ package model.Menu.Options;
 
 public enum MenuOption {
     START("START"),
-    SETTINGS("SETTINGS"),
+    INSTRUCTIONS("INSTRUCTIONS"),
     RANKINGS("RANKINGS"),
     EXIT("EXIT");
     private final String text;

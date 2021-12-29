@@ -48,7 +48,7 @@ public class Controller {
             case "START":
                 runGame();
                 break;
-            case "SETTINGS":
+            case "INSTRUCTIONS":
                 runIntructionMenu();
                 break;
             case "RANKINGS":
