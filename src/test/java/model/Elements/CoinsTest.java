@@ -40,7 +40,7 @@ public class CoinsTest extends Assertions {
 
         //To see if it's reading the correct coins
         assertTrue(coinsList.containsAll(map.getPowerCoins()));
-        assertTrue(coinsList.containsAll(map.getSmallCoins()));
+        assertTrue(coinsList.containsAll(map.getSmallCoins().values()));
         assertEquals(true, coinsList.containsAll(map.getCoins()));
         assertEquals(true, map.getCoins().containsAll(coinsList));
     }

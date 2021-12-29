@@ -34,7 +34,7 @@ public class GameView extends Viewer<GameModel> {
         for( PowerCoin powerCoin : getModel().getMap().getPowerCoins())
             new PowerCoinView(powerCoin, graphics).draw();
 
-        for( SmallCoin smallCoin : getModel().getMap().getSmallCoins())
+        for( SmallCoin smallCoin : getModel().getMap().getSmallCoins().values())
             new SmallCoinView(smallCoin, graphics).draw();
 
         pacmanViewer.draw();

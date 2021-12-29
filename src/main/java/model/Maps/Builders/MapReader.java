@@ -9,6 +9,7 @@ import model.Position;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -117,13 +118,13 @@ public class MapReader implements MapBuilder {
         return powerCoins;
     }
 
-    private List<SmallCoin> readSmallCoins(BufferedReader br) throws IOException {
-        List<SmallCoin> smallCoins = new ArrayList<SmallCoin>();
+    private HashMap<Position, SmallCoin> readSmallCoins(BufferedReader br) throws IOException {
+        HashMap<Position, SmallCoin> smallCoins = new HashMap<>();
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
                 if(line.charAt(j) == '.')
-                    smallCoins.add(new SmallCoin(new Position(i * 8 + 1, j * 12 - 1)));
+                    smallCoins.put(new Position(i, j), new SmallCoin(new Position(i * 8 + 1, j * 12 - 1)));
             }
         }
         return smallCoins;

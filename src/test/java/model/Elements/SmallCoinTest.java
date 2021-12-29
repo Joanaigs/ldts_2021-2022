@@ -30,8 +30,8 @@ class SmallCoinTest extends Assertions {
         smallCoinsList.add(new SmallCoin(new Position(2 * 8 + 1, 16 * 12 - 1)));
 
         //To see if it's reading the correct small coins
-        assertEquals(true, smallCoinsList.containsAll(map.getSmallCoins()));
-        assertEquals(true, map.getSmallCoins().containsAll(smallCoinsList));
+        assertEquals(true, smallCoinsList.containsAll(map.getSmallCoins().values()));
+        assertEquals(true, map.getSmallCoins().values().containsAll(smallCoinsList));
     }
 
 }

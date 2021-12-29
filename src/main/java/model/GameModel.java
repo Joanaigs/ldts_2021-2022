@@ -25,24 +25,13 @@ public class GameModel implements Model{
         return map;
     }
 
-    boolean collideWithWalls(Collider collider){
-        for( Wall wall: map.getWalls()){
-            if( wall.getCollider().colision(collider))
+    boolean collideWithWalls(Collider collider) {
+        for (Wall wall : map.getWalls()) {
+            if (wall.getCollider().colision(collider))
                 return true;
         }
-
         return false;
     }
-
-    boolean collideWithSmallCoin(Collider collider){
-        for( Coin sm: map.getSmallCoins() ){
-            if( sm.getCollider().colision(collider))
-                return true;
-        }
-
-        return false;
-    }
-
 
     public void updateAux(long deltatime) {
 
@@ -82,18 +71,24 @@ public class GameModel implements Model{
         }
 
         wasSmallCoin = false;
-        toRemove = new ArrayList<>();
-        for (SmallCoin smallCoin : map.getSmallCoins()) {
-            if (smallCoin.getCollider().colision(pacman.getCollider())) {
-                toRemove.add(smallCoin);
-                pacman.increaseScore(SmallCoin.SmallCoinValue);
-                wasSmallCoin = true;
-                break;
+        // Acho que assim é preferivel do que o o for nas 140 coins
+        for(int i= -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                Position p = new Position((pacman.getPosition().getRow()) / 8 + i, (pacman.getPosition().getCol()) /12 + j);
+                SmallCoin smallCoin = map.getSmallCoins().get(p);
+                if (smallCoin != null) {
+                    if (smallCoin.getCollider().colision(pacman.getCollider())) {
+                        map.getSmallCoins().remove(p);
+                        pacman.increaseScore(SmallCoin.SmallCoinValue);
+                        wasSmallCoin = true;
+                        break;
+                    }
+                }
             }
         }
-        map.getSmallCoins().removeAll(toRemove);
 
         if (!wasSmallCoin){
+            toRemove = new ArrayList<>();
             for (PowerCoin powerCoin : map.getPowerCoins()) {
                 if (powerCoin.getCollider().colision(pacman.getCollider())) {
                     toRemove.add(powerCoin);

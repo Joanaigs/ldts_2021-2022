@@ -3,8 +3,10 @@ import model.Elements.*;
 import model.Elements.Coins.Coin;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
+import model.Position;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Map {
@@ -12,7 +14,7 @@ public class Map {
     private List<Wall> walls;
     private List<Coin> coins;
     private List<PowerCoin> powerCoins;
-    private List<SmallCoin> smallCoins;
+    private HashMap<Position, SmallCoin> smallCoins;
     private final int width;
     private final int height;
 
@@ -38,7 +40,7 @@ public class Map {
         return powerCoins;
     }
 
-    public List<SmallCoin> getSmallCoins() {
+    public HashMap<Position, SmallCoin> getSmallCoins() {
         return smallCoins;
     }
 
@@ -52,5 +54,5 @@ public class Map {
 
     public void setPowerCoins(List<PowerCoin> powerCoins) {this.powerCoins = powerCoins;}
 
-    public void setSmallCoins(List<SmallCoin> smallCoins) {this.smallCoins = smallCoins;}
+    public void setSmallCoins(HashMap<Position, SmallCoin> smallCoins) {this.smallCoins = smallCoins;}
 }
