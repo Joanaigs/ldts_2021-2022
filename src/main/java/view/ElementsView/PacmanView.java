@@ -24,6 +24,19 @@ public class PacmanView extends View {
             "   #########",
             "     #####"};
 
+    private static final String[] pac_close = {
+            "     #####",
+            "   #########",
+            "  #### ######",
+            "  #### ######",
+            " #############",
+            " #############",
+            " #############",
+            " #############",
+            "  ###########",
+            "   #########",
+            "     #####"};
+
     private static final String[] pac_open_left = {
 
             "     #####",
@@ -37,6 +50,7 @@ public class PacmanView extends View {
             "  ###########",
             "   #########",
             "     #####"};
+
 
     private static final String[] pac_open_up = {
 
@@ -67,19 +81,6 @@ public class PacmanView extends View {
             "  ###     ###",
             "   #       #"};
 
-    private static final String[] pac_close = {
-
-            "     #####",
-            "    ########",
-            "   ##### ####",
-            "  ###########",
-            " #############",
-            " #############",
-            " #############",
-            " #############",
-            "  ###########",
-            "   #########",
-            "     #####"};
 
 
     public PacmanView(Pacman pacman, TextGraphics graphics) {
@@ -111,12 +112,14 @@ public class PacmanView extends View {
                     pacDraw = pac_open_down;
                     break;
                 case None:
+                    pacDraw = pac_close;
                     break;
             }
         }
 
-        else
-            pacDraw = pac_close;
+        else{
+                    pacDraw = pac_close;
+            }
 
         for (String s : pacDraw){
             for (int x = 0; x < s.length(); x++){

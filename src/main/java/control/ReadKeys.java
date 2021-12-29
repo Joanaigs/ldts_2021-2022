@@ -38,8 +38,9 @@ public class ReadKeys implements Runnable {
                 }
                 //Thread.sleep(100);
             }
-        } catch (IOException  e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
+    public ArrayList<Observer> getObservers(){return observers;}
 }

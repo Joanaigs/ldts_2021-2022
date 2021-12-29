@@ -8,6 +8,7 @@ public class Pacman extends Element{
     private Direction currentDirection;
     private final double velocity = 60/3;
     private boolean mouthOpen;
+    private boolean colliding;
 
     public Pacman(Position position) {
         super(position);

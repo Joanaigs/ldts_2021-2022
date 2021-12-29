@@ -1,13 +1,23 @@
 package control;
 
 import model.GameModel;
+import model.Menu.InstructionMenuModel;
+import model.Menu.MainMenuModel;
 import view.ElementsView.GameView;
+import view.ViewInstructionMenu;
+import view.ViewMainMenu;
 
 import java.io.IOException;
+
+import static java.lang.System.exit;
 
 public class Controller {
     GameModel gameModel;
     GameView gameView;
+    MainMenuModel mainMenuModel;
+    ViewMainMenu viewMainMenu;
+    InstructionMenuModel instructionMenuModel;
+    ViewInstructionMenu viewInstructionMenu;
     Thread thread;
     ReadKeys readKeys;
     MenuController menuController;
@@ -15,16 +25,40 @@ public class Controller {
     public Controller() throws IOException {
         readKeys =  new ReadKeys();
         thread = new Thread(readKeys);
+        thread.start();
         // chamar construtor do menu controler, o do pacman fica só no run game, e tens de ser tu a chamá-la.
-        menuController = new MenuController();
     }
 
     public void run() throws IOException, InterruptedException {
-        // screenViewer.setViewer(menuViewer);
-        thread.start(); // começa a ler as keys
-        //tens de tratar do menu aqui. Chamar o menu aqui, da mesma maneira que eu chamo o meu jogo (gameView.draw() em baixo)
-        // quando se clicar em play tens de chamar o meu run game
-        runGame();
+        mainMenuModel=new MainMenuModel();
+        viewMainMenu = new ViewMainMenu(mainMenuModel);
+        menuController = new MenuController(mainMenuModel);
+
+        readKeys.setScreen(viewMainMenu.getScreen());
+        readKeys.addObserver(menuController);
+
+
+        while(mainMenuModel.isRunning()){
+            viewMainMenu.draw();
+        }
+
+        readKeys.removeObserver(menuController);
+        viewMainMenu.closeScreen();
+        switch (mainMenuModel.getSelected()) {
+            case "START":
+                runGame();
+                break;
+            case "INSTRUCTIONS":
+                runIntructionMenu();
+                break;
+            case "RANKINGS":
+
+                break;
+            case "EXIT":
+                exit(0);
+                break;
+        }
+
     }
 
 
@@ -48,4 +82,20 @@ public class Controller {
         readKeys.removeObserver(pacmanController);
     }
 
+    public void runIntructionMenu() throws IOException, InterruptedException {
+        instructionMenuModel = new InstructionMenuModel();
+        InstructionMenuController instructionController = new InstructionMenuController(instructionMenuModel);
+        viewInstructionMenu = new ViewInstructionMenu(instructionMenuModel);
+
+
+        readKeys.setScreen(viewInstructionMenu.getScreen());
+        readKeys.addObserver(instructionController);
+
+        while(instructionMenuModel.isRunning()){
+            viewInstructionMenu.draw();
+        }
+        readKeys.removeObserver(instructionController);
+        viewInstructionMenu.closeScreen();
+        run();
+    }
 }
