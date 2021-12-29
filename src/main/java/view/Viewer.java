@@ -60,4 +60,7 @@ public abstract class Viewer<T extends Model> {
 
     public void closeScreen() throws IOException {screen.close();}
 
+    public TextGraphics getGraphics() {
+        return graphics;
+    }
 }
