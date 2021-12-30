@@ -5,8 +5,6 @@ import model.GameModel;
 import model.Position;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import view.GameView;
-import view.ElementsView.Ghosts.RedView;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -15,7 +13,7 @@ public class RedViewTest {
     RedView view;
 
     public void draw() throws Exception {
-        GameView game=new GameView(new GameModel());
+        CyanView.GameView game=new CyanView.GameView(new GameModel());
         RedView redView =new RedView(new Red(new Position(1, 1)), game.getGraphics());
         view= Mockito.spy(redView);
         view.draw();

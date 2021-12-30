@@ -3,7 +3,7 @@ package control;
 import model.GameModel;
 import model.Menu.InstructionMenuModel;
 import model.Menu.MainMenuModel;
-import view.ElementsView.GameView;
+import view.ElementsView.Ghosts.CyanView;
 import view.ViewInstructionMenu;
 import view.ViewMainMenu;
 
@@ -13,7 +13,7 @@ import static java.lang.System.exit;
 
 public class Controller {
     GameModel gameModel;
-    GameView gameView;
+    CyanView.GameView gameView;
     MainMenuModel mainMenuModel;
     ViewMainMenu viewMainMenu;
     InstructionMenuModel instructionMenuModel;
@@ -65,7 +65,7 @@ public class Controller {
     public void runGame() throws IOException, InterruptedException {
         gameModel = new GameModel();
         PacmanController pacmanController = new PacmanController(gameModel.getMap().getPacman());
-        gameView = new GameView(gameModel);
+        gameView = new CyanView.GameView(gameModel);
 
 
         readKeys.setScreen(gameView.getScreen());

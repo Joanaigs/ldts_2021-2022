@@ -3,15 +3,16 @@ package view.ElementsView;
 import model.GameModel;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import view.ElementsView.Ghosts.CyanView;
 
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
 
 public class GameViewTest {
-    GameView view;
+    CyanView.GameView view;
 
     public void draw() throws Exception {
-        view= Mockito.spy(new GameView(new GameModel()));
+        view= Mockito.spy(new CyanView.GameView(new GameModel()));
         view.initScreen();
         view.draw();
 
