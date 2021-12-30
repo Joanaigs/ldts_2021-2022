@@ -1,2 +1,9 @@
-package model.Elements.Ghosts;public class Red {
+package model.Elements.Ghosts;
+
+import model.Position;
+
+public class Red extends Ghost{
+    public Red(Position position) {
+        super(position);
+    }
 }

@@ -3,6 +3,7 @@ import model.Elements.*;
 import model.Elements.Coins.Coin;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
+import model.Elements.Ghosts.Ghost;
 import model.Position;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Map {
     private HashMap<Position, SmallCoin> smallCoins;
     private final int width;
     private final int height;
+    Ghost Red, Cyan, Orange, Pink;
 
     public Map(int width, int height){
         walls = new ArrayList<>();
@@ -44,6 +46,14 @@ public class Map {
         return smallCoins;
     }
 
+    public Ghost getCyan() { return Cyan;}
+
+    public Ghost getOrange() {return Orange;}
+
+    public Ghost getPink() {return Pink;}
+
+    public Ghost getRed() {return Red;}
+
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
@@ -55,4 +65,21 @@ public class Map {
     public void setPowerCoins(List<PowerCoin> powerCoins) {this.powerCoins = powerCoins;}
 
     public void setSmallCoins(HashMap<Position, SmallCoin> smallCoins) {this.smallCoins = smallCoins;}
+
+    public void setCyan(Ghost cyan) {
+        Cyan = cyan;
+    }
+
+    public void setOrange(Ghost orange) {
+        Orange = orange;
+    }
+
+    public void setPink(Ghost pink) {
+        Pink = pink;
+    }
+
+    public void setRed(Ghost red) {
+        Red = red;
+    }
+
 }

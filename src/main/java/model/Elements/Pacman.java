@@ -21,7 +21,7 @@ public class Pacman extends Element{
 
     @Override
     public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 34, 14);
+        return new Collider(new Position(position.getRow(), position.getCol()), 34, 15);
     }
     // 32, 14
     public Direction moveUp() {return Direction.Up;}

@@ -3,7 +3,6 @@ package view.ElementsView;
 import model.GameModel;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
 
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
