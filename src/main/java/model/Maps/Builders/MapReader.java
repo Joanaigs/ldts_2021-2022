@@ -5,6 +5,10 @@ import model.Elements.Coins.Coin;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
 import model.Elements.Ghosts.*;
+import model.Elements.Ghosts.Types.Cyan;
+import model.Elements.Ghosts.Types.Orange;
+import model.Elements.Ghosts.Types.Pink;
+import model.Elements.Ghosts.Types.Red;
 import model.Maps.Map;
 import model.Position;
 

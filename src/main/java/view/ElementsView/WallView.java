@@ -16,7 +16,8 @@ public class WallView extends View {
 
     @Override
     public void draw() {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#00008b"));
+        //00008b
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#181B70"));
         graphics.fillRectangle(new TerminalPosition(wall.getPosition().getCol(), wall.getPosition().getRow()),
                 new TerminalSize(wall.getWidth(), wall.getHeight()), ' ');
     }

@@ -7,7 +7,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
-import model.Elements.Ghosts.Cyan;
+import model.Elements.Ghosts.Types.Cyan;
 import model.Elements.Ghosts.Ghost;
 import model.Elements.Wall;
 import model.GameModel;
@@ -33,10 +33,9 @@ public class CyanView extends View {
             "##0110##0110##",
             "###00####00###",
             "##############",
-            "##############",
             "## ###  ### ##",
             "#   ##  ##   #",
-    };
+    };// 14 de largura, e 11 de altura. O pacman tem 13 de largura e 11 de altura, entao estamos bem.
 
     public CyanView(Ghost cyan, TextGraphics graphics) {
         super(graphics);

@@ -5,8 +5,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Orange;
-import model.Elements.Ghosts.Pink;
+import model.Elements.Ghosts.Types.Orange;
 import view.ElementsView.View;
 
 public class OrangeView extends View {
@@ -22,10 +21,10 @@ public class OrangeView extends View {
             "##0110##0110##",
             "###00####00###",
             "##############",
-            "##############",
             "## ###  ### ##",
             "#   ##  ##   #",
-    };
+    };// 14 de largura, e 11 de altura. O pacman tem 13 de largura e 11 de altura, entao estamos bem.
+
 
     public OrangeView(Ghost orange, TextGraphics graphics) {
         super(graphics);

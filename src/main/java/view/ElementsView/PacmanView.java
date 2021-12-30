@@ -91,7 +91,8 @@ public class PacmanView extends View {
     @Override
     public void draw() {
         // set color to yellow
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#FFFF00"));
+        // era FFFF00
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#EECD40"));
 
         int y = 0;
         // draw pacman, square by square

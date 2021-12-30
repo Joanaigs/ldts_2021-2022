@@ -1,6 +1,6 @@
 package view.ElementsView.Ghosts;
 
-import model.Elements.Ghosts.Orange;
+import model.Elements.Ghosts.Types.Orange;
 import model.GameModel;
 import model.Position;
 import org.junit.jupiter.api.Test;

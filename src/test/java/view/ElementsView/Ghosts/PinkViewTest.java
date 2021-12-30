@@ -1,6 +1,6 @@
 package view.ElementsView.Ghosts;
 
-import model.Elements.Ghosts.Pink;
+import model.Elements.Ghosts.Types.Pink;
 import model.GameModel;
 import model.Position;
 import org.junit.jupiter.api.Test;

@@ -5,7 +5,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Red;
+import model.Elements.Ghosts.Types.Red;
 import view.ElementsView.View;
 
 public class RedView extends View {
@@ -21,10 +21,9 @@ public class RedView extends View {
             "##0110##0110##",
             "###00####00###",
             "##############",
-            "##############",
             "## ###  ### ##",
             "#   ##  ##   #",
-    };
+    };// 14 de largura, e 11 de altura. O pacman tem 13 de largura e 11 de altura, entao estamos bem.
 
     public RedView(Ghost red, TextGraphics graphics) {
         super(graphics);
