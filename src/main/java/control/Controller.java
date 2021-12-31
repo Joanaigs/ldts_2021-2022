@@ -3,24 +3,25 @@ package control;
 import model.GameModel;
 import model.Menu.InstructionMenuModel;
 import model.Menu.MainMenuModel;
+import states.GameState;
+import states.InstructionMenuState;
+import states.MainMenuState;
+import states.State;
 import view.ElementsView.GameView;
 import view.ViewInstructionMenu;
 import view.ViewMainMenu;
+import view.Viewer;
 
 import java.io.IOException;
 
 import static java.lang.System.exit;
 
 public class Controller {
-    GameModel gameModel;
-    GameView gameView;
-    MainMenuModel mainMenuModel;
-    ViewMainMenu viewMainMenu;
-    InstructionMenuModel instructionMenuModel;
-    ViewInstructionMenu viewInstructionMenu;
     Thread thread;
     ReadKeys readKeys;
-    MenuController menuController;
+    State state;
+    Viewer viewer;
+
 
     public Controller() throws IOException {
         readKeys =  new ReadKeys();
@@ -29,73 +30,42 @@ public class Controller {
         // chamar construtor do menu controler, o do pacman fica só no run game, e tens de ser tu a chamá-la.
     }
 
-    public void run() throws IOException, InterruptedException {
-        mainMenuModel=new MainMenuModel();
-        viewMainMenu = new ViewMainMenu(mainMenuModel);
-        menuController = new MenuController(mainMenuModel);
+    public void run() throws IOException {
+        if(state==null)
+            state=new MainMenuState();
+        viewer = state.getViewer();
 
-        readKeys.setScreen(viewMainMenu.getScreen());
-        readKeys.addObserver(menuController);
+        readKeys.setScreen(viewer.getScreen());
+        readKeys.addObserver(state.getObserver());
 
-
-        while(mainMenuModel.isRunning()){
-            viewMainMenu.draw();
+        while(state.isRunning()){
+            state.step();
         }
+        readKeys.removeObserver(state.getObserver());
+        viewer.closeScreen();
 
-        readKeys.removeObserver(menuController);
-        viewMainMenu.closeScreen();
-        switch (mainMenuModel.getSelected()) {
-            case "START":
-                runGame();
-                break;
-            case "INSTRUCTIONS":
-                runIntructionMenu();
-                break;
-            case "RANKINGS":
-
-                break;
-            case "EXIT":
-                exit(0);
-                break;
+        if(state.getString()=="mainMenu"){
+            MainMenuModel mainMenuModel= (MainMenuModel) state.getModel();
+            long pastTime = System.currentTimeMillis();
+            switch (mainMenuModel.getSelected()) {
+                case "START":
+                    state=new GameState(pastTime);
+                    run();
+                    state=new MainMenuState();
+                    run();
+                    break;
+                case "INSTRUCTIONS":
+                    state=new InstructionMenuState();
+                    run();
+                    state=new MainMenuState();
+                    run();
+                    break;
+                case "RANKINGS":
+                    break;
+                case "EXIT":
+                    exit(0);
+                    break;
+            }
         }
-
-    }
-
-
-    public void runGame() throws IOException, InterruptedException {
-        gameModel = new GameModel();
-        PacmanController pacmanController = new PacmanController(gameModel.getMap().getPacman());
-        gameView = new GameView(gameModel);
-
-
-        readKeys.setScreen(gameView.getScreen());
-        readKeys.addObserver(pacmanController);
-
-
-        long pastTime = System.currentTimeMillis();     // para poder ter o tempo de frame em frame
-        while(gameModel.isRunning()){
-            long now = System.currentTimeMillis();
-            gameModel.update(now-pastTime);
-            gameView.draw();
-            pastTime = now;
-        }
-        readKeys.removeObserver(pacmanController);
-    }
-
-    public void runIntructionMenu() throws IOException, InterruptedException {
-        instructionMenuModel = new InstructionMenuModel();
-        InstructionMenuController instructionController = new InstructionMenuController(instructionMenuModel);
-        viewInstructionMenu = new ViewInstructionMenu(instructionMenuModel);
-
-
-        readKeys.setScreen(viewInstructionMenu.getScreen());
-        readKeys.addObserver(instructionController);
-
-        while(instructionMenuModel.isRunning()){
-            viewInstructionMenu.draw();
-        }
-        readKeys.removeObserver(instructionController);
-        viewInstructionMenu.closeScreen();
-        run();
     }
 }

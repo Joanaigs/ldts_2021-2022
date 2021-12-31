@@ -3,13 +3,20 @@ package control;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import model.Menu.MainMenuModel;
+import states.GameState;
+import states.InstructionMenuState;
+import states.MainMenuState;
+import states.State;
+import view.Viewer;
 
 import java.io.IOException;
 
-public class MenuController extends Controller implements Observer{
+import static java.lang.System.exit;
+
+public class MenuController implements Observer{
     MainMenuModel mainMenuModel;
-    MenuController(MainMenuModel mainMenuModel) throws IOException {
-        super();
+
+    public MenuController(MainMenuModel mainMenuModel) throws IOException {
         this.mainMenuModel=mainMenuModel;
     }
 
@@ -23,7 +30,6 @@ public class MenuController extends Controller implements Observer{
         }
         else if(key.getKeyType()== KeyType.Enter){
             mainMenuModel.setRunning(false);
-
         }
     }
 

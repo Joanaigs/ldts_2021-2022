@@ -9,11 +9,10 @@ import java.io.IOException;
 
 public class InstructionMenuController implements Observer{
     InstructionMenuModel instructionMenuModel;
-    InstructionMenuController(InstructionMenuModel instructionMenuModel) throws IOException {
-        super();
+    public InstructionMenuController(InstructionMenuModel instructionMenuModel) {
         this.instructionMenuModel=instructionMenuModel;}
     @Override
-    public void processKey(KeyStroke key) throws IOException, InterruptedException {
+    public void processKey(KeyStroke key) {
         if(key.getKeyType() == KeyType.Enter){
             instructionMenuModel.setRunning(false);
         }
