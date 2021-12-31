@@ -51,7 +51,7 @@ public class MainMenuState extends State{
 
     @Override
     public void step() throws IOException {
-
+        viewMainMenu.draw();
     }
 
 }

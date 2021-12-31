@@ -49,6 +49,6 @@ public class InstructionMenuState extends State{
 
     @Override
     public void step() throws IOException {
-
+        viewInstructionMenu.draw();
     }
 }

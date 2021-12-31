@@ -51,6 +51,9 @@ public class GameState extends State{
 
     @Override
     public void step() throws IOException {
-
+        long now = System.currentTimeMillis();
+        gameModel.update(now-pastTime);
+        gameView.draw();
+        pastTime = now;
     }
 }
