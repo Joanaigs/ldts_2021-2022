@@ -6,7 +6,7 @@ public class Pacman extends Element{
     private int highscore;
     private Direction nextDirection;
     private Direction currentDirection;
-    private final double velocity = 62/3;
+    private final double velocity = 60;
     private boolean mouthOpen;
     private boolean colliding;
 
@@ -21,7 +21,7 @@ public class Pacman extends Element{
 
     @Override
     public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 34, 15);
+        return new Collider(new Position(position.getRow(), position.getCol()), 35, 15);
     }
     // 32, 14
     public Direction moveUp() {return Direction.Up;}
@@ -53,6 +53,7 @@ public class Pacman extends Element{
         }
         return new Position(position.getRow(), position.getCol());
     }
+
     public Position moveNextDirection(long deltatime){
         return move(deltatime, nextDirection);
     }

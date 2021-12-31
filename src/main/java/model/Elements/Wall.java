@@ -13,7 +13,7 @@ public class Wall extends Element{
         super(position);
         this.width = width;
         this.height = height;
-        collider = new Collider(new Position(position.getRow(), position.getCol()), 12, 8);
+        collider = new Collider(new Position(position.getRow(), position.getCol()), 13, 9);
     }
 
     @Override

@@ -21,6 +21,8 @@ public class Controller {
     Thread thread;
     ReadKeys readKeys;
     MenuController menuController;
+    public static final long TIME_FIXED = 20;
+
 
     public Controller() throws IOException {
         readKeys =  new ReadKeys();
@@ -61,7 +63,7 @@ public class Controller {
 
     }
 
-
+    // GAME LOOP IMPLEMENTED
     public void runGame() throws IOException, InterruptedException {
         gameModel = new GameModel();
         PacmanController pacmanController = new PacmanController(gameModel.getMap().getPacman());
@@ -71,11 +73,15 @@ public class Controller {
         readKeys.setScreen(gameView.getScreen());
         readKeys.addObserver(pacmanController);
 
-
+        long totalTime = 0;
         long pastTime = System.currentTimeMillis();     // para poder ter o tempo de frame em frame
         while(gameModel.isRunning()){
             long now = System.currentTimeMillis();
-            gameModel.update(now-pastTime);
+            totalTime += now-pastTime;
+            while(totalTime >= TIME_FIXED) {
+                gameModel.update(TIME_FIXED);
+                totalTime-=TIME_FIXED;
+            }
             gameView.draw();
             pastTime = now;
         }
