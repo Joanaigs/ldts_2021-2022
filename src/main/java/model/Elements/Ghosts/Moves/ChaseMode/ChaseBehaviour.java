@@ -1,10 +1,11 @@
 package model.Elements.Ghosts.Moves.ChaseMode;
 
+import model.Elements.Direction;
+
 public interface ChaseBehaviour {
 
-    public void chase();
+    public Direction chase(long deltatime);
 }
 
 
-// so vamos poder ter 2, nao se como implementar mais algoritmos;
-// talvez dê para por o chaseAmbush tambem, medindo as distâncias.
+// chase agressive e chase random por agora

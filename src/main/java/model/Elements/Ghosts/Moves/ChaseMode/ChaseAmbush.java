@@ -7,12 +7,11 @@ import model.Position;
 
 import java.util.ArrayList;
 
-public class ChaseAggressive implements ChaseBehaviour {
+public class ChaseAmbush implements ChaseBehaviour{
     Ghost ghost;
     private Map map;
 
-
-    public ChaseAggressive(Ghost ghost) {
+    public ChaseAmbush(Ghost ghost) {
         this.ghost = ghost;
     }
 
@@ -20,13 +19,13 @@ public class ChaseAggressive implements ChaseBehaviour {
         this.map = map;
     }
 
-
     private double calculateDistance(Position pos1) {
-        int pacmanCol = map.getPacman().getPosition().getCol();
-        int pacmanRow = map.getPacman().getPosition().getRow();
+
+
+        int pacmanCol = map.getPacman().getPosition().getCol() + 4*12;
+        int pacmanRow = map.getPacman().getPosition().getRow() + 4*8;
 
         double dis;
-        //dis=Math.sqrt((pacmanCol-col)*(pacmanCol-col) + (pacmanRow-row)*(pacmanRow-row));
         dis = Math.sqrt((pacmanCol - pos1.getCol()) * (pacmanCol - pos1.getCol()) + (pacmanRow - pos1.getRow()) * (pacmanRow - pos1.getRow()));
         return dis;
     }
@@ -85,6 +84,5 @@ public class ChaseAggressive implements ChaseBehaviour {
         }
 
         return directions.get(correspondenceToSmallestDistance(dists));
-
     }
 }
