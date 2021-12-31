@@ -4,6 +4,10 @@ import model.Elements.Coins.Coin;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
 import model.Elements.Ghosts.Ghost;
+import model.Elements.Ghosts.Types.Cyan;
+import model.Elements.Ghosts.Types.Orange;
+import model.Elements.Ghosts.Types.Pink;
+import model.Elements.Ghosts.Types.Red;
 import model.Position;
 
 import java.util.ArrayList;
@@ -18,7 +22,7 @@ public class Map {
     private HashMap<Position, SmallCoin> smallCoins;
     private final int width;
     private final int height;
-    Ghost Red, Cyan, Orange, Pink;
+    Ghost red, cyan, orange, pink;
 
     public Map(int width, int height){
         walls = new ArrayList<>();
@@ -46,13 +50,13 @@ public class Map {
         return smallCoins;
     }
 
-    public Ghost getCyan() { return Cyan;}
+    public Ghost getCyan() { return cyan;}
 
-    public Ghost getOrange() {return Orange;}
+    public Ghost getOrange() {return orange;}
 
-    public Ghost getPink() {return Pink;}
+    public Ghost getPink() {return pink;}
 
-    public Ghost getRed() {return Red;}
+    public Ghost getRed() {return red;}
 
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
@@ -67,19 +71,23 @@ public class Map {
     public void setSmallCoins(HashMap<Position, SmallCoin> smallCoins) {this.smallCoins = smallCoins;}
 
     public void setCyan(Ghost cyan) {
-        Cyan = cyan;
+        this.cyan = cyan;
+        ((Cyan) cyan).setMap(this);
     }
 
     public void setOrange(Ghost orange) {
-        Orange = orange;
+        this.orange = orange;
+        ((Orange) orange).setMap(this);
     }
 
     public void setPink(Ghost pink) {
-        Pink = pink;
+        this.pink = pink;
+        ((Pink) pink).setMap(this);
     }
 
     public void setRed(Ghost red) {
-        Red = red;
+        this.red = red;
+        ((Red) red).setMap(this);
     }
 
 }

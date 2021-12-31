@@ -1,22 +1,76 @@
 package model.Elements.Ghosts;
 
-import model.Elements.Collider;
-import model.Elements.Element;
+import model.Elements.*;
+import model.Elements.Ghosts.Moves.ChaseMode.ChaseBehaviour;
+import model.Maps.Map;
 import model.Position;
 
 public class Ghost extends Element {
+    private final double velocity = 60;
+    ChaseBehaviour chaseBehaviour;
+    private Direction currentDirection;
 
     public Ghost(Position position) {
         super(position);
+        currentDirection = Direction.None;
     }
 
     @Override
     public void update(long deltatime) {
+        // meter tempo aqui,
+        setCurrentDirection(getChaseBehaviour().chase(deltatime));
+        setPosition(move(deltatime, getCurrentDirection()));
 
+        // contador e
+        // move(deltatime, ScatterBehaviour.chase());
     }
 
     @Override
     public Collider getCollider() {
-        return null;
+        return new Collider(new Position(position.getRow(), position.getCol()), 35, 15);
     }
+
+
+    // anda na direção dada, mudando de posição
+    public Position move(long deltatime, Direction direction){
+        switch(direction){
+            case Up:
+                return new Position(position.getRow()- (int)(velocity*deltatime/1000), position.getCol());
+            case Down:
+                return new Position(position.getRow()+ (int)(velocity*deltatime/1000), position.getCol());
+            case Left:
+                return new Position(position.getRow(), position.getCol() - (int)(velocity*deltatime/1000*12/8));
+            case Right:
+                return new Position(position.getRow(), position.getCol() + (int)(velocity*deltatime/1000*12/8));
+        }
+        return new Position(position.getRow(), position.getCol());
+    }
+
+
+    public ChaseBehaviour getChaseBehaviour() {
+        return chaseBehaviour;
+    }
+
+
+    public boolean collideWithWall(Map map)
+    {
+        for( Wall wall: map.getWalls())
+            if(getCollider().colision(wall.getCollider()))
+                return true;
+        return false;
+    }
+
+
+    public Direction getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public void setCurrentDirection(Direction currentDirection) {
+        this.currentDirection = currentDirection;
+    }
+
+    public void setChaseBehaviour(ChaseBehaviour chaseBehaviour) {
+        this.chaseBehaviour = chaseBehaviour;
+    }
+
 }

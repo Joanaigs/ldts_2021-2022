@@ -113,7 +113,7 @@ public class MapReader implements MapBuilder {
             String line = br.readLine();
             for (int j = 0; j < line.length(); j++) {
                 if (line.charAt(j) == 'c') {
-                    pacman = new Pacman(new Position(i * 8 + 1, j * 12 - 1));
+                    pacman = new Pacman(new Position(i * 8, j * 12));
                     break;
                 }
             }
@@ -166,7 +166,7 @@ public class MapReader implements MapBuilder {
             String line = br.readLine();
             for (int j = 0; j < line.length(); j++) {
                 if (line.charAt(j) == 'R') {
-                    red = new Red(new Position(i * 8 + 1, j * 12 - 1));
+                    red = new Red(new Position(i * 8, j * 12));
                     break;
                 }
             }
@@ -180,7 +180,7 @@ public class MapReader implements MapBuilder {
             String line = br.readLine();
             for (int j = 0; j < line.length(); j++) {
                 if (line.charAt(j) == 'o') {
-                    orange = new Orange(new Position(i * 8 + 1, j * 12 - 1));
+                    orange = new Orange(new Position(i * 8, j * 12));
                     break;
                 }
             }
@@ -194,7 +194,7 @@ public class MapReader implements MapBuilder {
             String line = br.readLine();
             for (int j = 0; j < line.length(); j++) {
                 if (line.charAt(j) == 'P') {
-                    pink = new Pink(new Position(i * 8 + 1, j * 12 - 1));
+                    pink = new Pink(new Position(i * 8, j * 12));
                     break;
                 }
             }
@@ -208,7 +208,7 @@ public class MapReader implements MapBuilder {
             String line = br.readLine();
             for (int j = 0; j < line.length(); j++) {
                 if (line.charAt(j) == 'C') {
-                    cyan = new Cyan(new Position(i * 8 + 1, j * 12 - 1));
+                    cyan = new Cyan(new Position(i * 8, j * 12));
                     break;
                 }
             }
