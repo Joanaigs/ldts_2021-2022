@@ -2,6 +2,8 @@ package model.Elements.Ghosts;
 
 import model.Elements.*;
 import model.Elements.Ghosts.Moves.ChaseMode.ChaseBehaviour;
+import model.Elements.Ghosts.Moves.ScatterMode.ScatterBehaviour;
+import model.Elements.Ghosts.Moves.ScatterMode.ScatterTopLeft;
 import model.Maps.Map;
 import model.Position;
 
@@ -9,6 +11,7 @@ public class Ghost extends Element {
     private final double velocity = 60;
     ChaseBehaviour chaseBehaviour;
     private Direction currentDirection;
+    ScatterBehaviour scatterBehaviour;
 
     public Ghost(Position position) {
         super(position);
@@ -18,7 +21,7 @@ public class Ghost extends Element {
     @Override
     public void update(long deltatime) {
         // meter tempo aqui,
-        setCurrentDirection(getChaseBehaviour().chase(deltatime));
+        setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
         setPosition(move(deltatime, getCurrentDirection()));
 
         // contador e
@@ -73,4 +76,11 @@ public class Ghost extends Element {
         this.chaseBehaviour = chaseBehaviour;
     }
 
+    public ScatterBehaviour getScatterBehaviour() {
+        return scatterBehaviour;
+    }
+
+    public void setScatterBehaviour(ScatterBehaviour scatterBehaviour) {
+        this.scatterBehaviour = scatterBehaviour;
+    }
 }
