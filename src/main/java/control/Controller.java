@@ -3,10 +3,7 @@ package control;
 import model.GameModel;
 import model.Menu.InstructionMenuModel;
 import model.Menu.MainMenuModel;
-import states.GameState;
-import states.InstructionMenuState;
-import states.MainMenuState;
-import states.State;
+import states.*;
 import view.ElementsView.GameView;
 import view.ViewInstructionMenu;
 import view.ViewMainMenu;
@@ -61,6 +58,10 @@ public class Controller {
                     run();
                     break;
                 case "RANKINGS":
+                    state= new RankingsMenuState();
+                    run();
+                    state=new MainMenuState();
+                    run();
                     break;
                 case "EXIT":
                     exit(0);

@@ -22,7 +22,26 @@ public class RankingsMenuModel implements Model, MenuModel {
     }
 
     public void readFile(String filename){
+        try {
+            String rootPath = new File(System.getProperty("user.dir")).getPath();
+            fileLocation = rootPath + "/src/main/resources/"+filename ;
 
+            File file = new File(fileLocation);
+            Scanner myReader = new Scanner(file);
+            myReader.nextLine();
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                List<String> dt= Stream.of(data.split(" "))
+                        .map (elem -> new String(elem))
+                        .collect(Collectors.toList());
+                scores.add(new Pair(dt.get(1), Integer.parseInt(dt.get(0))));
+            }
+            myReader.close();
+            System.out.println(scores.get(1).getR());
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -36,15 +55,21 @@ public class RankingsMenuModel implements Model, MenuModel {
     }
 
     public void sortD(){
-
+        Collections.sort(scores, Comparator.comparing(p -> -p.getR()));
     }
 
     public void addScore(String str, int score){
-
+        scores.add(new Pair<>(str, score));
     }
 
     public void updateFile() throws IOException {
-
+        sortD();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileLocation));
+        writer.write("score name");
+        for(Pair<String, Integer> pair: scores)
+        {
+            writer.write(pair.getR()+" "+pair.getL());
+        }
     }
 
     public List<Pair<String, Integer>> getScores() {

@@ -47,5 +47,6 @@ public class RankingsMenuState extends State{
 
     @Override
     public void step() throws IOException {
+        viewRankingsMenu.draw();
     }
 }
