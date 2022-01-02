@@ -44,7 +44,7 @@ public class FrightenedView extends GhostView {
                 }
 
                 graphics.fillRectangle(new TerminalPosition(
-                                ghost.getPosition().getCol() + x * 2 + 1, ghost.getPosition().getRow() + y - 2),
+                                ghost.getPosition().getCol() + x * 2 + 1, ghost.getPosition().getRow() + y +1),
                         new TerminalSize(2, 1), ' ');
             }
             y++;
