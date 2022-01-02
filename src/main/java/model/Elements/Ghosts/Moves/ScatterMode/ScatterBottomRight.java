@@ -2,20 +2,18 @@ package model.Elements.Ghosts.Moves.ScatterMode;
 
 import model.Elements.Direction;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.MovingBehavior;
+import model.Elements.Ghosts.Moves.MovingBehaviorJoana;
 import model.Position;
 
 import java.util.Vector;
 
-public class ScatterBottomRight extends MovingBehavior implements ScatterBehaviour{
+public class ScatterBottomRight extends MovingBehaviorJoana implements ScatterBehaviour{
     Vector<Position> keyPoints;
     Position toGoPosition;
-    long deltatime;
 
     public ScatterBottomRight(Ghost ghost) {
         super(ghost);
-        keyPoints=new Vector<Position>();
-        this.deltatime=deltatime;
+        keyPoints=new Vector<>();
         keyPoints.add(new Position(35*8, 38*12));
         keyPoints.add(new Position(35*8, 24*12));
         keyPoints.add(new Position(38*8, 24*12));

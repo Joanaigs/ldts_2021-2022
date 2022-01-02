@@ -7,80 +7,68 @@ import model.Position;
 
 import java.util.ArrayList;
 
-public class ChaseAmbush implements ChaseBehaviour{
-    Ghost ghost;
-    private Map map;
+import static model.Elements.Direction.*;
+
+public class ChaseAmbush extends MovingBehaviour implements ChaseBehaviour{
 
     public ChaseAmbush(Ghost ghost) {
-        this.ghost = ghost;
+        super(ghost);
     }
 
-    public void setMap(Map map) {
-        this.map = map;
-    }
+    protected Position setTarget(Position pos1) {
+        int targetCol;
+        int targetRow;
 
-    private double calculateDistance(Position pos1) {
+        switch(map.getPacman().getCurrentDirection()){
+            case Down:
+                targetCol = map.getPacman().getPosition().getCol();
+                targetRow = map.getPacman().getPosition().getRow() +4*8;    // a little lower
+                break;
 
+            case Up:
+                targetRow = map.getPacman().getPosition().getRow() -4*8;
+                if(pos1.getCol() < map.getPacman().getPosition().getCol())
+                    targetCol = map.getPacman().getPosition().getCol()+4*12;
+                else targetCol = map.getPacman().getPosition().getCol()+4*12;
+                break;
 
-        int pacmanCol = map.getPacman().getPosition().getCol() + 4*12;
-        int pacmanRow = map.getPacman().getPosition().getRow() + 4*8;
+            case Left:
+                targetCol = map.getPacman().getPosition().getCol()-4*12;
+                targetRow = map.getPacman().getPosition().getRow();
+                break;
 
-        double dis;
-        dis = Math.sqrt((pacmanCol - pos1.getCol()) * (pacmanCol - pos1.getCol()) + (pacmanRow - pos1.getRow()) * (pacmanRow - pos1.getRow()));
-        return dis;
-    }
+            case Right:
+                targetCol = map.getPacman().getPosition().getCol()+4*12;
+                targetRow = map.getPacman().getPosition().getRow();
+                break;
 
-    private int correspondenceToSmallestDistance(ArrayList<Double> dists) {
-        int index = 0;
-        for (int i = 1; i < dists.size(); i++) {
-            if (dists.get(i) < dists.get(index)) {
-                index = i;
-            }
+            default:
+                targetRow = map.getPacman().getPosition().getRow() -4*8;
+                targetCol = map.getPacman().getPosition().getCol()+4*12;
+                break;
         }
 
-        return index;
+        return new Position(targetRow, targetCol);
     }
+
 
     @Override
     // retorna a direção para onde vai
     public Direction chase(long deltatime) {
 
         // Array with every movement option
-        ArrayList<Direction> directions = new ArrayList<>();
-        directions.add(Direction.Up);
-        directions.add(Direction.Left);
-        directions.add(Direction.Down);
-        directions.add(Direction.Right);
-
-        // Remove oposite direction
-        if (ghost.getCurrentDirection() == Direction.Left) {
-            directions.remove(Direction.Right);
-        } else if (ghost.getCurrentDirection() == Direction.Right) {
-            directions.remove(Direction.Left);
-        } else if (ghost.getCurrentDirection() == Direction.Up) {
-            directions.remove(Direction.Down);
-        } else if (ghost.getCurrentDirection() == Direction.Down) {
-            directions.remove(Direction.Up);
-        } else directions.remove(Direction.None);
-
-
-        //Remove directions that make ghost collide with walls
-        ArrayList<Direction> toRemove = new ArrayList<>();
-        for (Direction direction : directions) {
-            Position pos = ghost.move(deltatime, direction);
-            Ghost tempGhost = new Ghost(pos);
-            if (tempGhost.collideWithWall(map))
-                toRemove.add(direction);
-        }
-        directions.removeAll(toRemove);
+        ArrayList<Direction> directions = setupPossibleDirections(deltatime);
 
         if (directions.size() == 1)
             return directions.get(0);
 
+        Position targetPosition;
+
         ArrayList<Double> dists = new ArrayList<>();
         for (Direction direction : directions) {
             Position pos = ghost.move(deltatime, direction);
-            dists.add(calculateDistance(pos));
+            targetPosition = setTarget(pos);
+            dists.add(calculateDistance(pos, targetPosition));
         }
 
         return directions.get(correspondenceToSmallestDistance(dists));

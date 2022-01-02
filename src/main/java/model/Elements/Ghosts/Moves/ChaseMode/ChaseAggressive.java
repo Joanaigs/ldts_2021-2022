@@ -7,81 +7,34 @@ import model.Position;
 
 import java.util.ArrayList;
 
-public class ChaseAggressive implements ChaseBehaviour {
-    Ghost ghost;
-    private Map map;
+public class ChaseAggressive extends MovingBehaviour implements ChaseBehaviour {
+
+    public ChaseAggressive(Ghost ghost) {super(ghost);}
 
 
-    public ChaseAggressive(Ghost ghost) {
-        this.ghost = ghost;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
-    }
-
-
-    private double calculateDistance(Position pos1) {
+    protected Position setTarget(Position pos1){
         int pacmanCol = map.getPacman().getPosition().getCol();
         int pacmanRow = map.getPacman().getPosition().getRow();
-
-        double dis;
-        //dis=Math.sqrt((pacmanCol-col)*(pacmanCol-col) + (pacmanRow-row)*(pacmanRow-row));
-        dis = Math.sqrt((pacmanCol - pos1.getCol()) * (pacmanCol - pos1.getCol()) + (pacmanRow - pos1.getRow()) * (pacmanRow - pos1.getRow()));
-        return dis;
+        return new Position(pacmanRow, pacmanCol);
     }
 
-    private int correspondenceToSmallestDistance(ArrayList<Double> dists) {
-        int index = 0;
-        for (int i = 1; i < dists.size(); i++) {
-            if (dists.get(i) < dists.get(index)) {
-                index = i;
-            }
-        }
-
-        return index;
-    }
 
     @Override
     // retorna a direção para onde vai
     public Direction chase(long deltatime) {
 
-        // Array with every movement option
-        ArrayList<Direction> directions = new ArrayList<>();
-        directions.add(Direction.Up);
-        directions.add(Direction.Left);
-        directions.add(Direction.Down);
-        directions.add(Direction.Right);
-
-        // Remove oposite direction
-        if (ghost.getCurrentDirection() == Direction.Left) {
-            directions.remove(Direction.Right);
-        } else if (ghost.getCurrentDirection() == Direction.Right) {
-            directions.remove(Direction.Left);
-        } else if (ghost.getCurrentDirection() == Direction.Up) {
-            directions.remove(Direction.Down);
-        } else if (ghost.getCurrentDirection() == Direction.Down) {
-            directions.remove(Direction.Up);
-        } else directions.remove(Direction.None);
-
-
-        //Remove directions that make ghost collide with walls
-        ArrayList<Direction> toRemove = new ArrayList<>();
-        for (Direction direction : directions) {
-            Position pos = ghost.move(deltatime, direction);
-            Ghost tempGhost = new Ghost(pos);
-            if (tempGhost.collideWithWall(map))
-                toRemove.add(direction);
-        }
-        directions.removeAll(toRemove);
+        ArrayList<Direction> directions = setupPossibleDirections(deltatime);
 
         if (directions.size() == 1)
             return directions.get(0);
 
+        Position targetPosition;
+
         ArrayList<Double> dists = new ArrayList<>();
         for (Direction direction : directions) {
             Position pos = ghost.move(deltatime, direction);
-            dists.add(calculateDistance(pos));
+            targetPosition = setTarget(pos);
+            dists.add(calculateDistance(pos, targetPosition));
         }
 
         return directions.get(correspondenceToSmallestDistance(dists));

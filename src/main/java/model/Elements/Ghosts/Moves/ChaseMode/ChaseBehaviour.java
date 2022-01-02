@@ -7,5 +7,3 @@ public interface ChaseBehaviour {
     public Direction chase(long deltatime);
 }
 
-
-// chase agressive e chase random por agora

@@ -2,12 +2,12 @@ package model.Elements.Ghosts.Moves.ScatterMode;
 
 import model.Elements.Direction;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.MovingBehavior;
+import model.Elements.Ghosts.Moves.MovingBehaviorJoana;
 import model.Position;
 
 import java.util.Vector;
 
-public class ScatterTopLeft extends MovingBehavior implements ScatterBehaviour{
+public class ScatterTopLeft extends MovingBehaviorJoana implements ScatterBehaviour{
     Vector<Position> keyPoints;
     Position toGoPosition;
     long deltatime;

@@ -7,12 +7,12 @@ import model.Position;
 
 import java.util.ArrayList;
 
-public abstract class MovingBehavior {
+public abstract class MovingBehaviorJoana {
     protected Ghost ghost;
     private Map map;
 
 
-    public MovingBehavior(Ghost ghost) {
+    public MovingBehaviorJoana(Ghost ghost) {
         this.ghost = ghost;
     }
 
