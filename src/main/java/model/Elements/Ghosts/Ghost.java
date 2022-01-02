@@ -2,24 +2,35 @@ package model.Elements.Ghosts;
 
 import model.Elements.*;
 import model.Elements.Ghosts.Moves.ChaseMode.ChaseBehaviour;
+import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedBehaviour;
 import model.Maps.Map;
 import model.Position;
 
 public class Ghost extends Element {
     private final double velocity = 60;
     ChaseBehaviour chaseBehaviour;
+    FrightenedBehaviour frightenedBehaviour;
+    private boolean frightenedModeOn;
     private Direction currentDirection;
 
     public Ghost(Position position) {
         super(position);
         currentDirection = Direction.None;
+        frightenedModeOn = false;
     }
 
     @Override
     public void update(long deltatime) {
         // meter tempo aqui,
-        setCurrentDirection(getChaseBehaviour().chase(deltatime));
-        setPosition(move(deltatime, getCurrentDirection()));
+        if(!frightenedModeOn) {
+            setCurrentDirection(getChaseBehaviour().chase(deltatime));
+            setPosition(move(deltatime, getCurrentDirection()));
+
+        }
+        else {
+            setCurrentDirection(getFrightenedBehaviour().frightened(deltatime));
+            setPosition(move(deltatime, getCurrentDirection()));
+        }
 
         // contador e
         // move(deltatime, ScatterBehaviour.chase());
@@ -28,6 +39,10 @@ public class Ghost extends Element {
     @Override
     public Collider getCollider() {
         return new Collider(new Position(position.getRow(), position.getCol()), 35, 15);
+    }
+
+    public void setFrightenedMode(FrightenedBehaviour frightenedBehaviour){
+        frightenedModeOn= true;
     }
 
 
@@ -71,6 +86,18 @@ public class Ghost extends Element {
 
     public void setChaseBehaviour(ChaseBehaviour chaseBehaviour) {
         this.chaseBehaviour = chaseBehaviour;
+    }
+
+    public void setFrightenedBehaviour(FrightenedBehaviour frightenedBehaviour) {
+        this.frightenedBehaviour = frightenedBehaviour;
+    }
+
+    public FrightenedBehaviour getFrightenedBehaviour() {
+        return frightenedBehaviour;
+    }
+
+    public boolean getFrightenedModeOn() {
+        return frightenedModeOn;
     }
 
 }

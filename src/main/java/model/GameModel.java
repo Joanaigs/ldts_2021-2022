@@ -5,6 +5,8 @@ import model.Elements.Coins.Coin;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
 import model.Elements.Ghosts.Ghost;
+import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedBehaviour;
+import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedMode;
 import model.Maps.Builders.MapBuilder;
 import model.Maps.Builders.MapReader;
 import model.Maps.Map;
@@ -36,7 +38,7 @@ public class GameModel implements Model{
 
     public void update(long deltatime) {
         pacmanMoving(deltatime);
-        coinCollisions();
+        coinCollisions(deltatime);
 
         map.getRed().update(deltatime);
         map.getOrange().update(deltatime);
@@ -83,7 +85,7 @@ public class GameModel implements Model{
        }
    }
 
-   private void coinCollisions(){
+   private void coinCollisions(long deltatime){
         Pacman pacman = map.getPacman();
        wasSmallCoin = false;
        // Acho que assim é preferivel do que o o for nas 140 coins
@@ -107,6 +109,19 @@ public class GameModel implements Model{
                if (powerCoin.getCollider().colision(pacman.getCollider())) {
                    toRemove.add(powerCoin);
                    pacman.increaseScore(PowerCoin.PowerCoinValue);
+                   Ghost red, pink, cyan, orange;
+                   red = map.getRed();
+                   red.setFrightenedMode(new FrightenedMode(map.getRed()));
+                   map.setRed(red);
+                   pink = map.getPink();
+                   pink.setFrightenedMode(new FrightenedMode(map.getPink()));
+                   map.setPink(pink);
+                   cyan = map.getCyan();
+                   cyan.setFrightenedMode(new FrightenedMode(map.getCyan()));
+                   map.setCyan(cyan);
+                   orange = map.getOrange();
+                   orange.setFrightenedMode(new FrightenedMode(map.getOrange()));
+                   map.setOrange(orange);
                    break;
                }
            }
