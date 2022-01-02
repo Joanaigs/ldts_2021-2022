@@ -1,5 +1,6 @@
-package model.Elements;
+package model.Elements.Ghosts;
 
+import model.Elements.Direction;
 import model.Elements.Ghosts.Ghost;
 import model.Maps.Builders.MapBuilder;
 import model.Maps.Builders.MapReader;
