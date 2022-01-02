@@ -53,7 +53,7 @@ public class PinkView extends GhostView {
                     }
 
                     graphics.fillRectangle(new TerminalPosition(
-                                    pink.getPosition().getCol() + x * 2 + 1, pink.getPosition().getRow() + y - 2),
+                                    pink.getPosition().getCol() + x * 2 + 1, pink.getPosition().getRow() + y +1),
                             new TerminalSize(2, 1), ' ');
                 }
                 y++;

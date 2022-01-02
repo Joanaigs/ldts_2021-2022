@@ -54,7 +54,7 @@ public class OrangeView extends GhostView {
                     }
 
                     graphics.fillRectangle(new TerminalPosition(
-                                    orange.getPosition().getCol() + x * 2 + 1, orange.getPosition().getRow() + y - 2),
+                                    orange.getPosition().getCol() + x * 2 + 1, orange.getPosition().getRow() + y + 1),
                             new TerminalSize(2, 1), ' ');
                 }
                 y++;
