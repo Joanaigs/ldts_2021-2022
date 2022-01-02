@@ -23,7 +23,7 @@ public class FrightenedMode implements FrightenedBehaviour{
         this.map = map;
     }
 
-    private static int getRandomNumberInRange(int min, int max) {
+    public static int getRandomNumberInRange(int min, int max) {
 
         if (min >= max) {
             throw new IllegalArgumentException("max must be greater than min");

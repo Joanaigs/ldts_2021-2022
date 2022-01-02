@@ -44,7 +44,7 @@ public class Ghost extends Element {
         return new Collider(new Position(position.getRow(), position.getCol()), 35, 15);
     }
 
-    public void setFrightenedMode(FrightenedBehaviour frightenedBehaviour){
+    public void setFrightenedModeOn(){
         frightenedModeOn= true;
     }
 
@@ -91,9 +91,7 @@ public class Ghost extends Element {
         this.chaseBehaviour = chaseBehaviour;
     }
 
-    public void setFrightenedBehaviour(FrightenedBehaviour frightenedBehaviour) {
-        this.frightenedBehaviour = frightenedBehaviour;
-    }
+    public void setFrightenedBehaviour(FrightenedBehaviour frightenedBehaviour) { this.frightenedBehaviour = frightenedBehaviour; }
 
     public FrightenedBehaviour getFrightenedBehaviour() {
         return frightenedBehaviour;
