@@ -8,7 +8,7 @@ import model.Maps.Map;
 import model.Position;
 
 public class Ghost extends Element {
-    private final double velocity = 60;
+    private final double velocity = 55;
     ChaseStrategy chaseStrategy;
     FrightenedBehaviour frightenedBehaviour;
     private boolean frightenedModeOn;

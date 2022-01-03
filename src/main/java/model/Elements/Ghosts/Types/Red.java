@@ -23,9 +23,4 @@ public class Red extends Ghost {
         ((FrightenedMode) getFrightenedBehaviour()).setMap(map);
     }
 
-    @Override
-    public void update(long deltatime) {
-        System.out.println(position.getRow() + " " + position.getCol());
-        super.update(deltatime);
-    }
 }
