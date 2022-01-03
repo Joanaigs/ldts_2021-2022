@@ -1,9 +1,9 @@
 package model.Elements.Ghosts;
 
 import model.Elements.*;
-import model.Elements.Ghosts.Moves.ChaseMode.ChaseStrategys.ChaseStrategy;
-import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedBehaviour;
-import model.Elements.Ghosts.Moves.ScatterMode.ScatterBehaviour;
+import model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.ChaseStrategy;
+import model.Elements.Ghosts.MoveMode.FrightenedMode.FrightenedBehaviour;
+import model.Elements.Ghosts.MoveMode.ScatterMode.ScatterBehaviour;
 import model.Maps.Map;
 import model.Position;
 
@@ -15,6 +15,7 @@ public class Ghost extends Element {
     private Direction currentDirection;
     ScatterBehaviour scatterBehaviour;
     protected long counterTime;
+    protected long frightenedTime;
 
     public Ghost(Position position) {
         super(position);
@@ -25,29 +26,34 @@ public class Ghost extends Element {
 
     @Override
     public void update(long deltatime) {
-        counterTime += deltatime;
+        if(frightenedTime > 9000)
+            frightenedModeOn = false;
+
 
         if(!frightenedModeOn) {
+            counterTime += deltatime;
 
-            if(getChaseStrategy() != null) {
-                //setCurrentDirection(getChaseStrategy().chase(deltatime));
-                //setPosition(move(deltatime, getCurrentDirection()));
+            if( counterTime > 20000)     // the time is on ms
+                counterTime -= 20000;
+
+            if (counterTime < 7000)
                 setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
-                setPosition(move(deltatime, getCurrentDirection()));
-            }
+            else
+                setCurrentDirection(getChaseStrategy().chase(deltatime));
         }
-
         else {
             setCurrentDirection(getFrightenedBehaviour().frightened(deltatime));
-            setPosition(move(deltatime, getCurrentDirection()));
+            frightenedTime += deltatime;
         }
 
-        // contador e
-        // move(deltatime, ScatterBehaviour.chase());
+
+        setPosition(move(deltatime, getCurrentDirection()));
 
     }
 
-
+    public long getFrightenedTime() {
+        return frightenedTime;
+    }
 
     @Override
     public Collider getCollider() {
@@ -56,6 +62,7 @@ public class Ghost extends Element {
 
     public void setFrightenedModeOn(){
         frightenedModeOn= true;
+        frightenedTime = 0;
     }
 
 
