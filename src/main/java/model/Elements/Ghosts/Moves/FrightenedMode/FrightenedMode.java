@@ -16,7 +16,6 @@ public class FrightenedMode extends MovingBehaviour implements FrightenedBehavio
         numCalls = 0;
     }
 
-
     @Override
     public Direction frightened(long deltatime) {
 

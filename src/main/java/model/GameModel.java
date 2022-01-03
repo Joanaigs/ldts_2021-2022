@@ -111,16 +111,16 @@ public class GameModel implements Model{
                    pacman.increaseScore(PowerCoin.PowerCoinValue);
                    Ghost red, pink, cyan, orange;
                    red = map.getRed();
-                   red.setFrightenedMode(new FrightenedMode(map.getRed()));
+                   red.setFrightenedModeOn();
                    map.setRed(red);
                    pink = map.getPink();
-                   pink.setFrightenedMode(new FrightenedMode(map.getPink()));
+                   pink.setFrightenedModeOn();
                    map.setPink(pink);
                    cyan = map.getCyan();
-                   cyan.setFrightenedMode(new FrightenedMode(map.getCyan()));
+                   cyan.setFrightenedModeOn();
                    map.setCyan(cyan);
                    orange = map.getOrange();
-                   orange.setFrightenedMode(new FrightenedMode(map.getOrange()));
+                   orange.setFrightenedModeOn();
                    map.setOrange(orange);
                    break;
                }

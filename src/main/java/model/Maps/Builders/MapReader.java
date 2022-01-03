@@ -126,7 +126,7 @@ public class MapReader implements MapBuilder {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
-                if (line.charAt(j) == 'O') {
+                if (line.charAt(j) == 'o') {
                     coins.add(new PowerCoin(new Position(i * 8 + 1, j * 12 - 1)));
                 }
                 else if(line.charAt(j) == '.')
@@ -141,7 +141,7 @@ public class MapReader implements MapBuilder {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
-                if (line.charAt(j) == 'O')
+                if (line.charAt(j) == 'o')
                     powerCoins.add(new PowerCoin(new Position(i * 8 + 1, j * 12 - 1)));
             }
         }
@@ -179,7 +179,7 @@ public class MapReader implements MapBuilder {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < line.length(); j++) {
-                if (line.charAt(j) == 'o') {
+                if (line.charAt(j) == 'O') {
                     orange = new Orange(new Position(i * 8, j * 12));
                     break;
                 }
