@@ -8,7 +8,7 @@ import model.Maps.Map;
 import model.Position;
 
 public class Ghost extends Element {
-    private final double velocity = 55;
+    private final double velocity = 50;
     ChaseStrategy chaseStrategy;
     FrightenedBehaviour frightenedBehaviour;
     private boolean frightenedModeOn;
@@ -74,9 +74,9 @@ public class Ghost extends Element {
             case Down:
                 return new Position(position.getRow()+ (int)(velocity*deltatime/1000), position.getCol());
             case Left:
-                return new Position(position.getRow(), position.getCol() - (int)(velocity*deltatime/1000*12/8));
+                return new Position(position.getRow(), position.getCol() - (int)(velocity*deltatime/1000*1.8));
             case Right:
-                return new Position(position.getRow(), position.getCol() + (int)(velocity*deltatime/1000*12/8));
+                return new Position(position.getRow(), position.getCol() + (int)(velocity*deltatime/1000*1.8));
         }
         return new Position(position.getRow(), position.getCol());
     }
