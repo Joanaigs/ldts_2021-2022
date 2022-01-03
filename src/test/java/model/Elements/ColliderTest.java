@@ -5,6 +5,7 @@ import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
 import model.Elements.Collider;
 import model.Elements.Direction;
+import model.Elements.Ghosts.Ghost;
 import model.Elements.Pacman;
 import model.Elements.Wall;
 import model.Maps.Builders.MapBuilder;
@@ -85,5 +86,20 @@ public class ColliderTest extends Assertions {
     }
 
     */
+
+    @Test
+        //Tests if the pacman collides with coin.
+    void ghostsNCollidesGhost() throws IOException {
+        Pacman pacman = new Pacman(new Position(1*8+1, 3*12-1));
+        Ghost ghost1 = new Ghost(new Position(3*8+1, 3*12-1));
+        pacman.setPosition(new Position(1*8+1, 3*12-1));
+        Ghost ghost2 = new Ghost(new Position(1*8+1, 3*12-1));
+
+        Collider ghost1Collider = new Collider(ghost1.getPosition(), ghost1.getCollider().getWidth(), ghost1.getCollider().getHeight());
+        Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
+        Collider ghost2Collider = new Collider(ghost2.getPosition(), ghost2.getCollider().getWidth(), ghost2.getCollider().getHeight());
+        Assertions.assertFalse(ghost1Collider.colision(pacmanCollider));
+        Assertions.assertTrue(ghost2Collider.colision(pacmanCollider));
+    }
 
 }

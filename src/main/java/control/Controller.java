@@ -6,7 +6,7 @@ import model.Menu.InstructionMenuModel;
 import model.Menu.MainMenuModel;
 import model.Menu.RankingsMenuModel;
 import states.*;
-import view.ElementsView.GameView;
+import view.ElementsView.Ghosts.CyanView;
 import view.ViewInstructionMenu;
 import view.ViewMainMenu;
 import view.Viewer;
@@ -23,6 +23,9 @@ public class Controller {
     int score;
     String name;
 
+    MenuController menuController;
+    public static final long TIME_FIXED = 20;
+
 
     public Controller() throws IOException {
         readKeys =  new ReadKeys();
@@ -32,55 +35,57 @@ public class Controller {
     }
 
     public void run() throws IOException {
-        if(state==null)
-            state=new MainMenuState();
+        if (state == null)
+            state = new MainMenuState();
         viewer = state.getViewer();
 
         readKeys.setScreen(viewer.getScreen());
         readKeys.addObserver(state.getObserver());
 
-        while(state.isRunning()){
+        while (state.isRunning()) {
             state.step();
         }
         readKeys.removeObserver(state.getObserver());
         viewer.closeScreen();
 
-        if(state.getString()=="mainMenu"){
-            MainMenuModel mainMenuModel= (MainMenuModel) state.getModel();
+        if (state.getString() == "mainMenu") {
+            MainMenuModel mainMenuModel = (MainMenuModel) state.getModel();
             long pastTime = System.currentTimeMillis();
             switch (mainMenuModel.getSelected()) {
                 case "START":
-                    state=new GameState(pastTime);
+                    state = new GameState(pastTime);
                     run();
-                    state=new MainMenuState();
+                    state = new MainMenuState();
                     run();
-                    score=((GameModel)state.getModel()).getScore();
-                    state=new EndScreenState();
-                    ((EndScreenModel)state.getModel()).setScore(score);
+                    score = ((GameModel) state.getModel()).getScore();
+                    state = new EndScreenState();
+                    ((EndScreenModel) state.getModel()).setScore(score);
                     run();
-                    name=((EndScreenModel)state.getModel()).getName();
-                    state= new RankingsMenuState();
-                    ((RankingsMenuModel)state.getModel()).addScore(name, score);
+                    name = ((EndScreenModel) state.getModel()).getName();
+                    state = new RankingsMenuState();
+                    ((RankingsMenuModel) state.getModel()).addScore(name, score);
                     run();
-                    state=new MainMenuState();
+                    state = new MainMenuState();
                     run();
                     break;
                 case "INSTRUCTIONS":
-                    state=new InstructionMenuState();
+                    state = new InstructionMenuState();
                     run();
-                    state=new MainMenuState();
+                    state = new MainMenuState();
                     run();
                     break;
                 case "RANKINGS":
-                    state= new RankingsMenuState();
+                    state = new RankingsMenuState();
                     run();
-                    state=new MainMenuState();
+                    state = new MainMenuState();
                     run();
                     break;
                 case "EXIT":
                     exit(0);
                     break;
             }
+            readKeys.removeObserver(menuController);
+
         }
     }
 }

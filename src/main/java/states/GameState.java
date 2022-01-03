@@ -6,22 +6,25 @@ import control.PacmanController;
 import model.Elements.Pacman;
 import model.GameModel;
 import model.Model;
-import view.ElementsView.GameView;
+import view.ElementsView.Ghosts.CyanView;
 import view.Viewer;
 
 import java.io.IOException;
 
 public class GameState extends State{
-    private GameView gameView;
+    private CyanView.GameView gameView;
     private GameModel gameModel;
-    private long pastTime;
     private PacmanController pacmanController;
+    private long totalTime, pastTime;
+    public static final long TIME_FIXED = 20;
     public GameState(long pastTime) throws IOException {
         super();
         this.pastTime=pastTime;
         gameModel = new GameModel();
         pacmanController = new PacmanController(gameModel.getMap().getPacman());
-        gameView=new GameView(gameModel);
+        gameView = new CyanView.GameView(gameModel);
+        totalTime = 0;
+        pastTime = System.currentTimeMillis();
 
     }
 
@@ -53,7 +56,11 @@ public class GameState extends State{
     @Override
     public void step() throws IOException {
         long now = System.currentTimeMillis();
-        gameModel.update(now-pastTime);
+        totalTime += now-pastTime;
+        while(totalTime >= TIME_FIXED) {
+            gameModel.update(TIME_FIXED);
+            totalTime-=TIME_FIXED;
+        }
         gameModel.setScore(pacmanController.getPacman().getScore());
         gameView.draw();
         pastTime = now;

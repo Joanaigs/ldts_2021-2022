@@ -1,12 +1,13 @@
-package view.ElementsView;
+package view.ElementsView.Coins;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import model.Elements.Coins.SmallCoin;
+import view.ElementsView.Coins.CoinsView;
 
-public class SmallCoinView extends CoinsView{
+public class SmallCoinView extends CoinsView {
 
     private SmallCoin smallCoin;
 

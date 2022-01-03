@@ -1,25 +1,25 @@
-package view.ElementsView;
+package view.ElementsView.Ghosts;
 
-import model.Elements.Pacman;
+import model.Elements.Ghosts.Types.Pink;
 import model.GameModel;
 import model.Position;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import view.ElementsView.Ghosts.CyanView;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class PacmanViewTest {
-    PacmanView view;
+public class PinkViewTest {
+    PinkView view;
 
     public void draw() throws Exception {
         CyanView.GameView game=new CyanView.GameView(new GameModel());
-        PacmanView pacmanView=new PacmanView(new Pacman(new Position(1, 1)), game.getGraphics());
-        view=Mockito.spy(pacmanView);
+        PinkView pinkView =new PinkView(new Pink(new Position(1, 1)), game.getGraphics());
+        view= Mockito.spy(pinkView);
         view.draw();
 
     }
+
     @Test
     public void InsDrawTest() throws Exception {
         draw();

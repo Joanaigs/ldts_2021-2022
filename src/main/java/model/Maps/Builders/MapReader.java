@@ -4,6 +4,11 @@ import model.Elements.*;
 import model.Elements.Coins.Coin;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
+import model.Elements.Ghosts.*;
+import model.Elements.Ghosts.Types.Cyan;
+import model.Elements.Ghosts.Types.Orange;
+import model.Elements.Ghosts.Types.Pink;
+import model.Elements.Ghosts.Types.Red;
 import model.Maps.Map;
 import model.Position;
 
@@ -59,6 +64,31 @@ public class MapReader implements MapBuilder {
         width = Integer.parseInt(br.readLine());
         height = Integer.parseInt(br.readLine());
         m.setSmallCoins(readSmallCoins(br));
+
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
+        m.setRed(readRed(br));
+
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
+        m.setPink(readPink(br));
+
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
+        m.setOrange(readOrange(br));
+
+        fr = new FileReader(new File(mapLocation));
+        br = new BufferedReader(fr);
+        width = Integer.parseInt(br.readLine());
+        height = Integer.parseInt(br.readLine());
+        m.setCyan(readCyan(br));
+
         return m;
     }
 
@@ -83,7 +113,7 @@ public class MapReader implements MapBuilder {
             String line = br.readLine();
             for (int j = 0; j < line.length(); j++) {
                 if (line.charAt(j) == 'c') {
-                    pacman = new Pacman(new Position(i * 8 + 1, j * 12 - 1));
+                    pacman = new Pacman(new Position(i * 8, j * 12));
                     break;
                 }
             }
@@ -96,7 +126,7 @@ public class MapReader implements MapBuilder {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
-                if (line.charAt(j) == 'O') {
+                if (line.charAt(j) == 'o') {
                     coins.add(new PowerCoin(new Position(i * 8 + 1, j * 12 - 1)));
                 }
                 else if(line.charAt(j) == '.')
@@ -111,7 +141,7 @@ public class MapReader implements MapBuilder {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();
             for (int j = 0; j < width; j++) {
-                if (line.charAt(j) == 'O')
+                if (line.charAt(j) == 'o')
                     powerCoins.add(new PowerCoin(new Position(i * 8 + 1, j * 12 - 1)));
             }
         }
@@ -129,5 +159,63 @@ public class MapReader implements MapBuilder {
         }
         return smallCoins;
     }
+
+    private Ghost readRed(BufferedReader br) throws IOException {
+        Ghost red = null;
+        for (int i = 0; i < height; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < line.length(); j++) {
+                if (line.charAt(j) == 'R') {
+                    red = new Red(new Position(i * 8+1, j * 12));
+                    break;
+                }
+            }
+        }
+        return red;
+    }
+
+    private Ghost readOrange(BufferedReader br) throws IOException {
+        Ghost orange = null;
+        for (int i = 0; i < height; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < line.length(); j++) {
+                if (line.charAt(j) == 'O') {
+                    orange = new Orange(new Position(i * 8+1, j * 12));
+                    break;
+                }
+            }
+        }
+        return orange;
+    }
+
+    private Ghost readPink(BufferedReader br) throws IOException {
+        Ghost pink= null;
+        for (int i = 0; i < height; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < line.length(); j++) {
+                if (line.charAt(j) == 'P') {
+                    pink = new Pink(new Position(i * 8+1, j * 12));
+                    break;
+                }
+            }
+        }
+        return pink;
+    }
+
+    private Ghost readCyan(BufferedReader br) throws IOException {
+        Ghost cyan = null;
+        for (int i = 0; i < height; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < line.length(); j++) {
+                if (line.charAt(j) == 'C') {
+                    cyan = new Cyan(new Position(i * 8+1, j * 12));
+                    break;
+                }
+            }
+        }
+        return cyan;
+    }
+
+
 }
 

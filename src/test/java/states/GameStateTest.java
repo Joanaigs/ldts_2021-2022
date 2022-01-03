@@ -3,7 +3,6 @@ package states;
 import model.GameModel;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import view.ElementsView.GameView;
 
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
