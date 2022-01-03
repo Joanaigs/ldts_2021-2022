@@ -1,8 +1,8 @@
-package model.Elements.Ghosts.Moves.FrightenedMode;
+package model.Elements.Ghosts.MoveMode.FrightenedMode;
 
 import model.Elements.Direction;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.MovingBehaviour;
+import model.Elements.Ghosts.MoveMode.MovingBehaviour;
 
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class FrightenedMode extends MovingBehaviour implements FrightenedBehavio
     @Override
     public Direction frightened(long deltatime) {
 
-        if(numCalls==0){
+        if(ghost.getFrightenedTime()==0){
             switch(ghost.getCurrentDirection()){
                 case Left:
                     ghost.setCurrentDirection(Direction.Right);
@@ -46,8 +46,6 @@ public class FrightenedMode extends MovingBehaviour implements FrightenedBehavio
                 return directions.get(0);
         }
 
-        numCalls++;
-        //por numCalls a zero quando o tempo terminar
         return ghost.getCurrentDirection();
     }
 }
