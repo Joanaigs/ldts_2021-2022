@@ -29,6 +29,14 @@ public class EndScreenModel implements MenuModel, Model {
     }
 
     public void addLetter(char letter){
+        StringBuilder newName = new StringBuilder(name);
+        for(int i=0; i<name.length(); i++){
+            if(name.charAt(i)=='_') {
+                newName.setCharAt(i, letter);
+                break;
+            }
+        }
+        name= String.valueOf(newName);
     }
 
     public String getName() {

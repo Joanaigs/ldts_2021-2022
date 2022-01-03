@@ -47,6 +47,6 @@ public class EndScreenState extends State{
 
     @Override
     public void step() throws IOException {
-        
+        viewEndScreen.draw();
     }
 }

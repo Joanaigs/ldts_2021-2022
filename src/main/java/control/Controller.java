@@ -1,8 +1,10 @@
 package control;
 
 import model.GameModel;
+import model.Menu.EndScreenModel;
 import model.Menu.InstructionMenuModel;
 import model.Menu.MainMenuModel;
+import model.Menu.RankingsMenuModel;
 import states.*;
 import view.ElementsView.GameView;
 import view.ViewInstructionMenu;
@@ -18,6 +20,8 @@ public class Controller {
     ReadKeys readKeys;
     State state;
     Viewer viewer;
+    int score;
+    String name;
 
 
     public Controller() throws IOException {
@@ -47,6 +51,16 @@ public class Controller {
             switch (mainMenuModel.getSelected()) {
                 case "START":
                     state=new GameState(pastTime);
+                    run();
+                    state=new MainMenuState();
+                    run();
+                    score=((GameModel)state.getModel()).getScore();
+                    state=new EndScreenState();
+                    ((EndScreenModel)state.getModel()).setScore(score);
+                    run();
+                    name=((EndScreenModel)state.getModel()).getName();
+                    state= new RankingsMenuState();
+                    ((RankingsMenuModel)state.getModel()).addScore(name, score);
                     run();
                     state=new MainMenuState();
                     run();
