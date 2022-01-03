@@ -3,6 +3,7 @@ package states;
 import control.Controller;
 import control.Observer;
 import control.PacmanController;
+import model.Elements.Pacman;
 import model.GameModel;
 import model.Model;
 import view.ElementsView.GameView;
@@ -53,6 +54,7 @@ public class GameState extends State{
     public void step() throws IOException {
         long now = System.currentTimeMillis();
         gameModel.update(now-pastTime);
+        gameModel.setScore(pacmanController.getPacman().getScore());
         gameView.draw();
         pastTime = now;
     }

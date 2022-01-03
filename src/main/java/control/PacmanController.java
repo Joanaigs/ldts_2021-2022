@@ -10,6 +10,9 @@ public class PacmanController implements Observer {
         this.pacman = pacman;
     }
 
+    public Pacman getPacman() {
+        return pacman;
+    }
 
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {

@@ -15,6 +15,7 @@ public class GameModel implements Model{
     private Map map;
     private ArrayList<Coin> toRemove;
     boolean wasSmallCoin;
+    int score;
 
     public GameModel() throws IOException {
         MapBuilder mapBuilder = new MapReader();
@@ -109,4 +110,13 @@ public class GameModel implements Model{
     public boolean isRunning(){         // TO CHANGE LATER
         return true;
     }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
 }
