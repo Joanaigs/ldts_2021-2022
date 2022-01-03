@@ -23,11 +23,14 @@ public class MenuElement<T> {
     }
 
     public void select(){
-
+        fillColor= new TextColor.RGB(255, 202, 24);
+        borderColor= new TextColor.RGB(255, 202, 24);
         this.selected = true;
     }
 
     public void deselect(){
+        fillColor= new TextColor.RGB(255, 255, 255);
+        borderColor= new TextColor.RGB(255, 255, 255);
         this.selected = false;
     }
 

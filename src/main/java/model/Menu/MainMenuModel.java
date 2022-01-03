@@ -25,28 +25,19 @@ public class MainMenuModel implements Model, MenuModel {
         options.get(selected).setBorderColor(new TextColor.RGB(255, 202, 24));
     }
 
-
     public void selectPrevious(){
         if(this.selected > 0){
-            options.get(selected).setFillColor(new TextColor.RGB(255, 255, 255));
-            options.get(selected).setBorderColor(new TextColor.RGB(255, 255, 255));
             options.get(this.selected).deselect();
             this.selected--;
             options.get(this.selected).select();
-            options.get(selected).setFillColor(new TextColor.RGB(255, 202, 24));
-            options.get(selected).setBorderColor(new TextColor.RGB(255, 202, 24));
         }
     }
 
     public void selectNext(){
         if(this.selected<options.size()-1){
-            options.get(selected).setFillColor(new TextColor.RGB(255, 255, 255));
-            options.get(selected).setBorderColor(new TextColor.RGB(255, 255, 255));
             options.get(this.selected).deselect();
             this.selected++;
             options.get(this.selected).select();
-            options.get(selected).setFillColor(new TextColor.RGB(255, 202, 24));
-            options.get(selected).setBorderColor(new TextColor.RGB(255, 202, 24));
         }
     }
 
