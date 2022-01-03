@@ -1,16 +1,15 @@
 package model.Elements.Ghosts;
 
 import model.Elements.*;
-import model.Elements.Ghosts.Moves.ChaseMode.ChaseBehaviour;
-import model.Elements.Ghosts.Moves.ScatterMode.ScatterBehaviour;
-import model.Elements.Ghosts.Moves.ScatterMode.ScatterTopLeft;
+import model.Elements.Ghosts.Moves.ChaseMode.ChaseStrategys.ChaseStrategy;
 import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedBehaviour;
+import model.Elements.Ghosts.Moves.ScatterMode.ScatterBehaviour;
 import model.Maps.Map;
 import model.Position;
 
 public class Ghost extends Element {
     private final double velocity = 60;
-    ChaseBehaviour chaseBehaviour;
+    ChaseStrategy chaseStrategy;
     FrightenedBehaviour frightenedBehaviour;
     private boolean frightenedModeOn;
     private Direction currentDirection;
@@ -26,10 +25,14 @@ public class Ghost extends Element {
     public void update(long deltatime) {
 
         if(!frightenedModeOn) {
-            setCurrentDirection(getChaseBehaviour().chase(deltatime));
-            setPosition(move(deltatime, getCurrentDirection()));
-
+            if(getChaseStrategy() != null) {
+                setCurrentDirection(getChaseStrategy().chase(deltatime));
+                setPosition(move(deltatime, getCurrentDirection()));
+                //setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
+                //setPosition(move(deltatime, getCurrentDirection()));
+            }
         }
+
         else {
             setCurrentDirection(getFrightenedBehaviour().frightened(deltatime));
             setPosition(move(deltatime, getCurrentDirection()));
@@ -37,7 +40,10 @@ public class Ghost extends Element {
 
         // contador e
         // move(deltatime, ScatterBehaviour.chase());
+
     }
+
+
 
     @Override
     public Collider getCollider() {
@@ -65,10 +71,9 @@ public class Ghost extends Element {
     }
 
 
-    public ChaseBehaviour getChaseBehaviour() {
-        return chaseBehaviour;
+    public ChaseStrategy getChaseStrategy() {
+        return chaseStrategy;
     }
-
 
     public boolean collideWithWall(Map map)
     {
@@ -78,7 +83,6 @@ public class Ghost extends Element {
         return false;
     }
 
-
     public Direction getCurrentDirection() {
         return currentDirection;
     }
@@ -87,8 +91,8 @@ public class Ghost extends Element {
         this.currentDirection = currentDirection;
     }
 
-    public void setChaseBehaviour(ChaseBehaviour chaseBehaviour) {
-        this.chaseBehaviour = chaseBehaviour;
+    public void setChaseStrategy(ChaseStrategy chaseStrategy) {
+        this.chaseStrategy = chaseStrategy;
     }
 
     public void setFrightenedBehaviour(FrightenedBehaviour frightenedBehaviour) {
