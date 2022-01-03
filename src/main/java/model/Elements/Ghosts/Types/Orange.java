@@ -1,9 +1,9 @@
 package model.Elements.Ghosts.Types;
 
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedMode;
-import model.Elements.Ghosts.Moves.ChaseMode.ChaseStrategys.RandomChaseStrategy;
-import model.Elements.Ghosts.Moves.ScatterMode.ScatterBottomLeft;
+import model.Elements.Ghosts.MoveMode.FrightenedMode.FrightenedMode;
+import model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.RandomChaseStrategy;
+import model.Elements.Ghosts.MoveMode.ScatterMode.ScatterBottomLeft;
 import model.Maps.Map;
 import model.Position;
 

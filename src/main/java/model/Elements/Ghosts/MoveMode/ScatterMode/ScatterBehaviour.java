@@ -1,8 +1,8 @@
-package model.Elements.Ghosts.Moves.ScatterMode;
+package model.Elements.Ghosts.MoveMode.ScatterMode;
 
 import model.Elements.Direction;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.MovingBehaviour;
+import model.Elements.Ghosts.MoveMode.MovingBehaviour;
 import model.Position;
 
 import java.util.ArrayList;

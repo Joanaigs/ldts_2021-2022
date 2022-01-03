@@ -1,4 +1,4 @@
-package model.Elements.Ghosts.Moves;
+package model.Elements.Ghosts.MoveMode;
 
 import model.Elements.Direction;
 import model.Elements.Ghosts.Ghost;

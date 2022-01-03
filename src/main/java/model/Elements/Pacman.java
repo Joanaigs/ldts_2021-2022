@@ -6,7 +6,7 @@ public class Pacman extends Element{
     private int highscore;
     private Direction nextDirection;
     private Direction currentDirection;
-    private final double velocity = 60;
+    private final double velocity = 68;
     private boolean mouthOpen;
     private boolean colliding;
 

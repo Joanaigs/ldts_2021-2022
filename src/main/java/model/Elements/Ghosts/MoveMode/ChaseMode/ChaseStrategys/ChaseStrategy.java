@@ -1,4 +1,4 @@
-package model.Elements.Ghosts.Moves.ChaseMode.ChaseStrategys;
+package model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys;
 
 import model.Elements.Direction;
 

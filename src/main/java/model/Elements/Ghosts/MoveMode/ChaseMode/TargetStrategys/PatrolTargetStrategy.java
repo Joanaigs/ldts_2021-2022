@@ -1,4 +1,4 @@
-package model.Elements.Ghosts.Moves.ChaseMode.TargetStrategys;
+package model.Elements.Ghosts.MoveMode.ChaseMode.TargetStrategys;
 
 import model.Maps.Map;
 import model.Position;

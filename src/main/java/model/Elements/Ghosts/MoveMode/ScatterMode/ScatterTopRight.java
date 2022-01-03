@@ -1,4 +1,4 @@
-package model.Elements.Ghosts.Moves.ScatterMode;
+package model.Elements.Ghosts.MoveMode.ScatterMode;
 
 import model.Elements.Ghosts.Ghost;
 import model.Position;

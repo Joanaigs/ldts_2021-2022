@@ -5,8 +5,6 @@ import model.Elements.Coins.Coin;
 import model.Elements.Coins.PowerCoin;
 import model.Elements.Coins.SmallCoin;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedBehaviour;
-import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedMode;
 import model.Maps.Builders.MapBuilder;
 import model.Maps.Builders.MapReader;
 import model.Maps.Map;

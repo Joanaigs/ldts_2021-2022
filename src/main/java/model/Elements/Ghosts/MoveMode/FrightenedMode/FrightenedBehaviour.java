@@ -1,7 +1,6 @@
-package model.Elements.Ghosts.Moves.FrightenedMode;
+package model.Elements.Ghosts.MoveMode.FrightenedMode;
 
 import model.Elements.Direction;
-import model.Elements.Ghosts.Ghost;
 
 public interface FrightenedBehaviour {
     public Direction frightened(long deltatime);

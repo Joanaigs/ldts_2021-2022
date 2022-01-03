@@ -1,10 +1,10 @@
 package model.Elements.Ghosts.Types;
 
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedMode;
-import model.Elements.Ghosts.Moves.ChaseMode.TargetStrategys.AggressiveTargetStrategy;
-import model.Elements.Ghosts.Moves.ChaseMode.ChaseStrategys.TargetChaseStrategy;
-import model.Elements.Ghosts.Moves.ScatterMode.ScatterTopRight;
+import model.Elements.Ghosts.MoveMode.FrightenedMode.FrightenedMode;
+import model.Elements.Ghosts.MoveMode.ChaseMode.TargetStrategys.AggressiveTargetStrategy;
+import model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.TargetChaseStrategy;
+import model.Elements.Ghosts.MoveMode.ScatterMode.ScatterTopRight;
 import model.Maps.Map;
 import model.Position;
 
@@ -23,4 +23,9 @@ public class Red extends Ghost {
         ((FrightenedMode) getFrightenedBehaviour()).setMap(map);
     }
 
+    @Override
+    public void update(long deltatime) {
+        System.out.println(position.getRow() + " " + position.getCol());
+        super.update(deltatime);
+    }
 }

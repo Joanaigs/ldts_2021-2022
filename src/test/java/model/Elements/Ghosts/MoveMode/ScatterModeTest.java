@@ -1,4 +1,4 @@
-package model.Elements.Ghosts.Moves;
+package model.Elements.Ghosts.MoveMode;
 
 import model.Elements.Direction;
 import model.Elements.Ghosts.Types.Cyan;
@@ -10,7 +10,6 @@ import model.Maps.Builders.MapReader;
 import model.Maps.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.mockito.Mockito.*;
 
 import java.io.IOException;
 

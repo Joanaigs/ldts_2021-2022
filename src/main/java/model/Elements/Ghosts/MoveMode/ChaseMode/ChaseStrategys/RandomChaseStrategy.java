@@ -1,8 +1,8 @@
-package model.Elements.Ghosts.Moves.ChaseMode.ChaseStrategys;
+package model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys;
 
 import model.Elements.Direction;
 import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.MovingBehaviour;
+import model.Elements.Ghosts.MoveMode.MovingBehaviour;
 
 import java.util.ArrayList;
 

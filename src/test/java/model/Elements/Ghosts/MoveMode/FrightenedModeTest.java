@@ -1,8 +1,7 @@
-package model.Elements.Ghosts.Moves;
+package model.Elements.Ghosts.MoveMode;
 
 import model.Elements.Direction;
-import model.Elements.Ghosts.Ghost;
-import model.Elements.Ghosts.Moves.FrightenedMode.FrightenedMode;
+import model.Elements.Ghosts.MoveMode.FrightenedMode.FrightenedMode;
 import model.Elements.Ghosts.Types.Cyan;
 import model.Elements.Ghosts.Types.Orange;
 import model.Elements.Ghosts.Types.Pink;
@@ -13,7 +12,6 @@ import model.Maps.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import view.ElementsView.Ghosts.FrightenedView;
 
 import java.io.IOException;
 
