@@ -8,9 +8,9 @@ import java.util.List;
 public class ScatterTopLeft extends ScatterBehaviour {
 
     public ScatterTopLeft(Ghost ghost) {
-        super(ghost, List.of(new Position(1*8, 2*12),
-                             new Position(1*8, 1*12),
-                             new Position(5*8, 1*12),
+        super(ghost, List.of(new Position(8, 2*12),
+                             new Position(8, 12),
+                             new Position(5*8, 12),
                              new Position(5*8, 2*12)));
 
     }

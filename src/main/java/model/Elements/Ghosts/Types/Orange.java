@@ -18,7 +18,7 @@ public class Orange  extends Ghost {
 
     public void setMap(Map map){
         ((RandomChaseStrategy)getChaseStrategy()).setMap(map);
-        ((ScatterBottomLeft)getScatterBehaviour()).setMap(map);
+        (getScatterBehaviour()).setMap(map);
         ((FrightenedMode) getFrightenedBehaviour()).setMap(map);
     }
 

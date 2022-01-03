@@ -5,7 +5,6 @@ import model.Elements.Ghosts.Ghost;
 import model.Elements.Ghosts.Moves.MovingBehaviour;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class RandomChaseStrategy extends MovingBehaviour implements ChaseStrategy {
 

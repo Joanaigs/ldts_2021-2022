@@ -39,14 +39,11 @@ public class FrightenedMode extends MovingBehaviour implements FrightenedBehavio
         }
 
         else {
-            // Array with every movement option
             ArrayList<Direction> directions = setupPossibleDirections(deltatime);
-
             if (directions.size() > 1)
                 return directions.get(getRandomNumberInRange(0, directions.size() - 1));
             else if (directions.size() == 1)
                 return directions.get(0);
-
         }
 
         numCalls++;

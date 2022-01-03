@@ -19,7 +19,7 @@ public class Pink extends Ghost {
 
     public void setMap(Map map){
         ((TargetChaseStrategy)getChaseStrategy()).setMap(map);
-        ((ScatterTopLeft)getScatterBehaviour()).setMap(map);
+        (getScatterBehaviour()).setMap(map);
         ((FrightenedMode) getFrightenedBehaviour()).setMap(map);
     }
 

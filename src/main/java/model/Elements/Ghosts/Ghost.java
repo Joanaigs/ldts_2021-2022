@@ -26,10 +26,10 @@ public class Ghost extends Element {
 
         if(!frightenedModeOn) {
             if(getChaseStrategy() != null) {
-                setCurrentDirection(getChaseStrategy().chase(deltatime));
-                setPosition(move(deltatime, getCurrentDirection()));
-                //setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
+                //setCurrentDirection(getChaseStrategy().chase(deltatime));
                 //setPosition(move(deltatime, getCurrentDirection()));
+                setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
+                setPosition(move(deltatime, getCurrentDirection()));
             }
         }
 
