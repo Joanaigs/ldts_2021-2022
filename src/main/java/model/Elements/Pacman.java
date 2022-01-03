@@ -13,7 +13,7 @@ public class Pacman extends Element{
     public Pacman(Position position) {
         super(position);
         highscore = 0;
-        currentDirection = Direction.None;
+        currentDirection = Direction.Down;
         nextDirection = Direction.None;
         mouthOpen = true;
     }

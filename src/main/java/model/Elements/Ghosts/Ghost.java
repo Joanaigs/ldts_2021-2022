@@ -14,17 +14,21 @@ public class Ghost extends Element {
     private boolean frightenedModeOn;
     private Direction currentDirection;
     ScatterBehaviour scatterBehaviour;
+    protected long counterTime;
 
     public Ghost(Position position) {
         super(position);
         currentDirection = Direction.None;
         frightenedModeOn = false;
+        counterTime = 0;
     }
 
     @Override
     public void update(long deltatime) {
+        counterTime += deltatime;
 
         if(!frightenedModeOn) {
+
             if(getChaseStrategy() != null) {
                 //setCurrentDirection(getChaseStrategy().chase(deltatime));
                 //setPosition(move(deltatime, getCurrentDirection()));
