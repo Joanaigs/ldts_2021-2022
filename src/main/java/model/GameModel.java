@@ -49,14 +49,24 @@ public class GameModel implements Model{
     public void update(long deltatime) {
         pacmanMoving(deltatime);
         coinCollisions(deltatime);
-        ghostsPacmanCollisions(deltatime);
-
+        ghostPacmanCollisions(deltatime, red);
+        ghostPacmanCollisions(deltatime, cyan);
+        ghostPacmanCollisions(deltatime, pink);
+        ghostPacmanCollisions(deltatime, orange);
+        coinsGone(deltatime);
         map.getRed().update(deltatime);
         map.getOrange().update(deltatime);
         map.getPink().update(deltatime);
         map.getCyan().update(deltatime);
 
         // ver aqui se colide, diminuir vidas, e acabar se ele ficar com 0
+   }
+
+   private void coinsGone(long deltatime){
+        if(map.getSmallCoins().isEmpty()&&map.getPowerCoins().isEmpty()){
+            isRunning=false;
+            lost=false;
+        }
    }
 
    private void pacmanMoving(long deltatime){
@@ -133,55 +143,19 @@ public class GameModel implements Model{
        }
    }
 
-   private void ghostsPacmanCollisions(long deltatime){
-        if(pacman.getCollider().colision(red.getCollider())){
-            if(red.getFrightenedModeOn()){
-                pacman.increaseScore(red.getScore());
-                red.updateScore();
-                red.setPosition(red.getBeginPosition());
-                red.setFrightenedModeOff();
-            }
-            else{
-                isRunning=false;
-                lost=true;
-            }
-        }
-        else if(pacman.getCollider().colision(cyan.getCollider())){
-            if(cyan.getFrightenedModeOn()) {
-                pacman.increaseScore(cyan.getScore());
-                cyan.updateScore();
-                cyan.setPosition(cyan.getBeginPosition());
-                cyan.setFrightenedModeOff();
-            }
-            else{
-                isRunning=false;
-                lost=true;
-            }
-        }
-        else if(pacman.getCollider().colision(pink.getCollider())){
-            if(pink.getFrightenedModeOn()) {
-                pacman.increaseScore(pink.getScore());
-                pink.updateScore();
-                pink.setPosition(pink.getBeginPosition());
-                pink.setFrightenedModeOff();
-            }
-            else{
-                isRunning=false;
-                lost=true;
-            }
-        }
-        else if(pacman.getCollider().colision(orange.getCollider())){
-            if(orange.getFrightenedModeOn()) {
-                pacman.increaseScore(orange.getScore());
-                orange.updateScore();
-                orange.setPosition(orange.getBeginPosition());
-                orange.setFrightenedModeOff();
-            }
-            else{
-                isRunning=false;
-                lost=true;
-            }
-        }
+   private void ghostPacmanCollisions(long deltatime, Ghost ghost){
+       if(pacman.getCollider().colision(ghost.getCollider())){
+           if(ghost.getFrightenedModeOn()){
+               pacman.increaseScore(ghost.getScore());
+               ghost.updateScore();
+               ghost.setPosition(ghost.getBeginPosition());
+               ghost.setFrightenedModeOff();
+           }
+           else{
+               isRunning=false;
+               lost=true;
+           }
+       }
    }
 
     public boolean isRunning(){         // TO CHANGE LATER

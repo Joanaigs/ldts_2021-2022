@@ -48,7 +48,10 @@ public class Controller {
         }
         readKeys.removeObserver(state.getObserver());
         viewer.closeScreen();
+        options();
+    }
 
+    public void options() throws IOException {
         if (state.getString() == "mainMenu") {
             MainMenuModel mainMenuModel = (MainMenuModel) state.getModel();
             long pastTime = System.currentTimeMillis();
@@ -86,7 +89,6 @@ public class Controller {
                     exit(0);
                     break;
             }
-            readKeys.removeObserver(menuController);
         }
     }
 }
