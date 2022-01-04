@@ -2,6 +2,7 @@ package g0902.view;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.screen.Screen;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Pair;
 
@@ -12,6 +13,10 @@ public class ViewRankingsMenu extends ViewerMenu {
     RankingsMenuModel rankingsMenuModel;
     public ViewRankingsMenu(RankingsMenuModel rankingsMenuModel) {
         super(rankingsMenuModel);
+        this.rankingsMenuModel=rankingsMenuModel;
+    }
+    public ViewRankingsMenu(RankingsMenuModel rankingsMenuModel, Screen screen) {
+        super(rankingsMenuModel, screen);
         this.rankingsMenuModel=rankingsMenuModel;
     }
 

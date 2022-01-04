@@ -1,7 +1,9 @@
 package g0902.states;
 
+import g0902.control.EndScreenControler;
 import g0902.control.Observer;
 import g0902.control.RankingsMenuControler;
+import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewRankingsMenu;
@@ -13,20 +15,30 @@ public class RankingsMenuState extends State{
     private RankingsMenuModel rankingsMenuModel;
     private RankingsMenuControler rankingsMenuControler;
     private ViewRankingsMenu viewRankingsMenu;
-    public RankingsMenuState() throws IOException {
-        super();
+
+    private void initializing(){
         rankingsMenuModel=new RankingsMenuModel();
         rankingsMenuControler=new RankingsMenuControler(rankingsMenuModel);
+    }
+    public RankingsMenuState(){
+        super();
+        initializing();
         viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel);
     }
 
+    public RankingsMenuState(ViewRankingsMenu view) {
+        super();
+        initializing();
+        viewRankingsMenu=view;
+    }
+
     @Override
-    public Viewer getViewer() throws IOException {
+    public Viewer getViewer(){
         return viewRankingsMenu;
     }
 
     @Override
-    public Observer getObserver() throws IOException {
+    public Observer getObserver(){
         return rankingsMenuControler;
     }
 
@@ -43,6 +55,11 @@ public class RankingsMenuState extends State{
     @Override
     public String getString() {
         return "rankigs";
+    }
+
+    @Override
+    public void setViewer(Viewer viewer) {
+        this.viewRankingsMenu= (ViewRankingsMenu) viewer;
     }
 
     @Override

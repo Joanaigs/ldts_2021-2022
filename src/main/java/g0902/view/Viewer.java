@@ -22,6 +22,12 @@ public abstract class Viewer<T extends Model> {
         initScreen();
         this.model=model;
     }
+
+    public Viewer(T model, Screen gui){
+        this.model=model;
+        this.screen=gui;
+    }
+
     public void initScreen() {
         try {
             Font font = new Font(Font.MONOSPACED, Font.PLAIN, 2);
@@ -63,4 +69,9 @@ public abstract class Viewer<T extends Model> {
     public TextGraphics getGraphics() {
         return graphics;
     }
+
+    public void setModel(T model) {
+        this.model = model;
+    }
+
 }

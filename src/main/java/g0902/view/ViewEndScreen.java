@@ -2,7 +2,9 @@ package g0902.view;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.screen.Screen;
 import g0902.model.Menu.EndScreenModel;
+import g0902.model.Menu.MainMenuModel;
 
 import java.io.IOException;
 
@@ -11,6 +13,11 @@ public class ViewEndScreen extends ViewerMenu<EndScreenModel>{
     public ViewEndScreen(EndScreenModel endScreenModel) {
         super(endScreenModel);
         this.endScreenModel=endScreenModel;
+    }
+
+    public ViewEndScreen(EndScreenModel model, Screen screen) {
+        super(model, screen);
+        this.endScreenModel=model;
     }
 
     public void gameOverDraw(){
@@ -93,4 +100,5 @@ public class ViewEndScreen extends ViewerMenu<EndScreenModel>{
         graphics.putString(26, 25, "CONTINUE", SGR.BOLD, SGR.BLINK);
         screen.refresh();
     }
+
 }

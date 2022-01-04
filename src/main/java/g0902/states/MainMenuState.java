@@ -1,7 +1,9 @@
 package g0902.states;
 
+import g0902.control.EndScreenControler;
 import g0902.control.MenuController;
 import g0902.control.Observer;
+import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.MainMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewMainMenu;
@@ -13,13 +15,22 @@ public class MainMenuState extends State{
     private ViewMainMenu viewMainMenu;
     private MenuController menuController;
     private MainMenuModel mainMenuModel;
-    public MainMenuState() throws IOException {
-        super();
+
+    private void initializing() throws IOException {
         mainMenuModel=new MainMenuModel();
         menuController=new MenuController(mainMenuModel);
+    }
+    public MainMenuState() throws IOException {
+        super();
+        initializing();
         viewMainMenu=new ViewMainMenu(mainMenuModel);
     }
 
+    public MainMenuState(ViewMainMenu view) throws IOException {
+        super();
+        initializing();
+        viewMainMenu=view;
+    }
     @Override
     public Viewer getViewer() {
         return viewMainMenu;
@@ -44,6 +55,11 @@ public class MainMenuState extends State{
     @Override
     public String getString(){
         return "mainMenu";
+    }
+
+    @Override
+    public void setViewer(Viewer viewer) {
+        this.viewMainMenu= (ViewMainMenu) viewer;
     }
 
     @Override

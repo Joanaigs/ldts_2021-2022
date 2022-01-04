@@ -2,6 +2,8 @@ package g0902.view;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.screen.Screen;
+import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.MainMenuModel;
 import g0902.model.Menu.Options.MenuElement;
 import g0902.model.Menu.Options.MenuOption;
@@ -12,6 +14,11 @@ public class ViewMainMenu extends ViewerMenu<MainMenuModel>{
     MainMenuModel mainMenuModel;
     public ViewMainMenu(MainMenuModel model) {
         super(model);
+        this.mainMenuModel=model;
+    }
+
+    public ViewMainMenu(MainMenuModel model, Screen screen) {
+        super(model, screen);
         this.mainMenuModel=model;
     }
 

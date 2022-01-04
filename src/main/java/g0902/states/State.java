@@ -7,11 +7,6 @@ import g0902.view.Viewer;
 import java.io.IOException;
 
 public abstract class State{
-    private final Viewer viewer;
-
-    public State() throws IOException {
-        this.viewer = getViewer();
-    }
 
     public abstract Viewer getViewer() throws IOException;
 
@@ -22,6 +17,8 @@ public abstract class State{
     public abstract boolean isRunning();
 
     public abstract String getString();
+
+    public abstract void setViewer(Viewer viewer);
 
 
     public abstract void step() throws IOException;

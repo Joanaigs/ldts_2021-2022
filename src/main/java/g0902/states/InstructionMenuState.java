@@ -1,7 +1,9 @@
 package g0902.states;
 
+import g0902.control.EndScreenControler;
 import g0902.control.InstructionMenuController;
 import g0902.control.Observer;
+import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.InstructionMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewInstructionMenu;
@@ -13,11 +15,22 @@ public class InstructionMenuState extends State{
     ViewInstructionMenu viewInstructionMenu;
     InstructionMenuModel instructionMenuModel;
     InstructionMenuController instructionMenuController;
+
+    private void initializing(){
+        instructionMenuModel=new InstructionMenuModel();
+        instructionMenuController=new InstructionMenuController(instructionMenuModel);
+    }
+
     public InstructionMenuState() throws IOException {
         super();
-        instructionMenuModel=new InstructionMenuModel();
+        initializing();
         viewInstructionMenu=new ViewInstructionMenu(instructionMenuModel);
-        instructionMenuController=new InstructionMenuController(instructionMenuModel);
+    }
+    //for testing only
+    public InstructionMenuState(ViewInstructionMenu viewInstructionMenu){
+        super();
+        initializing();
+        this.viewInstructionMenu=viewInstructionMenu;
     }
 
     @Override
@@ -44,6 +57,11 @@ public class InstructionMenuState extends State{
     @Override
     public String getString() {
         return "InstructionMenu";
+    }
+
+    @Override
+    public void setViewer(Viewer viewer) {
+        this.viewInstructionMenu= (ViewInstructionMenu) viewer;
     }
 
     @Override

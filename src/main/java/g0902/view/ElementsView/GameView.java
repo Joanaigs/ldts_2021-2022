@@ -1,5 +1,6 @@
 package g0902.view.ElementsView;
 
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import g0902.model.Elements.Coins.PowerCoin;
 import g0902.model.Elements.Coins.SmallCoin;
@@ -16,15 +17,15 @@ import g0902.view.Viewer;
 import java.io.IOException;
 
 public  class GameView extends Viewer<GameModel> {
-    private final PacmanView pacmanViewer;
-    private final WallView[] wallsViewers;
-    private final RedView redViewer;
-    private final PinkView pinkViewer;
-    private final OrangeView orangeViewer;
-    private final CyanView cyanViewer;
+    private  PacmanView pacmanViewer;
+    private  WallView[] wallsViewers;
+    private  RedView redViewer;
+    private  PinkView pinkViewer;
+    private  OrangeView orangeViewer;
+    private  CyanView cyanViewer;
+    private GameModel gameModel;
 
-    public GameView(GameModel gameModel) throws IOException {
-        super(gameModel);
+    private void create(){
         pacmanViewer = new PacmanView(gameModel.getMap().getPacman(), graphics);
         wallsViewers = new WallView[gameModel.getMap().getWalls().size()];
         redViewer = new RedView(gameModel.getMap().getRed(), graphics);
@@ -35,7 +36,19 @@ public  class GameView extends Viewer<GameModel> {
         int i = 0;
         for( Wall wall : gameModel.getMap().getWalls())
             wallsViewers[i++]= new WallView(wall, graphics);
+    }
 
+    public GameView(GameModel gameModel) throws IOException {
+        super(gameModel);
+        this.gameModel=gameModel;
+        create();
+    }
+
+    public GameView(GameModel gameModel, Screen screen, TextGraphics graphics) throws IOException {
+        super(gameModel, screen);
+        this.gameModel=gameModel;
+        this.graphics=graphics;
+        create();
     }
 
     @Override

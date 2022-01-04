@@ -13,11 +13,20 @@ public class EndScreenState extends State{
     ViewEndScreen viewEndScreen;
     EndScreenModel endScreenModel;
     EndScreenControler endScreenControler;
+    private void initializing(){
+        endScreenModel= new EndScreenModel();
+        endScreenControler=new EndScreenControler(endScreenModel);
+    }
     public EndScreenState() throws IOException {
         super();
-        endScreenModel= new EndScreenModel();
+        initializing();
         viewEndScreen= new ViewEndScreen(endScreenModel);
-        endScreenControler=new EndScreenControler(endScreenModel);
+    }
+    //for testing only
+    public EndScreenState(ViewEndScreen view) {
+        super();
+        initializing();
+        this.viewEndScreen=view;
     }
 
     @Override
@@ -43,6 +52,11 @@ public class EndScreenState extends State{
     @Override
     public String getString() {
         return "EndScreen";
+    }
+
+    @Override
+    public void setViewer(Viewer viewer) {
+        this.viewEndScreen= (ViewEndScreen) viewer;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package g0902.view;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
@@ -13,6 +14,8 @@ public abstract class ViewerMenu<T extends Model> extends Viewer{
     ViewerMenu(T model){
         super(model);
     }
+
+    ViewerMenu(T model, Screen screen){super(model, screen);}
     @Override
     public void initScreen() {
         try {
