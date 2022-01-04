@@ -20,26 +20,11 @@ public class PinkView extends GhostView {
 
     @Override
     public void draw() throws IOException {
-        String[] ghostDraw = new String[0];
+        String[] ghostDraw;
 
         if (!pink.getFrightenedModeOn()) {
 
-            switch (pink.getCurrentDirection()) {
-                case Right:
-                    ghostDraw = right_Ghost;
-                    break;
-                case Left:
-                    ghostDraw = left_Ghost;
-                    break;
-                case Up:
-                    ghostDraw = up_Ghost;
-                    break;
-                case Down:
-                    ghostDraw = down_Ghost;
-                    break;
-                case None:
-                    break;
-            }
+            ghostDraw = chooseView(pink);
 
             int y = 0;
             for (String s : ghostDraw) {

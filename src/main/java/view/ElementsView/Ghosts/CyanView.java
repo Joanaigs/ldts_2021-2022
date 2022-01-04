@@ -30,26 +30,11 @@ public class CyanView extends GhostView{
 
     @Override
     public void draw() throws IOException {
-        String[] ghostDraw = new String[0];
+        String[] ghostDraw;
 
         if (!cyan.getFrightenedModeOn()) {
 
-            switch (cyan.getCurrentDirection()) {
-                case Right:
-                    ghostDraw = right_Ghost;
-                    break;
-                case Left:
-                    ghostDraw = left_Ghost;
-                    break;
-                case Up:
-                    ghostDraw = up_Ghost;
-                    break;
-                case Down:
-                    ghostDraw = down_Ghost;
-                    break;
-                case None:
-                    break;
-            }
+            ghostDraw = chooseView(cyan);
 
             int y = 0;
             for (String s : ghostDraw) {
