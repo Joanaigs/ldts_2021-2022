@@ -1,28 +1,29 @@
 package states;
 
-import control.Controller;
 import control.Observer;
 import control.PacmanController;
-import model.Elements.Pacman;
 import model.GameModel;
 import model.Model;
-import view.ElementsView.Ghosts.CyanView;
+import view.ElementsView.GameView;
 import view.Viewer;
 
 import java.io.IOException;
 
 public class GameState extends State{
-    private CyanView.GameView gameView;
+    private GameView gameView;
     private GameModel gameModel;
     private PacmanController pacmanController;
     private long totalTime, pastTime;
     public static final long TIME_FIXED = 20;
+
+
     public GameState() throws IOException {
+
         super();
         this.pastTime=pastTime;
         gameModel = new GameModel();
         pacmanController = new PacmanController(gameModel.getMap().getPacman());
-        gameView = new CyanView.GameView(gameModel);
+        gameView = new GameView(gameModel);
         totalTime = 0;
         pastTime = System.currentTimeMillis();
 

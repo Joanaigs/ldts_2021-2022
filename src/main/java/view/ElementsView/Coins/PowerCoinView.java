@@ -30,10 +30,9 @@ public class PowerCoinView extends CoinsView {
 
     @Override
     public void draw() {
-        // set color to white
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
-        int y = 0;
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));  // set color to white
 
+        int y = 0;
         for (String s : powCoin ){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')

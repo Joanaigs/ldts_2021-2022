@@ -15,7 +15,7 @@ public class PowerCoinViewTest {
     PowerCoinView view;
 
     public void draw() throws Exception {
-        CyanView.GameView game=new CyanView.GameView(new GameModel());
+        GameView game=new GameView(new GameModel());
         PowerCoinView powerCoinView=new PowerCoinView(new PowerCoin(new Position(1, 1)), game.getGraphics());
         view= Mockito.spy(powerCoinView);
         view.draw();

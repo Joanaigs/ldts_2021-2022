@@ -31,27 +31,17 @@ public class Ghost extends Element {
     public void update(long deltatime) {
         if(frightenedTime > 9000)
             frightenedModeOn = false;
-
-
         if(!frightenedModeOn) {
             counterTime += deltatime;
-
-            if( counterTime > 20000)     // the time is on ms
-                counterTime -= 20000;
-
-            if (counterTime < 7000)
-                setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
-            else
-                setCurrentDirection(getChaseStrategy().chase(deltatime));
+            if( counterTime > 20000)  counterTime -= 20000;
+            if (counterTime < 7000) setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
+            else setCurrentDirection(getChaseStrategy().chase(deltatime));
         }
         else {
             setCurrentDirection(getFrightenedBehaviour().frightened(deltatime));
             frightenedTime += deltatime;
         }
-
-
         setPosition(move(deltatime, getCurrentDirection()));
-
     }
 
     public long getFrightenedTime() {

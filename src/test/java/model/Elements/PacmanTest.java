@@ -25,8 +25,8 @@ public class PacmanTest extends Assertions{
     //Tests if the pacman is being correctly read from the map.
     void readPacmanTest() throws IOException {
         MapBuilder mapbuilder = new MapReader();
-        Map map = mapbuilder.createMap("mapTest"); // here we are using a 3x3 map to test if the functions are working.
-        assertEquals(map.getPacman().getPosition(), new Position(1*8+1,1*12-1));
+        Map map = mapbuilder.createMap("mapTest2"); // here we are using a 3x3 map to test if the functions are working.
+        assertEquals(map.getPacman().getPosition(), new Position(1*8,1*12));
     }
 
     @Test

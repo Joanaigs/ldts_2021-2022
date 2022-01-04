@@ -87,7 +87,6 @@ public class Controller {
                     break;
             }
             readKeys.removeObserver(menuController);
-
         }
     }
 }

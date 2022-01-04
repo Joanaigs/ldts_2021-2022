@@ -28,8 +28,7 @@ public class SmallCoinView extends CoinsView {
 
     @Override
     public void draw() {
-        // set color to white
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#FFC6B6"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#FFC6B6")); // set color to salmon
         int y = 0;
 
         for (String s : sCoin ){

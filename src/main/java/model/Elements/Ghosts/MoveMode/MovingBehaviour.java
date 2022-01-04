@@ -50,16 +50,8 @@ public abstract class MovingBehaviour{
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
     }
-    
-    protected ArrayList<Direction> setupPossibleDirections(long deltatime){
-        // Array with every movement option
-        ArrayList<Direction> directions = new ArrayList<>();
-        directions.add(Up);
-        directions.add(Left);
-        directions.add(Down);
-        directions.add(Right);
 
-        // Remove oposite direction
+    protected ArrayList<Direction> removeOppositeDirections(ArrayList<Direction> directions){
         if (ghost.getCurrentDirection() == Left) {
             directions.remove(Right);
         } else if (ghost.getCurrentDirection() == Right) {
@@ -70,8 +62,10 @@ public abstract class MovingBehaviour{
             directions.remove(Up);
         } else directions.remove(None);
 
+        return directions;
+    }
 
-        //Remove directions that make ghost collide with walls
+    protected ArrayList<Direction> removeCollidingDirections(ArrayList<Direction> directions, long deltatime){
         ArrayList<Direction> toRemove = new ArrayList<>();
         for (Direction direction : directions) {
             Position pos = ghost.move(deltatime, direction);
@@ -82,5 +76,16 @@ public abstract class MovingBehaviour{
         directions.removeAll(toRemove);
         return directions;
     }
+    
+    protected ArrayList<Direction> setupPossibleDirections(long deltatime){
+        ArrayList<Direction> directions = new ArrayList<>();  // Array with every movement option
+        directions.add(Up);
+        directions.add(Left);
+        directions.add(Down);
+        directions.add(Right);
 
+        removeOppositeDirections(directions);   // Remove opposite direction to the one ghost was doing
+        removeCollidingDirections(directions, deltatime);  //Remove directions that make ghost collide with walls
+        return directions;
+    }
 }

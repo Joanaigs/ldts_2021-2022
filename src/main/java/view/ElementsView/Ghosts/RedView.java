@@ -20,11 +20,8 @@ public class RedView extends GhostView {
 
     @Override
     public void draw() throws IOException {
-        String[] ghostDraw;
-
         if (!red.getFrightenedModeOn()) {
-
-            ghostDraw = chooseView(red);
+            String[] ghostDraw = setGhostDraw(red.getCurrentDirection());   //Draw the ghost with the right shape
 
             int y = 0;
             for (String s : ghostDraw) {
@@ -37,9 +34,7 @@ public class RedView extends GhostView {
 
                     }
 
-                    graphics.fillRectangle(new TerminalPosition(
-                                    red.getPosition().getCol() + x * 2 + 1, red.getPosition().getRow() + y +1),
-                            new TerminalSize(2, 1), ' ');
+                    graphics.fillRectangle(new TerminalPosition(red.getPosition().getCol() + x * 2 + 1, red.getPosition().getRow() + y +1), new TerminalSize(2, 1), ' ');
                 }
                 y++;
             }

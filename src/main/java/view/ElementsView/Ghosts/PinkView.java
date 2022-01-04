@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import model.Constants;
 import model.Elements.Ghosts.Ghost;
 import model.Elements.Ghosts.Types.Pink;
 import view.ElementsView.View;
@@ -20,11 +21,9 @@ public class PinkView extends GhostView {
 
     @Override
     public void draw() throws IOException {
-        String[] ghostDraw;
 
         if (!pink.getFrightenedModeOn()) {
-
-            ghostDraw = chooseView(pink);
+            String[] ghostDraw = setGhostDraw(pink.getCurrentDirection());   //Draw the ghost with the right shape
 
             int y = 0;
             for (String s : ghostDraw) {
@@ -34,19 +33,13 @@ public class PinkView extends GhostView {
                         case '0' ->  graphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
                         case '1' ->  graphics.setBackgroundColor(TextColor.Factory.fromString("#2121DE"));
                         default  ->  graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-
                     }
-
-                    graphics.fillRectangle(new TerminalPosition(
-                                    pink.getPosition().getCol() + x * 2 + 1, pink.getPosition().getRow() + y +1),
-                            new TerminalSize(2, 1), ' ');
+                    graphics.fillRectangle(new TerminalPosition(pink.getPosition().getCol() + x * 2 + 1, pink.getPosition().getRow() + y +1),new TerminalSize(2, 1), ' ');
                 }
                 y++;
             }
-        } else {
-            FrightenedView frightenedView = new FrightenedView(pink, graphics);
-            frightenedView.draw();
-        }
+        } else { FrightenedView frightenedView = new FrightenedView(pink, graphics);
+                    frightenedView.draw();}
     }
 
 }
