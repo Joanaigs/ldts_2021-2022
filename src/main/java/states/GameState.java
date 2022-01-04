@@ -17,7 +17,7 @@ public class GameState extends State{
     private PacmanController pacmanController;
     private long totalTime, pastTime;
     public static final long TIME_FIXED = 20;
-    public GameState(long pastTime) throws IOException {
+    public GameState() throws IOException {
         super();
         this.pastTime=pastTime;
         gameModel = new GameModel();

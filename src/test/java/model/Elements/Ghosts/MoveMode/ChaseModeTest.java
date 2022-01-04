@@ -23,22 +23,22 @@ public class ChaseModeTest {
         Cyan cyan=new Cyan(map.getCyan().getPosition());
         cyan.setMap(map);
         cyan.update(20);
-        Assertions.assertEquals(Direction.Down, cyan.getCurrentDirection());
+        Assertions.assertEquals(Direction.Right, cyan.getCurrentDirection());
 
         Orange orange=new Orange(map.getOrange().getPosition());
         orange.setMap(map);
         orange.update(20);
-        Assertions.assertEquals(Direction.Down, orange.getCurrentDirection());
+        Assertions.assertEquals(Direction.Left, orange.getCurrentDirection());
 
         Pink pink=new Pink(map.getCyan().getPosition());
         pink.setMap(map);
         pink.update(20);
-        Assertions.assertEquals(Direction.Down, pink.getCurrentDirection());
+        Assertions.assertEquals(Direction.Left, pink.getCurrentDirection());
 
         Red red=new Red(map.getCyan().getPosition());
         red.setMap(map);
         red.update(20);
-        Assertions.assertEquals(Direction.Down, red.getCurrentDirection());
+        Assertions.assertEquals(Direction.Right, red.getCurrentDirection());
         return;
     }
 

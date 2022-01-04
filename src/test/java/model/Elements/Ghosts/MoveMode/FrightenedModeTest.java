@@ -40,22 +40,22 @@ public class FrightenedModeTest {
         cyan.update(20);
         cyan.setFrightenedModeOn();
         cyan.update(20);
-        Assertions.assertEquals(Direction.Up, cyan.getCurrentDirection()); //they turn 180 degrees
+        Assertions.assertEquals(Direction.Left, cyan.getCurrentDirection()); //they turn 180 degrees
 
         orange.update(20);
         orange.setFrightenedModeOn();
         orange.update(20);
-        Assertions.assertEquals(Direction.Up, orange.getCurrentDirection()); //they turn 180 degrees
+        Assertions.assertEquals(Direction.Right, orange.getCurrentDirection()); //they turn 180 degrees
 
         pink.update(20);
         pink.setFrightenedModeOn();
         pink.update(20);
-        Assertions.assertEquals(Direction.Up, pink.getCurrentDirection()); //they turn 180 degrees
+        Assertions.assertEquals(Direction.Right, pink.getCurrentDirection()); //they turn 180 degrees
 
         red.update(20);
         red.setFrightenedModeOn();
         red.update(20);
-        Assertions.assertEquals(Direction.Up, red.getCurrentDirection()); //they turn 180 degrees
+        Assertions.assertEquals(Direction.Left, red.getCurrentDirection()); //they turn 180 degrees
     }
 
     @Test

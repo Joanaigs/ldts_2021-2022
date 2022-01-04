@@ -9,6 +9,7 @@ public class RankingsMenuModelTest {
     @Test
     public void rankings() throws IOException {
         RankingsMenuModel rankingsMenuModel=new RankingsMenuModel();
+        rankingsMenuModel.readFile("RankingsTest");
         Assertions.assertEquals(2, rankingsMenuModel.getScores().size());
         Assertions.assertEquals(2000,rankingsMenuModel.getScores().get(0).getR());
         rankingsMenuModel.addScore("ART", 10);

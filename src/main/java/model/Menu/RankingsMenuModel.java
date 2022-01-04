@@ -22,6 +22,7 @@ public class RankingsMenuModel implements Model, MenuModel {
     }
 
     public void readFile(String filename){
+        scores.clear();
         try {
             String rootPath = new File(System.getProperty("user.dir")).getPath();
             fileLocation = rootPath + "/src/main/resources/"+filename ;
@@ -60,7 +61,6 @@ public class RankingsMenuModel implements Model, MenuModel {
 
     public void addScore(String str, int score) throws IOException {
         scores.add(new Pair<>(str, score));
-        updateFile();
     }
 
     public void updateFile() throws IOException {
@@ -76,5 +76,9 @@ public class RankingsMenuModel implements Model, MenuModel {
 
     public List<Pair<String, Integer>> getScores() {
         return scores;
+    }
+
+    public void setFileLocation(String fileLocation) {
+        this.fileLocation = fileLocation;
     }
 }

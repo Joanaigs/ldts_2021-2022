@@ -54,7 +54,7 @@ public class Controller {
             long pastTime = System.currentTimeMillis();
             switch (mainMenuModel.getSelected()) {
                 case "START":
-                    state = new GameState(pastTime);
+                    state = new GameState();
                     run();
                     lost=((GameModel) state.getModel()).hasLost();
                     score = ((GameModel) state.getModel()).getScore();
@@ -65,6 +65,7 @@ public class Controller {
                     name = ((EndScreenModel) state.getModel()).getName();
                     state = new RankingsMenuState();
                     ((RankingsMenuModel) state.getModel()).addScore(name, score);
+                    ((RankingsMenuModel) state.getModel()).updateFile();
                     run();
                     state = new MainMenuState();
                     run();

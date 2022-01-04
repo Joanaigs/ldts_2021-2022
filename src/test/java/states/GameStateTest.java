@@ -5,13 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class GameStateTest {
     GameState state;
     public void step() throws Exception {
-        state= Mockito.spy(new GameState(10));
+        state= mock(GameState.class);
         state.step();
 
     }
