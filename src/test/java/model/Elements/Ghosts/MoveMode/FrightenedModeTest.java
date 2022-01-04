@@ -36,26 +36,37 @@ public class FrightenedModeTest {
     }
 
     @Test
-    void FrightenedTest() throws IOException {
+    void cyanMove(){
         cyan.update(20);
         cyan.setFrightenedModeOn();
         cyan.update(20);
         Assertions.assertEquals(Direction.Left, cyan.getCurrentDirection()); //they turn 180 degrees
 
+    }
+
+    @Test
+    void orangeMove(){
         orange.update(20);
         orange.setFrightenedModeOn();
         orange.update(20);
         Assertions.assertEquals(Direction.Right, orange.getCurrentDirection()); //they turn 180 degrees
 
+    }
+
+    @Test
+    void pinkMove(){
         pink.update(20);
         pink.setFrightenedModeOn();
         pink.update(20);
         Assertions.assertEquals(Direction.Right, pink.getCurrentDirection()); //they turn 180 degrees
 
+    }
+    @Test
+    void redMove(){
         red.update(20);
         red.setFrightenedModeOn();
         red.update(20);
-        Assertions.assertEquals(Direction.Left, red.getCurrentDirection()); //they turn 180 degrees
+        Assertions.assertEquals(Direction.Left, red.getCurrentDirection());
     }
 
     @Test
