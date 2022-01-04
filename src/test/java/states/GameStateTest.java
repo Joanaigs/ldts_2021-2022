@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 public class GameStateTest {
     GameState state;
     public void step() throws Exception {
-        state= mock(GameState.class);
+        state= Mockito.spy(new GameState());
         state.step();
 
     }

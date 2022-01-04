@@ -8,7 +8,7 @@ import static org.mockito.Mockito.*;
 public class RankingsMenuStateTest {
     RankingsMenuState state;
     public void step() throws Exception {
-        state= mock(RankingsMenuState.class);
+        state= Mockito.spy(new RankingsMenuState());
         state.step();
 
     }

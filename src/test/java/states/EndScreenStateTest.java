@@ -10,7 +10,7 @@ import static org.mockito.Mockito.verify;
 public class EndScreenStateTest {
     EndScreenState state;
     public void step() throws Exception {
-        state= Mockito.mock(EndScreenState.class);
+        state= Mockito.spy(new EndScreenState());
         state.step();
 
     }
