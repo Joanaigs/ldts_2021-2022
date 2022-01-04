@@ -8,35 +8,36 @@ import model.Elements.Ghosts.MoveMode.MovingBehaviour;
 import java.util.ArrayList;
 
 
-public class FrightenedMode extends MovingBehaviour implements FrightenedBehaviour{
-    private int numCalls;
+public class FrightenedMode extends MovingBehaviour implements FrightenedBehaviour {
 
-    public FrightenedMode(Ghost ghost){
+    public FrightenedMode(Ghost ghost) {
         super(ghost);
-        numCalls = 0;
     }
+
+    protected void firstFrightenedMove() {
+     switch(ghost.getCurrentDirection()){
+        case Left:
+            ghost.setCurrentDirection(Direction.Right);
+            break;
+        case Right:
+            ghost.setCurrentDirection(Direction.Left);
+            break;
+        case Up:
+            ghost.setCurrentDirection(Direction.Down);
+            break;
+        case Down:
+            ghost.setCurrentDirection(Direction.Up);
+            break;
+        case None:
+            break;
+    }
+}
 
     @Override
     public Direction frightened(long deltatime) {
 
-        if(ghost.getFrightenedTime()==0){
-            switch(ghost.getCurrentDirection()){
-                case Left:
-                    ghost.setCurrentDirection(Direction.Right);
-                    break;
-                case Right:
-                    ghost.setCurrentDirection(Direction.Left);
-                    break;
-                case Up:
-                    ghost.setCurrentDirection(Direction.Down);
-                    break;
-                case Down:
-                    ghost.setCurrentDirection(Direction.Up);
-                    break;
-                case None:
-                    break;
-            }
-        }
+        if(ghost.getFrightenedTime()==0)
+            firstFrightenedMove();  // sets CurrentDirection to the one opposite
 
         else {
             ArrayList<Direction> directions = setupPossibleDirections(deltatime);
@@ -45,7 +46,6 @@ public class FrightenedMode extends MovingBehaviour implements FrightenedBehavio
             else if (directions.size() == 1)
                 return directions.get(0);
         }
-
         return ghost.getCurrentDirection();
     }
 }

@@ -21,26 +21,10 @@ public class OrangeView extends GhostView {
 
     @Override
     public void draw() throws IOException {
-        String[] ghostDraw = new String[0];
 
         if (!orange.getFrightenedModeOn()) {
 
-            switch (orange.getCurrentDirection()) {
-                case Right:
-                    ghostDraw = right_Ghost;
-                    break;
-                case Left:
-                    ghostDraw = left_Ghost;
-                    break;
-                case Up:
-                    ghostDraw = up_Ghost;
-                    break;
-                case Down:
-                    ghostDraw = down_Ghost;
-                    break;
-                case None:
-                    break;
-            }
+            String[] ghostDraw = setGhostDraw(orange.getCurrentDirection());   //Draw the ghost with the right shape
 
             int y = 0;
             for (String s : ghostDraw) {

@@ -22,23 +22,37 @@ public class WallTest extends Assertions{
 
 
         //To see if it's reading the right number of power coins
-        assertEquals(8, map.getWalls().size());
+        assertEquals(20, map.getWalls().size());
 
         // List of each power coin position on the map "mapTest"
         ArrayList<Wall> wallList = new ArrayList<>(
                 Arrays.asList(  new Wall(new Position(0*8,0*12), 12, 8),
                         new Wall(new Position(0*8,1*12), 12, 8),
                         new Wall(new Position(0*8,2*12), 12, 8),
+                        new Wall(new Position(0*8,3*12), 12, 8),
+                        new Wall(new Position(0*8,4*12), 12, 8),
+                        new Wall(new Position(0*8,5*12), 12, 8),
+                        new Wall(new Position(0*8,6*12), 12, 8),
+                        new Wall(new Position(0*8,7*12), 12, 8),
+                        new Wall(new Position(0*8,8*12), 12, 8),
                         new Wall(new Position(1*8,0*12), 12, 8),
-                        new Wall(new Position(1*8,2*12), 12, 8),
+                        new Wall(new Position(1*8,8*12), 12, 8),
+                        new Wall( new Position(0*8,0*12), 12, 8),
                         new Wall(new Position(2*8,0*12), 12, 8),
                         new Wall(new Position(2*8,1*12), 12, 8),
-                        new Wall(new Position(2*8,2*12), 12, 8)));
+                        new Wall(new Position(2*8,2*12), 12, 8),
+                        new Wall(new Position(2*8,3*12), 12, 8),
+                        new Wall(new Position(2*8,4*12), 12, 8),
+                        new Wall(new Position(2*8,5*12), 12, 8),
+                        new Wall(new Position(2*8,6*12), 12, 8),
+                        new Wall(new Position(2*8,7*12), 12, 8),
+                        new Wall(new Position(2*8,8*12), 12, 8)));
 
         //To see if it's reading the correct walls
         assertEquals(true, wallList.containsAll(map.getWalls()));
         assertEquals(true, map.getWalls().containsAll(wallList));
 
     }
+
 
 }

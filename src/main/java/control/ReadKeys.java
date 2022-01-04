@@ -36,11 +36,8 @@ public class ReadKeys implements Runnable {
                 for(Observer observer: observers){
                     observer.processKey(keyStroke);
                 }
-                //Thread.sleep(100);
             }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException | InterruptedException e) { e.printStackTrace();}
     }
     public ArrayList<Observer> getObservers(){return observers;}
 }

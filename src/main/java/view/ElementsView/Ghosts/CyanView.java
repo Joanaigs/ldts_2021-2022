@@ -30,26 +30,10 @@ public class CyanView extends GhostView{
 
     @Override
     public void draw() throws IOException {
-        String[] ghostDraw = new String[0];
 
         if (!cyan.getFrightenedModeOn()) {
 
-            switch (cyan.getCurrentDirection()) {
-                case Right:
-                    ghostDraw = right_Ghost;
-                    break;
-                case Left:
-                    ghostDraw = left_Ghost;
-                    break;
-                case Up:
-                    ghostDraw = up_Ghost;
-                    break;
-                case Down:
-                    ghostDraw = down_Ghost;
-                    break;
-                case None:
-                    break;
-            }
+            String[] ghostDraw = setGhostDraw(cyan.getCurrentDirection());   //Draw the ghost with the right shape
 
             int y = 0;
             for (String s : ghostDraw) {
@@ -62,9 +46,7 @@ public class CyanView extends GhostView{
 
                     }
 
-                    graphics.fillRectangle(new TerminalPosition(
-                                    cyan.getPosition().getCol() + x * 2 + 1, cyan.getPosition().getRow() + y +1),
-                            new TerminalSize(2, 1), ' ');
+                    graphics.fillRectangle(new TerminalPosition(cyan.getPosition().getCol() + x * 2 + 1, cyan.getPosition().getRow() + y +1), new TerminalSize(2, 1), ' ');
                 }
                 y++;
             }
@@ -74,54 +56,4 @@ public class CyanView extends GhostView{
         }
     }
 
-
-    public static class GameView extends Viewer<GameModel> {
-        private final PacmanView pacmanViewer;
-        private final WallView[] wallsViewers;
-        private final RedView redViewer;
-        private final PinkView pinkViewer;
-        private final OrangeView orangeViewer;
-        private final CyanView cyanViewer;
-
-        public GameView(GameModel gameModel) throws IOException {
-            super(gameModel);
-            pacmanViewer = new PacmanView(gameModel.getMap().getPacman(), graphics);
-            wallsViewers = new WallView[gameModel.getMap().getWalls().size()];
-            redViewer = new RedView(gameModel.getMap().getRed(), graphics);
-            pinkViewer = new PinkView(gameModel.getMap().getPink(), graphics);
-            orangeViewer = new OrangeView(gameModel.getMap().getOrange(), graphics);
-            cyanViewer = new CyanView(gameModel.getMap().getCyan(), graphics);
-
-            int i = 0;
-            for( Wall wall : gameModel.getMap().getWalls())
-                wallsViewers[i++]= new WallView(wall, graphics);
-
-        }
-
-        @Override
-        public void draw() throws IOException {
-            getScreen().clear();
-
-            for(WallView wall : wallsViewers)
-                wall.draw();
-
-            for( PowerCoin powerCoin : getModel().getMap().getPowerCoins())
-                new PowerCoinView(powerCoin, graphics).draw();
-
-            for( SmallCoin smallCoin : getModel().getMap().getSmallCoins().values())
-                new SmallCoinView(smallCoin, graphics).draw();
-
-
-            redViewer.draw();
-            pinkViewer.draw();
-            orangeViewer.draw();
-            cyanViewer.draw();
-
-            pacmanViewer.draw();
-
-
-            getScreen().refresh(Screen.RefreshType.AUTOMATIC);
-
-        }
-    }
 }
