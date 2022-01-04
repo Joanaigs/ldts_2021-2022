@@ -16,18 +16,10 @@ public class PacmanController implements Observer {
 
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
-            case ArrowUp:
-                pacman.setDirection(pacman.moveUp());
-                break;
-            case ArrowDown:
-                pacman.setDirection(pacman.moveDown());
-                break;
-            case ArrowLeft:
-                pacman.setDirection(pacman.moveLeft());
-                break;
-            case ArrowRight:
-                pacman.setDirection(pacman.moveRight());
-                break;
+            case ArrowUp    -> pacman.setDirection(pacman.moveUp());
+            case ArrowDown  -> pacman.setDirection(pacman.moveDown());
+            case ArrowLeft  -> pacman.setDirection(pacman.moveLeft());
+            case ArrowRight -> pacman.setDirection(pacman.moveRight());
         }
     }
 
