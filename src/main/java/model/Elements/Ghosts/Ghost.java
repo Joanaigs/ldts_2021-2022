@@ -16,12 +16,15 @@ public class Ghost extends Element {
     ScatterBehaviour scatterBehaviour;
     protected long counterTime;
     protected long frightenedTime;
+    Position beginPosition;
+    int score;
 
     public Ghost(Position position) {
         super(position);
         currentDirection = Direction.None;
         frightenedModeOn = false;
         counterTime = 0;
+        beginPosition = position;
     }
 
     @Override
@@ -63,8 +66,12 @@ public class Ghost extends Element {
     public void setFrightenedModeOn(){
         frightenedModeOn= true;
         frightenedTime = 0;
+        score=200;
     }
 
+    public void setFrightenedModeOff(){
+        frightenedModeOn= false;
+    }
 
     // anda na direção dada, mudando de posição
     public Position move(long deltatime, Direction direction){
@@ -122,5 +129,17 @@ public class Ghost extends Element {
 
     public void setScatterBehaviour(ScatterBehaviour scatterBehaviour) {
         this.scatterBehaviour = scatterBehaviour;
+    }
+
+    public void updateScore() {
+        score+=200;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public Position getBeginPosition() {
+        return beginPosition;
     }
 }

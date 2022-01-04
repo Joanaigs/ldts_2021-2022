@@ -58,18 +58,20 @@ public class RankingsMenuModel implements Model, MenuModel {
         Collections.sort(scores, Comparator.comparing(p -> -p.getR()));
     }
 
-    public void addScore(String str, int score){
+    public void addScore(String str, int score) throws IOException {
         scores.add(new Pair<>(str, score));
+        updateFile();
     }
 
     public void updateFile() throws IOException {
         sortD();
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileLocation));
-        writer.write("score name");
+        writer.write("score name\n");
         for(Pair<String, Integer> pair: scores)
         {
-            writer.write(pair.getR()+" "+pair.getL());
+            writer.write(pair.getR()+" "+pair.getL()+'\n');
         }
+        writer.close();
     }
 
     public List<Pair<String, Integer>> getScores() {

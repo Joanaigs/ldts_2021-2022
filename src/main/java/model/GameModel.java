@@ -17,10 +17,21 @@ public class GameModel implements Model{
     private ArrayList<Coin> toRemove;
     boolean wasSmallCoin;
     int score;
+    Ghost red, pink, cyan, orange;
+    Pacman pacman;
+    boolean isRunning;
+    boolean lost;
 
     public GameModel() throws IOException {
         MapBuilder mapBuilder = new MapReader();
         map = mapBuilder.createMap("map");
+        red = map.getRed();
+        pink = map.getPink();
+        cyan = map.getCyan();
+        orange = map.getOrange();
+        pacman = map.getPacman();
+        isRunning=true;
+        lost=false;
     }
 
     public Map getMap() {
@@ -38,6 +49,7 @@ public class GameModel implements Model{
     public void update(long deltatime) {
         pacmanMoving(deltatime);
         coinCollisions(deltatime);
+        ghostsPacmanCollisions(deltatime);
 
         map.getRed().update(deltatime);
         map.getOrange().update(deltatime);
@@ -48,8 +60,6 @@ public class GameModel implements Model{
    }
 
    private void pacmanMoving(long deltatime){
-       Pacman pacman = map.getPacman();
-
        Position oldPosition = new Position(pacman.getPosition().getRow(), pacman.getPosition().getCol());
 
        Position next = pacman.moveNextDirection(deltatime);
@@ -108,17 +118,12 @@ public class GameModel implements Model{
                if (powerCoin.getCollider().colision(pacman.getCollider())) {
                    toRemove.add(powerCoin);
                    pacman.increaseScore(PowerCoin.PowerCoinValue);
-                   Ghost red, pink, cyan, orange;
-                   red = map.getRed();
                    red.setFrightenedModeOn();
                    map.setRed(red);
-                   pink = map.getPink();
                    pink.setFrightenedModeOn();
                    map.setPink(pink);
-                   cyan = map.getCyan();
                    cyan.setFrightenedModeOn();
                    map.setCyan(cyan);
-                   orange = map.getOrange();
                    orange.setFrightenedModeOn();
                    map.setOrange(orange);
                    break;
@@ -128,10 +133,59 @@ public class GameModel implements Model{
        }
    }
 
-
+   private void ghostsPacmanCollisions(long deltatime){
+        if(pacman.getCollider().colision(red.getCollider())){
+            if(red.getFrightenedModeOn()){
+                pacman.increaseScore(red.getScore());
+                red.updateScore();
+                red.setPosition(red.getBeginPosition());
+                red.setFrightenedModeOff();
+            }
+            else{
+                isRunning=false;
+                lost=true;
+            }
+        }
+        else if(pacman.getCollider().colision(cyan.getCollider())){
+            if(cyan.getFrightenedModeOn()) {
+                pacman.increaseScore(cyan.getScore());
+                cyan.updateScore();
+                cyan.setPosition(cyan.getBeginPosition());
+                cyan.setFrightenedModeOff();
+            }
+            else{
+                isRunning=false;
+                lost=true;
+            }
+        }
+        else if(pacman.getCollider().colision(pink.getCollider())){
+            if(pink.getFrightenedModeOn()) {
+                pacman.increaseScore(pink.getScore());
+                pink.updateScore();
+                pink.setPosition(pink.getBeginPosition());
+                pink.setFrightenedModeOff();
+            }
+            else{
+                isRunning=false;
+                lost=true;
+            }
+        }
+        else if(pacman.getCollider().colision(orange.getCollider())){
+            if(orange.getFrightenedModeOn()) {
+                pacman.increaseScore(orange.getScore());
+                orange.updateScore();
+                orange.setPosition(orange.getBeginPosition());
+                orange.setFrightenedModeOff();
+            }
+            else{
+                isRunning=false;
+                lost=true;
+            }
+        }
+   }
 
     public boolean isRunning(){         // TO CHANGE LATER
-        return true;
+        return isRunning;
     }
 
     public void setScore(int score) {
@@ -142,4 +196,7 @@ public class GameModel implements Model{
         return score;
     }
 
+    public boolean hasLost() {
+        return lost;
+    }
 }
