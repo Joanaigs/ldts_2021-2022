@@ -159,4 +159,26 @@ public final class Constants {
     /**********************************************************
      *           C O I N S
      */
+
+    public static final String[] POWER_COIN = {
+
+            "   ###### ",
+            "  ##    ##",
+            " ##      ##",
+            " ##      ##",
+            " ##      ##",
+            " ##      ##",
+            "  ##    ##",
+            "   ######",
+    };
+
+    public static final String[] SMALL_COIN = {
+
+            " ### ",
+            "#####",
+            "#####",
+            " ### ",
+    };
+
+
 }
