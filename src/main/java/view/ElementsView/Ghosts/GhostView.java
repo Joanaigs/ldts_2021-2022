@@ -71,4 +71,27 @@ public abstract class GhostView extends View {
 
     @Override
     public abstract void draw() throws IOException;
+
+    public String[] chooseView(Ghost ghost) {
+        String[] ghostDraw = new String[0];
+
+        switch (ghost.getCurrentDirection()) {
+            case Right:
+                ghostDraw = right_Ghost;
+                break;
+            case Left:
+                ghostDraw = left_Ghost;
+                break;
+            case Up:
+                ghostDraw = up_Ghost;
+                break;
+            case Down:
+                ghostDraw = down_Ghost;
+                break;
+            case None:
+                break;
+        }
+
+        return ghostDraw;
+    }
 }
