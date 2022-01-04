@@ -22,6 +22,7 @@ public class Controller {
     Viewer viewer;
     int score;
     String name;
+    boolean lost;
 
     MenuController menuController;
     public static final long TIME_FIXED = 20;
@@ -55,11 +56,11 @@ public class Controller {
                 case "START":
                     state = new GameState(pastTime);
                     run();
-                    state = new MainMenuState();
-                    run();
+                    lost=((GameModel) state.getModel()).hasLost();
                     score = ((GameModel) state.getModel()).getScore();
                     state = new EndScreenState();
                     ((EndScreenModel) state.getModel()).setScore(score);
+                    ((EndScreenModel) state.getModel()).setLost(lost);
                     run();
                     name = ((EndScreenModel) state.getModel()).getName();
                     state = new RankingsMenuState();
