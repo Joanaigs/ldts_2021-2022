@@ -37,6 +37,7 @@ public class EndScreenModel implements MenuModel, Model {
             }
         }
         name= String.valueOf(newName);
+
     }
 
     public String getName() {
