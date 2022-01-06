@@ -114,6 +114,7 @@ In our code, Ghost's have three types of move behaviour. Scatter, Frightened and
 **Pattern**
 
 Implementing the Strategy pattern means taking a big class that does something in many ways and separating the different algorithms into separate classes. So in our case, we decided to create two interfaces: ChaseStrategy and TargetStrategy. ChaseSatretgy has two implementations: RandomChaseStratey and TargetChaseStrategy. TargetChaseStrategy has a TargetStrategy that can be AmbushTargetStrategy, PatrolTargetStrategy or ChaseTargetStrategy.
+
 **Implementation**
 
 **Consequences**
