@@ -106,14 +106,18 @@ This architecture enables quick changes without having to rework much code in al
 ## DESIGN PATTERNS
 
 ### Strategy Pattern
+
 **Problem in context**
+
 In our code, Ghost's have three types of move behaviour. Scatter, Frightened and Chase. On chase mode there are two types of chasing. One that is random (ChaseRandom), and other that tries to reach an target (ChaseTarget). Furthermore, each ghost has a different way of defining a target. And this was where our problem relied. We needed a pattern design that could allow us to make changes to those behaviours without affecting the parts that stays the same.
 
 **Pattern**
+
 Implementing the Strategy pattern means taking a big class that does something in many ways and separating the different algorithms into separate classes. So in our case, we decided to create two interfaces: ChaseStrategy and TargetStrategy. ChaseSatretgy has two implementations: RandomChaseStratey and TargetChaseStrategy. TargetChaseStrategy has a TargetStrategy that can be AmbushTargetStrategy, PatrolTargetStrategy or ChaseTargetStrategy.
 **Implementation**
 
 **Consequences**
+
 With the implementation of this pattern, is easier to introduce new strategies without having to change the context, and the code stays more organized.
 
 ### Observer Pattern
