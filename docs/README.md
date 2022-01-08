@@ -45,8 +45,8 @@
 
 When starting the program, appears an initial menu where the user can choose to start playing, read the instructions, access the leaderboard or exit the game. When the game ends, after the leaderboard page is shown, the player returns to the initial menu.
  - Start game;
- - [Instructions](controls) - Shows the basic controls and the goal of the game;
- - [Leaderboard](leaderboard) - Shows previous and recent scores;
+ - Instructions - Shows the basic controls and the goal of the game;
+ - Leaderboard - Shows previous and recent scores;
  - Exit game;
 
 ### Pac-Man Movement
@@ -57,7 +57,7 @@ However, if Pac-Man bumps into a wall he stops and waits for the next direction.
 
 Let’s imagine a scenario: the player pressed the right arrow key and Pac-Man is now moving to the right; if the player presses the up arrow key and Pac-Man has walls in the up direction, meaning he can’t move up, the moment Pac-Man is able to move upwards he moves without needing another input from the player. The function that handles this implementation is called **pacmanMoving** and it's a method from the class [GameModel](src/main/java/g0902/model/GameModel.java).
 
-The class that handles the input from the user and makes [Pacman](src/main/java/g0902/model/Elements/Pacman.java) move is [PacmanController](src/main/java/g0902/control/PacmanController.java).
+The class that handles the input from the user and makes [Pacman](../src/main/java/g0902/model/Elements/Pacman.java) move is [PacmanController](../src/main/java/g0902/control/PacmanController.java).
 
 ### Game mode
 
@@ -65,7 +65,7 @@ There are three different game modes. In order to understand them better let’s
 
 The main mode is “**Chase**”. This is when the ghosts are trying to capture Pac-Man. Then, in “**Scatter**” mode, the ghosts stop chasing Pac-Man and each will move to its respective corners. This mode only lasts for a few seconds then changes back to “**Chase**”. In this two modes each ghost has its own implementation. The last game mode is “**Frightened**” and it happens when Pac-Man eats a special coin. In this mode the ghosts move randomly so they aren’t trying to catch Pac-Man. Also, in this mode they are vulnerable because Pac-Man can eat them. When a ghost is eaten it returns to its original position on either chase or scatter mode.  
 
-Classes: [ChaseMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode), [ScatterMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ScatterMode), [FrightenedMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/FrightenedMode).
+Classes: [ChaseMode](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java), [ScatterMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ScatterMode), [FrightenedMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/FrightenedMode).
 
 ### Ghosts
 
