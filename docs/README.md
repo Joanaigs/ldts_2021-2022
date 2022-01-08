@@ -55,7 +55,7 @@ Pac-Man moves using the arrow keys. If the player wants to keep moving in the sa
 
 However, if Pac-Man bumps into a wall he stops and waits for the next direction. So, whenever the player wishes Pac-Man to change direction he needs to press an arrow key.
 
-Let’s imagine a scenario: the player pressed the right arrow key and Pac-Man is now moving to the right; if the player presses the up arrow key and Pac-Man has walls in the up direction, meaning he can’t move up, the moment Pac-Man is able to move upwards he moves without needing another input from the player. The function that handles this implementation is called **pacmanMoving** and it's a method from the class [GameModel](src/main/java/g0902/model/GameModel.java).
+Let’s imagine a scenario: the player pressed the right arrow key and Pac-Man is now moving to the right; if the player presses the up arrow key and Pac-Man has walls in the up direction, meaning he can’t move up, the moment Pac-Man is able to move upwards he moves without needing another input from the player. The function that handles this implementation is called **pacmanMoving** and it's a method from the class [GameModel](../src/main/java/g0902/model/GameModel.java).
 
 The class that handles the input from the user and makes [Pacman](../src/main/java/g0902/model/Elements/Pacman.java) move is [PacmanController](../src/main/java/g0902/control/PacmanController.java).
 
