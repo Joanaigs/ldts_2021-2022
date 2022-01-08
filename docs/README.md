@@ -8,7 +8,6 @@
 ## TABLE OF CONTENTS
 
 - [Controls](#controls)
-- [Gameplay Demo](#gameplay-demo)
 - [Class Diagram UML](#class-diagram-uml)
 - [Implemented Features](#implemented-features) 
     - [Menu](#menu)
@@ -22,7 +21,6 @@
     - [Leaderboard](#leaderboard)
 - [Architectural Pattern](#architectural-pattern)
 - [Design Patterns](#design-patterns)
-  - [Factory Method](#factory-method)
   - [Strategy Pattern](#strategy-pattern)
   - [Observer Pattern](#observer-pattern)
   - [States Pattern](#states-pattern)
@@ -40,6 +38,11 @@
 `>`: Moves Pac-Man to the right.
 
 `<`: Moves Pac-Man to the left.
+
+## CLASS DIAGRAM UML
+<p align="center">
+  <img src="resources/UML_Diagram.gif" width="500" height="300" />
+</p>
 
 ## IMPLEMENTED FEATURES
 
@@ -68,7 +71,8 @@ There are three different game modes. In order to understand them better let’s
 
 The main mode is “**Chase**”. This is when the ghosts are trying to capture Pac-Man. Then, in “**Scatter**” mode, the ghosts stop chasing Pac-Man and each will move to its respective corners. This mode only lasts for a few seconds then changes back to “**Chase**”. In this two modes each ghost has its own implementation. The last game mode is “**Frightened**” and it happens when Pac-Man eats a special coin. In this mode the ghosts move randomly so they aren’t trying to catch Pac-Man. Also, in this mode they are vulnerable because Pac-Man can eat them. When a ghost is eaten it returns to its original position on either chase or scatter mode.  
 
-[ChaseMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode) - [ScatterMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ScatterMode) - [FrightenedMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/FrightenedMode)
+Classes: [ChaseMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode), [ScatterMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ScatterMode), [FrightenedMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/FrightenedMode).
+
 ### Ghosts
 
 Ghost types - There are four types of ghosts: Blinky (the red one), Pinky (the pink one), Inky (the blue one) and Clyde (the orange one).
@@ -132,7 +136,7 @@ When the game ends either the player wins or loses, he asked for his name. Both 
 
 Class: [RankingsMenuModel](src/main/java/g0902/model/Menu/RankingsMenuModel.java).
 
-## ARCHITECTURE PATTERN
+## ARCHITECTURAL PATTERN
 
 **Problem in context**
 
@@ -144,7 +148,7 @@ This particular pattern is useful for games and web applications because it help
 
 **Implementation**
 
-<img src="resources/capa.png" width="200" height="200" />
+<img src="resources/MVC.png" width="500" height="300" />
 
 **Consequences**
 
@@ -166,8 +170,8 @@ TargetChaseStrategy has a TargetStrategy that is either an [AmbushTargetStrategy
 
 **Implementation**
 
-<img src="resources/strategy_pattern1.png" width="300" height="150" />
-<img src="resources/strategy_pattern2.png" width="300" height="100" />
+<img src="resources/strategy_pattern1.png" width="550" height="300" />
+<img src="resources/strategy_pattern2.png" width="550" height="300" />
 
 **Interfaces**: [ChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java), [TargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/TargetStrategy.java).
 
@@ -197,7 +201,7 @@ In this case the class ReadKeys is the publisher and the classes MenuController 
 
 **Implementation**
 
-<img src="resources/observer_pattern.png" width="300" height="100" />
+<img src="resources/observer_pattern.png" width="700" height="500" />
 
 - Subscriber classes: [MenuController](src/main/java/g0902/control/MenuController.java), [PacmanController](src/main/java/g0902/control/PacmanController.java);
 - Publisher class: [ReadKeys](src/main/java/g0902/control/ReadKeys.java). 
@@ -220,7 +224,7 @@ The State pattern allows an object to alter its behavior when its internal state
 
 **Implementation**
 
-<img src="resources/states_pattern.png" width="300" height="200" />
+<img src="resources/states_pattern.png" width="600" height="300" />
 
 - Abstract class: [State](src/main/java/g0902/states/State.java);
 
