@@ -37,7 +37,6 @@ public class RankingsMenuModel implements Model, MenuModel {
                 scores.add(new Pair(dt.get(1), Integer.parseInt(dt.get(0))));
             }
             myReader.close();
-            System.out.println(scores.get(1).getR());
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
