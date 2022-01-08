@@ -65,27 +65,27 @@ There are three different game modes. In order to understand them better let’s
 
 The main mode is “**Chase**”. This is when the ghosts are trying to capture Pac-Man. Then, in “**Scatter**” mode, the ghosts stop chasing Pac-Man and each will move to its respective corners. This mode only lasts for a few seconds then changes back to “**Chase**”. In this two modes each ghost has its own implementation. The last game mode is “**Frightened**” and it happens when Pac-Man eats a special coin. In this mode the ghosts move randomly so they aren’t trying to catch Pac-Man. Also, in this mode they are vulnerable because Pac-Man can eat them. When a ghost is eaten it returns to its original position on either chase or scatter mode.  
 
-Classes: [ChaseMode](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java), [ScatterMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ScatterMode), [FrightenedMode](src/main/java/g0902/model/Elements/Ghosts/MoveMode/FrightenedMode).
+Classes: [ChaseMode](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode), [ScatterMode](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ScatterMode), [FrightenedMode](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/FrightenedMode).
 
 ### Ghosts
 
 Ghost types - There are four types of ghosts: Blinky (the red one), Pinky (the pink one), Inky (the blue one) and Clyde (the orange one).
 
-Classes: [Blinky](src/main/java/g0902/model/Elements/Ghosts/Types/Red.java), [Pinky](src/main/java/g0902/model/Elements/Ghosts/Types/Pink.java), [Inky](src/main/java/g0902/model/Elements/Ghosts/Types/Cyan.java), [Clyde](src/main/java/g0902/model/Elements/Ghosts/Types/Orange.java)
+Classes: [Blinky](../src/main/java/g0902/model/Elements/Ghosts/Types/Red.java), [Pinky](../src/main/java/g0902/model/Elements/Ghosts/Types/Pink.java), [Inky](../src/main/java/g0902/model/Elements/Ghosts/Types/Cyan.java), [Clyde](../src/main/java/g0902/model/Elements/Ghosts/Types/Orange.java)
 
 Each ghost has a different tactic to catch Pac-Man. These are applied when the game is in “**Chase**” mode ([Game mode](#game-mode)).
 
 - **Blinky**: follows Pac-Man once located. 
-  - Implemented in these classes: [TargetChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java), [AggressiveTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AggressiveTargetStrategy.java)
+  - Implemented in these classes: [TargetChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java), [AggressiveTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AggressiveTargetStrategy.java)
 
 - **Pinky**: tries to ambush Pac-Man by getting in front of him.
-  - Implemented in these classes: [TargetChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java), [AmbushTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AmbushTargetStrategy.java)
+  - Implemented in these classes: [TargetChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java), [AmbushTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AmbushTargetStrategy.java)
 
 - **Inky**: tries to trick Pac-Man using both Pac-Man's position and direction as well as Blinky's (the red ghost) position in his calculation.
-  - Implemented in these classes: [TargetChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java), [PatrolTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/PatrolTargetStrategy.java)
+  - Implemented in these classes: [TargetChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java), [PatrolTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/PatrolTargetStrategy.java)
 
 - **Clyde**: moves randomly and appears to stay away from Pac-Man.
-  - Implemented in these classes: [RandomChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/RandomChaseStrategy.java)
+  - Implemented in these classes: [RandomChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/RandomChaseStrategy.java)
 
 When the game is in “**Scatter**” mode ([Game mode](#game-mode)) the following tactics apply:
 
@@ -99,7 +99,7 @@ When the game is in “**Scatter**” mode ([Game mode](#game-mode)) the followi
 
 ### Coins
 
-Coins have two different types: [Small Coin](src/main/java/g0902/model/Elements/Coins/SmallCoin.java) and [Power Coin](src/main/java/g0902/model/Elements/Coins/PowerCoin.java).
+Coins have two different types: [Small Coin](../src/main/java/g0902/model/Elements/Coins/SmallCoin.java) and [Power Coin](../src/main/java/g0902/model/Elements/Coins/PowerCoin.java).
 
 When Pac-Man eats either a **Small Coin** or a **Power Coin** his score increases. However, if he eats a **Power Coin**  that’s when **“Frightened”** mode is activated ([Game mode](#game-mode)).
 
@@ -114,7 +114,7 @@ There are implemented many types of collisions:
 - Pac-Man and Ghosts, which leads to the end of the game.
 - Ghosts and the walls, which prevents the ghosts from moving through walls.
 
-The collision methods are implemented in the class [GameModel](src/main/java/g0902/model/GameModel.java).
+The collision methods are implemented in the class [GameModel](../src/main/java/g0902/model/GameModel.java).
 
 ### Score
 Pacman can gain points to increase his score in several ways:
@@ -128,7 +128,7 @@ When Pac-Man eats all the coins without being caught by ghosts appears a message
 
 When the game ends either the player wins or loses, he asked for his name. Both the name and his score are saved to a file with previous rankings that's updated and reordered by score. 
 
-Class: [RankingsMenuModel](src/main/java/g0902/model/Menu/RankingsMenuModel.java).
+Class: [RankingsMenuModel](../src/main/java/g0902/model/Menu/RankingsMenuModel.java).
 
 ## ARCHITECTURAL PATTERN
 
@@ -159,24 +159,24 @@ In our code, Ghost's have three types of move behaviour. Scatter, Frightened and
 **Pattern**
 
 Implementing the Strategy pattern means taking a big class that does something in many ways and separating the different algorithms into separate classes. So in our case, 
-we decided to create two interfaces: [ChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java) and [TargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/TargetStrategy.java). ChaseStrategy has two implementations: [RandomChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/RandomChaseStrategy.java) and [TargetChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java). 
-TargetChaseStrategy has a TargetStrategy that is either an [AmbushTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AmbushTargetStrategy.java), or an [AggressiveTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AggressiveTargetStrategy.java) or a [PatrolTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/PatrolTargetStrategy.java).
+we decided to create two interfaces: [ChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java) and [TargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/TargetStrategy.java). ChaseStrategy has two implementations: [RandomChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/RandomChaseStrategy.java) and [TargetChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java). 
+TargetChaseStrategy has a TargetStrategy that is either an [AmbushTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AmbushTargetStrategy.java), or an [AggressiveTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AggressiveTargetStrategy.java) or a [PatrolTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/PatrolTargetStrategy.java).
 
 **Implementation**
 
 <img src="resources/strategy_pattern1.png" width="550" height="300" />
 <img src="resources/strategy_pattern2.png" width="550" height="300" />
 
-**Interfaces**: [ChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java), [TargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/TargetStrategy.java).
+**Interfaces**: [ChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java), [TargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/TargetStrategy.java).
 
 **ChaseStrategy** - **Classes implementing**
-  - [RandomChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/RandomChaseStrategy.java);
-  - [TargetChaseStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java);
+  - [RandomChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/RandomChaseStrategy.java);
+  - [TargetChaseStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/TargetChaseStrategy.java);
       
 **TargetStrategy** - **Classes implementing**
-  - [AggressiveTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AggressiveTargetStrategy.java);
-  - [AmbushTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AmbushTargetStrategy.java);
-  - [PatrolTargetStrategy](src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/PatrolTargetStrategy.java);
+  - [AggressiveTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AggressiveTargetStrategy.java);
+  - [AmbushTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/AmbushTargetStrategy.java);
+  - [PatrolTargetStrategy](../src/main/java/g0902/model/Elements/Ghosts/MoveMode/ChaseMode/TargetStrategys/PatrolTargetStrategy.java);
 
 **Consequences**
 
@@ -197,18 +197,18 @@ In this case the class ReadKeys is the publisher and the classes MenuController 
 
 <img src="resources/observer_pattern.png" width="1100" height="400" />
 
-- Subscriber classes: [MenuController](src/main/java/g0902/control/MenuController.java), [PacmanController](src/main/java/g0902/control/PacmanController.java);
-- Publisher class: [ReadKeys](src/main/java/g0902/control/ReadKeys.java). 
+- Subscriber classes: [MenuController](../src/main/java/g0902/control/MenuController.java), [PacmanController](../src/main/java/g0902/control/PacmanController.java);
+- Publisher class: [ReadKeys](../src/main/java/g0902/control/ReadKeys.java). 
 
 **Consequences**
 
-When implementing this pattern it enables objects to establish relations between them at runtime and respects the Open/Closed Principle since it's easy to introduce new subscriber classes without having to change the publisher's code (class [ReadKeys](src/main/java/g0902/control/ReadKeys.java)).
+When implementing this pattern it enables objects to establish relations between them at runtime and respects the Open/Closed Principle since it's easy to introduce new subscriber classes without having to change the publisher's code (class [ReadKeys](../src/main/java/g0902/control/ReadKeys.java)).
 
 ### States Pattern
 
 **Problem in context**
 
-In our project there were many states possible: the one related to the game ([GameState](src/main/java/g0902/states/GameState.java)), to the leaderboard page ([RankingsMenuState](src/main/java/g0902/states/RankingsMenuState.java)), to the instructions page ([InstructionMenuState](src/main/java/g0902/states/InstructionMenuState.java)), to the ending game screen ([EndScreenState](src/main/java/g0902/states/EndScreenState.java)) and to the main menu ([MainMenuState](src/main/java/g0902/states/MainMenuState.java)).
+In our project there were many states possible: the one related to the game ([GameState](../src/main/java/g0902/states/GameState.java)), to the leaderboard page ([RankingsMenuState](../src/main/java/g0902/states/RankingsMenuState.java)), to the instructions page ([InstructionMenuState](src/main/java/g0902/states/InstructionMenuState.java)), to the ending game screen ([EndScreenState](src/main/java/g0902/states/EndScreenState.java)) and to the main menu ([MainMenuState](src/main/java/g0902/states/MainMenuState.java)).
 Without any design pattern properly defining them, the code was messy and there were bulky state machine conditionals. Because of this, we decided to implement the State Pattern.
 
 
@@ -220,9 +220,9 @@ The State pattern allows an object to alter its behavior when its internal state
 
 <img src="resources/states_pattern.png" width="700" height="300" />
 
-- Abstract class: [State](src/main/java/g0902/states/State.java);
+- Abstract class: [State](../src/main/java/g0902/states/State.java);
 
-- Classes that extend State: [EndScreenState](src/main/java/g0902/states/EndScreenState.java), [GameState](src/main/java/g0902/states/GameState.java), [InstructionMenuState](src/main/java/g0902/states/InstructionMenuState.java), [MainMenuState](src/main/java/g0902/states/MainMenuState.java), [RankingsMenuState](src/main/java/g0902/states/RankingsMenuState.java).
+- Classes that extend State: [EndScreenState](../src/main/java/g0902/states/EndScreenState.java), [GameState](../src/main/java/g0902/states/GameState.java), [InstructionMenuState](../src/main/java/g0902/states/InstructionMenuState.java), [MainMenuState](../src/main/java/g0902/states/MainMenuState.java), [RankingsMenuState](../src/main/java/g0902/states/RankingsMenuState.java).
 
 **Consequences**
 
@@ -232,7 +232,7 @@ By implementing the State pattern, the bulky state machine conditionals are elim
 
 ###Some things we would like to change in the future
 
-- The game mode classes that were previously explained: [ChaseMode](src/main/java/model/Elements/Pacman.java), [ScatterMode](src/main/java/model/Elements/Pacman.java) and [FrightenedMode](src/main/java/model/Elements/Pacman.java) extend the abstract class [MovingBehaviour](src/main/java/model/Elements/Pacman.java) since they all share some functions and we think there could be a cleaner way to do it.
+- The game mode classes that were previously explained: [ChaseMode](../src/main/java/model/Elements/Pacman.java), [ScatterMode](../src/main/java/model/Elements/Pacman.java) and [FrightenedMode](../src/main/java/model/Elements/Pacman.java) extend the abstract class [MovingBehaviour](../src/main/java/model/Elements/Pacman.java) since they all share some functions and we think there could be a cleaner way to do it.
 
 - We want to implement the game loop design pattern. 
 
