@@ -27,6 +27,8 @@
   - [Known code smells and refactoring suggestions](#known-code-smells-and-refactoring-suggestions)
 - [Tests](#tests)
   - [Coverage Report](#coverage-report)
+- [Self-evaluation](#self-evaluation)
+
 
 ## CONTROLS
 
@@ -246,3 +248,9 @@ By implementing the State pattern, the bulky state machine conditionals are elim
 ### Coverage Report
 
 <img src="resources/test_coverage.png" width="750" height="300" />
+
+## Self-evaluation
+
+    - Inês Cardoso - 33.33%
+    - Joana Santos - 33.33%
+    - Mariana Carvalho - 33.33%
