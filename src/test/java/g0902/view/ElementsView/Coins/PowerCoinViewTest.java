@@ -1,38 +1,39 @@
-package g0902.view;
+package g0902.view.ElementsView.Coins;
 
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.model.Elements.Coins.PowerCoin;
 import g0902.model.Menu.EndScreenModel;
-import g0902.model.Menu.MainMenuModel;
+import g0902.model.Position;
+import g0902.view.ViewEndScreen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
-import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.times;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 
-public class ViewMainMenuTest {
+public class PowerCoinViewTest {
     private Screen screen;
     private TextGraphics tg;
-    ViewMainMenu view;
-    MainMenuModel model;
+    PowerCoinView view;
     @BeforeEach
     void setUp() throws IOException {
+        Position position=mock(Position.class);
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
-        model=new MainMenuModel();
-        view= new ViewMainMenu(model, screen);
+        view=new PowerCoinView(new PowerCoin(position), tg);
         view.setGraphics(tg);
     }
 
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, Mockito.times(3)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
-        Mockito.verify(tg, Mockito.times(6)).putString(anyInt(), anyInt(), anyString());
-
-    }
+        Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(any());}
 }

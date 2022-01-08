@@ -23,7 +23,7 @@ public class ViewRankingsMenuTest {
     void setUp() throws IOException {
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
-        model=mock(RankingsMenuModel.class);
+        model=new RankingsMenuModel();
         view= new ViewRankingsMenu(model, screen);
         view.setGraphics(tg);
     }
@@ -34,6 +34,5 @@ public class ViewRankingsMenuTest {
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
-        Mockito.verify(tg, Mockito.times(8)).putString(anyInt(), anyInt(), anyString(),any(), any());
     }
 }

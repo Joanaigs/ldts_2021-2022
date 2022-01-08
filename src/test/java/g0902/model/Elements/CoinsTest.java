@@ -32,10 +32,6 @@ public class CoinsTest extends Assertions {
         coinsList.add(new SmallCoin(new Position(2 * 8 + 1, 14 * 12 - 1)));
         coinsList.add(new SmallCoin(new Position(2 * 8 + 1, 16 * 12 - 1)));
 
-        for (Coin p: map.getCoins()) {
-            System.out.println(p.getPosition().getRow());
-            System.out.println(p.getPosition().getCol());
-        }
 
         //To see if it's reading the correct coins
         assertTrue(coinsList.containsAll(map.getPowerCoins()));
