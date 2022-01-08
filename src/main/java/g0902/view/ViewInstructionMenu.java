@@ -36,12 +36,12 @@ public class ViewInstructionMenu extends ViewerMenu<InstructionMenuModel> {
         String s8 = "| <-|| | ||-> |";
         String s9 = "|___||_v_||___|";
 
-        graphics.putString(22, 14, s4);
-        graphics.putString(22, 15, s5);
-        graphics.putString(22, 16, s6);
-        graphics.putString(22, 17, s7);
-        graphics.putString(22, 18, s8);
-        graphics.putString(22, 19, s9);
+        graphics.putString(20, 7, s4);
+        graphics.putString(20, 8, s5);
+        graphics.putString(20, 9, s6);
+        graphics.putString(20, 10, s7);
+        graphics.putString(20, 11, s8);
+        graphics.putString(20, 12, s9);
     }
 
     public void draw() throws IOException {
@@ -50,6 +50,10 @@ public class ViewInstructionMenu extends ViewerMenu<InstructionMenuModel> {
         intructrionsDraw();
         graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
         arrowsDraw();
+        graphics.putString(5, 16, "The game goal in our version is that Pac-Man");
+        graphics.putString(5, 17, "eats all the coins without being caught by the");
+        graphics.putString(5, 18, "different ghosts.");
+        graphics.putString(2, 20, "Run from the ghosts while they are trying to catch you!");
         screen.refresh();
     }
 }
