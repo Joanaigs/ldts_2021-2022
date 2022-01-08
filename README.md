@@ -3,8 +3,6 @@
 
 # We present to you our version of Pac-Man!
 
-![Pac-Man Image](https://sm.ign.com/ign_br/screenshot/default/artboard-29_mu8f.png)
-
 In this version you can find Pac-Man, which is the character the player plays, coins that have different properties and ghosts that haunt Pac-Man trying to catch him!
 
 The game goal in our version is that Pac-Man eats all the coins without being caught by the different ghosts while the difficulty, in this case the velocity of the ghosts, increases.
