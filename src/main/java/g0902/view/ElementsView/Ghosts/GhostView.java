@@ -11,7 +11,7 @@ public abstract class GhostView extends View {
 
     public GhostView(TextGraphics graphics) { super(graphics); }
 
-    protected String[]  setGhostDraw(Direction direction){
+    public String[]  setGhostDraw(Direction direction){
         String[] ghostDraw = new String[0];
         switch (direction) {
             case Right -> ghostDraw = Constants.RIGHT_GHOST;
