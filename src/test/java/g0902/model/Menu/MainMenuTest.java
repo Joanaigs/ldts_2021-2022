@@ -12,7 +12,7 @@ public class MainMenuTest {
         main.selectNext();
         Assertions.assertEquals(new TextColor.RGB(255, 202, 24), main.getSelectedElement().getFillColor());
         main.selectNext();
-        Assertions.assertEquals("RANKINGS", main.getSelected());
+        Assertions.assertEquals("LEADERBOARD", main.getSelected());
     }
     @Test
     public void selectPrevious(){

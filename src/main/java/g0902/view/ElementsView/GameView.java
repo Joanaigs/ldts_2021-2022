@@ -1,5 +1,7 @@
 package g0902.view.ElementsView;
 
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import g0902.model.Elements.Coins.PowerCoin;
@@ -69,6 +71,7 @@ public  class GameView extends Viewer<GameModel> {
         orangeViewer.draw();
         cyanViewer.draw();
         pacmanViewer.draw();
+
         getScreen().refresh(Screen.RefreshType.AUTOMATIC);
     }
 }

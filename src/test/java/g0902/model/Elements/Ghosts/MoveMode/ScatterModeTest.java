@@ -43,14 +43,14 @@ public class ScatterModeTest {
 
     @Test
     void pinkScatter(){
-        Pink pink=new Pink(map.getCyan().getPosition());
+        Pink pink=new Pink(map.getPink().getPosition());
         pink.setMap(map);
         pink.setCurrentDirection(pink.getScatterBehaviour().Scatter(20));
         Assertions.assertEquals(Direction.Left, pink.getCurrentDirection());
     }
     @Test
     void redScatter(){
-        Red red=new Red(map.getCyan().getPosition());
+        Red red=new Red(map.getRed().getPosition());
         red.setMap(map);
         red.setCurrentDirection(red.getScatterBehaviour().Scatter(20));
         Assertions.assertEquals(Direction.Right, red.getCurrentDirection());

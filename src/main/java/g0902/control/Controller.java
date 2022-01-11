@@ -75,7 +75,7 @@ public class Controller {
                     state = new MainMenuState();
                     run();
                     break;
-                case "RANKINGS":
+                case "LEADERBOARD":
                     state = new RankingsMenuState();
                     run();
                     state = new MainMenuState();
@@ -87,4 +87,9 @@ public class Controller {
             }
         }
     }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 }
+

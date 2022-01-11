@@ -3,7 +3,7 @@ package g0902.model.Menu.Options;
 public enum MenuOption {
     START("START"),
     INSTRUCTIONS("INSTRUCTIONS"),
-    RANKINGS("RANKINGS"),
+    LEADERBOARD("LEADERBOARD"),
     EXIT("EXIT");
     private final String text;
 
@@ -12,6 +12,9 @@ public enum MenuOption {
     }
 
     public String getText() {
-        return text;
+        if (text.length()==0)
+            return "";
+        else
+            return text;
     }
 }

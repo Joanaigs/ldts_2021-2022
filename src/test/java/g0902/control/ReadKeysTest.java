@@ -5,6 +5,7 @@ import g0902.model.Menu.MainMenuModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class ReadKeysTest {
