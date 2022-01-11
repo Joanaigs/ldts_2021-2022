@@ -9,6 +9,8 @@ public class EndScreenModelTest {
     void test(){
         EndScreenModel endScreenModel=new EndScreenModel();
         Assertions.assertEquals("___", endScreenModel.name);
+        Assertions.assertEquals(false, endScreenModel.lost);
+        Assertions.assertEquals(true, endScreenModel.isRunning());
         endScreenModel.addLetter('s');
         Assertions.assertEquals("s__", endScreenModel.name);
     }
