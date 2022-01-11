@@ -3,16 +3,11 @@ package g0902.view;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.InstructionMenuModel;
 
 import java.io.IOException;
 
-public class ViewInstructionMenu extends ViewerMenu<InstructionMenuModel> {
-
-    public ViewInstructionMenu(InstructionMenuModel model) {
-        super(model);
-    }
+public class ViewInstructionMenu extends Viewer {
 
     public ViewInstructionMenu(InstructionMenuModel model, Screen screen) {
         super(model, screen);

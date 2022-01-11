@@ -3,6 +3,7 @@ package g0902.states;
 import g0902.control.EndScreenControler;
 import g0902.control.Observer;
 import g0902.control.PacmanController;
+import g0902.gui.LanternaGUI;
 import g0902.model.GameModel;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Model;
@@ -17,19 +18,21 @@ public class GameState extends State{
     private PacmanController pacmanController;
     private long totalTime, pastTime;
     public static final long TIME_FIXED = 20;
+    LanternaGUI gui;
 
     private void initializing() throws IOException {
-        this.pastTime=pastTime;
         gameModel = new GameModel();
         pacmanController = new PacmanController(gameModel.getMap().getPacman());
         totalTime = 0;
         pastTime = System.currentTimeMillis();
+        gui=new LanternaGUI();
+        gui.createScreenGame();
     }
 
     public GameState() throws IOException {
         super();
         initializing();
-        gameView = new GameView(gameModel);
+        gameView = new GameView(gameModel, gui.getScreen());
     }
 
     public GameState(GameView view) throws IOException {

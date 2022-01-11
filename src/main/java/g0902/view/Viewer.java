@@ -18,36 +18,10 @@ public abstract class Viewer<T extends Model> {
     protected Screen screen;
     protected TextGraphics graphics;
 
-    public Viewer(T model){
-        initScreen();
-        this.model=model;
-    }
-
     public Viewer(T model, Screen gui){
         this.model=model;
         this.screen=gui;
-    }
-
-    public void initScreen() {
-        try {
-            Font font = new Font(Font.MONOSPACED, Font.PLAIN, 2);
-            AWTTerminalFontConfiguration cfg = new SwingTerminalFontConfiguration(true, AWTTerminalFontConfiguration.BoldMode.NOTHING, font);
-            Terminal terminal = new DefaultTerminalFactory()
-                    .setInitialTerminalSize(new TerminalSize(469, 350))
-                    .setTerminalEmulatorFontConfiguration(cfg)
-                    .createTerminal();
-
-            screen = new TerminalScreen(terminal);
-
-            screen.setCursorPosition(null);   // We don't need a cursor
-            screen.startScreen();             // Screens must be started
-            screen.doResizeIfNecessary();     // Resize screen if necessary
-            screen.clear();
-            graphics=screen.newTextGraphics();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        graphics=screen.newTextGraphics();
     }
 
     public abstract void draw() throws IOException;

@@ -3,6 +3,7 @@ package g0902.states;
 import g0902.control.EndScreenControler;
 import g0902.control.MenuController;
 import g0902.control.Observer;
+import g0902.gui.LanternaGUI;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.MainMenuModel;
 import g0902.model.Model;
@@ -15,15 +16,18 @@ public class MainMenuState extends State{
     private ViewMainMenu viewMainMenu;
     private MenuController menuController;
     private MainMenuModel mainMenuModel;
+    LanternaGUI gui;
 
     private void initializing() throws IOException {
         mainMenuModel=new MainMenuModel();
         menuController=new MenuController(mainMenuModel);
+        gui=new LanternaGUI();
+        gui.createScreenMenu();
     }
     public MainMenuState() throws IOException {
         super();
         initializing();
-        viewMainMenu=new ViewMainMenu(mainMenuModel);
+        viewMainMenu=new ViewMainMenu(mainMenuModel, gui.getScreen());
     }
 
     public MainMenuState(ViewMainMenu view) throws IOException {

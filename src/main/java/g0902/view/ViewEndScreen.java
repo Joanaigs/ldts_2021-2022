@@ -4,17 +4,11 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
 import g0902.model.Menu.EndScreenModel;
-import g0902.model.Menu.MainMenuModel;
 
 import java.io.IOException;
 
-public class ViewEndScreen extends ViewerMenu<EndScreenModel>{
+public class ViewEndScreen extends Viewer {
     EndScreenModel endScreenModel;
-    public ViewEndScreen(EndScreenModel endScreenModel) {
-        super(endScreenModel);
-        this.endScreenModel=endScreenModel;
-    }
-
     public ViewEndScreen(EndScreenModel model, Screen screen) {
         super(model, screen);
         this.endScreenModel=model;
