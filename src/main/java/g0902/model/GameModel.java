@@ -19,6 +19,7 @@ public class GameModel implements Model{
     int score;
     Ghost red, pink, cyan, orange;
     Pacman pacman;
+    int lives;
     boolean isRunning;
     boolean lost;
 
@@ -31,6 +32,7 @@ public class GameModel implements Model{
         orange = map.getOrange();
         pacman = map.getPacman();
         isRunning=true;
+        lives=3;
         lost=false;
     }
 
@@ -152,8 +154,17 @@ public class GameModel implements Model{
                ghost.setFrightenedModeOff();
            }
            else{
-               isRunning=false;
-               lost=true;
+               lives--;
+               if(lives==0){
+                   lost=true;
+                   isRunning=false;
+               }
+               red.setPosition(red.getBeginPosition());
+               orange.setPosition(orange.getBeginPosition());
+               pink.setPosition(pink.getBeginPosition());
+               cyan.setPosition(cyan.getBeginPosition());
+               pacman.setPosition(pacman.getBeginPosition());
+               pacman.setDirection(Direction.Down);
            }
        }
    }

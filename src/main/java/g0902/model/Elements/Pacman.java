@@ -9,6 +9,7 @@ public class Pacman extends Element{
     private final double velocity = 50;
     private boolean mouthOpen;
     private boolean colliding;
+    private final Position beginPosition;
 
     public Pacman(Position position) {
         super(position);
@@ -16,6 +17,8 @@ public class Pacman extends Element{
         currentDirection = Direction.Down;
         nextDirection = Direction.None;
         mouthOpen = true;
+        beginPosition=position;
+
     }
     // +5, -2, 26, 11
 
@@ -89,5 +92,9 @@ public class Pacman extends Element{
 
     public int getScore(){
         return highscore;
+    }
+
+    public Position getBeginPosition() {
+        return beginPosition;
     }
 }
