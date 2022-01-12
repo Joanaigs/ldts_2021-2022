@@ -9,12 +9,8 @@ import g0902.model.Pair;
 import java.io.IOException;
 import java.util.List;
 
-public class ViewRankingsMenu extends ViewerMenu {
+public class ViewRankingsMenu extends Viewer {
     RankingsMenuModel rankingsMenuModel;
-    public ViewRankingsMenu(RankingsMenuModel rankingsMenuModel) {
-        super(rankingsMenuModel);
-        this.rankingsMenuModel=rankingsMenuModel;
-    }
     public ViewRankingsMenu(RankingsMenuModel rankingsMenuModel, Screen screen) {
         super(rankingsMenuModel, screen);
         this.rankingsMenuModel=rankingsMenuModel;

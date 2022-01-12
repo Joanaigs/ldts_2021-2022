@@ -2,6 +2,7 @@ package g0902.states;
 
 import g0902.control.EndScreenControler;
 import g0902.control.Observer;
+import g0902.gui.LanternaGUI;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Model;
 import g0902.view.ViewEndScreen;
@@ -13,14 +14,17 @@ public class EndScreenState extends State{
     ViewEndScreen viewEndScreen;
     EndScreenModel endScreenModel;
     EndScreenControler endScreenControler;
+    LanternaGUI gui;
     private void initializing(){
         endScreenModel= new EndScreenModel();
         endScreenControler=new EndScreenControler(endScreenModel);
+        gui=new LanternaGUI();
+        gui.createScreenMenu();
     }
     public EndScreenState() throws IOException {
         super();
         initializing();
-        viewEndScreen= new ViewEndScreen(endScreenModel);
+        viewEndScreen= new ViewEndScreen(endScreenModel, gui.getScreen());
     }
     //for testing only
     public EndScreenState(ViewEndScreen view) {

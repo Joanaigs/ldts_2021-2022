@@ -40,8 +40,8 @@ public  class GameView extends Viewer<GameModel> {
             wallsViewers[i++]= new WallView(wall, graphics);
     }
 
-    public GameView(GameModel gameModel) throws IOException {
-        super(gameModel);
+    public GameView(GameModel gameModel, Screen screen) throws IOException {
+        super(gameModel, screen);
         this.gameModel=gameModel;
         create();
     }
