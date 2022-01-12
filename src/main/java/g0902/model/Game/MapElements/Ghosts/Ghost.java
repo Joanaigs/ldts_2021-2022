@@ -20,7 +20,7 @@ public class Ghost extends Element {
     protected long frightenedTime;
     Position beginPosition;
     Map map;
-    private final static int width = 34;
+    private final static int width = 35;
     private final static int height = 15;
     int score;
 
@@ -55,10 +55,15 @@ public class Ghost extends Element {
         fixPassScreenBorder();
     }
 
+    @Override
+    public Collider getCollider() {
+        return new Collider(new Position(position.getRow(), position.getCol()), width, height);
+    }
+
     public final void fixPassScreenBorder(){
-        if(getPosition().getCol() > map.getWidth())
+        if(getPosition().getCol() > map.getWidth()-1)
             getPosition().setCol(-width);
-        else if(getPosition().getCol() < -width)
+        else if(getPosition().getCol() < -width+1)
             getPosition().setCol(map.getWidth());
     }
 
@@ -92,10 +97,6 @@ public class Ghost extends Element {
 
     public long getFrightenedTime() {return frightenedTime;}
 
-    @Override
-    public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 35, 15);
-    }
 
     public ChaseStrategy getChaseStrategy() {
         return chaseStrategy;

@@ -10,6 +10,7 @@ import g0902.model.Game.Map.Builders.MapReader;
 import g0902.model.Game.Map.Map;
 import g0902.model.Model;
 import g0902.model.Position;
+import g0902.view.ElementsView.Collider;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,6 +61,11 @@ public class GameModel implements Model {
         }
    }
 
+    private void coinCollisions(){
+        if(!smallCoinCollisions())
+            powerCoinCollisions();
+    }
+
     private boolean smallCoinCollisions(){
         for(int i= -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
@@ -92,13 +98,11 @@ public class GameModel implements Model {
             map.getPowerCoins().removeAll(toRemove);
     }
 
-   private void coinCollisions(){
-       if(!smallCoinCollisions())
-           powerCoinCollisions();
-   }
 
    private void ghostPacmanCollisions(Ghost ghost){
-       if(pacman.getCollider().collision(ghost.getCollider())){
+       Collider ghostCollider = new Collider(ghost.getPosition(), 22, 5);
+       Collider pacmanCollider = new Collider(pacman.getPosition(), 22, 5);
+       if(ghostCollider.collision(pacmanCollider)){
            if(ghost.getFrightenedModeOn()){
                pacman.increaseScore(ghost.getScore());
                ghost.updateScore();
@@ -111,29 +115,28 @@ public class GameModel implements Model {
                    lost=true;
                    isRunning=false;
                }
-               for( Ghost g: ghosts)
-                   g.setPosition(g.getBeginPosition());
-
-               pacman.setPosition(pacman.getBeginPosition());
-               pacman.setDirection(Direction.Down);
+               resetGame();
+               }
            }
        }
-   }
 
-    public boolean isRunning(){    //TO CHANGE LATER    // JOANA, EU INES PERGUNTO PORQUE?
-        return isRunning;
+    private void resetGame() {
+        pacman.setDirection(Direction.Down);
+        pacman.setPosition(pacman.getBeginPosition());
+
+        for (Ghost g : ghosts) {
+            g.setPosition(g.getBeginPosition());
+            if (g.getFrightenedModeOn())
+                g.setFrightenedModeOff();
+        }
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
+    public boolean isRunning(){return isRunning;}
 
-    public int getScore() {
-        return score;
-    }
+    public void setScore(int score) {this.score = score;}
 
-    public boolean hasLost() {
-        return lost;
-    }
+    public int getScore() {return score;}
+
+    public boolean hasLost() {return lost;}
 }
 

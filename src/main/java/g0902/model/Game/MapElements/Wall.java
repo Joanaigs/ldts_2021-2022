@@ -4,7 +4,6 @@ import g0902.view.ElementsView.Collider;
 import g0902.model.Position;
 
 public class Wall extends Element{
-
     private int width, height;
     private Collider collider;
 

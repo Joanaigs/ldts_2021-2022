@@ -101,14 +101,12 @@ public class Pacman extends Element{
         return false;
     }
 
-
     public final void fixPassScreenBorder(){
         if(getPosition().getCol() > map.getWidth())
             getPosition().setCol(-width);
         else if(getPosition().getCol() < -width)
             getPosition().setCol(map.getWidth());
     }
-
 
     public void update(long deltatime){
         Position oldPosition = new Position(getPosition().getRow(), getPosition().getCol());
