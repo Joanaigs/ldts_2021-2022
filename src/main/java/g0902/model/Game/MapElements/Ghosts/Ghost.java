@@ -56,17 +56,13 @@ public class Ghost extends Element {
     }
 
     public Position move(long deltatime, Direction direction){
-        switch(direction){
-            case Up:
-                return new Position(position.getRow()- (int)(velocity*deltatime/1000), position.getCol());
-            case Down:
-                return new Position(position.getRow()+ (int)(velocity*deltatime/1000), position.getCol());
-            case Left:
-                return new Position(position.getRow(), position.getCol() - (int)(velocity*deltatime/1000*1.8));
-            case Right:
-                return new Position(position.getRow(), position.getCol() + (int)(velocity*deltatime/1000*1.8));
-        }
-        return new Position(position.getRow(), position.getCol());
+        return switch (direction) {
+            case Up -> new Position(position.getRow() - (int) (velocity * deltatime / 1000), position.getCol());
+            case Down -> new Position(position.getRow() + (int) (velocity * deltatime / 1000), position.getCol());
+            case Left -> new Position(position.getRow(), position.getCol() - (int) (velocity * deltatime / 1000 * 1.8));
+            case Right -> new Position(position.getRow(), position.getCol() + (int) (velocity * deltatime / 1000 * 1.8));
+            default -> new Position(position.getRow(), position.getCol());
+        };
     }
 
     public boolean collideWithWall(Map map)

@@ -5,7 +5,7 @@ import g0902.model.Direction;
 import g0902.model.Game.MapElements.Pacman;
 
 public class PacmanController implements Observer {
-    private Pacman pacman;
+    private final Pacman pacman;
 
     public PacmanController(Pacman pacman){
         this.pacman = pacman;

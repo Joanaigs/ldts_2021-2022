@@ -2,7 +2,6 @@ package g0902.model.Game;
 
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.*;
-import g0902.model.Game.MapElements.Coins.Coin;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
 import g0902.model.Game.MapElements.Ghosts.Ghost;
@@ -17,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameModel implements Model {
-    private Map map;
-    private List<Ghost> ghosts;
+    private final Map map;
+    private final List<Ghost> ghosts;
     boolean wasSmallCoin;
     int score;
     Pacman pacman;
@@ -80,7 +79,7 @@ public class GameModel implements Model {
     }
 
     private void powerCoinCollisions(){
-        ArrayList<Coin> toRemove;
+        ArrayList<PowerCoin> toRemove;
         if (!wasSmallCoin){
             toRemove = new ArrayList<>();
             for (PowerCoin powerCoin : map.getPowerCoins()) {
@@ -140,3 +139,4 @@ public class GameModel implements Model {
         return lost;
     }
 }
+

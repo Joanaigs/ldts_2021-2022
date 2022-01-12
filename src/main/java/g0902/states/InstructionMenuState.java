@@ -24,7 +24,7 @@ public class InstructionMenuState extends State{
         gui.createScreenMenu();
     }
 
-    public InstructionMenuState() throws IOException {
+    public InstructionMenuState(){
         super();
         initializing();
         viewInstructionMenu=new ViewInstructionMenu(instructionMenuModel, gui.getScreen());
@@ -43,9 +43,7 @@ public class InstructionMenuState extends State{
 
 
     @Override
-    public Observer getObserver() throws IOException {
-        return instructionMenuController;
-    }
+    public Observer getObserver() throws IOException {return instructionMenuController;}
 
     @Override
     public Model getModel() {
@@ -73,5 +71,5 @@ public class InstructionMenuState extends State{
     }
 
     @Override
-    public State nextState() throws IOException {return new MainMenuState();}
+    public State nextState() {return new MainMenuState();}
 }

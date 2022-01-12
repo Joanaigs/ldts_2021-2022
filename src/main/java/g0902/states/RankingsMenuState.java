@@ -1,10 +1,8 @@
 package g0902.states;
 
-import g0902.control.EndScreenControler;
 import g0902.control.Observer;
 import g0902.control.RankingsMenuControler;
 import g0902.gui.LanternaGUI;
-import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewRankingsMenu;
@@ -72,5 +70,5 @@ public class RankingsMenuState extends State{
     }
 
     @Override
-    public State nextState() throws IOException {return new MainMenuState();}
+    public State nextState() {return new MainMenuState();}
 }

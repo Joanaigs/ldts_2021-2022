@@ -15,9 +15,9 @@ import java.util.List;
 
 public class Map {
     private Pacman pacman;
-    private List<Wall> walls;
-    private List<PowerCoin> powerCoins;
-    private HashMap<Position, SmallCoin> smallCoins;
+    private final List<Wall> walls;
+    private final List<PowerCoin> powerCoins;
+    private final HashMap<Position, SmallCoin> smallCoins;
     Ghost red, cyan, orange, pink;
 
     public Map(){

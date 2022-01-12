@@ -1,15 +1,10 @@
 package g0902.control;
 
-import g0902.model.Game.GameModel;
-import g0902.model.Menu.EndScreenModel;
-import g0902.model.Menu.MainMenuModel;
-import g0902.model.Menu.RankingsMenuModel;
 import g0902.states.*;
 import g0902.view.Viewer;
 
 import java.io.IOException;
 
-import static java.lang.System.exit;
 
 public class Controller {
     Thread thread;
@@ -18,7 +13,7 @@ public class Controller {
     Viewer viewer;
 
 
-    public Controller() throws IOException {
+    public Controller(){
         readKeys =  new ReadKeys();
         thread = new Thread(readKeys);
         thread.start();
