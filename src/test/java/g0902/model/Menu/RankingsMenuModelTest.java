@@ -13,6 +13,7 @@ public class RankingsMenuModelTest {
         rankingsMenuModel.sortD();
         Assertions.assertEquals(2, rankingsMenuModel.getScores().size());
         Assertions.assertEquals(2000,rankingsMenuModel.getScores().get(0).getR());
+        Assertions.assertEquals("JGS",rankingsMenuModel.getScores().get(0).getL());
         rankingsMenuModel.addScore("ART", 10);
         Assertions.assertEquals(3,rankingsMenuModel.getScores().size());
     }

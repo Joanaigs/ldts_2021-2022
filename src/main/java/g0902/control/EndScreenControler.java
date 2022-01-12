@@ -19,7 +19,7 @@ public class EndScreenControler implements Observer {
         if(key.getKeyType() == KeyType.Enter){
             endScreenModel.setRunning(false);
         }
-        if(nameSize<=3){
+        if(nameSize<3){
             endScreenModel.addLetter(key.getCharacter());
             nameSize++;
         }

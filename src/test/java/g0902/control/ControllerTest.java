@@ -7,6 +7,7 @@ import g0902.states.EndScreenState;
 import g0902.states.MainMenuState;
 import g0902.states.State;
 import g0902.view.Viewer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -15,14 +16,20 @@ import java.io.IOException;
 import static org.mockito.Mockito.mock;
 
 public class ControllerTest {
-    @Test
-    public void testMainMenu() throws IOException {
-        MainMenuState state =mock(MainMenuState.class);
-        Viewer viewer=mock(Viewer.class);
+    MainMenuState state;
+    Viewer viewer;
+    Controller controller;
+    @BeforeEach
+    void setUp() throws IOException {
+        state =mock(MainMenuState.class);
+        viewer=mock(Viewer.class);
         Mockito.when(state.getViewer()).thenReturn(viewer);
-        Controller controller=new Controller();
+        controller=new Controller();
         controller.setState(state);
         controller.run();
+    }
+    @Test
+    public void testMainMenu() throws IOException {
         Mockito.verify(state, Mockito.times(1)).isRunning();
         Mockito.verify(viewer, Mockito.times(1)).closeScreen();
         Mockito.verify(state, Mockito.times(1)).getViewer();
@@ -30,12 +37,6 @@ public class ControllerTest {
     }
     @Test
     public void testEndScreen() throws IOException {
-        EndScreenState state =mock(EndScreenState.class);
-        Viewer viewer=mock(Viewer.class);
-        Mockito.when(state.getViewer()).thenReturn(viewer);
-        Controller controller=new Controller();
-        controller.setState(state);
-        controller.run();
         Mockito.verify(state, Mockito.times(1)).isRunning();
         Mockito.verify(viewer, Mockito.times(1)).closeScreen();
         Mockito.verify(state, Mockito.times(1)).getViewer();

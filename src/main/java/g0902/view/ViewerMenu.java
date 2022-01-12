@@ -5,6 +5,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.TerminalEmulatorAutoCloseTrigger;
 import g0902.model.Model;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ public abstract class ViewerMenu<T extends Model> extends Viewer{
         try {
             TerminalSize terminalSize = new TerminalSize(59, 29);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+            terminalFactory.setTerminalEmulatorFrameAutoCloseTrigger(TerminalEmulatorAutoCloseTrigger.CloseOnExitPrivateMode);
             Terminal terminal = terminalFactory.createTerminal();
             screen = new TerminalScreen(terminal);
             screen.setCursorPosition(null); // we don't need a cursor
