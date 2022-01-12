@@ -97,4 +97,8 @@ public class Pacman extends Element{
     public Position getBeginPosition() {
         return beginPosition;
     }
+
+    public void setMouthOpen(boolean mouthOpen) {
+        this.mouthOpen = mouthOpen;
+    }
 }

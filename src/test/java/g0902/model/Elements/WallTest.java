@@ -46,10 +46,20 @@ public class WallTest extends Assertions{
                         new Wall(new Position(2*8,6*12), 12, 8),
                         new Wall(new Position(2*8,7*12), 12, 8),
                         new Wall(new Position(2*8,8*12), 12, 8)));
-
         //To see if it's reading the correct walls
         assertEquals(true, wallList.containsAll(map.getWalls()));
         assertEquals(true, map.getWalls().containsAll(wallList));
+        assertEquals(true, wallList.get(0).equals(wallList.get(0)));
+        assertEquals(false, wallList.get(0).equals(wallList.get(1)));
+        assertEquals(false, wallList.get(0).equals(null));
+        assertEquals(12, wallList.get(0).getWidth());
+        assertEquals(8, wallList.get(0).getHeight());
+
+        //testing position
+        assertEquals(true, wallList.get(0).getPosition().equals(new Position(0*8,0*12)));
+        assertEquals(false, wallList.get(0).getPosition().equals(new Position(0*8,1*12)));
+        assertEquals(false, wallList.get(0).getPosition().equals(null));
+        assertEquals(961, wallList.get(0).getPosition().hashCode());
 
     }
 

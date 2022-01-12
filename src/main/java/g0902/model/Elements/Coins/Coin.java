@@ -14,7 +14,7 @@ public abstract class Coin extends Element {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
+        if (this.position == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Coin coin = (Coin) obj;
         return coin.getPosition().equals(position);

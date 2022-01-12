@@ -18,13 +18,6 @@ public class PatrolTargetStrategy implements TargetStrategy {
                 tempTargetRow = map.getPacman().getPosition().getRow() +2*8;
                 break;
 
-            case Up:
-                tempTargetRow = map.getPacman().getPosition().getRow() -2*8;
-                if(pos.getCol() < map.getPacman().getPosition().getCol())
-                    tempTargetCol = map.getPacman().getPosition().getCol()+2*12;
-                else tempTargetCol = map.getPacman().getPosition().getCol()+2*12;
-                break;
-
             case Left:
                 tempTargetCol = map.getPacman().getPosition().getCol()-2*12;
                 tempTargetRow = map.getPacman().getPosition().getRow();

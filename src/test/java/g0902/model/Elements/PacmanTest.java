@@ -68,4 +68,26 @@ public class PacmanTest extends Assertions{
         pacman.increaseScore(SmallCoin.SmallCoinValue);
         assertEquals(210, pacman.getScore());
     }
+
+    @Test
+    void moveTest(){
+        Assertions.assertEquals(new Position(3*8+1-(50*20/1000), 3*12-1), pacman.move(20, Direction.Up));
+        Assertions.assertEquals(new Position(3*8+1+(50*20/1000), 3*12-1), pacman.move(20, Direction.Down));
+        Assertions.assertEquals(new Position(3*8+1, (int)3*12-3), pacman.move(20, Direction.Left));
+        Assertions.assertEquals(new Position(3*8+1, (int)3*12+1), pacman.move(20, Direction.Right));
+        Assertions.assertEquals(new Position(3*8+1, 3*12-1), pacman.move(20, Direction.None));
+
+        pacman.setDirection(Direction.Up);
+        Assertions.assertEquals(new Position(3*8+1-(50*20/1000), 3*12-1), pacman.moveNextDirection(20));
+        pacman.nextDirection();
+        Assertions.assertEquals(new Position(3*8+1-(50*20/1000), 3*12-1), pacman.moveCurrentDirection(20));
+        Assertions.assertEquals(new Position(3*8+1, 3*12-1), pacman.getBeginPosition());
+        Assertions.assertEquals(true, pacman.isOpen());
+        pacman.setMouthOpen(false);
+        Assertions.assertEquals(false, pacman.isOpen());
+        pacman.setDirection(Direction.Down);
+        Assertions.assertEquals(Direction.Down, pacman.getNextDirection());
+        pacman.setPosition(new Position(1,1));
+        Assertions.assertEquals(new Position(1,1), pacman.getPosition());
+    }
 }

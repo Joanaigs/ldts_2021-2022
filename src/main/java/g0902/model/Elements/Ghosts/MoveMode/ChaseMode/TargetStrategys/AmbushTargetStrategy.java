@@ -16,13 +16,6 @@ public class AmbushTargetStrategy implements TargetStrategy {
                 targetRow = map.getPacman().getPosition().getRow() +4*8;    // a little lower
                 break;
 
-            case Up:
-                targetRow = map.getPacman().getPosition().getRow() -4*8;
-                if(pos.getCol() < map.getPacman().getPosition().getCol())
-                    targetCol = map.getPacman().getPosition().getCol()+4*12;
-                else targetCol = map.getPacman().getPosition().getCol()+4*12;
-                break;
-
             case Left:
                 targetCol = map.getPacman().getPosition().getCol()-4*12;
                 targetRow = map.getPacman().getPosition().getRow();
@@ -32,6 +25,8 @@ public class AmbushTargetStrategy implements TargetStrategy {
                 targetCol = map.getPacman().getPosition().getCol()+4*12;
                 targetRow = map.getPacman().getPosition().getRow();
                 break;
+
+            case Up:
 
             default:
                 targetRow = map.getPacman().getPosition().getRow() -4*8;

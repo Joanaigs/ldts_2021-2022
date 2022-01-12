@@ -38,5 +38,8 @@ public class CoinsTest extends Assertions {
         assertTrue(coinsList.containsAll(map.getSmallCoins().values()));
         assertEquals(true, coinsList.containsAll(map.getCoins()));
         assertEquals(true, map.getCoins().containsAll(coinsList));
+        assertEquals(true, coinsList.get(0).equals(new PowerCoin(new Position(17, 143))));
+        assertEquals(false, coinsList.get(0).equals(new Position( 1,  1)));
+        assertEquals(false, coinsList.get(0).equals(null));
     }
 }

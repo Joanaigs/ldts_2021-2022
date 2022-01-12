@@ -132,4 +132,12 @@ public class Ghost extends Element {
     public Position getBeginPosition() {
         return beginPosition;
     }
+
+    public void setFrightenedTime(long frightenedTime) {
+        this.frightenedTime = frightenedTime;
+    }
+
+    public void setCounterTime(long counterTime) {
+        this.counterTime = counterTime;
+    }
 }

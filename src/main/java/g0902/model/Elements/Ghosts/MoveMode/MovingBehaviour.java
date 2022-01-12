@@ -24,13 +24,13 @@ public abstract class MovingBehaviour{
         this.map = map;
     }
 
-    protected double calculateDistance(Position pos1, Position pos2){
+    public double calculateDistance(Position pos1, Position pos2){
         double dis;
         dis = Math.sqrt((pos2.getCol() - pos1.getCol()) * (pos2.getCol() - pos1.getCol()) + (pos2.getRow() - pos1.getRow()) * (pos2.getRow() - pos1.getRow()));
         return dis;
     }
 
-    protected int correspondenceToSmallestDistance(ArrayList<Double> dists) {
+    public int correspondenceToSmallestDistance(ArrayList<Double> dists) {
         int index = 0;
         for (int i = 1; i < dists.size(); i++) {
             if (dists.get(i) < dists.get(index)) {
@@ -41,7 +41,7 @@ public abstract class MovingBehaviour{
         return index;
     }
 
-    public static int getRandomNumberInRange(int min, int max) {
+    public int getRandomNumberInRange(int min, int max) {
 
         if (min >= max) {
             throw new IllegalArgumentException("max must be greater than min");
@@ -51,7 +51,7 @@ public abstract class MovingBehaviour{
         return r.nextInt((max - min) + 1) + min;
     }
 
-    protected ArrayList<Direction> removeOppositeDirections(ArrayList<Direction> directions){
+    public ArrayList<Direction> removeOppositeDirections(ArrayList<Direction> directions){
         if (ghost.getCurrentDirection() == Left) {
             directions.remove(Right);
         } else if (ghost.getCurrentDirection() == Right) {
@@ -65,7 +65,7 @@ public abstract class MovingBehaviour{
         return directions;
     }
 
-    protected ArrayList<Direction> removeCollidingDirections(ArrayList<Direction> directions, long deltatime){
+    public ArrayList<Direction> removeCollidingDirections(ArrayList<Direction> directions, long deltatime){
         ArrayList<Direction> toRemove = new ArrayList<>();
         for (Direction direction : directions) {
             Position pos = ghost.move(deltatime, direction);
@@ -77,7 +77,7 @@ public abstract class MovingBehaviour{
         return directions;
     }
     
-    protected ArrayList<Direction> setupPossibleDirections(long deltatime){
+    public ArrayList<Direction> setupPossibleDirections(long deltatime){
         ArrayList<Direction> directions = new ArrayList<>();  // Array with every movement option
         directions.add(Up);
         directions.add(Left);

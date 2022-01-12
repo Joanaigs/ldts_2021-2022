@@ -24,6 +24,7 @@ public class ChaseModeTest {
         map = mapbuilder.createMap("map");
     }
 
+
     @Test
     void cyanChase(){
         Cyan cyan=new Cyan(map.getCyan().getPosition());
@@ -44,7 +45,7 @@ public class ChaseModeTest {
 
     @Test
     void pinkChase(){
-        Pink pink=new Pink(map.getCyan().getPosition());
+        Pink pink=new Pink(map.getPink().getPosition());
         pink.setMap(map);
         pink.update(20);
         Assertions.assertEquals(Direction.Left, pink.getCurrentDirection());
@@ -52,10 +53,11 @@ public class ChaseModeTest {
     }
     @Test
     void redChase(){
-        Red red=new Red(map.getCyan().getPosition());
+        Red red=new Red(map.getRed().getPosition());
         red.setMap(map);
         red.update(20);
         Assertions.assertEquals(Direction.Right, red.getCurrentDirection());
     }
+
 
 }
