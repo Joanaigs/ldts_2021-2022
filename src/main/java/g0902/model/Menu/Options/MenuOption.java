@@ -11,10 +11,5 @@ public enum MenuOption {
         this.text=text;
     }
 
-    public String getText() {
-        if (text.length()==0)
-            return "";
-        else
-            return text;
-    }
+    public String getText() { return text;}
 }
