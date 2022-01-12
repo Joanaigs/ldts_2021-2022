@@ -16,9 +16,6 @@ public class Controller {
     ReadKeys readKeys;
     State state;
     Viewer viewer;
-    int score;
-    String name;
-    boolean lost;
 
 
     public Controller() throws IOException {

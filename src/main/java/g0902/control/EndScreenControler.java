@@ -16,13 +16,13 @@ public class EndScreenControler implements Observer {
     }
     @Override
     public void processKey(KeyStroke key) throws IOException, InterruptedException {
-        if(key.getKeyType() == KeyType.Enter){
+        if(nameSize<3){
+            if (key.getKeyType() == KeyType.Character) {
+                endScreenModel.addLetter(key.getCharacter());
+                nameSize++;
+            }
+        } else if(key.getKeyType() == KeyType.Enter) {
             endScreenModel.setRunning(false);
         }
-        if(nameSize<=3){
-            endScreenModel.addLetter(key.getCharacter());
-            nameSize++;
-        }
-
     }
 }
