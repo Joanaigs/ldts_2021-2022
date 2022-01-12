@@ -40,8 +40,9 @@ public class MapReader implements MapBuilder {
         FileReader fr = new FileReader(mapLocation);
         BufferedReader br = new BufferedReader(fr);
 
-        width = Integer.parseInt(br.readLine());
+        width  = Integer.parseInt(br.readLine());
         height = Integer.parseInt(br.readLine());
+        m.setSize(width*12, height*8);
         readElements(m, br);
 
         return m;

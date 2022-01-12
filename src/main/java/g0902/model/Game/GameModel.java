@@ -18,7 +18,6 @@ import java.util.List;
 public class GameModel implements Model {
     private final Map map;
     private final List<Ghost> ghosts;
-    boolean wasSmallCoin;
     int score;
     Pacman pacman;
     int lives;
@@ -80,7 +79,6 @@ public class GameModel implements Model {
 
     private void powerCoinCollisions(){
         ArrayList<PowerCoin> toRemove;
-        if (!wasSmallCoin){
             toRemove = new ArrayList<>();
             for (PowerCoin powerCoin : map.getPowerCoins()) {
                 if (powerCoin.getCollider().collision(pacman.getCollider())) {
@@ -92,7 +90,6 @@ public class GameModel implements Model {
                 }
             }
             map.getPowerCoins().removeAll(toRemove);
-        }
     }
 
    private void coinCollisions(){
@@ -123,7 +120,7 @@ public class GameModel implements Model {
        }
    }
 
-    public boolean isRunning(){         // TO CHANGE LATER
+    public boolean isRunning(){    //TO CHANGE LATER    // JOANA, EU INES PERGUNTO PORQUE?
         return isRunning;
     }
 

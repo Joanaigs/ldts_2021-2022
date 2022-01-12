@@ -19,6 +19,7 @@ public class Map {
     private final List<PowerCoin> powerCoins;
     private final HashMap<Position, SmallCoin> smallCoins;
     Ghost red, cyan, orange, pink;
+    private int width, height;
 
     public Map(){
         walls = new ArrayList<>();
@@ -58,29 +59,18 @@ public class Map {
 
     public void addSmallCoin(Position pos, SmallCoin smallCoin) {smallCoins.put(pos, smallCoin);}
 
-    public void setPacman(Pacman pacman) {
-        this.pacman = pacman;
-        pacman.setMap(this);
-    }
+    public void setPacman(Pacman pacman) {this.pacman = pacman;pacman.setMap(this);}
 
-    public void setCyan(Ghost cyan) {
-        this.cyan = cyan;
-        ((Cyan) cyan).setMap(this);
-    }
+    public void setCyan(Ghost cyan) {this.cyan = cyan; cyan.setMap(this);}
 
-    public void setOrange(Ghost orange) {
-        this.orange = orange;
-        ((Orange) orange).setMap(this);
-    }
+    public void setOrange(Ghost orange) {this.orange = orange; orange.setMap(this);}
 
-    public void setPink(Ghost pink) {
-        this.pink = pink;
-        ((Pink) pink).setMap(this);
-    }
+    public void setPink(Ghost pink) { this.pink = pink; pink.setMap(this);}
 
-    public void setRed(Ghost red) {
-        this.red = red;
-        ((Red) red).setMap(this);
-    }
+    public void setRed(Ghost red) { this.red = red; red.setMap(this);}
+
+    public void setSize(int width, int height) {this.height = height;this.width = width;}
+
+    public int getWidth() {return width;}
 
 }

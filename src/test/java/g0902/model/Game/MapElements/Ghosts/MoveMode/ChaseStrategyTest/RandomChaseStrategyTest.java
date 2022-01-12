@@ -21,7 +21,6 @@ public class RandomChaseStrategyTest {
         Position position=mock(Position.class);
         Cyan cyan=new Cyan(position);
         RandomChaseStrategy a=new RandomChaseStrategy(cyan);
-        a.setMap(map);
         Assertions.assertEquals(Direction.None,  a.chase(20));
     }
 }

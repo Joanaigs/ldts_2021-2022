@@ -17,10 +17,4 @@ public class Pink extends Ghost {
         setScatterBehaviour(new ScatterTopLeft(this));
     }
 
-    public void setMap(Map map){
-        ((TargetChaseStrategy)getChaseStrategy()).setMap(map);
-        (getScatterBehaviour()).setMap(map);
-        ((FrightenedMode) getFrightenedBehaviour()).setMap(map);
-    }
-
 }

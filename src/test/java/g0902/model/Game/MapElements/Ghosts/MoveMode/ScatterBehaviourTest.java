@@ -23,7 +23,6 @@ public class ScatterBehaviourTest {
                 new Position(38*8, 12),
                 new Position(38*8, 17*12),
                 new Position(35*8, 17*12)));
-        scatterBehaviour.setMap(map);
         Assertions.assertEquals(Direction.Left, scatterBehaviour.Scatter(20));
     }
 }

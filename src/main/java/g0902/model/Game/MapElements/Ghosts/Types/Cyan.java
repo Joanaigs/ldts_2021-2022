@@ -18,9 +18,4 @@ public class Cyan extends Ghost {
         setScatterBehaviour(new ScatterBottomRight(this));
     }
 
-    public void setMap(Map map){
-        ((TargetChaseStrategy)getChaseStrategy()).setMap(map);
-        (getScatterBehaviour()).setMap(map);
-        ((FrightenedMode) getFrightenedBehaviour()).setMap(map);
-    }
 }

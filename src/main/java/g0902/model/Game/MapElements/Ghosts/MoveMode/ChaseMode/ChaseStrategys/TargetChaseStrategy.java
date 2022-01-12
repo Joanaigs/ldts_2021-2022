@@ -26,7 +26,7 @@ public class TargetChaseStrategy extends MovingBehaviour implements ChaseStrateg
         ArrayList<Double> dists = new ArrayList<>();
         for (Direction direction : directions) {
             Position pos = ghost.move(deltatime, direction);
-            targetPosition = targetStrategy.getTarget(pos, map);
+            targetPosition = targetStrategy.getTarget(pos, ghost.getMap());
             dists.add(calculateDistance(pos, targetPosition));
         }
         return directions.get(correspondenceToSmallestDistance(dists));

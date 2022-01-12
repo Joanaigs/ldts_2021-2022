@@ -19,6 +19,9 @@ public class Ghost extends Element {
     protected long counterTime;
     protected long frightenedTime;
     Position beginPosition;
+    Map map;
+    private final static int width = 34;
+    private final static int height = 15;
     int score;
 
     public Ghost(Position position) {
@@ -28,6 +31,12 @@ public class Ghost extends Element {
         counterTime = 0;
         beginPosition = position;
     }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Map getMap() {return map;}
 
     public void update(long deltatime) {
         if(frightenedTime > 9000)
@@ -43,6 +52,14 @@ public class Ghost extends Element {
             frightenedTime += deltatime;
         }
         setPosition(move(deltatime, getCurrentDirection()));
+        fixPassScreenBorder();
+    }
+
+    public final void fixPassScreenBorder(){
+        if(getPosition().getCol() > map.getWidth())
+            getPosition().setCol(-width);
+        else if(getPosition().getCol() < -width)
+            getPosition().setCol(map.getWidth());
     }
 
     public void setFrightenedModeOn(){

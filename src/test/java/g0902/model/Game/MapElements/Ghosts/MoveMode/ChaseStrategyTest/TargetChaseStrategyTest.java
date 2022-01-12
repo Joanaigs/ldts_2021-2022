@@ -21,7 +21,6 @@ public class TargetChaseStrategyTest {
         Cyan cyan= (Cyan) map.getCyan();
         cyan.setCurrentDirection(Direction.Right);
         TargetChaseStrategy a=new TargetChaseStrategy(new AggressiveTargetStrategy(), cyan);
-        a.setMap(map);
         Assertions.assertEquals(Direction.Right,  a.chase(20));
     }
 }

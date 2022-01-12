@@ -2,7 +2,6 @@ package g0902.model.Game.MapElements.Ghosts.MoveMode;
 
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.Ghosts.Ghost;
-import g0902.model.Game.Map.Map;
 import g0902.model.Position;
 
 import java.util.ArrayList;
@@ -13,15 +12,9 @@ import static g0902.model.Direction.None;
 
 public abstract class MovingBehaviour{
     protected Ghost ghost;
-    protected Map map;
-
 
     public MovingBehaviour(Ghost ghost) {
         this.ghost = ghost;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
     }
 
     protected double calculateDistance(Position pos1, Position pos2){
@@ -70,7 +63,7 @@ public abstract class MovingBehaviour{
         for (Direction direction : directions) {
             Position pos = ghost.move(deltatime, direction);
             Ghost tempGhost = new Ghost(pos);
-            if (tempGhost.collideWithWall(map))
+            if (tempGhost.collideWithWall(ghost.getMap()))
                 toRemove.add(direction);
         }
         directions.removeAll(toRemove);

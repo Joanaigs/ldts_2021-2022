@@ -17,10 +17,5 @@ public class Red extends Ghost {
         setFrightenedBehaviour(new FrightenedMode(this));
     }
 
-    public void setMap(Map map){
-        ((TargetChaseStrategy)getChaseStrategy()).setMap(map);
-        (getScatterBehaviour()).setMap(map);
-        ((FrightenedMode) getFrightenedBehaviour()).setMap(map);
-    }
 
 }

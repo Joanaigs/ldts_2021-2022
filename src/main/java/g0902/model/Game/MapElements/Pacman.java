@@ -1,4 +1,5 @@
 package g0902.model.Game.MapElements;
+import g0902.view.ElementsView.Constants;
 import g0902.view.ElementsView.Collider;
 import g0902.model.Direction;
 import g0902.model.Game.Map.Map;
@@ -12,6 +13,8 @@ public class Pacman extends Element{
     private final double velocity = 50;
     private boolean mouthOpen;
     private final Position beginPosition;
+    private final static int width = 34;
+    private final static int height = 15;
 
     public Pacman(Position position) {
         super(position);
@@ -28,7 +31,7 @@ public class Pacman extends Element{
 
     @Override
     public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 34, 15);
+        return new Collider(new Position(position.getRow(), position.getCol()), width, height);
     }
 
     public void setDirection(Direction direction){ this.nextDirection = direction;}
@@ -98,6 +101,15 @@ public class Pacman extends Element{
         return false;
     }
 
+
+    public final void fixPassScreenBorder(){
+        if(getPosition().getCol() > map.getWidth())
+            getPosition().setCol(-width);
+        else if(getPosition().getCol() < -width)
+            getPosition().setCol(map.getWidth());
+    }
+
+
     public void update(long deltatime){
         Position oldPosition = new Position(getPosition().getRow(), getPosition().getCol());
 
@@ -124,6 +136,7 @@ public class Pacman extends Element{
             setPosition(next);
             nextDirection();
         }
+        fixPassScreenBorder();
     }
 
 }
