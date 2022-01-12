@@ -15,9 +15,5 @@ public class PowerCoin extends Coin {
         return new Collider(new Position(position.getRow(), position.getCol()), 15, 6);
     }
 
-    @Override
-    public void update(long deltatime) {
-
-    }
 
 }

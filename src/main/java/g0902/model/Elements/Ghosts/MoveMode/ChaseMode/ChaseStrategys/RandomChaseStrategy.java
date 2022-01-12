@@ -1,6 +1,6 @@
 package g0902.model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys;
 
-import g0902.model.Elements.Direction;
+import g0902.model.Direction;
 import g0902.model.Elements.Ghosts.Ghost;
 import g0902.model.Elements.Ghosts.MoveMode.MovingBehaviour;
 

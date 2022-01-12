@@ -1,5 +1,6 @@
 package g0902.model.Elements;
 
+import g0902.model.Direction;
 import g0902.model.Position;
 
 public class Pacman extends Element{
@@ -8,7 +9,6 @@ public class Pacman extends Element{
     private Direction currentDirection;
     private final double velocity = 50;
     private boolean mouthOpen;
-    private boolean colliding;
     private final Position beginPosition;
 
     public Pacman(Position position) {
@@ -18,15 +18,13 @@ public class Pacman extends Element{
         nextDirection = Direction.None;
         mouthOpen = true;
         beginPosition=position;
-
     }
-    // +5, -2, 26, 11
 
     @Override
     public Collider getCollider() {
         return new Collider(new Position(position.getRow(), position.getCol()), 34, 15);
     }
-    // 32, 14
+
     public Direction moveUp() {return Direction.Up;}
 
     public Direction moveDown() {return Direction.Down;}
@@ -81,10 +79,6 @@ public class Pacman extends Element{
         return mouthOpen;
     }
 
-    @Override
-    public void update(long deltatime) {
-
-    }
 
     public void increaseScore(int score){
         highscore += score;

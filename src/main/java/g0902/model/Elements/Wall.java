@@ -31,9 +31,4 @@ public class Wall extends Element{
 
     public int getHeight() { return height;}
 
-
-    @Override
-    public void update(long deltatime) {
-
-    }
 }

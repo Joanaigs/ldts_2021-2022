@@ -22,7 +22,7 @@ public class ColliderTest extends Assertions {
         Collider wallCollider = new Collider(wall.getPosition(), wall.getCollider().getWidth(), wall.getCollider().getHeight());
         Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
 
-        Assertions.assertTrue(wallCollider.colision(pacmanCollider));
+        Assertions.assertTrue(wallCollider.collision(pacmanCollider));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class ColliderTest extends Assertions {
         Collider wallCollider = new Collider(wall.getPosition(), wall.getCollider().getWidth(), wall.getCollider().getHeight());
         Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
 
-        Assertions.assertFalse(wallCollider.colision(pacmanCollider));
+        Assertions.assertFalse(wallCollider.collision(pacmanCollider));
     }
 
     @Test
@@ -46,8 +46,8 @@ public class ColliderTest extends Assertions {
         Collider coin1Collider = new Collider(coin1.getPosition(), coin1.getCollider().getWidth(), coin1.getCollider().getHeight());
         Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
         Collider coin2Collider = new Collider(coin2.getPosition(), coin2.getCollider().getWidth(), coin2.getCollider().getHeight());
-        Assertions.assertFalse(coin1Collider.colision(pacmanCollider));
-        Assertions.assertTrue(coin2Collider.colision(pacmanCollider));
+        Assertions.assertFalse(coin1Collider.collision(pacmanCollider));
+        Assertions.assertTrue(coin2Collider.collision(pacmanCollider));
     }
 
 
@@ -90,8 +90,8 @@ public class ColliderTest extends Assertions {
         Collider ghost1Collider = new Collider(ghost1.getPosition(), ghost1.getCollider().getWidth(), ghost1.getCollider().getHeight());
         Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
         Collider ghost2Collider = new Collider(ghost2.getPosition(), ghost2.getCollider().getWidth(), ghost2.getCollider().getHeight());
-        Assertions.assertFalse(ghost1Collider.colision(pacmanCollider));
-        Assertions.assertTrue(ghost2Collider.colision(pacmanCollider));
+        Assertions.assertFalse(ghost1Collider.collision(pacmanCollider));
+        Assertions.assertTrue(ghost2Collider.collision(pacmanCollider));
     }
 
 }

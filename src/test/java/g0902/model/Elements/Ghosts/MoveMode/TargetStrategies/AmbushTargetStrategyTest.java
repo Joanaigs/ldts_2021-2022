@@ -1,7 +1,6 @@
 package g0902.model.Elements.Ghosts.MoveMode.TargetStrategies;
 
-import g0902.model.Elements.Direction;
-import g0902.model.Elements.Ghosts.MoveMode.ChaseMode.TargetStrategys.AggressiveTargetStrategy;
+import g0902.model.Direction;
 import g0902.model.Elements.Ghosts.MoveMode.ChaseMode.TargetStrategys.AmbushTargetStrategy;
 import g0902.model.Elements.Pacman;
 import g0902.model.Maps.Builders.MapReader;

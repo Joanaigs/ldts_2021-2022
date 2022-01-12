@@ -15,7 +15,7 @@ public class Collider{
         return collider;
     }
 
-    public boolean colision(Collider collider) {
+    public boolean collision(Collider collider) {
         return this.collider.intersects(collider.getRectangle());
     }
 

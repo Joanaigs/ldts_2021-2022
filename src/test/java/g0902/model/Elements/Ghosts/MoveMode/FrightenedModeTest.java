@@ -1,6 +1,6 @@
 package g0902.model.Elements.Ghosts.MoveMode;
 
-import g0902.model.Elements.Direction;
+import g0902.model.Direction;
 import g0902.model.Elements.Ghosts.MoveMode.FrightenedMode.FrightenedMode;
 import g0902.model.Elements.Ghosts.Types.Cyan;
 import g0902.model.Elements.Ghosts.Types.Orange;

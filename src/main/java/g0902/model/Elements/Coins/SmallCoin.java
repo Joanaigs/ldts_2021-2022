@@ -12,11 +12,6 @@ public class SmallCoin extends Coin {
     }
 
     @Override
-    public void update(long deltatime) {
-
-    }
-
-    @Override
     public Collider getCollider() {
         return new Collider(new Position(position.getRow(), position.getCol()), 10, 5);
     }

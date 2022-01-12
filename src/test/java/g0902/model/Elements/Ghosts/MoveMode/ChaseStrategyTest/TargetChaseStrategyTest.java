@@ -1,13 +1,11 @@
 package g0902.model.Elements.Ghosts.MoveMode.ChaseStrategyTest;
 
-import g0902.model.Elements.Direction;
-import g0902.model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.RandomChaseStrategy;
+import g0902.model.Direction;
 import g0902.model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.TargetChaseStrategy;
 import g0902.model.Elements.Ghosts.MoveMode.ChaseMode.TargetStrategys.AggressiveTargetStrategy;
 import g0902.model.Elements.Ghosts.Types.Cyan;
 import g0902.model.Maps.Builders.MapReader;
 import g0902.model.Maps.Map;
-import g0902.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

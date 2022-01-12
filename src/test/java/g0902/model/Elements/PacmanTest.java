@@ -1,5 +1,6 @@
 package g0902.model.Elements;
 
+import g0902.model.Direction;
 import g0902.model.Elements.Coins.PowerCoin;
 import g0902.model.Elements.Coins.SmallCoin;
 import g0902.model.Maps.Builders.MapBuilder;
@@ -26,7 +27,7 @@ public class PacmanTest extends Assertions{
     void readPacmanTest() throws IOException {
         MapBuilder mapbuilder = new MapReader();
         Map map = mapbuilder.createMap("mapTest2"); // here we are using a 3x3 map to test if the functions are working.
-        assertEquals(map.getPacman().getPosition(), new Position(1*8,1*12));
+        assertEquals(map.getPacman().getPosition(), new Position(8,12));
     }
 
     @Test

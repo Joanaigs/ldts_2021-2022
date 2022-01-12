@@ -1,5 +1,6 @@
 package g0902.model.Elements.Ghosts;
 
+import g0902.model.Direction;
 import g0902.model.Elements.*;
 import g0902.model.Elements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.ChaseStrategy;
 import g0902.model.Elements.Ghosts.MoveMode.FrightenedMode.FrightenedBehaviour;
@@ -27,7 +28,6 @@ public class Ghost extends Element {
         beginPosition = position;
     }
 
-    @Override
     public void update(long deltatime) {
         if(frightenedTime > 9000)
             frightenedModeOn = false;
@@ -63,7 +63,6 @@ public class Ghost extends Element {
         frightenedModeOn= false;
     }
 
-    // anda na direção dada, mudando de posição
     public Position move(long deltatime, Direction direction){
         switch(direction){
             case Up:
@@ -78,17 +77,17 @@ public class Ghost extends Element {
         return new Position(position.getRow(), position.getCol());
     }
 
-
-    public ChaseStrategy getChaseStrategy() {
-        return chaseStrategy;
-    }
-
     public boolean collideWithWall(Map map)
     {
         for( Wall wall: map.getWalls())
-            if(getCollider().colision(wall.getCollider()))
+            if(getCollider().collision(wall.getCollider()))
                 return true;
         return false;
+    }
+
+
+    public ChaseStrategy getChaseStrategy() {
+        return chaseStrategy;
     }
 
     public Direction getCurrentDirection() {
@@ -117,9 +116,7 @@ public class Ghost extends Element {
         return scatterBehaviour;
     }
 
-    public void setScatterBehaviour(ScatterBehaviour scatterBehaviour) {
-        this.scatterBehaviour = scatterBehaviour;
-    }
+    public void setScatterBehaviour(ScatterBehaviour scatterBehaviour) {this.scatterBehaviour = scatterBehaviour;}
 
     public void updateScore() {
         score+=200;

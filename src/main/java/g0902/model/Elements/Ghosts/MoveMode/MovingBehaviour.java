@@ -1,6 +1,6 @@
 package g0902.model.Elements.Ghosts.MoveMode;
 
-import g0902.model.Elements.Direction;
+import g0902.model.Direction;
 import g0902.model.Elements.Ghosts.Ghost;
 import g0902.model.Maps.Map;
 import g0902.model.Position;
@@ -8,8 +8,8 @@ import g0902.model.Position;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static g0902.model.Elements.Direction.*;
-import static g0902.model.Elements.Direction.None;
+import static g0902.model.Direction.*;
+import static g0902.model.Direction.None;
 
 public abstract class MovingBehaviour{
     protected Ghost ghost;

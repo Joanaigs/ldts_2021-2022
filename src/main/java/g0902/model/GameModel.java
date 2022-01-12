@@ -42,29 +42,34 @@ public class GameModel implements Model{
 
     boolean collideWithWalls(Collider collider) {
         for (Wall wall : map.getWalls()) {
-            if (wall.getCollider().colision(collider))
+            if (wall.getCollider().collision(collider))
                 return true;
         }
         return false;
     }
 
     public void update(long deltatime) {
+        // pacman moves
         pacmanMoving(deltatime);
-        coinCollisions(deltatime);
-        ghostPacmanCollisions(deltatime, red);
-        ghostPacmanCollisions(deltatime, cyan);
-        ghostPacmanCollisions(deltatime, pink);
-        ghostPacmanCollisions(deltatime, orange);
-        coinsGone(deltatime);
+
+        // Checks collisions between ghost's and pacman
+        coinCollisions();
+        ghostPacmanCollisions(red);
+        ghostPacmanCollisions(cyan);
+        ghostPacmanCollisions(pink);
+        ghostPacmanCollisions(orange);
+
+        // verifies if pacman won the game (ate all coins)
+        allCoinsEaten();
+
+        //Ghosts move
         map.getRed().update(deltatime);
         map.getOrange().update(deltatime);
         map.getPink().update(deltatime);
         map.getCyan().update(deltatime);
-
-        // ver aqui se colide, diminuir vidas, e acabar se ele ficar com 0
    }
 
-   private void coinsGone(long deltatime){
+   private void allCoinsEaten(){
         if(map.getSmallCoins().isEmpty()&&map.getPowerCoins().isEmpty()){
             isRunning=false;
             lost=false;
@@ -106,16 +111,16 @@ public class GameModel implements Model{
        }
    }
 
-   private void coinCollisions(long deltatime){
+   private void coinCollisions(){
         Pacman pacman = map.getPacman();
        wasSmallCoin = false;
-       // Acho que assim é preferivel do que o o for nas 140 coins
+
        for(int i= -1; i <= 1; i++) {
            for (int j = -1; j <= 1; j++) {
                Position p = new Position((pacman.getPosition().getRow()) / 8 + i, (pacman.getPosition().getCol()) /12 + j);
                SmallCoin smallCoin = map.getSmallCoins().get(p);
                if (smallCoin != null) {
-                   if (smallCoin.getCollider().colision(pacman.getCollider())) {
+                   if (smallCoin.getCollider().collision(pacman.getCollider())) {
                        map.getSmallCoins().remove(p);
                        pacman.increaseScore(SmallCoin.SmallCoinValue);
                        wasSmallCoin = true;
@@ -127,7 +132,7 @@ public class GameModel implements Model{
        if (!wasSmallCoin){
            toRemove = new ArrayList<>();
            for (PowerCoin powerCoin : map.getPowerCoins()) {
-               if (powerCoin.getCollider().colision(pacman.getCollider())) {
+               if (powerCoin.getCollider().collision(pacman.getCollider())) {
                    toRemove.add(powerCoin);
                    pacman.increaseScore(PowerCoin.PowerCoinValue);
                    red.setFrightenedModeOn();
@@ -145,8 +150,8 @@ public class GameModel implements Model{
        }
    }
 
-   private void ghostPacmanCollisions(long deltatime, Ghost ghost){
-       if(pacman.getCollider().colision(ghost.getCollider())){
+   private void ghostPacmanCollisions(Ghost ghost){
+       if(pacman.getCollider().collision(ghost.getCollider())){
            if(ghost.getFrightenedModeOn()){
                pacman.increaseScore(ghost.getScore());
                ghost.updateScore();

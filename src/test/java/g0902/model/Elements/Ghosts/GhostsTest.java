@@ -1,6 +1,6 @@
 package g0902.model.Elements.Ghosts;
 
-import g0902.model.Elements.Direction;
+import g0902.model.Direction;
 import g0902.model.Maps.Builders.MapBuilder;
 import g0902.model.Maps.Builders.MapReader;
 import g0902.model.Maps.Map;

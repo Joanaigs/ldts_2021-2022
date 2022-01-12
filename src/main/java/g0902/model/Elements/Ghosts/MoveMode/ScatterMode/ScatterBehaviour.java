@@ -1,6 +1,6 @@
 package g0902.model.Elements.Ghosts.MoveMode.ScatterMode;
 
-import g0902.model.Elements.Direction;
+import g0902.model.Direction;
 import g0902.model.Elements.Ghosts.Ghost;
 import g0902.model.Elements.Ghosts.MoveMode.MovingBehaviour;
 import g0902.model.Position;
