@@ -2,8 +2,7 @@ package g0902.control;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import g0902.model.Elements.Pacman;
-import g0902.model.Menu.EndScreenModel;
+import g0902.model.Game.MapElements.Pacman;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

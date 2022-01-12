@@ -71,4 +71,7 @@ public class InstructionMenuState extends State{
     public void step() throws IOException {
         viewInstructionMenu.draw();
     }
+
+    @Override
+    public State nextState() throws IOException {return new MainMenuState();}
 }

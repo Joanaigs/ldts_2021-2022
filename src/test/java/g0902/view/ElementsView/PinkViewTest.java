@@ -2,7 +2,7 @@ package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import g0902.model.Direction;
-import g0902.model.Elements.Ghosts.Types.Pink;
+import g0902.model.Game.MapElements.Ghosts.Types.Pink;
 import g0902.model.Position;
 import g0902.view.ElementsView.Ghosts.PinkView;
 import org.junit.jupiter.api.Test;

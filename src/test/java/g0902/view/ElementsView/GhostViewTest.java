@@ -1,9 +1,8 @@
 package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.model.Constants;
 import g0902.model.Direction;
-import g0902.model.Elements.Ghosts.Types.Cyan;
+import g0902.model.Game.MapElements.Ghosts.Types.Cyan;
 import g0902.view.ElementsView.Ghosts.CyanView;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

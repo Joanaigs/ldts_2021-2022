@@ -1,13 +1,11 @@
 package g0902.view.ElementsView;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Elements.Coins.PowerCoin;
-import g0902.model.Elements.Coins.SmallCoin;
-import g0902.model.Elements.Wall;
-import g0902.model.GameModel;
+import g0902.model.Game.MapElements.Coins.PowerCoin;
+import g0902.model.Game.MapElements.Coins.SmallCoin;
+import g0902.model.Game.MapElements.Wall;
+import g0902.model.Game.GameModel;
 import g0902.view.ElementsView.Coins.PowerCoinView;
 import g0902.view.ElementsView.Coins.SmallCoinView;
 import g0902.view.ElementsView.Ghosts.CyanView;

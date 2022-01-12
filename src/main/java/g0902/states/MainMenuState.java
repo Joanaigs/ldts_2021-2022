@@ -4,13 +4,17 @@ import g0902.control.EndScreenControler;
 import g0902.control.MenuController;
 import g0902.control.Observer;
 import g0902.gui.LanternaGUI;
+import g0902.model.Game.GameModel;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.MainMenuModel;
+import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewMainMenu;
 import g0902.view.Viewer;
 
 import java.io.IOException;
+
+import static java.lang.System.exit;
 
 public class MainMenuState extends State{
     private ViewMainMenu viewMainMenu;
@@ -40,11 +44,8 @@ public class MainMenuState extends State{
         return viewMainMenu;
     }
 
-
     @Override
-    public Observer getObserver() throws IOException {
-        return menuController;
-    }
+    public Observer getObserver() throws IOException {return menuController;}
 
     @Override
     public Model getModel() {
@@ -71,4 +72,20 @@ public class MainMenuState extends State{
         viewMainMenu.draw();
     }
 
+    @Override
+    public State nextState() throws IOException {
+        switch (mainMenuModel.getSelected()) {
+            case "START":
+                return new GameState();
+            case "INSTRUCTIONS":
+                return new InstructionMenuState();
+            case "RANKINGS":
+                return new RankingsMenuState();
+            case "EXIT":
+                exit(0);
+                break;
+        }
+
+        return null;
+    }
 }

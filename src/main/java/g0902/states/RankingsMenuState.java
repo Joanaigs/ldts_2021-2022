@@ -70,4 +70,7 @@ public class RankingsMenuState extends State{
     public void step() throws IOException {
         viewRankingsMenu.draw();
     }
+
+    @Override
+    public State nextState() throws IOException {return new MainMenuState();}
 }

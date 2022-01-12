@@ -2,8 +2,7 @@ package g0902.view.ElementsView.Coins;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Elements.Coins.PowerCoin;
-import g0902.model.Elements.Coins.SmallCoin;
+import g0902.model.Game.MapElements.Coins.SmallCoin;
 import g0902.model.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

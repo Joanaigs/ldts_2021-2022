@@ -1,14 +1,9 @@
 package g0902.view;
 
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Elements.Ghosts.Ghost;
-import g0902.model.Elements.Ghosts.Types.Cyan;
-import g0902.model.GameModel;
-import g0902.model.Menu.EndScreenModel;
+import g0902.model.Game.GameModel;
 import g0902.view.ElementsView.GameView;
-import g0902.view.ViewEndScreen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

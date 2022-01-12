@@ -15,14 +15,10 @@ public class MenuController implements Observer{
 
     @Override
     public void processKey(KeyStroke key) throws IOException, InterruptedException {
-        if(key.getKeyType() == KeyType.ArrowUp){
-            mainMenuModel.selectPrevious();
-        }
-        else if(key.getKeyType() == KeyType.ArrowDown){
-            mainMenuModel.selectNext();
-        }
-        else if(key.getKeyType()== KeyType.Enter){
-            mainMenuModel.setRunning(false);
+        switch(key.getKeyType()){
+            case ArrowUp -> mainMenuModel.selectPrevious();
+            case ArrowDown -> mainMenuModel.selectNext();
+            case Enter -> mainMenuModel.setRunning(false);
         }
     }
 
