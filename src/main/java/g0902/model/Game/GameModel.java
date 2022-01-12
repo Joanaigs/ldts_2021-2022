@@ -62,39 +62,43 @@ public class GameModel implements Model {
         }
    }
 
+    private boolean smallCoinCollisions(){
+        for(int i= -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                Position p = new Position((pacman.getPosition().getRow()) / 8 + i, (pacman.getPosition().getCol()) /12 + j);
+                SmallCoin smallCoin = map.getSmallCoins().get(p);
+                if (smallCoin != null) {
+                    if (smallCoin.getCollider().collision(pacman.getCollider())) {
+                        map.getSmallCoins().remove(p);
+                        pacman.increaseScore(SmallCoin.SmallCoinValue);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private void powerCoinCollisions(){
+        ArrayList<Coin> toRemove;
+        if (!wasSmallCoin){
+            toRemove = new ArrayList<>();
+            for (PowerCoin powerCoin : map.getPowerCoins()) {
+                if (powerCoin.getCollider().collision(pacman.getCollider())) {
+                    toRemove.add(powerCoin);
+                    pacman.increaseScore(PowerCoin.PowerCoinValue);
+                    for( Ghost ghost: ghosts)
+                        ghost.setFrightenedModeOn();
+                    break;
+                }
+            }
+            map.getPowerCoins().removeAll(toRemove);
+        }
+    }
 
    private void coinCollisions(){
-       ArrayList<Coin> toRemove;
-        Pacman pacman = map.getPacman();
-       wasSmallCoin = false;
-
-       for(int i= -1; i <= 1; i++) {
-           for (int j = -1; j <= 1; j++) {
-               Position p = new Position((pacman.getPosition().getRow()) / 8 + i, (pacman.getPosition().getCol()) /12 + j);
-               SmallCoin smallCoin = map.getSmallCoins().get(p);
-               if (smallCoin != null) {
-                   if (smallCoin.getCollider().collision(pacman.getCollider())) {
-                       map.getSmallCoins().remove(p);
-                       pacman.increaseScore(SmallCoin.SmallCoinValue);
-                       wasSmallCoin = true;
-                       break;
-                   }
-               }
-           }
-       }
-       if (!wasSmallCoin){
-           toRemove = new ArrayList<>();
-           for (PowerCoin powerCoin : map.getPowerCoins()) {
-               if (powerCoin.getCollider().collision(pacman.getCollider())) {
-                   toRemove.add(powerCoin);
-                   pacman.increaseScore(PowerCoin.PowerCoinValue);
-                   for( Ghost ghost: ghosts)
-                       ghost.setFrightenedModeOn();
-                   break;
-               }
-           }
-           map.getPowerCoins().removeAll(toRemove);
-       }
+       if(!smallCoinCollisions())
+           powerCoinCollisions();
    }
 
    private void ghostPacmanCollisions(Ghost ghost){
