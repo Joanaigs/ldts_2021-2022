@@ -26,6 +26,8 @@ public class PowerCoinViewTest {
     @BeforeEach
     void setUp() throws IOException {
         Position position=mock(Position.class);
+        Mockito.when(position.getCol()).thenReturn(1);
+        Mockito.when(position.getRow()).thenReturn(2);
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         view=new PowerCoinView(new PowerCoin(position), tg);
@@ -35,5 +37,7 @@ public class PowerCoinViewTest {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(any());}
+        Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(any());
+        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 4, 2),  new TerminalSize(2, 1), ' ');
+    }
 }
