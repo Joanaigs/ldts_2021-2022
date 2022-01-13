@@ -19,13 +19,13 @@ public class ScatterBehaviour extends MovingBehaviour{
     }
 
     public void findToGoPosition(){
-        if(ghost.getPosition()==keyPoints.get(0))
+        if(ghost.getPosition().equals(keyPoints.get(0)))
             toGoPosition=keyPoints.get(1);
-        else if(ghost.getPosition()==keyPoints.get(1))
+        else if(ghost.getPosition().equals(keyPoints.get(1)))
             toGoPosition=keyPoints.get(2);
-        else if(ghost.getPosition()==keyPoints.get(2))
+        else if(ghost.getPosition().equals(keyPoints.get(2)))
             toGoPosition=keyPoints.get(3);
-        else if(ghost.getPosition()==keyPoints.get(3))
+        else if(ghost.getPosition().equals(keyPoints.get(3)))
             toGoPosition=keyPoints.get(0);
     }
 
@@ -45,5 +45,9 @@ public class ScatterBehaviour extends MovingBehaviour{
         }
 
         return directions.get(correspondenceToSmallestDistance(dists));
+    }
+
+    public Position getToGoPosition() {
+        return toGoPosition;
     }
 }

@@ -22,29 +22,51 @@ public class ScatterBehaviourTest {
     MapBuilder mapBuilder;
     Map map;
     Red red;
+    ScatterBehaviour scatterBehaviour;
 
-    @Test
-    void Scatter() throws IOException {
+    @BeforeEach
+    void setUp() throws IOException {
         mapBuilder = new MapReader();
         map = mapBuilder.createMap("map");
-        red = new Red(map.getRed().getPosition());
-        ScatterBehaviour scatterBehaviour = new ScatterBehaviour(red, List.of(new Position(35 * 8, 12),
+    }
+
+    @Test
+    void Scatter() {
+        Red red=new Red(map.getRed().getPosition());
+        scatterBehaviour = new ScatterBehaviour(red, List.of(new Position(13 * 8, 14),
                 new Position(38 * 8, 12),
                 new Position(38 * 8, 17 * 12),
                 new Position(35 * 8, 17 * 12)));
         scatterBehaviour.setMap(map);
         Assertions.assertEquals(Direction.Left, scatterBehaviour.Scatter(20));
+        Assertions.assertEquals(new Position(104, 14), scatterBehaviour.getToGoPosition());
     }
 
     @Test
     void findGoToPosition() {
         red = mock(Red.class);
-        ScatterBehaviour scatterBehaviour = new ScatterBehaviour(red, List.of(new Position(35 * 8, 12),
+        scatterBehaviour = new ScatterBehaviour(red, List.of(new Position(13 * 8, 14),
                 new Position(38 * 8, 12),
                 new Position(38 * 8, 17 * 12),
                 new Position(35 * 8, 17 * 12)));
-        scatterBehaviour.setMap(mock(Map.class));
+        scatterBehaviour.setMap(map);
+
+        Mockito.when(red.getPosition()).thenReturn(new Position(13 * 8, 14));
         scatterBehaviour.findToGoPosition();
-        Mockito.verify(red, Mockito.times(4)).getPosition();
+        Assertions.assertEquals(new Position(38 * 8, 12), scatterBehaviour.getToGoPosition());
+
+        Mockito.when(red.getPosition()).thenReturn(new Position(38 * 8, 12));
+        scatterBehaviour.findToGoPosition();
+        Assertions.assertEquals(new Position(38 * 8, 17 * 12), scatterBehaviour.getToGoPosition());
+
+        Mockito.when(red.getPosition()).thenReturn(new Position(38 * 8, 17 * 12));
+        scatterBehaviour.findToGoPosition();
+        Assertions.assertEquals(new Position(35 * 8, 17 * 12), scatterBehaviour.getToGoPosition());
+
+        Mockito.when(red.getPosition()).thenReturn(new Position(35 * 8, 17 * 12));
+        scatterBehaviour.findToGoPosition();
+        Assertions.assertEquals(new Position(13 * 8, 14), scatterBehaviour.getToGoPosition());
+
+        Mockito.verify(red, Mockito.times(10)).getPosition();
     }
 }
