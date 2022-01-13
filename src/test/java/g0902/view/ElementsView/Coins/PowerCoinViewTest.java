@@ -39,5 +39,7 @@ public class PowerCoinViewTest {
         view.draw();
         Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(any());
         Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 4, 2),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(0)).fillRectangle(new TerminalPosition( 4, -1),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(0)).fillRectangle(new TerminalPosition( -1, 2),  new TerminalSize(2, 1), ' ');
     }
 }

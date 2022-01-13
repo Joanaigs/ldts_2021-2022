@@ -38,7 +38,7 @@ public class RankingsMenuModel implements Model, MenuModel {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred, file not found.");
             e.printStackTrace();
         }
     }
@@ -76,7 +76,10 @@ public class RankingsMenuModel implements Model, MenuModel {
         return scores;
     }
 
+    public void setScores(List<Pair<String, Integer>> scores){this.scores = scores; }
+
     public void setFileLocation(String fileLocation) {
         this.fileLocation = fileLocation;
     }
+
 }
