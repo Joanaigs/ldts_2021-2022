@@ -21,14 +21,14 @@ public class RankingsMenuModelTest {
     private RankingsMenuModel rankingsMenuModel;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() throws FileNotFoundException {
         rankingsMenuModel=new RankingsMenuModel();
-        rankingsMenuModel.readFile("RankingsTest");
-        rankingsMenuModel.sortD();
     }
 
     @Test
     public void rankings() throws IOException {
+        rankingsMenuModel.readFile("RankingsTest");
+        rankingsMenuModel.sortD();
         Assertions.assertTrue(rankingsMenuModel.isRunning());
         rankingsMenuModel.setRunning(false);
         Assertions.assertFalse(rankingsMenuModel.isRunning());
@@ -42,6 +42,8 @@ public class RankingsMenuModelTest {
 
     @Test
     public void sortDTest() throws IOException {
+        rankingsMenuModel.readFile("RankingsTest");
+        rankingsMenuModel.sortD();
         Assertions.assertEquals(2, rankingsMenuModel.getScores().size());
         Assertions.assertEquals(2000,rankingsMenuModel.getScores().get(0).getR());
         Assertions.assertEquals("Player",rankingsMenuModel.getScores().get(0).getL());
@@ -70,12 +72,11 @@ public class RankingsMenuModelTest {
         rankingsMenuModel.setScores(scores);
         rankingsMenuModel.updateFile();
     }
-/*
     @Test
     public void readTest(){
-        RankingsMenuModel rankings = mock(RankingsMenuModel.class);
-        doThrow(new FileNotFoundException()).when(rankings).readFile("NaoExiste");
-        rankings.readFile("NaoExiste");
+        Assertions.assertThrows(FileNotFoundException.class, () -> {
+            rankingsMenuModel.readFile("aaa");
+        });
     }
-*/
+
 }

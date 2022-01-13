@@ -9,6 +9,7 @@ import g0902.model.Model;
 import g0902.view.ViewRankingsMenu;
 import g0902.view.Viewer;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class RankingsMenuState extends State{
@@ -16,17 +17,17 @@ public class RankingsMenuState extends State{
     private RankingsMenuControler rankingsMenuControler;
     private ViewRankingsMenu viewRankingsMenu;
 
-    private void initializing(){
+    private void initializing() throws FileNotFoundException {
         rankingsMenuModel=new RankingsMenuModel();
         rankingsMenuControler=new RankingsMenuControler(rankingsMenuModel);
     }
-    public RankingsMenuState(){
+    public RankingsMenuState() throws FileNotFoundException {
         super();
         initializing();
         viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel);
     }
 
-    public RankingsMenuState(ViewRankingsMenu view) {
+    public RankingsMenuState(ViewRankingsMenu view) throws FileNotFoundException {
         super();
         initializing();
         viewRankingsMenu=view;

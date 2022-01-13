@@ -14,33 +14,28 @@ public class RankingsMenuModel implements Model, MenuModel {
     private boolean running;
     String fileLocation;
 
-    public RankingsMenuModel(){
+    public RankingsMenuModel() throws FileNotFoundException {
         readFile("Rankings");
         sortD();
         running=true;
     }
 
-    public void readFile(String filename){
+    public void readFile(String filename) throws FileNotFoundException {
         scores.clear();
-        try {
-            String rootPath = new File(System.getProperty("user.dir")).getPath();
-            fileLocation = rootPath + "/src/main/resources/"+filename ;
+        String rootPath = new File(System.getProperty("user.dir")).getPath();
+        fileLocation = rootPath + "/src/main/resources/"+filename ;
 
-            File file = new File(fileLocation);
-            Scanner myReader = new Scanner(file);
-            myReader.nextLine();
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                List<String> dt= Stream.of(data.split(" "))
-                        .map (elem -> new String(elem))
-                        .collect(Collectors.toList());
-                scores.add(new Pair(dt.get(1), Integer.parseInt(dt.get(0))));
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred, file not found.");
-            e.printStackTrace();
+        File file = new File(fileLocation);
+        Scanner myReader = new Scanner(file);
+        myReader.nextLine();
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            List<String> dt= Stream.of(data.split(" "))
+                    .map (elem -> new String(elem))
+                    .collect(Collectors.toList());
+            scores.add(new Pair(dt.get(1), Integer.parseInt(dt.get(0))));
         }
+        myReader.close();
     }
 
     @Override
