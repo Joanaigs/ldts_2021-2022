@@ -3,11 +3,12 @@ package g0902.model.Game.Map.Builders;
 import g0902.model.Game.MapElements.*;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
-import g0902.model.Game.MapElements.Ghosts.Types.Cyan;
-import g0902.model.Game.MapElements.Ghosts.Types.Orange;
-import g0902.model.Game.MapElements.Ghosts.Types.Pink;
-import g0902.model.Game.MapElements.Ghosts.Types.Red;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Cyan;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Orange;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Pink;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Red;
 import g0902.model.Game.Map.Map;
+import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.model.Position;
 
 import java.io.*;
@@ -59,7 +60,7 @@ public class MapReader implements MapBuilder {
                     case Orange -> map.setOrange(new Orange(new Position(i * 8+1, j * 12)));
                     case Cyan -> map.setCyan(new Cyan(new Position(i * 8+1, j * 12)));
                     case Pacman -> map.setPacman(new Pacman(new Position(i * 8, j * 12)));
-                    case Wall -> map.addWall(new Wall(new Position(i * 8, j * 12), 12, 8));
+                    case Wall -> map.addWall(new Wall(new Position(i * 8, j * 12), 13, 9));
                     case SmallCoin -> map.addSmallCoin(new Position(i,j), new SmallCoin(new Position(i * 8 + 1, j * 12 - 1)));
                     case PowerCoin -> map.addPowerCoin(new PowerCoin(new Position(i * 8 + 1, j * 12 - 1)));
                 }

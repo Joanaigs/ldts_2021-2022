@@ -6,11 +6,10 @@ import g0902.model.Position;
 
 public abstract class Coin extends Element {
 
-    public Coin(Position position) {
-        super(position);
+    public Coin(Position position, int width, int height) {
+        super(position, width, height);
     }
 
-    public abstract Collider getCollider();
 
     @Override
     public boolean equals(Object obj) {

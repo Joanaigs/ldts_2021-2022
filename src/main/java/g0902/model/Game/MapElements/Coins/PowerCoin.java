@@ -5,14 +5,11 @@ import g0902.model.Position;
 
 public class PowerCoin extends Coin {
     public final static int PowerCoinValue = 200;
+    private final static int width = 15;
+    private final static int height = 6;
 
     public PowerCoin(Position position) {
-        super(position);
-    }
-
-    @Override
-    public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 15, 6);
+        super(position, width, height);
     }
 
 

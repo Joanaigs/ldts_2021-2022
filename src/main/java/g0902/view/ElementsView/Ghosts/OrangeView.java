@@ -4,8 +4,8 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.model.Game.MapElements.Ghosts.Ghost;
-import g0902.model.Game.MapElements.Ghosts.Types.Orange;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Orange;
 
 import java.io.IOException;
 

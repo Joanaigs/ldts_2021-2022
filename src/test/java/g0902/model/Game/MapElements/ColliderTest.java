@@ -1,10 +1,11 @@
 package g0902.model.Game.MapElements;
 
+import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.view.ElementsView.Collider;
 import g0902.model.Game.MapElements.Coins.Coin;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
-import g0902.model.Game.MapElements.Ghosts.Ghost;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 import g0902.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -51,34 +52,6 @@ public class ColliderTest extends Assertions {
         Assertions.assertTrue(coin2Collider.collision(pacmanCollider));
     }
 
-
-    /*
-                                                F I X     L A T E R
-     It's only related to how I wrote the code here.....
-     Each function used here was tested and was working on the previous tests.
-
-    @Test
-    // Here, pacman is set on the same position as the wall. But then, we move it down, so they won't share the same position.
-    // The collider must return false here, because after the pacman moves, they won't be colliding.
-    void pacmanCollidesAndMove() throws IOException {
-
-        // set up on the same position
-        Pacman pacman = new Pacman(new Position(3*8, 3*12));
-        Wall wall = new Wall(new Position(3*8, 3*12),12, 8);
-
-        // pacman moves down
-        long deltatime = -8/62/3;
-        pacman.setPosition(pacman.move(deltatime, Direction.Down));
-
-        // creating the colliders
-        Collider wallCollider = new Collider(wall.getPosition(), wall.getCollider().getWidth(), wall.getCollider().getHeight());
-        Collider pacmanCollider = new Collider(pacman.getPosition(), pacman.getCollider().getWidth(), pacman.getCollider().getHeight());
-
-        // they won't be colliding anymore
-        Assertions.assertFalse(wallCollider.colision(pacmanCollider));
-    }
-
-    */
 
     @Test
         //Tests if the pacman collides with coin.

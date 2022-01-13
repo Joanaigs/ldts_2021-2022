@@ -2,7 +2,7 @@ package g0902.control;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import g0902.model.Direction;
-import g0902.model.Game.MapElements.Pacman;
+import g0902.model.Game.MapElements.MovingElements.Pacman;
 
 public class PacmanController implements Observer {
     private final Pacman pacman;
@@ -17,10 +17,10 @@ public class PacmanController implements Observer {
 
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
-            case ArrowUp    -> pacman.setDirection(Direction.Up);
-            case ArrowDown  -> pacman.setDirection(Direction.Down);
-            case ArrowLeft  -> pacman.setDirection(Direction.Left);
-            case ArrowRight -> pacman.setDirection(Direction.Right);
+            case ArrowUp    -> pacman.setNextDirection(Direction.Up);
+            case ArrowDown  -> pacman.setNextDirection(Direction.Down);
+            case ArrowLeft  -> pacman.setNextDirection(Direction.Left);
+            case ArrowRight -> pacman.setNextDirection(Direction.Right);
         }
     }
 

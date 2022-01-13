@@ -1,13 +1,13 @@
 package g0902.model.Game;
 
 import g0902.model.Direction;
-import g0902.model.Game.MapElements.*;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
-import g0902.model.Game.MapElements.Ghosts.Ghost;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 import g0902.model.Game.Map.Builders.MapBuilder;
 import g0902.model.Game.Map.Builders.MapReader;
 import g0902.model.Game.Map.Map;
+import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.model.Model;
 import g0902.model.Position;
 import g0902.view.ElementsView.Collider;
@@ -85,23 +85,23 @@ public class GameModel implements Model {
 
     private void powerCoinCollisions(){
         ArrayList<PowerCoin> toRemove;
-            toRemove = new ArrayList<>();
-            for (PowerCoin powerCoin : map.getPowerCoins()) {
-                if (powerCoin.getCollider().collision(pacman.getCollider())) {
-                    toRemove.add(powerCoin);
-                    pacman.increaseScore(PowerCoin.PowerCoinValue);
-                    for( Ghost ghost: ghosts)
-                        ghost.setFrightenedModeOn();
+        toRemove = new ArrayList<>();
+        for (PowerCoin powerCoin : map.getPowerCoins()) {
+            if (powerCoin.getCollider().collision(pacman.getCollider())) {
+                toRemove.add(powerCoin);
+                pacman.increaseScore(PowerCoin.PowerCoinValue);
+                for( Ghost ghost: ghosts)
+                    ghost.setFrightenedModeOn();
                     break;
                 }
             }
-            map.getPowerCoins().removeAll(toRemove);
+        map.getPowerCoins().removeAll(toRemove);
     }
 
 
    private void ghostPacmanCollisions(Ghost ghost){
-       Collider ghostCollider = new Collider(ghost.getPosition(), 22, 5);
-       Collider pacmanCollider = new Collider(pacman.getPosition(), 22, 5);
+       Collider ghostCollider = new Collider(ghost.getPosition(), 22, 7);
+       Collider pacmanCollider = new Collider(pacman.getPosition(), 22, 7);
        if(ghostCollider.collision(pacmanCollider)){
            if(ghost.getFrightenedModeOn()){
                pacman.increaseScore(ghost.getScore());
@@ -121,7 +121,7 @@ public class GameModel implements Model {
        }
 
     private void resetGame() {
-        pacman.setDirection(Direction.Down);
+        pacman.setCurrentDirection(Direction.Down);
         pacman.setPosition(pacman.getBeginPosition());
 
         for (Ghost g : ghosts) {

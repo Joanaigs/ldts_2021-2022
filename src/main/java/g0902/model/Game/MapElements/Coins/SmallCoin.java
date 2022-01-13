@@ -6,15 +6,11 @@ import g0902.model.Position;
 
 public class SmallCoin extends Coin {
     public final static int SmallCoinValue = 10;
+    private final static int width = 10;
+    private final static int height = 5;
 
     public SmallCoin(Position position) {
-        super(position);
+        super(position, width, height);
     }
-
-    @Override
-    public Collider getCollider() {
-        return new Collider(new Position(position.getRow(), position.getCol()), 10, 5);
-    }
-
 
 }

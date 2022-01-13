@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.view.ElementsView.Constants;
+import g0902.Constants;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
 
 public class SmallCoinView extends CoinsView {

@@ -2,11 +2,8 @@ package g0902.model.Game.Map;
 import g0902.model.Game.MapElements.*;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
-import g0902.model.Game.MapElements.Ghosts.Ghost;
-import g0902.model.Game.MapElements.Ghosts.Types.Cyan;
-import g0902.model.Game.MapElements.Ghosts.Types.Orange;
-import g0902.model.Game.MapElements.Ghosts.Types.Pink;
-import g0902.model.Game.MapElements.Ghosts.Types.Red;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
+import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.model.Position;
 
 import java.util.ArrayList;
