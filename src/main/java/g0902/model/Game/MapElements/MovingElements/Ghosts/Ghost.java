@@ -26,7 +26,6 @@ public class Ghost extends MovingElement {
         counterTime = 0;
     }
 
-
     public void update(long deltatime) {
         if(frightenedTime > 9000)
             frightenedModeOn = false;
@@ -44,8 +43,7 @@ public class Ghost extends MovingElement {
         fixPassScreenBorder();
     }
 
-    public void updateGhostValue() {
-        ghostValue +=200;}
+    public void updateGhostValue() {ghostValue +=200;}
 
     public int getGhostValue() {return ghostValue;}
 
