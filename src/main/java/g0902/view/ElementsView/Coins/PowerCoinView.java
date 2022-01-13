@@ -4,8 +4,8 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.model.Constants;
-import g0902.model.Elements.Coins.PowerCoin;
+import g0902.Constants;
+import g0902.model.Game.MapElements.Coins.PowerCoin;
 
 public class PowerCoinView extends CoinsView {
     private PowerCoin powerCoin;

@@ -2,8 +2,7 @@ package g0902.control;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import g0902.model.Elements.Pacman;
-import g0902.model.Menu.EndScreenModel;
+import g0902.model.Game.MapElements.MovingElements.Pacman;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -25,6 +24,6 @@ public class PacmanControllerTest {
         pacmanController.processKey(keyStroke);
         Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowRight);
         pacmanController.processKey(keyStroke);
-        verify(model, times(4)).setDirection(any());
+        verify(model, times(4)).setCurrentDirection(any());
     }
 }

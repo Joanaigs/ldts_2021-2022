@@ -11,7 +11,7 @@ public class ReadKeys implements Runnable {
     volatile ArrayList<Observer> observers;
 
     public ReadKeys(){
-        observers = new ArrayList<Observer>();
+        observers = new ArrayList<>();
     }
 
     public void addObserver(Observer obs){
@@ -22,9 +22,7 @@ public class ReadKeys implements Runnable {
         observers.remove(obs);
     }
 
-    public void setScreen(Screen screen) {
-        this.screen = screen;
-    }
+    public void setScreen(Screen screen) {this.screen = screen;}
 
     public void run() {
         try {

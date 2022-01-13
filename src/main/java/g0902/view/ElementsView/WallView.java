@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.model.Elements.Wall;
+import g0902.model.Game.MapElements.Wall;
 
 public class WallView extends View {
     private Wall wall;

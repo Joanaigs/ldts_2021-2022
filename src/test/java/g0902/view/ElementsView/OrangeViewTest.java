@@ -1,11 +1,9 @@
 package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.model.Elements.Direction;
-import g0902.model.Elements.Ghosts.Types.Cyan;
-import g0902.model.Elements.Ghosts.Types.Orange;
+import g0902.model.Direction;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Orange;
 import g0902.model.Position;
-import g0902.view.ElementsView.Ghosts.CyanView;
 import g0902.view.ElementsView.Ghosts.OrangeView;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
