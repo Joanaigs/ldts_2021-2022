@@ -121,8 +121,6 @@ public class FrightenedModeTest {
     @Test
     void getRandomNumberTest(){
         FrightenedMode frightenedMode = new FrightenedMode(red);
-        int min = 4;
-        int max = 9;
         int randNum = frightenedMode.getRandomNumberInRange(4, 9);
         Assertions.assertTrue(randNum>=4 && randNum<=9);
     }
