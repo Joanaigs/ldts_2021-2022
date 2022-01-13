@@ -16,14 +16,19 @@ public class PacmanControllerTest {
         Pacman model=mock(Pacman.class);
         PacmanController pacmanController=new PacmanController(model);
         KeyStroke keyStroke= mock(KeyStroke.class);
+
         Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowUp);
         pacmanController.processKey(keyStroke);
+
         Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowDown);
         pacmanController.processKey(keyStroke);
+
         Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowLeft);
         pacmanController.processKey(keyStroke);
+
         Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.ArrowRight);
         pacmanController.processKey(keyStroke);
-        verify(model, times(4)).setCurrentDirection(any());
+
+        verify(model, times(4)).setNextDirection(any());
     }
 }

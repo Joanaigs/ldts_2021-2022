@@ -24,13 +24,13 @@ public class GameState extends State{
         pacmanController = new PacmanController(gameModel.getMap().getPacman());
         totalTime = 0;
         pastTime = System.currentTimeMillis();
-        gui=new LanternaGUI();
-        gui.createScreenGame();
     }
 
     public GameState() throws IOException {
         super();
         initializing();
+        gui=new LanternaGUI();
+        gui.createScreenGame();
         gameView = new GameView(gameModel, gui.getScreen());
     }
 

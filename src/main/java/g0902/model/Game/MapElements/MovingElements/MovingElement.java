@@ -67,4 +67,11 @@ public class MovingElement extends Element {
         return new Position(position.getRow(), position.getCol());
     }
 
+    public double getVelocityX() {
+        return velocityX;
+    }
+
+    public double getVelocityY() {
+        return velocityY;
+    }
 }

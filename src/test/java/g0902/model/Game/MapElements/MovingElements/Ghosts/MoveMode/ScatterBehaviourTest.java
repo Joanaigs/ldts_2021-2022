@@ -33,6 +33,7 @@ public class ScatterBehaviourTest {
     @Test
     void Scatter() {
         Red red=new Red(map.getRed().getPosition());
+        red.setMap(map);
         scatterBehaviour = new ScatterBehaviour(red, List.of(new Position(13 * 8, 14),
                 new Position(38 * 8, 12),
                 new Position(38 * 8, 17 * 12),

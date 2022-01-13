@@ -31,6 +31,10 @@ class SmallCoinTest extends Assertions {
         //To see if it's reading the correct small coins
         assertEquals(true, smallCoinsList.containsAll(map.getSmallCoins().values()));
         assertEquals(true, map.getSmallCoins().values().containsAll(smallCoinsList));
+        assertEquals(true, smallCoinsList.get(0).equals(smallCoinsList.get(0)));
+        assertEquals(false, smallCoinsList.get(0).equals(smallCoinsList.get(1)));
+        assertEquals(false, smallCoinsList.get(0).equals(null));
+        assertEquals(false, smallCoinsList.get(0).equals(new Position(1,2)));
     }
 
 }

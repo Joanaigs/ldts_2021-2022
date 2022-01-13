@@ -75,4 +75,11 @@ public class Ghost extends MovingElement {
 
     public void setScatterBehaviour(ScatterBehaviour scatterBehaviour) {this.scatterBehaviour = scatterBehaviour;}
 
+    public void setCounterTime(long counterTime) {
+        this.counterTime = counterTime;
+    }
+
+    public void setFrightenedTime(long frightenedTime) {
+        this.frightenedTime = frightenedTime;
+    }
 }

@@ -19,19 +19,15 @@ public class PacmanViewTest{
         String[] st= new String[0];
         Assertions.assertEquals(Constants.PAC_OPEN_DOWN, pacmanView.setPacDraw(st));
         pacman.setCurrentDirection(Direction.Up);
-        pacman.nextDirection();
         PacmanView pacmanView1=new PacmanView(pacman, tg);
         Assertions.assertEquals(Constants.PAC_OPEN_UP, pacmanView1.setPacDraw(st));
         pacman.setCurrentDirection(Direction.Left);
-        pacman.nextDirection();
         PacmanView pacmanView2=new PacmanView(pacman, tg);
         Assertions.assertEquals(Constants.PAC_OPEN_LEFT, pacmanView2.setPacDraw(st));
         pacman.setCurrentDirection(Direction.Right);
-        pacman.nextDirection();
         PacmanView pacmanView3=new PacmanView(pacman, tg);
         Assertions.assertEquals(Constants.PAC_OPEN_RIGHT, pacmanView3.setPacDraw(st));
         pacman.setCurrentDirection(Direction.None);
-        pacman.nextDirection();
         PacmanView pacmanView4=new PacmanView(pacman, tg);
         Assertions.assertEquals(Constants.PAC_CLOSE, pacmanView4.setPacDraw(st));
 

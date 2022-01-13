@@ -22,12 +22,12 @@ public class MainMenuState extends State{
     private void initializing() {
         mainMenuModel=new MainMenuModel();
         menuController=new MenuController(mainMenuModel);
-        gui=new LanternaGUI();
-        gui.createScreenMenu();
     }
     public MainMenuState(){
         super();
         initializing();
+        gui=new LanternaGUI();
+        gui.createScreenMenu();
         viewMainMenu=new ViewMainMenu(mainMenuModel, gui.getScreen());
     }
 

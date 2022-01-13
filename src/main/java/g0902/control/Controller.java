@@ -41,4 +41,8 @@ public class Controller {
     public void setState(State state) {
         this.state = state;
     }
+
+    public void setReadKeys(ReadKeys readKeys) {
+        this.readKeys = readKeys;
+    }
 }

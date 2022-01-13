@@ -6,6 +6,7 @@ import g0902.model.Game.Map.Builders.MapBuilder;
 import g0902.model.Game.Map.Builders.MapReader;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.TargetChaseStrategy;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ChaseMode.TargetStrategys.AggressiveTargetStrategy;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.FrightenedMode.FrightenedMode;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ScatterMode.ScatterTopRight;
 import g0902.model.Position;
@@ -49,42 +50,44 @@ public class GhostsTest extends Assertions {
     }
 
 
-    /*
     @Test
     void update() throws IOException {
+        //setting up
         MapBuilder mapbuilder = new MapReader();
         map = mapbuilder.createMap("map");
         ghost = map.getPink();
         TargetChaseStrategy targetChaseStrategy=new TargetChaseStrategy(new AggressiveTargetStrategy(), ghost);
-        targetChaseStrategy.setMap(map);
         ScatterTopRight scatterBottomLeft=new ScatterTopRight(ghost);
-        scatterBottomLeft.setMap(map);
         FrightenedMode frightenedMode=new FrightenedMode(ghost);
-        frightenedMode.setMap(map);
         ghost.setChaseStrategy(targetChaseStrategy);
         ghost.setScatterBehaviour(scatterBottomLeft);
         ghost.setFrightenedBehaviour(frightenedMode);
         ghost.setCounterTime(26980);
         ghost.update(20);
+
+
         assertEquals(Direction.Right, ghost.getCurrentDirection());
+
         ghost.move(20, Direction.Down);
         ghost.setCounterTime(26979);
         ghost.update(20);
         assertEquals(Direction.Right, ghost.getCurrentDirection());
+
         ghost.setCounterTime(8981);
         ghost.setFrightenedModeOn();
         ghost.update(20);
         assertEquals(Direction.Left, ghost.getCurrentDirection());
+
         assertEquals(new Position(105,205), ghost.getPosition());
+
         ghost.setFrightenedTime(9001);
-        ghost.updateScore();
-        assertEquals(400, ghost.getScore());
         assertEquals(new Position(105,204), ghost.getBeginPosition());
+
         ghost.update(20);
         assertEquals(false, ghost.getFrightenedModeOn());
         assertEquals(9001, ghost.getFrightenedTime());
     }
-    */
+
 
 
 }

@@ -23,12 +23,14 @@ public class EndScreenControlerTest {
     }
     @Test
     public void test() throws IOException, InterruptedException {
-        Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.Enter);
-        endScreenControler.processKey(keyStroke);
-        verify(model, times(1)).setRunning(false);
+        Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.Character);
+        Mockito.when(keyStroke.getCharacter()).thenReturn('a');
         endScreenControler.processKey(keyStroke);
         endScreenControler.processKey(keyStroke);
         endScreenControler.processKey(keyStroke);
         verify(model, times(3)).addLetter(anyChar());
+        Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.Enter);
+        endScreenControler.processKey(keyStroke);
+        verify(model, times(1)).setRunning(false);
     }
 }

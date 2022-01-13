@@ -32,6 +32,11 @@ class PowerCoinTest extends Assertions{
         //To see if it's reading the correct power coins
         assertTrue(powerCoinsList.containsAll(map.getPowerCoins()));
         assertEquals(true, map.getPowerCoins().containsAll(powerCoinsList));
+
+        assertEquals(true, powerCoinsList.get(0).equals(powerCoinsList.get(0)));
+        assertEquals(false, powerCoinsList.get(0).equals(powerCoinsList.get(1)));
+        assertEquals(false, powerCoinsList.get(0).equals(null));
+        assertEquals(false, powerCoinsList.get(0).equals(new Position(1,2)));
     }
 
 }

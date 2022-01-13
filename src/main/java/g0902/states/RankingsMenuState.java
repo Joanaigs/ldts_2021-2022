@@ -20,12 +20,12 @@ public class RankingsMenuState extends State{
     private void initializing() throws FileNotFoundException {
         rankingsMenuModel=new RankingsMenuModel();
         rankingsMenuControler=new RankingsMenuControler(rankingsMenuModel);
-        gui=new LanternaGUI();
-        gui.createScreenMenu();
     }
     public RankingsMenuState() throws FileNotFoundException {
         super();
         initializing();
+        gui=new LanternaGUI();
+        gui.createScreenMenu();
         viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel, gui.getScreen());
     }
 

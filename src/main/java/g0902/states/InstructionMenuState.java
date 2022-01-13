@@ -20,12 +20,12 @@ public class InstructionMenuState extends State{
     private void initializing(){
         instructionMenuModel=new InstructionMenuModel();
         instructionMenuController=new InstructionMenuController(instructionMenuModel);
-        gui=new LanternaGUI();
-        gui.createScreenMenu();
     }
 
     public InstructionMenuState(){
         super();
+        gui=new LanternaGUI();
+        gui.createScreenMenu();
         initializing();
         viewInstructionMenu=new ViewInstructionMenu(instructionMenuModel, gui.getScreen());
     }

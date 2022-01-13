@@ -31,8 +31,8 @@ public class GameViewTest {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, times(621)).setBackgroundColor(any());
-        Mockito.verify(tg, Mockito.times(2976)).fillRectangle(any(), any(), anyChar());
+        Mockito.verify(tg, times(613)).setBackgroundColor(any());
+        Mockito.verify(tg, Mockito.times(2968)).fillRectangle(any(), any(), anyChar());
     }
 
 }

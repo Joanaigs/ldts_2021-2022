@@ -22,6 +22,7 @@ public class RandomChaseStrategyTest {
         Map map=mapReader.createMap("map");
         Position position=mock(Position.class);
         Pink pink=new Pink(position);
+        pink.setMap(map);
         pink.setCurrentDirection(Direction.Left);
         RandomChaseStrategy a=new RandomChaseStrategy(pink);
         Assertions.assertEquals(Direction.Left,  a.chase(20));

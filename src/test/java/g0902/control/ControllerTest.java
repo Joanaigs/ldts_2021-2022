@@ -19,13 +19,16 @@ public class ControllerTest {
     MainMenuState state;
     Viewer viewer;
     Controller controller;
+    ReadKeys readKeys;
     @BeforeEach
     void setUp() throws IOException {
         state =mock(MainMenuState.class);
         viewer=mock(Viewer.class);
+        readKeys=mock(ReadKeys.class);
         Mockito.when(state.getViewer()).thenReturn(viewer);
         controller=new Controller();
         controller.setState(state);
+        controller.setReadKeys(readKeys);
         controller.run();
     }
     @Test
@@ -34,6 +37,9 @@ public class ControllerTest {
         Mockito.verify(viewer, Mockito.times(1)).closeScreen();
         Mockito.verify(state, Mockito.times(1)).getViewer();
         Mockito.verify(viewer, Mockito.times(1)).getScreen();
+        Mockito.verify(readKeys, Mockito.times(1)).setScreen(viewer.getScreen());
+        Mockito.verify(readKeys, Mockito.times(1)).addObserver(state.getObserver());
+        Mockito.verify(readKeys, Mockito.times(1)).removeObserver(state.getObserver());
     }
     @Test
     public void testEndScreen() throws IOException {

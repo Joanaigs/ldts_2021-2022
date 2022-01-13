@@ -20,12 +20,12 @@ public class EndScreenState extends State{
     private void initializing(){
         endScreenModel= new EndScreenModel();
         endScreenControler=new EndScreenControler(endScreenModel);
-        gui=new LanternaGUI();
-        gui.createScreenMenu();
     }
     public EndScreenState() {
         super();
         initializing();
+        gui=new LanternaGUI();
+        gui.createScreenMenu();
         viewEndScreen= new ViewEndScreen(endScreenModel, gui.getScreen());
     }
     //for testing only

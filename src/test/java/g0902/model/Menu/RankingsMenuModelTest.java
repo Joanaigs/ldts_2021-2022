@@ -46,15 +46,15 @@ public class RankingsMenuModelTest {
         rankingsMenuModel.sortD();
         Assertions.assertEquals(2, rankingsMenuModel.getScores().size());
         Assertions.assertEquals(2000,rankingsMenuModel.getScores().get(0).getR());
-        Assertions.assertEquals("Player",rankingsMenuModel.getScores().get(0).getL());
+        Assertions.assertEquals("JIG",rankingsMenuModel.getScores().get(0).getL());
 
         rankingsMenuModel.setScores(new ArrayList<>());
-        rankingsMenuModel.addScore("Player1", 30);
-        rankingsMenuModel.addScore("Player2", 100);
+        rankingsMenuModel.addScore("Pla", 30);
+        rankingsMenuModel.addScore("Ply", 100);
         rankingsMenuModel.sortD();
         List<Pair<String, Integer>> scores = new ArrayList<>();
-        scores.add((new Pair<>("Player2", 100)));
-        scores.add((new Pair<>("Player1", 30)));
+        scores.add((new Pair<>("Ply", 100)));
+        scores.add((new Pair<>("Pla", 30)));
 
         Assertions.assertTrue(rankingsMenuModel.getScores().get(0).equals(scores.get(0)));
         Assertions.assertTrue(rankingsMenuModel.getScores().get(1).equals(scores.get(1)));
@@ -62,10 +62,10 @@ public class RankingsMenuModelTest {
 
     @Test
     public void updateTest() throws IOException {
-        rankingsMenuModel.addScore("ART", 10);
-        rankingsMenuModel.updateFile();
         rankingsMenuModel.setScores(new ArrayList<>());
         rankingsMenuModel.readFile("RankingsTest");
+        rankingsMenuModel.addScore("ART", 10);
+        rankingsMenuModel.updateFile();
         Assertions.assertEquals(3,rankingsMenuModel.getScores().size());
         List<Pair<String, Integer>> scores = rankingsMenuModel.getScores();
         scores.remove(2);

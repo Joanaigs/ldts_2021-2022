@@ -30,7 +30,6 @@ public class TargetChaseStrategyTest {
         dists=new ArrayList<>(
                 Arrays.asList(8.0, 3.0, 5.0));
     }
-    /*
     @Test
     void chaseTest(){
         cyan.setCurrentDirection(Direction.Right);
@@ -66,6 +65,4 @@ public class TargetChaseStrategyTest {
 
         Assertions.assertEquals(new ArrayList<>(Arrays.asList(Direction.Left, Direction.Right)), a.removeCollidingDirections(new ArrayList<>(Arrays.asList(Direction.Down, Direction.Left, Direction.Up, Direction.Right)), 20));
     }
-    */
-
 }

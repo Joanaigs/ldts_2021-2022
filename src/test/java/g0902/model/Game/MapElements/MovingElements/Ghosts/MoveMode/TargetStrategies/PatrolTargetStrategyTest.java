@@ -20,19 +20,23 @@ public class PatrolTargetStrategyTest {
         PatrolTargetStrategy a=new PatrolTargetStrategy();
         MapReader mapReader=new MapReader();
         Map map=mapReader.createMap("mapTest");
+
         Assertions.assertEquals(new Position(39, 0), a.getTarget(position, map));
+
         Pacman pacman=map.getPacman();
         pacman.setCurrentDirection(Direction.Up);
-        pacman.nextDirection();
-        map.setPacman(pacman);
         Assertions.assertEquals(new Position(-25, 48), a.getTarget(position, map));
+
         pacman.setCurrentDirection(Direction.Left);
-        pacman.nextDirection();
         map.setPacman(pacman);
         Assertions.assertEquals(new Position(7, -48), a.getTarget(position, map));
+
         pacman.setCurrentDirection(Direction.Right);
-        pacman.nextDirection();
         map.setPacman(pacman);
         Assertions.assertEquals(new Position(7, 48), a.getTarget(position, map));
+
+        pacman.setCurrentDirection(Direction.None);
+        map.setPacman(pacman);
+        Assertions.assertEquals(new Position(-25, 48), a.getTarget(position, map));
     }
 }
