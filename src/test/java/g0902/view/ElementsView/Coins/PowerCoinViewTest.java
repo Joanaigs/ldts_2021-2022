@@ -2,20 +2,16 @@ package g0902.view.ElementsView.Coins;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Elements.Coins.PowerCoin;
-import g0902.model.Menu.EndScreenModel;
+import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Position;
-import g0902.view.ViewEndScreen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 

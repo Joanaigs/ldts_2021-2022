@@ -1,9 +1,8 @@
 package g0902.states;
 
-import g0902.control.EndScreenControler;
 import g0902.control.Observer;
 import g0902.control.RankingsMenuControler;
-import g0902.model.Menu.EndScreenModel;
+import g0902.gui.LanternaGUI;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewRankingsMenu;
@@ -16,15 +15,18 @@ public class RankingsMenuState extends State{
     private RankingsMenuModel rankingsMenuModel;
     private RankingsMenuControler rankingsMenuControler;
     private ViewRankingsMenu viewRankingsMenu;
+    LanternaGUI gui;
 
     private void initializing() throws FileNotFoundException {
         rankingsMenuModel=new RankingsMenuModel();
         rankingsMenuControler=new RankingsMenuControler(rankingsMenuModel);
+        gui=new LanternaGUI();
+        gui.createScreenMenu();
     }
     public RankingsMenuState() throws FileNotFoundException {
         super();
         initializing();
-        viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel);
+        viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel, gui.getScreen());
     }
 
     public RankingsMenuState(ViewRankingsMenu view) throws FileNotFoundException {
@@ -67,4 +69,7 @@ public class RankingsMenuState extends State{
     public void step() throws IOException {
         viewRankingsMenu.draw();
     }
+
+    @Override
+    public State nextState() {return new MainMenuState();}
 }

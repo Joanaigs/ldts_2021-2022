@@ -1,8 +1,8 @@
 package g0902.view.ElementsView.Ghosts;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.model.Constants;
-import g0902.model.Elements.Direction;
+import g0902.Constants;
+import g0902.model.Direction;
 import g0902.view.ElementsView.View;
 
 import java.io.IOException;

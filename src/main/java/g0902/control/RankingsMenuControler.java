@@ -4,7 +4,6 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import g0902.model.Menu.RankingsMenuModel;
 
-
 public class RankingsMenuControler implements Observer {
     RankingsMenuModel rankingsMenuModel;
     public RankingsMenuControler(RankingsMenuModel rankingsMenuModel) {

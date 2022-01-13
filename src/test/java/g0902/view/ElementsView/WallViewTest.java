@@ -2,10 +2,8 @@ package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Elements.Coins.PowerCoin;
-import g0902.model.Elements.Wall;
+import g0902.model.Game.MapElements.Wall;
 import g0902.model.Position;
-import g0902.view.ElementsView.Coins.PowerCoinView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
