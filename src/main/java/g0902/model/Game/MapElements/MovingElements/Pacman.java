@@ -1,10 +1,11 @@
 package g0902.model.Game.MapElements.MovingElements;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.MovingElement;
 import g0902.view.ElementsView.Collider;
 import g0902.model.Direction;
 import g0902.model.Position;
 
-public class Pacman extends MovingElement{
-    private int highscore;
+public class Pacman extends MovingElement {
+    private int score;
     private Direction nextDirection;
     private final boolean mouthOpen;
     private final static int width = 34;
@@ -12,7 +13,7 @@ public class Pacman extends MovingElement{
 
     public Pacman(Position position) {
         super(position, width, height);
-        highscore = 0;
+        score = 0;
         setCurrentDirection(Direction.Down);
         setBeginPositionPosition(position);
         setVelocity(100, 50);
@@ -75,12 +76,12 @@ public class Pacman extends MovingElement{
         return mouthOpen;
     }
 
-    public void increaseScore(int score){
-        highscore += score;
+    public void increaseScore(int valueEaten){
+        score += valueEaten;
     }
 
     public int getScore(){
-        return highscore;
+        return score;
     }
 
 }

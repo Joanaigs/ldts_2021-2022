@@ -104,8 +104,8 @@ public class GameModel implements Model {
        Collider pacmanCollider = new Collider(pacman.getPosition(), 22, 7);
        if(ghostCollider.collision(pacmanCollider)){
            if(ghost.getFrightenedModeOn()){
-               pacman.increaseScore(ghost.getScore());
-               ghost.updateScore();
+               pacman.increaseScore(ghost.getGhostValue());
+               ghost.updateGhostValue();
                ghost.setPosition(ghost.getBeginPosition());
                ghost.setFrightenedModeOff();
            }

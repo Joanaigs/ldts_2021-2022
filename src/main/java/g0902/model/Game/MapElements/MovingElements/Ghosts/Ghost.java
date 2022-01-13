@@ -4,7 +4,6 @@ import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.ChaseStrategy;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.FrightenedMode.FrightenedBehaviour;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ScatterMode.ScatterBehaviour;
-import g0902.model.Game.MapElements.MovingElements.MovingElement;
 import g0902.model.Position;
 
 public class Ghost extends MovingElement {
@@ -16,7 +15,7 @@ public class Ghost extends MovingElement {
     protected long frightenedTime;
     private final static int width = 35;
     private final static int height = 15;
-    int score;
+    int ghostValue;
 
     public Ghost(Position position) {
         super(position, width, height);
@@ -45,9 +44,10 @@ public class Ghost extends MovingElement {
         fixPassScreenBorder();
     }
 
-    public void updateScore() {score+=200;}
+    public void updateGhostValue() {
+        ghostValue +=200;}
 
-    public int getScore() {return score;}
+    public int getGhostValue() {return ghostValue;}
 
 
     // Related with Mode Moves of ghosts.
@@ -63,7 +63,7 @@ public class Ghost extends MovingElement {
     public void setFrightenedModeOn(){
         frightenedModeOn= true;
         frightenedTime = 0;
-        score=200;
+        ghostValue =200;
     }
 
     public void setFrightenedModeOff(){frightenedModeOn= false;}

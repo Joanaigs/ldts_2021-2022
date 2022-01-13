@@ -1,4 +1,4 @@
-package g0902.model.Game.MapElements.MovingElements;
+package g0902.model.Game.MapElements.MovingElements.Ghosts;
 
 import g0902.Constants;
 import g0902.model.Direction;

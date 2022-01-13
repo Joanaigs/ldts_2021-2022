@@ -2,13 +2,11 @@ package g0902.model.Game.MapElements;
 
 import g0902.Constants;
 import g0902.model.Direction;
-import g0902.model.Game.Map.Map;
-import g0902.model.Game.MapElements.MovingElements.MovingElement;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.MovingElement;
 import g0902.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 
 public class MovingElementTest extends Assertions {

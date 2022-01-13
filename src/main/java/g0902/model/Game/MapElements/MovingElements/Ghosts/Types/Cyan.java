@@ -7,7 +7,6 @@ import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ScatterMode.S
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.FrightenedMode.FrightenedMode;
 import g0902.model.Position;
 
-
 public class Cyan extends Ghost {
 
     public Cyan(Position position) {

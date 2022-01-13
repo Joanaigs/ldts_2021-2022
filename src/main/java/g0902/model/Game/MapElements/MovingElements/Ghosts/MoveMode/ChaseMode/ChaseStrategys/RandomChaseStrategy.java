@@ -2,7 +2,7 @@ package g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ChaseMode.Ch
 
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
-import g0902.model.Game.MapElements.MovingElements.Ghosts.MovingBehaviour;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.MovingBehaviour;
 
 import java.util.ArrayList;
 

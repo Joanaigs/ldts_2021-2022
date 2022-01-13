@@ -1,6 +1,5 @@
 package g0902.model.Game.MapElements.Coins;
 
-import g0902.view.ElementsView.Collider;
 import g0902.model.Game.MapElements.Element;
 import g0902.model.Position;
 

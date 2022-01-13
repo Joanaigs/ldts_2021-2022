@@ -2,7 +2,7 @@ package g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ScatterMode;
 
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
-import g0902.model.Game.MapElements.MovingElements.Ghosts.MovingBehaviour;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.MovingBehaviour;
 import g0902.model.Position;
 
 import java.util.ArrayList;

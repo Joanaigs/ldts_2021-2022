@@ -1,6 +1,7 @@
-package g0902.model.Game.MapElements.MovingElements.Ghosts;
+package g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode;
 
 import g0902.model.Direction;
+import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 import g0902.model.Position;
 
 import java.util.ArrayList;
