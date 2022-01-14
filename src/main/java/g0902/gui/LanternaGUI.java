@@ -9,6 +9,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 import com.googlecode.lanterna.terminal.swing.TerminalEmulatorAutoCloseTrigger;
+import g0902.Constants;
 
 import java.awt.*;
 
@@ -22,13 +23,9 @@ public class LanternaGUI {
         try {
             Font font = new Font(Font.MONOSPACED, Font.PLAIN, 2);
             AWTTerminalFontConfiguration cfg = new SwingTerminalFontConfiguration(true, AWTTerminalFontConfiguration.BoldMode.NOTHING, font);
-            Terminal terminal = new DefaultTerminalFactory()
-                    .setInitialTerminalSize(new TerminalSize(469, 350))
-                    .setTerminalEmulatorFontConfiguration(cfg)
-                    .createTerminal();
+            Terminal terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(Constants.GAME_SCREEN_WIDTH, Constants.GAME_SCREEN_HEIGHT)).setTerminalEmulatorFontConfiguration(cfg).createTerminal();
 
             screen = new TerminalScreen(terminal);
-
             screen.setCursorPosition(null);   // We don't need a cursor
             screen.startScreen();             // Screens must be started
             screen.doResizeIfNecessary();     // Resize screen if necessary

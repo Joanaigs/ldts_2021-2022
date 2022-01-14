@@ -33,7 +33,7 @@ public class RedView extends GhostView {
 
                     }
 
-                    graphics.fillRectangle(new TerminalPosition(red.getPosition().getCol() + x * 2 + 1, red.getPosition().getRow() + y +1), new TerminalSize(2, 1), ' ');
+                    graphics.fillRectangle(new TerminalPosition(red.getPosition().getCol() + x * 2 + 1, red.getPosition().getRow() + y +2), new TerminalSize(2, 1), ' ');
                 }
                 y++;
             }

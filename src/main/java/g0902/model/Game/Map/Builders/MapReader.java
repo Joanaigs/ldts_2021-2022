@@ -45,7 +45,6 @@ public class MapReader implements MapBuilder {
         height = Integer.parseInt(br.readLine());
         m.setSize(width*12, height*8);
         readElements(m, br);
-
         return m;
     }
 

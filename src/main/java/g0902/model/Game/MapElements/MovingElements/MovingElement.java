@@ -47,10 +47,10 @@ public class MovingElement extends Element {
     public Position getBeginPosition() {return beginPosition;}
 
     public final void fixPassScreenBorder(){
-        if(getPosition().getCol() > Constants.SCREEN_WIDTH-1)
-            getPosition().setCol(-getWidth());
+        if(getPosition().getCol() > Constants.GAME_SCREEN_WIDTH-1)
+            getPosition().setCol(-getWidth()+1);
         else if(getPosition().getCol() < -getWidth()+1)
-            getPosition().setCol(Constants.SCREEN_WIDTH);
+            getPosition().setCol(Constants.GAME_SCREEN_WIDTH);
     }
 
     public Position move(long deltatime, Direction direction){

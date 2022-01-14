@@ -2,8 +2,8 @@ package g0902;
 
 public final class Constants {
 
-    public static final int SCREEN_WIDTH = 469;
-    public static final int SCREEN_HEIGHT = 350;
+    public static final int GAME_SCREEN_WIDTH = 468;
+    public static final int GAME_SCREEN_HEIGHT = 350;
 
     /**********************************************************
      *         G  H  O  S  T  S
