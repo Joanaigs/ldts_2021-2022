@@ -17,6 +17,12 @@ public class EndScreenModelTest {
         Assertions.assertFalse(endScreenModel.isRunning());
         endScreenModel.addLetter('s');
         Assertions.assertEquals("s__", endScreenModel.getName());
+        endScreenModel.addLetter('a');
+        Assertions.assertEquals("sa_", endScreenModel.getName());
+        endScreenModel.addLetter('b');
+        Assertions.assertEquals("sab", endScreenModel.getName());
+        endScreenModel.addLetter('c');
+        Assertions.assertEquals("sab", endScreenModel.getName());
         endScreenModel.setScore(200);
         Assertions.assertEquals(200, endScreenModel.getScore());
     }

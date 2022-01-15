@@ -37,6 +37,9 @@ public class ViewRankingsMenuTest {
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
         Mockito.verify(tg, Mockito.times(1)).putString(6, 2, " __              _         _                 _ ", SGR.BOLD);
+        Mockito.verify(tg, Mockito.times(1)).putString(8, 14, "1", SGR.BOLD);
+        Mockito.verify(tg, Mockito.times(1)).putString(8, 15, "2", SGR.BOLD);
+        Mockito.verify(tg, Mockito.times(0)).putString(8, 15, "3", SGR.BOLD);
         Mockito.verify(tg, Mockito.times(1)).putString(22, 14, "JIG", SGR.BOLD);
         Mockito.verify(tg, Mockito.times(1)).putString(37, 15, "2000", SGR.BOLD);
         Mockito.verify(tg, Mockito.times(1)).putString(37, 14, "1000", SGR.BOLD);
