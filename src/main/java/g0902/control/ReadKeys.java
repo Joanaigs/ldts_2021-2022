@@ -24,6 +24,8 @@ public class ReadKeys implements Runnable {
 
     public void setScreen(Screen screen) {this.screen = screen;}
 
+    public Screen getScreen() {return screen;}
+
     public void run() {
         try {
             while (true) {
