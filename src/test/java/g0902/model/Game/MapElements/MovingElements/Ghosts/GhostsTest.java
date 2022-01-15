@@ -1,6 +1,7 @@
 package g0902.model.Game.MapElements.MovingElements.Ghosts;
 
 
+import g0902.Constants;
 import g0902.model.Direction;
 import g0902.model.Game.Map.Builders.MapBuilder;
 import g0902.model.Game.Map.Builders.MapReader;
@@ -62,10 +63,10 @@ public class GhostsTest extends Assertions {
         ghost.setChaseStrategy(targetChaseStrategy);
         ghost.setScatterBehaviour(scatterBottomLeft);
         ghost.setFrightenedBehaviour(frightenedMode);
+
+        //testing different modes in different times
         ghost.setCounterTime(26980);
         ghost.update(20);
-
-
         assertEquals(Direction.Right, ghost.getCurrentDirection());
 
         ghost.move(20, Direction.Down);
@@ -80,12 +81,27 @@ public class GhostsTest extends Assertions {
 
         assertEquals(new Position(105,205), ghost.getPosition());
 
-        ghost.setFrightenedTime(9001);
         assertEquals(new Position(105,204), ghost.getBeginPosition());
 
+        //Frightened mode
+        ghost.setFrightenedModeOn();
+        ghost.update(20);
+        assertEquals(true, ghost.getFrightenedModeOn());
+        assertEquals(20, ghost.getFrightenedTime());
+        assertEquals(Direction.Right, ghost.getCurrentDirection());
+        ghost.setFrightenedTime(9001);
         ghost.update(20);
         assertEquals(false, ghost.getFrightenedModeOn());
         assertEquals(9001, ghost.getFrightenedTime());
+
+        //test fixPassScreenBorder
+        ghost.setPosition(new Position(0, Constants.SCREEN_WIDTH));
+        ghost.update(20);
+        assertEquals(new Position(1,-35), ghost.getPosition());
+
+        //test updateGhostValue
+        ghost.updateGhostValue();
+        assertEquals(400, ghost.getGhostValue());
     }
 
 

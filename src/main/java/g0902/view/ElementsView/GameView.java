@@ -1,5 +1,6 @@
 package g0902.view.ElementsView;
 
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import g0902.model.Game.MapElements.Coins.PowerCoin;

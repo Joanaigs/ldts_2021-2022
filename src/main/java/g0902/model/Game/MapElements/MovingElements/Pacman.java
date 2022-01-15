@@ -6,7 +6,7 @@ import g0902.model.Position;
 public class Pacman extends MovingElement {
     private int score;
     private Direction nextDirection;
-    private final boolean mouthOpen;
+    private boolean mouthOpen;
     private final static int width = 34;
     private final static int height = 15;
 
@@ -83,4 +83,7 @@ public class Pacman extends MovingElement {
         return score;
     }
 
+    public void setMouthOpen(boolean mouthOpen) {
+        this.mouthOpen = mouthOpen;
+    }
 }

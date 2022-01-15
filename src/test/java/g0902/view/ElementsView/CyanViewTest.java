@@ -1,5 +1,7 @@
 package g0902.view.ElementsView;
 
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Cyan;
@@ -23,8 +25,15 @@ public class CyanViewTest {
         CyanView cyanView=new CyanView(ghost, tg);
         cyanView.draw();
         Mockito.verify(tg, Mockito.times(141)).setBackgroundColor(any());
+        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 1, 1),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 7, 1),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 25, 4),  new TerminalSize(2, 1), ' ');
         ghost.setFrightenedModeOn();
-        cyanView.draw();
+        CyanView cyanView1=new CyanView(ghost, tg);
+        cyanView1.draw();
+        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 1, 1),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 7, 1),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 25, 4),  new TerminalSize(2, 1), ' ');
         Mockito.verify(tg, Mockito.times(282)).setBackgroundColor(any());
     }
 }

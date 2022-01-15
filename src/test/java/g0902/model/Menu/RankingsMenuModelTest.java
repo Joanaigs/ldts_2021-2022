@@ -1,9 +1,7 @@
 package g0902.model.Menu;
 
 import g0902.model.Pair;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import org.mockito.stubbing.OngoingStubbing;
 
@@ -21,8 +19,21 @@ public class RankingsMenuModelTest {
     private RankingsMenuModel rankingsMenuModel;
 
     @BeforeEach
-    public void setUp() throws FileNotFoundException {
+    public void setUp() throws IOException {
         rankingsMenuModel=new RankingsMenuModel();
+        rankingsMenuModel.readFile("RankingsTest");
+        rankingsMenuModel.addScore("JIG", 1000);
+        rankingsMenuModel.addScore("JIG", 2000);
+        rankingsMenuModel.updateFile();
+    }
+
+    public void destroy() throws IOException {
+        List<Pair<String, Integer>> scores = rankingsMenuModel.getScores();
+        while (!scores.isEmpty()) {
+            scores.remove(0);
+        }
+        rankingsMenuModel.setScores(scores);
+        rankingsMenuModel.updateFile();
     }
 
     @Test
@@ -38,6 +49,8 @@ public class RankingsMenuModelTest {
 
         rankingsMenuModel.addScore("ART", 10);
         Assertions.assertEquals(3,rankingsMenuModel.getScores().size());
+
+        destroy();
     }
 
     @Test
@@ -58,6 +71,8 @@ public class RankingsMenuModelTest {
 
         Assertions.assertTrue(rankingsMenuModel.getScores().get(0).equals(scores.get(0)));
         Assertions.assertTrue(rankingsMenuModel.getScores().get(1).equals(scores.get(1)));
+
+        destroy();
     }
 
     @Test
@@ -71,11 +86,14 @@ public class RankingsMenuModelTest {
         scores.remove(2);
         rankingsMenuModel.setScores(scores);
         rankingsMenuModel.updateFile();
+
+        destroy();
     }
     @Test
-    public void readTest(){
+    public void readTest() throws IOException {
+        destroy();
         Assertions.assertThrows(FileNotFoundException.class, () -> {
-            rankingsMenuModel.readFile("aaa");
+            rankingsMenuModel.readFile("aaaa");
         });
     }
 

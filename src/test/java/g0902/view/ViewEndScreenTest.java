@@ -32,6 +32,10 @@ public class ViewEndScreenTest {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        Mockito.verify(tg, Mockito.times(19)).putString(anyInt(), anyInt(), anyString(),any(), any());
         Mockito.when(model.hasLost()).thenReturn(false);
         //if player loses
         view.draw();
@@ -39,6 +43,7 @@ public class ViewEndScreenTest {
         Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
         Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
         Mockito.verify(tg, Mockito.times(39)).putString(anyInt(), anyInt(), anyString(),any(), any());
+        Mockito.verify(screen, Mockito.times(2)).refresh();
 
     }
 }

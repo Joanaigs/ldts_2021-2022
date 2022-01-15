@@ -1,5 +1,6 @@
 package g0902.model.Game.MapElements;
 
+import g0902.model.Direction;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
 import g0902.model.Game.Map.Builders.MapBuilder;
@@ -40,10 +41,9 @@ public class PacmanTest extends Assertions{
         assertEquals(210, pacman.getScore());
     }
 
-    /*
     @Test
     void movePacmanTest(){
-        pacman.setDirection(Direction.Up);
+        pacman.setNextDirection(Direction.Up);
         Assertions.assertEquals(new Position(3*8+1-(50*20/1000), 3*12-1), pacman.moveNextDirection(20));
         pacman.nextDirection();
         Assertions.assertEquals(new Position(3*8+1-(50*20/1000), 3*12-1), pacman.moveCurrentDirection(20));
@@ -51,11 +51,47 @@ public class PacmanTest extends Assertions{
         Assertions.assertEquals(true, pacman.isOpen());
         pacman.setMouthOpen(false);
         Assertions.assertEquals(false, pacman.isOpen());
-        pacman.setDirection(Direction.Down);
+        pacman.setNextDirection(Direction.Down);
         Assertions.assertEquals(Direction.Down, pacman.getNextDirection());
         pacman.setPosition(new Position(1,1));
         Assertions.assertEquals(new Position(1,1), pacman.getPosition());
     }
-    */
+
+    @Test
+    void updateTest() throws IOException {
+        MapBuilder mapbuilder = new MapReader();
+        Map map = mapbuilder.createMap("map");
+        pacman.setPosition(new Position(30*8, 18*12));
+        Position pos = new Position(30*8, 18*12);
+        pacman = new Pacman(pos);
+        pacman.setMap(map);
+        pacman.update(20);
+        Assertions.assertEquals(new Position(30*8+1, 18*12), pacman.getPosition());
+        Assertions.assertEquals(Direction.None, pacman.getNextDirection());
+        Assertions.assertEquals(Direction.Down, pacman.getCurrentDirection());
+
+        pacman.setCurrentDirection(Direction.Right);
+        pacman.setNextDirection(Direction.Left);
+        pacman.update(20);
+        Assertions.assertEquals(new Position(30*8+1, 18*12-2), pacman.getPosition());
+        Assertions.assertEquals(Direction.Left, pacman.getNextDirection());
+
+        pacman.setCurrentDirection(Direction.Left);
+        pacman.setNextDirection(Direction.Up);
+        pacman.update(20);
+        Assertions.assertEquals(new Position(30*8+1, 18*12-4), pacman.getPosition());
+        Assertions.assertEquals(Direction.Up, pacman.getNextDirection());
+
+        pacman.setNextDirection(Direction.Right);
+        pacman.update(20);
+        Assertions.assertEquals(new Position(30*8+1, 18*12-2), pacman.getPosition());
+        Assertions.assertEquals(Direction.Right, pacman.getNextDirection());
+
+        pacman.setNextDirection(Direction.Up);
+        pacman.update(20);
+        Assertions.assertEquals(new Position(30*8+1, 18*12), pacman.getPosition());
+        Assertions.assertEquals(Direction.Up, pacman.getNextDirection());
+
+    }
 
 }
