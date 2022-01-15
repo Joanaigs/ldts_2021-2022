@@ -32,7 +32,7 @@ public class PinkView extends GhostView {
                         case '1' ->  graphics.setBackgroundColor(TextColor.Factory.fromString("#2121DE"));
                         default  ->  graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
                     }
-                    graphics.fillRectangle(new TerminalPosition(pink.getPosition().getCol() + x * 2 + 1, pink.getPosition().getRow() + y +1),new TerminalSize(2, 1), ' ');
+                    graphics.fillRectangle(new TerminalPosition(pink.getPosition().getCol() + x * 2 + 2, pink.getPosition().getRow() + y +1),new TerminalSize(2, 1), ' ');
                 }
                 y++;
             }

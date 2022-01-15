@@ -67,7 +67,7 @@ public class MovingElementTest extends Assertions {
         element.setPosition(pos);
         element.fixPassScreenBorder();
 
-        assertEquals(element.getPosition().getCol(), -element.getWidth());
+        assertEquals(element.getPosition().getCol(), -element.getWidth()+1);
         assertEquals(element.getPosition().getRow(), 0);
     }
 
