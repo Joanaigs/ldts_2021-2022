@@ -25,15 +25,15 @@ public class CyanViewTest {
         CyanView cyanView=new CyanView(ghost, tg);
         cyanView.draw();
         Mockito.verify(tg, Mockito.times(141)).setBackgroundColor(any());
-        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 1, 1),  new TerminalSize(2, 1), ' ');
-        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 7, 1),  new TerminalSize(2, 1), ' ');
-        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 25, 4),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 1, 2),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 7, 2),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 9, 5),  new TerminalSize(2, 1), ' ');
         ghost.setFrightenedModeOn();
         CyanView cyanView1=new CyanView(ghost, tg);
         cyanView1.draw();
-        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 1, 1),  new TerminalSize(2, 1), ' ');
-        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 7, 1),  new TerminalSize(2, 1), ' ');
-        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 25, 4),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 1, 2),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 7, 2),  new TerminalSize(2, 1), ' ');
+        Mockito.verify(tg, Mockito.times(2)).fillRectangle(new TerminalPosition( 9, 5),  new TerminalSize(2, 1), ' ');
         Mockito.verify(tg, Mockito.times(282)).setBackgroundColor(any());
     }
 }

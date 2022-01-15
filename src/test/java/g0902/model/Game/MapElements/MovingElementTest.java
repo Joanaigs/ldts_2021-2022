@@ -50,19 +50,19 @@ public class MovingElementTest extends Assertions {
 
     @Test
     void NotPassBorderRight(){
-        Position pos = new Position(0, Constants.SCREEN_WIDTH-1);
+        Position pos = new Position(0, Constants.GAME_SCREEN_WIDTH-1);
         element.setPosition(pos);
 
         element.fixPassScreenBorder();
 
-        assertEquals(element.getPosition().getCol(), Constants.SCREEN_WIDTH-1);
+        assertEquals(element.getPosition().getCol(), Constants.GAME_SCREEN_WIDTH-1);
         assertEquals(element.getPosition().getRow(), 0);
 
     }
 
     @Test
     void PassBorderRight(){
-        Position pos = new Position(0, Constants.SCREEN_WIDTH);
+        Position pos = new Position(0, Constants.GAME_SCREEN_WIDTH);
 
         element.setPosition(pos);
         element.fixPassScreenBorder();
@@ -90,7 +90,7 @@ public class MovingElementTest extends Assertions {
         element.setPosition(pos);
         element.fixPassScreenBorder();
 
-        assertEquals(element.getPosition().getCol(), Constants.SCREEN_WIDTH);
+        assertEquals(element.getPosition().getCol(), Constants.GAME_SCREEN_WIDTH);
         assertEquals(element.getPosition().getRow(), 0);
     }
 

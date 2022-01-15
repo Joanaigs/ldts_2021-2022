@@ -95,9 +95,9 @@ public class GhostsTest extends Assertions {
         assertEquals(9001, ghost.getFrightenedTime());
 
         //test fixPassScreenBorder
-        ghost.setPosition(new Position(0, Constants.SCREEN_WIDTH));
+        ghost.setPosition(new Position(0, Constants.GAME_SCREEN_WIDTH));
         ghost.update(20);
-        assertEquals(new Position(1,-35), ghost.getPosition());
+        assertEquals(new Position(0,-34), ghost.getPosition());
 
         //test updateGhostValue
         ghost.updateGhostValue();
