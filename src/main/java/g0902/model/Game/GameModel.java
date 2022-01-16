@@ -20,7 +20,6 @@ public class GameModel implements Model {
     private final Map map;
     private final List<Ghost> ghosts;
     Pacman pacman;
-    int lives;
     boolean isRunning;
     boolean lost;
 
@@ -30,7 +29,6 @@ public class GameModel implements Model {
         ghosts = List.of(map.getRed(), map.getPink(), map.getCyan(), map.getOrange());
         pacman = map.getPacman();
         isRunning=true;
-        lives=3;
         lost=false;
     }
 
@@ -110,8 +108,8 @@ public class GameModel implements Model {
                     g.updateGhostValue();
            }
            else{
-               lives--;
-               if(lives==0){
+               pacman.decreaseLives();
+               if(pacman.getLives()==0){
                    lost=true;
                    isRunning=false;
                }

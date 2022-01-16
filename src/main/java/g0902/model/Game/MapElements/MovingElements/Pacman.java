@@ -9,6 +9,7 @@ public class Pacman extends MovingElement {
     private final boolean mouthOpen;
     private final static int width = 34;
     private final static int height = 15;
+    int lives;
 
     public Pacman(Position position) {
         super(position, width, height);
@@ -18,6 +19,7 @@ public class Pacman extends MovingElement {
         setVelocity(100, 50);
         nextDirection = Direction.None;
         mouthOpen = true;
+        lives = 3;
     }
 
     public void update(long deltatime){
@@ -81,4 +83,7 @@ public class Pacman extends MovingElement {
 
     public int getScore(){return score;}
 
+    public int getLives() {return lives;}
+
+    public void decreaseLives(){ lives--;}
 }
