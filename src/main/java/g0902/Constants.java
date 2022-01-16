@@ -2,194 +2,26 @@ package g0902;
 
 public final class Constants {
 
+    // GAME SCREEN
     public static final int GAME_SCREEN_WIDTH = 468;
     public static final int GAME_SCREEN_HEIGHT = 335;
 
-    /**********************************************************
-     *         G  H  O  S  T  S
+    /*
+    depois podemos mudar isto para outros nomes. Ainda nao coloquei em lado nenhum
      */
 
-    public static final String[] RIGHT_GHOST= {
-            "     ####",
-            "   ########",
-            "  #00####00#",
-            " #0000##0000#",
-            " #0011##0011#",
-            " #0011##0011#",
-            "##0011##0011##",
-            "###00####00###",
-            "##############",
-            "## ###  ### ##",
-            "#   ##  ##   #",
-    };
-
-    public static final String[] LEFT_GHOST= {
-            "     ####",
-            "   ########",
-            "  #00####00#",
-            " #0000##0000#",
-            " #1100##1100#",
-            " #1100##1100#",
-            "##1100##1100##",
-            "###00####00###",
-            "##############",
-            "## ###  ### ##",
-            "#   ##  ##   #",
-    };
-
-    public static final String[] UP_GHOST= {
-            "     ####",
-            "   ########",
-            "  #11####11#",
-            " #1111##1111#",
-            " #0110##0111#",
-            " #0000##0000#",
-            "##0000##0000##",
-            "###00####00###",
-            "##############",
-            "## ###  ### ##",
-            "#   ##  ##   #",
-    };
+    // COLORS IN GAME
+    public static final String YELLOW = "#EECD40";
+    public static final String RED = "#FF0000";
+    public static final String ORANGE = "#FFB852";
+    public static final String CYAN = "#00FFFF";
+    public static final String PINK = "#FFB8FF";
+    public static final String SALMON = "#FFC6B6";
+    public static final String WHITE = "#FFFFFF";
+    public static final String DARK_BLUE =  "#2121DE";   // color of ghost's eyes and body on Frightened
+    public static final String DARK_BLUE_2 = "#181B70";  // color of walls
 
 
-    public static final String[] DOWN_GHOST= {
-            "     ####",
-            "   ########",
-            "  #00####00#",
-            " #0000##0000#",
-            " #0000##0000#",
-            " #0110##0110#",
-            "##1111##1111##",
-            "###11####11###",
-            "##############",
-            "## ###  ### ##",
-            "#   ##  ##   #",
-    };
+    // COLORS ON MENUS
 
-    public static final String[] FRIGHTENED_GHOST= {
-            "     ####",
-            "   ########",
-            "  ##########",
-            " ##11####11##",
-            " ##11####11##",
-            " ############",
-            "###1###1###1##",
-            "#1###1###1###1",
-            "##############",
-            "## ###  ### ##",
-            "#   ##  ##   #",
-    };
-
-
-
-
-    /**********************************************************
-     *          P   A   C   M   A   N
-     */
-
-    public static final String[] PAC_OPEN_RIGHT = {
-            "     #####",
-            "   #########",
-            "  ##### #####",
-            "  #########",
-            " #######",
-            " ####",
-            " #######",
-            "  #########",
-            "  ###########",
-            "   #########",
-            "     #####"};
-
-
-    public static final String[] PAC_CLOSE = {
-            "     #####",
-            "   #########",
-            "  #### ######",
-            "  #### ######",
-            " #############",
-            " #############",
-            " #############",
-            " #############",
-            "  ###########",
-            "   #########",
-            "     #####"};
-
-    public static final String[] PAC_OPEN_LEFT = {
-            "     #####",
-            "   #########",
-            "  ##### #####",
-            "    #########",
-            "       #######",
-            "         ####",
-            "       #######",
-            "    #########",
-            "  ###########",
-            "   #########",
-            "     #####"};
-
-
-    public static final String[] PAC_OPEN_UP = {
-            "   #       #",
-            "  ###     ###",
-            " #####   #####",
-            "####### #######",
-            "### ###########",
-            "###############",
-            "##############",
-            " ############",
-            "  ##########",
-            "   ########",
-            "    ######"};
-
-    public static final String[] PAC_OPEN_DOWN = {
-
-            "    ######",
-            "   ########",
-            " ############",
-            "###############",
-            "###############",
-            "###############",
-            "########### ###",
-            "####### ######",
-            " #####   #####",
-            "  ###     ###",
-            "   #       #"};
-
-
-    /**********************************************************
-     *           C O I N S
-     */
-
-    public static final String[] POWER_COIN = {
-
-            "   ###### ",
-            "  ##    ##",
-            " ##      ##",
-            " ##      ##",
-            " ##      ##",
-            " ##      ##",
-            "  ##    ##",
-            "   ######"
-    };
-
-    public static final String[] SMALL_COIN = {
-
-            " ### ",
-            "#####",
-            "#####",
-            " ### "
-    };
-
-
-    /**********************************************************
-     *          S   C   O   R   E
-     */
-
-    public static final String[] SCORE = {
-            "#######  ######  ######  ######  #######",
-            "##      ##      ##    ## ##   ## ##     ",
-            "####### ##      ##    ## ######  #####  ",
-            "     ## ##      ##    ## ##   ## ##     ",
-            "#######  ######  ######  ##   ## #######"
-    };
 }

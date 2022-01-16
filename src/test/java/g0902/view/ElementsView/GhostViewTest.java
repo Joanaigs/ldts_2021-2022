@@ -1,7 +1,7 @@
 package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Constants;
+import g0902.Draws;
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Cyan;
 import g0902.view.ElementsView.Ghosts.CyanView;
@@ -17,10 +17,10 @@ public class GhostViewTest {
         Cyan ghost= mock(Cyan.class);
         CyanView cyanView=new CyanView(ghost, tg);
         cyanView.setGhostDraw(Direction.Right);
-        Assertions.assertEquals(Constants.RIGHT_GHOST, cyanView.setGhostDraw(Direction.Right));
-        Assertions.assertEquals(Constants.LEFT_GHOST, cyanView.setGhostDraw(Direction.Left));
-        Assertions.assertEquals(Constants.UP_GHOST, cyanView.setGhostDraw(Direction.Up));
-        Assertions.assertEquals(Constants.DOWN_GHOST, cyanView.setGhostDraw(Direction.Down));
+        Assertions.assertEquals(Draws.RIGHT_GHOST, cyanView.setGhostDraw(Direction.Right));
+        Assertions.assertEquals(Draws.LEFT_GHOST, cyanView.setGhostDraw(Direction.Left));
+        Assertions.assertEquals(Draws.UP_GHOST, cyanView.setGhostDraw(Direction.Up));
+        Assertions.assertEquals(Draws.DOWN_GHOST, cyanView.setGhostDraw(Direction.Down));
     }
 
 }

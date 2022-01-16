@@ -1,6 +1,7 @@
 package g0902.model.Game.MapElements;
 
 import g0902.Constants;
+import g0902.Draws;
 import g0902.model.Direction;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.MovingElement;

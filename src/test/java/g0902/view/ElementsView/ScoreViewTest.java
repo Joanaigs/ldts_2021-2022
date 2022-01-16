@@ -2,7 +2,7 @@ package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Constants;
+import g0902.Draws;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -154,7 +154,7 @@ public class ScoreViewTest extends Assertions {
         scoreView.drawScore();
         Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
         int y = 0;
-        for (String s : Constants.SCORE){
+        for (String s : Draws.SCORE){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
                     Mockito.verify(scoreView, Mockito.times(1)).fillTheRectangles(4+x*2, 39*8+y*2+6);

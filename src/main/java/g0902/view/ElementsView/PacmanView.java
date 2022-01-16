@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Constants;
+import g0902.Draws;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 
 
@@ -20,14 +20,14 @@ public class PacmanView extends View {
     public String[] setPacDraw(String[] pacDraw){
         if(pacman.isOpen()) {
             switch (pacman.getCurrentDirection()) {
-                case Right -> pacDraw = Constants.PAC_OPEN_RIGHT;
-                case Left -> pacDraw = Constants.PAC_OPEN_LEFT;
-                case Up -> pacDraw = Constants.PAC_OPEN_UP;
-                case Down -> pacDraw = Constants.PAC_OPEN_DOWN;
-                case None -> pacDraw = Constants.PAC_CLOSE;
+                case Right -> pacDraw = Draws.PAC_OPEN_RIGHT;
+                case Left -> pacDraw = Draws.PAC_OPEN_LEFT;
+                case Up -> pacDraw = Draws.PAC_OPEN_UP;
+                case Down -> pacDraw = Draws.PAC_OPEN_DOWN;
+                case None -> pacDraw = Draws.PAC_CLOSE;
             }
         }
-            else pacDraw = Constants.PAC_CLOSE;;
+            else pacDraw = Draws.PAC_CLOSE;;
         return pacDraw;
     }
 

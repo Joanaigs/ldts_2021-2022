@@ -1,7 +1,7 @@
 package g0902.view.ElementsView.Ghosts;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Constants;
+import g0902.Draws;
 import g0902.model.Direction;
 import g0902.view.ElementsView.View;
 
@@ -14,10 +14,10 @@ public abstract class GhostView extends View {
     public String[]  setGhostDraw(Direction direction){
         String[] ghostDraw = new String[0];
         switch (direction) {
-            case Right -> ghostDraw = Constants.RIGHT_GHOST;
-            case Left  -> ghostDraw = Constants.LEFT_GHOST;
-            case Up    -> ghostDraw = Constants.UP_GHOST;
-            case Down  -> ghostDraw = Constants.DOWN_GHOST;
+            case Right -> ghostDraw = Draws.RIGHT_GHOST;
+            case Left  -> ghostDraw = Draws.LEFT_GHOST;
+            case Up    -> ghostDraw = Draws.UP_GHOST;
+            case Down  -> ghostDraw = Draws.DOWN_GHOST;
         }
         return ghostDraw;
     }

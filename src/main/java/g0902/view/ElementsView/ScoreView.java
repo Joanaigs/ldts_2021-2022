@@ -4,8 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Constants;
-import g0902.model.Game.GameModel;
+import g0902.Draws;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 
 import java.io.*;
@@ -74,7 +73,7 @@ public class ScoreView extends View {
         graphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));  // set color to white
 
         int y = 0;
-        for (String s : Constants.SCORE){
+        for (String s : Draws.SCORE){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
                     fillTheRectangles(4+x*width, 39*8+y*height+6);

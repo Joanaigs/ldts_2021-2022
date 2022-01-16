@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Constants;
+import g0902.Draws;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class FrightenedView extends GhostView {
     @Override
     public void draw() throws IOException {
         int y = 0;
-        for (String s : Constants.FRIGHTENED_GHOST) {
+        for (String s : Draws.FRIGHTENED_GHOST) {
             for (int x = 0; x < s.length(); x++) {
                 switch (s.charAt(x)) {
                     case '#' -> graphics.setBackgroundColor(TextColor.Factory.fromString("#2121DE"));
