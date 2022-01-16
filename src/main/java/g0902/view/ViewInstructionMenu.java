@@ -14,13 +14,15 @@ public class ViewInstructionMenu extends Viewer {
     }
 
     public void intructrionsDraw(){
-        String s1 = "      _ ___ _     _ ___  _      _";
-        String s2 = "||\\ ||_  | |_|| ||   | || ||\\ ||_ ";
-        String s3 = "|| \\| _| | |\\ |_||_  | ||_|| \\| _|";
+        String s1 = " _         _               _   _             ";
+        String s2 = "|_|___ ___| |_ ___ _ _ ___| |_|_|___ ___ ___ ";
+        String s3 = "| |   |_ -|  _|  _| | |  _|  _| | . |   |_ -|";
+        String s4 = "|_|_|_|___|_| |_| |___|___|_| |_|___|_|_|___|";
         graphics.setForegroundColor(TextColor.Factory.fromString("#ffca18"));//yellow
-        graphics.putString(10, 2, s1);
-        graphics.putString(10, 3, s2);
-        graphics.putString(10, 4, s3);
+        graphics.putString(6, 2, s1);
+        graphics.putString(6, 3, s2);
+        graphics.putString(6, 4, s3);
+        graphics.putString(6, 5, s4);
     }
 
     public void arrowsDraw(){
