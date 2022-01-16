@@ -9,21 +9,21 @@ import g0902.model.Position;
 import java.io.IOException;
 
 public class LivesView extends View{
-    GameModel gameModel;
+    Pacman pacman;
 
-    public LivesView(GameModel gameModel, TextGraphics graphics) {
+    public LivesView(Pacman pacman, TextGraphics graphics) {
         super(graphics);
-        this.gameModel =  gameModel;
+        this.pacman = pacman;
     }
 
     @Override
     public void draw() throws IOException {
-        Pacman pacman = new Pacman( new Position( gameModel.getMap().getHeight() + 3, 340 ));
-        pacman.setCurrentDirection(Direction.Right);
+        Pacman newPacman = new Pacman( new Position( 39*8 + 3, 340 ));
+        newPacman.setCurrentDirection(Direction.Right);
 
-        for( int i=0; i < gameModel.getMap().getPacman().getLives(); i++) {
-            pacman.setPosition(new Position( pacman.getPosition().getRow(), pacman.getPosition().getCol()+ 27 ));
-            drawPacman(pacman);
+        for( int i=0; i < pacman.getLives(); i++) {
+            newPacman.setPosition(new Position( newPacman.getPosition().getRow(), newPacman.getPosition().getCol()+ 27 ));
+            drawPacman(newPacman);
         }
 
     }

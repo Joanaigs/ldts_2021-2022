@@ -3,10 +3,7 @@ package g0902.view.ElementsView;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import g0902.Constants;
-import g0902.model.Game.GameModel;
-import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
-import g0902.view.ElementsView.Ghosts.PinkView;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,44 +12,32 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.any;
 
 public class ScoreViewTest extends Assertions {
     TextGraphics textGraphics;
-    GameModel gameModel;
-    Map map;
-    Pacman pac;
+    Pacman pacman;
     ScoreView scoreView;
-
 
     @BeforeEach
     void create(){
         textGraphics = Mockito.mock(TextGraphics.class);
-        gameModel = Mockito.mock(GameModel.class);
-        map = Mockito.mock(Map.class);
-        pac = Mockito.mock(Pacman.class);
-        Mockito.when(gameModel.getMap()).thenReturn(map);
-        Mockito.when(map.getPacman()).thenReturn(pac);
-        scoreView = Mockito.spy(new ScoreView(gameModel, textGraphics));
+        pacman = Mockito.mock(Pacman.class);
+        scoreView = Mockito.spy(new ScoreView(pacman, textGraphics));
     }
 
     @Test
     void draw() throws IOException {
-        Mockito.when(pac.getScore()).thenReturn(10);
-        Mockito.when(map.getHeight()).thenReturn(4);
+        Mockito.when(pacman.getScore()).thenReturn(10);
         //when
         scoreView.draw();
         //then
         Mockito.verify(scoreView, Mockito.times(1)).drawScore();
-        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 4+6, 97);
-        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 4+6, 97+7*2+3);
-        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 4+6, 114+7*2+3);
-        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(1, 4+6,  148);
-        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 4+6, 157);
+        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 39*8+6, 97);
+        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 39*8+6, 97+7*2+3);
+        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 39*8+6, 114+7*2+3);
+        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(1, 39*8+6,  148);
+        Mockito.verify(scoreView, Mockito.times(1)).drawNumber(0, 39*8+6, 157);
     }
-
-    @Test
-    void ScoreView() {assertEquals(gameModel, scoreView.getGameModel());}
 
 
     private void compareArrays(String[] arr2, String[] arr1){
@@ -145,7 +130,6 @@ public class ScoreViewTest extends Assertions {
 
     @Test
     void drawNumber(){
-        Mockito.when(map.getHeight()).thenReturn(4);
         List<String[]> tnumbers = List.of(
                 new String[]{"##########"},
                 new String[]{"#"},
@@ -167,14 +151,13 @@ public class ScoreViewTest extends Assertions {
 
     @Test
     void drawScore(){
-        Mockito.when(map.getHeight()).thenReturn(4);
         scoreView.drawScore();
         Mockito.verify(textGraphics, Mockito.times(1)).setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
         int y = 0;
         for (String s : Constants.SCORE){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
-                    Mockito.verify(scoreView, Mockito.times(1)).fillTheRectangles(4+x*2, 4+y*2+6);
+                    Mockito.verify(scoreView, Mockito.times(1)).fillTheRectangles(4+x*2, 39*8+y*2+6);
             }
             y++;
         }

@@ -6,6 +6,8 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import g0902.Constants;
 import g0902.model.Game.GameModel;
+import g0902.model.Game.MapElements.MovingElements.Pacman;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +15,11 @@ import java.util.List;
 public class ScoreView extends View {
     static final int height= 2, width = 2;
     List<String[]>  numbers;
-    GameModel gameModel;
+    Pacman pacman;
 
-    public ScoreView(GameModel gameModel, TextGraphics graphics) {
+    public ScoreView(Pacman pacman, TextGraphics graphics) {
         super(graphics);
-        this.gameModel = gameModel;
+        this.pacman = pacman;
         numbers = new ArrayList<>();
         try {
             loadNumbers();
@@ -30,12 +32,12 @@ public class ScoreView extends View {
     public void draw() throws IOException {
         drawScore();
 
-        int pacmanScore = gameModel.getMap().getPacman().getScore();
+        int pacmanScore = pacman.getScore();
         String score = String.format("%05d", pacmanScore);
         int col = 90;
         for(char digit : score.toCharArray()) {
             int n = Integer.parseInt(digit+"");
-            drawNumber(n, gameModel.getMap().getHeight() + 6, col+7);
+            drawNumber(n, 39*8+6, col+7);
             col += numbers.get(n)[0].length()*width+3;
         }
     }
@@ -75,15 +77,13 @@ public class ScoreView extends View {
         for (String s : Constants.SCORE){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
-                    fillTheRectangles(4+x*width, gameModel.getMap().getHeight()+y*height+6);
+                    fillTheRectangles(4+x*width, 39*8+y*height+6);
             }
             y++;
         }
     }
 
     public void fillTheRectangles(int x, int y){graphics.fillRectangle(new TerminalPosition(x, y), new TerminalSize(width, height), ' ');}
-
-    public GameModel getGameModel() {return gameModel;}  // needed for the tests
 
     public List<String[]> getNumbers() {return numbers;}
 }

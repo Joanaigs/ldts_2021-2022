@@ -34,8 +34,8 @@ public  class GameView extends Viewer<GameModel> {
         pinkViewer = new PinkView(gameModel.getMap().getPink(), graphics);
         orangeViewer = new OrangeView(gameModel.getMap().getOrange(), graphics);
         cyanViewer = new CyanView(gameModel.getMap().getCyan(), graphics);
-        scoreView = new ScoreView(gameModel, graphics);
-        livesView = new LivesView(gameModel, graphics);
+        scoreView = new ScoreView(gameModel.getMap().getPacman(), graphics);
+        livesView = new LivesView(gameModel.getMap().getPacman(), graphics);
 
         int i = 0;
         for( Wall wall : gameModel.getMap().getWalls())
