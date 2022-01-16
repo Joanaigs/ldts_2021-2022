@@ -1,10 +1,12 @@
 package g0902.states;
 
+import g0902.control.InstructionMenuController;
 import g0902.control.Observer;
 import g0902.control.PacmanController;
 import g0902.gui.LanternaGUI;
 import g0902.model.Game.GameModel;
 import g0902.model.Menu.EndScreenModel;
+import g0902.model.Menu.InstructionMenuModel;
 import g0902.model.Model;
 import g0902.view.ElementsView.GameView;
 import g0902.view.Viewer;
@@ -19,24 +21,23 @@ public class GameState extends State{
     public static final long TIME_FIXED = 20;
     LanternaGUI gui;
 
-    private void initializing() throws IOException {
+    public GameState() throws IOException {
+        super();
         gameModel = new GameModel();
         pacmanController = new PacmanController(gameModel.getMap().getPacman());
         totalTime = 0;
         pastTime = System.currentTimeMillis();
-    }
-
-    public GameState() throws IOException {
-        super();
-        initializing();
         gui=new LanternaGUI();
         gui.createScreenGame();
         gameView = new GameView(gameModel, gui.getScreen());
     }
-
-    public GameState(GameView view) throws IOException {
+    //for test use only
+    public GameState(GameView view, GameModel model, PacmanController controller){
         super();
-        initializing();
+        gameModel=model;
+        totalTime = 0;
+        pastTime = System.currentTimeMillis();
+        pacmanController=controller;
         gameView=view;
     }
 
@@ -61,14 +62,6 @@ public class GameState extends State{
     }
 
     @Override
-    public String getString() {
-        return "Game";
-    }
-
-    @Override
-    public void setViewer(Viewer viewer) {this.gameView= (GameView) viewer;}
-
-    @Override
     public void step() throws IOException {
         long now = System.currentTimeMillis();
         totalTime += now-pastTime;
@@ -90,5 +83,13 @@ public class GameState extends State{
         ((EndScreenModel) state.getModel()).setLost(lost);
 
         return state;
+    }
+
+    public long getPastTime() {
+        return pastTime;
+    }
+
+    public long getTotalTime() {
+        return totalTime;
     }
 }

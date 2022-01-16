@@ -2,7 +2,9 @@ package g0902.states;
 
 import g0902.control.EndScreenControler;
 import g0902.control.Observer;
+import g0902.control.PacmanController;
 import g0902.gui.LanternaGUI;
+import g0902.model.Game.GameModel;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Model;
@@ -17,21 +19,19 @@ public class EndScreenState extends State{
     EndScreenControler endScreenControler;
     LanternaGUI gui;
 
-    private void initializing(){
-        endScreenModel= new EndScreenModel();
-        endScreenControler=new EndScreenControler(endScreenModel);
-    }
     public EndScreenState() {
         super();
-        initializing();
+        endScreenModel= new EndScreenModel();
+        endScreenControler=new EndScreenControler(endScreenModel);
         gui=new LanternaGUI();
         gui.createScreenMenu();
         viewEndScreen= new ViewEndScreen(endScreenModel, gui.getScreen());
     }
     //for testing only
-    public EndScreenState(ViewEndScreen view) {
+    public EndScreenState(ViewEndScreen view, EndScreenModel model, EndScreenControler controller) {
         super();
-        initializing();
+        endScreenControler=controller;
+        endScreenModel=model;
         this.viewEndScreen=view;
     }
 
@@ -49,16 +49,6 @@ public class EndScreenState extends State{
     @Override
     public boolean isRunning() {
         return endScreenModel.isRunning();
-    }
-
-    @Override
-    public String getString() {
-        return "EndScreen";
-    }
-
-    @Override
-    public void setViewer(Viewer viewer) {
-        this.viewEndScreen= (ViewEndScreen) viewer;
     }
 
     @Override
