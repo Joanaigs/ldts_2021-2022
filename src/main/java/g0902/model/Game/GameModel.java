@@ -17,15 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameModel implements Model {
-    private final Map map;
-    private final List<Ghost> ghosts;
+    private Map map;
+    private List<Ghost> ghosts;
     Pacman pacman;
     boolean isRunning;
     boolean lost;
 
-    public GameModel() throws IOException {
+    public GameModel(String mapName) throws IOException {
         MapBuilder mapBuilder = new MapReader();
-        map = mapBuilder.createMap("map");
+        map = mapBuilder.createMap(mapName);
         ghosts = List.of(map.getRed(), map.getPink(), map.getCyan(), map.getOrange());
         pacman = map.getPacman();
         isRunning=true;
@@ -35,7 +35,6 @@ public class GameModel implements Model {
     public Map getMap() {
         return map;
     }
-
 
     public void update(long deltatime) {
 
@@ -63,7 +62,7 @@ public class GameModel implements Model {
             powerCoinCollisions();
     }
 
-    private boolean smallCoinCollisions(){
+    public boolean smallCoinCollisions(){
         for(int i= -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 Position p = new Position((pacman.getPosition().getRow()) / 8 + i, (pacman.getPosition().getCol()) /12 + j);
@@ -96,7 +95,7 @@ public class GameModel implements Model {
     }
 
 
-   private void ghostPacmanCollisions(Ghost ghost){
+   public void ghostPacmanCollisions(Ghost ghost){
        Collider ghostCollider = new Collider(ghost.getPosition(), 22, 7);
        Collider pacmanCollider = new Collider(pacman.getPosition(), 22, 7);
        if(ghostCollider.collision(pacmanCollider)){
@@ -118,7 +117,7 @@ public class GameModel implements Model {
            }
        }
 
-    private void resetGame() {
+    public void resetGame() {
         pacman.setCurrentDirection(Direction.Down);
         pacman.setPosition(pacman.getBeginPosition());
 
@@ -132,5 +131,15 @@ public class GameModel implements Model {
     public boolean isRunning(){return isRunning;}
 
     public boolean hasLost() {return lost;}
+
+    public Pacman getPacman() {return pacman;}
+
+    public void setPacman(Pacman pacman) {this.pacman = pacman;}
+
+    public void setMap(Map map) {this.map = map;}
+
+    public void setGhosts(List<Ghost> ghosts) {this.ghosts = ghosts;}
+
+    public List<Ghost> getGhosts() {return ghosts;}
 }
 

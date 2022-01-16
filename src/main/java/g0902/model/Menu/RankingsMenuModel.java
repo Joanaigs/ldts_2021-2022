@@ -27,6 +27,8 @@ public class RankingsMenuModel implements Model, MenuModel {
 
         File file = new File(fileLocation);
         Scanner myReader = new Scanner(file);
+        if(!myReader.hasNext())
+            return;
         myReader.nextLine();
         while (myReader.hasNextLine()) {
             String data = myReader.nextLine();

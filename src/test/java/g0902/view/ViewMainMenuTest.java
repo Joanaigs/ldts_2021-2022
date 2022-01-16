@@ -1,5 +1,6 @@
 package g0902.view;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -33,6 +34,11 @@ public class ViewMainMenuTest {
         view.draw();
         Mockito.verify(tg, Mockito.times(3)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
         Mockito.verify(tg, Mockito.times(6)).putString(anyInt(), anyInt(), anyString());
+        Mockito.verify(tg, Mockito.times(1)).putString(27, 12,"START" , SGR.BOLD);
+        Mockito.verify(tg, Mockito.times(1)).putString(27, 13,"-----" , SGR.BLINK);
+        Mockito.verify(tg, Mockito.times(1)).putString(23, 15,"INSTRUCTIONS" , SGR.BOLD);
+        Mockito.verify(tg, Mockito.times(1)).putString(23, 16,"------------" , SGR.BLINK);
+        Mockito.verify(screen, Mockito.times(1)).refresh();
 
     }
 }

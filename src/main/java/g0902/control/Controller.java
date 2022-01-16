@@ -45,4 +45,7 @@ public class Controller {
     public void setReadKeys(ReadKeys readKeys) {
         this.readKeys = readKeys;
     }
+
+    public Thread getThread() {return thread;}
+    public ReadKeys getReadKeys() {return readKeys;}
 }

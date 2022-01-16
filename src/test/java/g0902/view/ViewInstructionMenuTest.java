@@ -34,6 +34,8 @@ public class ViewInstructionMenuTest<T> {
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
         Mockito.verify(tg, Mockito.times(1)).putString(anyInt(), anyInt(), anyString(),any(), any());
-        Mockito.verify(tg, Mockito.times(1)).putString(anyInt(), anyInt(), anyString(),any(), any());
+        Mockito.verify(tg, Mockito.times(14)).putString(anyInt(), anyInt(), anyString());
+        Mockito.verify(tg, Mockito.times(1)).putString(20, 7, "      ___      ");
+        Mockito.verify(screen, Mockito.times(1)).refresh();
     }
 }

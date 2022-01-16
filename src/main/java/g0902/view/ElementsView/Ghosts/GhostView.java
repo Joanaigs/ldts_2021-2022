@@ -17,7 +17,7 @@ public abstract class GhostView extends View {
             case Right -> ghostDraw = Draws.RIGHT_GHOST;
             case Left  -> ghostDraw = Draws.LEFT_GHOST;
             case Up    -> ghostDraw = Draws.UP_GHOST;
-            case Down  -> ghostDraw = Draws.DOWN_GHOST;
+            case Down, None  -> ghostDraw = Draws.DOWN_GHOST;
         }
         return ghostDraw;
     }

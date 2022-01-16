@@ -17,22 +17,20 @@ public class RankingsMenuState extends State{
     private ViewRankingsMenu viewRankingsMenu;
     LanternaGUI gui;
 
-    private void initializing() throws FileNotFoundException {
-        rankingsMenuModel=new RankingsMenuModel();
-        rankingsMenuControler=new RankingsMenuControler(rankingsMenuModel);
-    }
     public RankingsMenuState() throws FileNotFoundException {
         super();
-        initializing();
+        rankingsMenuModel=new RankingsMenuModel();
+        rankingsMenuControler=new RankingsMenuControler(rankingsMenuModel);
         gui=new LanternaGUI();
         gui.createScreenMenu();
         viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel, gui.getScreen());
     }
-
-    public RankingsMenuState(ViewRankingsMenu view) throws FileNotFoundException {
+    //for test purpose only
+    public RankingsMenuState(ViewRankingsMenu view, RankingsMenuModel rankingsMenuModel, RankingsMenuControler rankingsMenuControler) throws FileNotFoundException {
         super();
-        initializing();
         viewRankingsMenu=view;
+        this.rankingsMenuControler=rankingsMenuControler;
+        this.rankingsMenuModel=rankingsMenuModel;
     }
 
     @Override
@@ -55,15 +53,6 @@ public class RankingsMenuState extends State{
         return rankingsMenuModel.isRunning();
     }
 
-    @Override
-    public String getString() {
-        return "rankigs";
-    }
-
-    @Override
-    public void setViewer(Viewer viewer) {
-        this.viewRankingsMenu= (ViewRankingsMenu) viewer;
-    }
 
     @Override
     public void step() throws IOException {

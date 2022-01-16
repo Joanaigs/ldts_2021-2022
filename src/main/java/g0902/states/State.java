@@ -16,10 +16,6 @@ public abstract class State{
 
     public abstract boolean isRunning();
 
-    public abstract String getString();
-
-    public abstract void setViewer(Viewer viewer);
-
     public abstract void step() throws IOException;
 
     public abstract State nextState() throws IOException;

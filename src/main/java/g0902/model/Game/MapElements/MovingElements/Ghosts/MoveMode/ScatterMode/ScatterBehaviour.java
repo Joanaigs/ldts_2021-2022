@@ -46,6 +46,8 @@ public class ScatterBehaviour extends MovingBehaviour {
             dists.add(calculateDistance(pos, toGoPosition));
         }
 
+        if (directions.size() == 0)
+            return Direction.None;
         return directions.get(correspondenceToSmallestDistance(dists));
     }
 

@@ -23,7 +23,7 @@ public class GameViewTest {
     void setUp() throws IOException {
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
-        model=new GameModel();
+        model=new GameModel("map");
         view= new GameView(model, screen, tg);
         view.setGraphics(tg);
     }
@@ -31,8 +31,10 @@ public class GameViewTest {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, times(613)).setBackgroundColor(any());
-        Mockito.verify(tg, Mockito.times(2968)).fillRectangle(any(), any(), anyChar());
+        Mockito.verify(screen, times(1)).clear();
+        Mockito.verify(tg, times(1181)).setBackgroundColor(any());
+        Mockito.verify(tg, Mockito.times(4051)).fillRectangle(any(), any(), anyChar());
+        Mockito.verify(screen, times(1)).refresh(Screen.RefreshType.AUTOMATIC);
     }
 
 }
