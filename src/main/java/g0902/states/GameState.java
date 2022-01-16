@@ -20,7 +20,7 @@ public class GameState extends State{
     LanternaGUI gui;
 
     private void initializing() throws IOException {
-        gameModel = new GameModel();
+        gameModel = new GameModel("map");
         pacmanController = new PacmanController(gameModel.getMap().getPacman());
         totalTime = 0;
         pastTime = System.currentTimeMillis();
