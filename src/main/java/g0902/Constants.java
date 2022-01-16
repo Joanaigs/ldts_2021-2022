@@ -3,7 +3,7 @@ package g0902;
 public final class Constants {
 
     public static final int GAME_SCREEN_WIDTH = 468;
-    public static final int GAME_SCREEN_HEIGHT = 350;
+    public static final int GAME_SCREEN_HEIGHT = 335;
 
     /**********************************************************
      *         G  H  O  S  T  S
@@ -169,7 +169,7 @@ public final class Constants {
             " ##      ##",
             " ##      ##",
             "  ##    ##",
-            "   ######",
+            "   ######"
     };
 
     public static final String[] SMALL_COIN = {
@@ -177,8 +177,19 @@ public final class Constants {
             " ### ",
             "#####",
             "#####",
-            " ### ",
+            " ### "
     };
 
 
+    /**********************************************************
+     *          S   C   O   R   E
+     */
+
+    public static final String[] SCORE = {
+            "#######  ######  ######  ######  #######",
+            "##      ##      ##    ## ##   ## ##     ",
+            "####### ##      ##    ## ######  #####  ",
+            "     ## ##      ##    ## ##   ## ##     ",
+            "#######  ######  ######  ##   ## #######"
+    };
 }

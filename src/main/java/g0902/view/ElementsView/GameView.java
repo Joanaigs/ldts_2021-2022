@@ -24,6 +24,7 @@ public  class GameView extends Viewer<GameModel> {
     private  OrangeView orangeViewer;
     private  CyanView cyanViewer;
     private GameModel gameModel;
+    private ScoreView scoreView;
 
     private void create(){
         pacmanViewer = new PacmanView(gameModel.getMap().getPacman(), graphics);
@@ -32,6 +33,7 @@ public  class GameView extends Viewer<GameModel> {
         pinkViewer = new PinkView(gameModel.getMap().getPink(), graphics);
         orangeViewer = new OrangeView(gameModel.getMap().getOrange(), graphics);
         cyanViewer = new CyanView(gameModel.getMap().getCyan(), graphics);
+        scoreView = new ScoreView(gameModel, graphics);
 
         int i = 0;
         for( Wall wall : gameModel.getMap().getWalls())
@@ -70,6 +72,8 @@ public  class GameView extends Viewer<GameModel> {
         cyanViewer.draw();
         pacmanViewer.draw();
 
+        scoreView.draw();
         getScreen().refresh(Screen.RefreshType.AUTOMATIC);
+
     }
 }

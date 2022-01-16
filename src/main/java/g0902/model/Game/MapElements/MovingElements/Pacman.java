@@ -79,8 +79,6 @@ public class Pacman extends MovingElement {
         score += valueEaten;
     }
 
-    public int getScore(){
-        return score;
-    }
+    public int getScore(){return score;}
 
 }

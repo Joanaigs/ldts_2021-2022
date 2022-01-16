@@ -19,7 +19,6 @@ import java.util.List;
 public class GameModel implements Model {
     private final Map map;
     private final List<Ghost> ghosts;
-    int score;
     Pacman pacman;
     int lives;
     boolean isRunning;
@@ -105,9 +104,10 @@ public class GameModel implements Model {
        if(ghostCollider.collision(pacmanCollider)){
            if(ghost.getFrightenedModeOn()){
                pacman.increaseScore(ghost.getGhostValue());
-               ghost.updateGhostValue();
                ghost.setPosition(ghost.getBeginPosition());
                ghost.setFrightenedModeOff();
+               for( Ghost g: ghosts)
+                    g.updateGhostValue();
            }
            else{
                lives--;
@@ -132,10 +132,6 @@ public class GameModel implements Model {
     }
 
     public boolean isRunning(){return isRunning;}
-
-    public void setScore(int score) {this.score = score;}
-
-    public int getScore() {return score;}
 
     public boolean hasLost() {return lost;}
 }

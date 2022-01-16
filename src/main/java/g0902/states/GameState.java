@@ -76,7 +76,6 @@ public class GameState extends State{
             gameModel.update(TIME_FIXED);
             totalTime-=TIME_FIXED;
         }
-        gameModel.setScore(pacmanController.getPacman().getScore());
         gameView.draw();
         pastTime = now;
     }
@@ -84,7 +83,7 @@ public class GameState extends State{
     @Override
     public State nextState() throws IOException {
         boolean lost=gameModel.hasLost();
-        int score = gameModel.getScore();
+        int score = gameModel.getMap().getPacman().getScore();
         EndScreenState state = new EndScreenState();
         ((EndScreenModel) state.getModel()).setScore(score);
         ((EndScreenModel) state.getModel()).setLost(lost);
