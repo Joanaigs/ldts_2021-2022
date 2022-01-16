@@ -56,7 +56,6 @@ public class Pacman extends MovingElement {
         fixPassScreenBorder();
     }
 
-
     public void setNextDirection(Direction direction){ this.nextDirection = direction;}
 
     public Position moveNextDirection(long deltatime){

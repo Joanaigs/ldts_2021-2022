@@ -23,7 +23,7 @@ public class GameViewTest {
     void setUp() throws IOException {
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
-        model=new GameModel();
+        model=new GameModel("map");
         view= new GameView(model, screen, tg);
         view.setGraphics(tg);
     }
