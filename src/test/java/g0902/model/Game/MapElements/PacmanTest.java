@@ -58,4 +58,10 @@ public class PacmanTest extends Assertions{
     }
     */
 
+    @Test
+    void decreaseLives(){
+        pacman.decreaseLives();
+        assertEquals(2, pacman.getLives());
+    }
+
 }
