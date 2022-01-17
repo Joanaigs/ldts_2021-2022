@@ -25,7 +25,7 @@ public class GameState extends State{
 
     public void initializing() throws IOException {
         gameModel = new GameModel("map");
-        pacmanController = new PacmanController(gameModel.getMap().getPacman());
+        pacmanController = new PacmanController(gameModel.getMap().getPacman(), gameModel);
         totalTime = 0;
         pastTime = System.currentTimeMillis();
         gui=new LanternaGUI();

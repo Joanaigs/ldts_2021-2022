@@ -142,5 +142,9 @@ public class GameModel implements Model {
     public void setGhosts(List<Ghost> ghosts) {this.ghosts = ghosts;}
 
     public List<Ghost> getGhosts() {return ghosts;}
+
+    public void setRunning(boolean running) {
+        isRunning = running;
+    }
 }
 
