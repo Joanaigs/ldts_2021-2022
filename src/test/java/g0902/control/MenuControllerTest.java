@@ -2,7 +2,6 @@ package g0902.control;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.MainMenuModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ public class MenuControllerTest{
     KeyStroke keyStroke;
 
     @BeforeEach
-    public void setUp() throws IOException {
+    public void setUp() {
         mainMenuModel = mock(MainMenuModel.class);
         mainMenuController =new MenuController(mainMenuModel);
         keyStroke = mock(KeyStroke.class);

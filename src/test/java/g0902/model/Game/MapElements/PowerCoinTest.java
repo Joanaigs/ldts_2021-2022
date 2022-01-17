@@ -25,7 +25,7 @@ class PowerCoinTest extends Assertions{
         assertEquals(2, map.getPowerCoins().size());
 
         // List of each power coin position on the map "mapTest"
-        List<PowerCoin> powerCoinsList = new ArrayList<PowerCoin>();
+        List<PowerCoin> powerCoinsList = new ArrayList<>();
         powerCoinsList.add(new PowerCoin(new Position(2 * 8 + 1, 12 * 12 - 1)));
         powerCoinsList.add(new PowerCoin(new Position(2 * 8 + 1, 30 * 12 - 1)));
 

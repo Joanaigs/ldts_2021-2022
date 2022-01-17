@@ -1,6 +1,5 @@
 package g0902.model.Game;
 
-import g0902.Configuration;
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;

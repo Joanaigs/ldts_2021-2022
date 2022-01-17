@@ -11,14 +11,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class ColliderTest extends Assertions {
 
     @Test
     //Tests if the pacman collides with wall.
-    void pacmanCollidesWall() throws IOException {
+    void pacmanCollidesWall() {
         Pacman pacman = new Pacman(new Position(3*8+1, 3*12-1));
         Wall wall = new Wall(new Position(3*8+1, 3*12-1),12, 8);
         Collider wallCollider = new Collider(wall.getPosition(), wall.getCollider().getWidth(), wall.getCollider().getHeight());
@@ -29,7 +28,7 @@ public class ColliderTest extends Assertions {
 
     @Test
     //Tests if the pacman collides with wall.
-    void pacmanNotCollidesWall() throws IOException {
+    void pacmanNotCollidesWall() {
         Pacman pacman = new Pacman(new Position(1*8+1, 3*12-1));
         Wall wall = new Wall(new Position(3*8+1, 3*12-1),12, 8);
         Collider wallCollider = new Collider(wall.getPosition(), wall.getCollider().getWidth(), wall.getCollider().getHeight());
@@ -40,7 +39,7 @@ public class ColliderTest extends Assertions {
 
     @Test
         //Tests if the pacman collides with coin.
-    void pacmanNotCollidesCoin() throws IOException {
+    void pacmanNotCollidesCoin() {
         Pacman pacman = new Pacman(new Position(1*8+1, 3*12-1));
         Coin coin1 = new PowerCoin(new Position(3*8+1, 3*12-1));
         pacman.setPosition(new Position(1*8+1, 3*12-1));
@@ -55,7 +54,7 @@ public class ColliderTest extends Assertions {
 
     @Test
         //Tests if the pacman collides with coin.
-    void ghostsNCollidesGhost() throws IOException {
+    void ghostsNCollidesGhost() {
         Pacman pacman = new Pacman(new Position(1*8+1, 3*12-1));
         Ghost ghost1 = new Ghost(new Position(3*8+1, 3*12-1));
         pacman.setPosition(new Position(1*8+1, 3*12-1));

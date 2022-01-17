@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public class MainMenuModel implements Model, MenuModel {
-    private List<MenuElement<MenuOption>> options;
+    private final List<MenuElement<MenuOption>> options;
     private int selected;
     private boolean running;
 

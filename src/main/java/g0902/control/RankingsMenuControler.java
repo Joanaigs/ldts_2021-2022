@@ -7,7 +7,7 @@ import g0902.model.Menu.RankingsMenuModel;
 import static java.lang.System.exit;
 
 public class RankingsMenuControler implements Observer {
-    RankingsMenuModel rankingsMenuModel;
+    final RankingsMenuModel rankingsMenuModel;
     public RankingsMenuControler(RankingsMenuModel rankingsMenuModel) {
         this.rankingsMenuModel=rankingsMenuModel;}
 

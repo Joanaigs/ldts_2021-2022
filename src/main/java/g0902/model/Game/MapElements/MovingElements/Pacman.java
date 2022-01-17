@@ -41,15 +41,8 @@ public class Pacman extends MovingElement {
                 int col = (int) Math.round(next.getCol() / 12.0);
 
                 switch (getNextDirection()) {
-                    case Up:
-                    case Down:
-                        next.setCol(col * 12 + 1);
-                        break;
-
-                    case Left:
-                    case Right:
-                        next.setRow(row * 8 + 1);
-                        break;
+                    case Up, Down -> next.setCol(col * 12 + 1);
+                    case Left, Right -> next.setRow(row * 8 + 1);
                 }
             }
             setPosition(next);

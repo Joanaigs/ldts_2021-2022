@@ -5,7 +5,7 @@ import g0902.model.Position;
 import java.awt.*;
 
 public class Collider{
-    Rectangle collider;
+    final Rectangle collider;
 
     public Collider(Position position, int width, int height){
         collider = new Rectangle(position.getCol(), position.getRow(), width, height);

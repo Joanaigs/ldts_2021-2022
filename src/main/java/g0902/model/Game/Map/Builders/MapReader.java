@@ -15,12 +15,12 @@ import java.io.*;
 
 
 public class MapReader implements MapBuilder {
-    private int width, height;
+    private int height;
 
     private enum MapElement{
         Wall('#'), Red('R'), Pink('P'), Orange('O'), Cyan('C'), Pacman('c'), SmallCoin('.'), PowerCoin('o'), INVALID('\0');
 
-        char symbol;
+        final char symbol;
         MapElement(char symbol){this.symbol = symbol;}
         public char getSymbol() {return symbol;}
 
@@ -41,9 +41,9 @@ public class MapReader implements MapBuilder {
         FileReader fr = new FileReader(mapLocation);
         BufferedReader br = new BufferedReader(fr);
 
-        width  = Integer.parseInt(br.readLine());
+        int width = Integer.parseInt(br.readLine());
         height = Integer.parseInt(br.readLine());
-        m.setSize(width*12, height*8);
+        m.setSize(width *12, height*8);
         readElements(m, br);
         return m;
     }

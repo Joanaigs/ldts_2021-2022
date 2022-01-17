@@ -1,12 +1,10 @@
 package g0902.view;
 
-import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import g0902.Constants;
 import g0902.model.Menu.EndScreenModel;
-import g0902.model.Menu.MainMenuModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -21,7 +19,7 @@ public class ViewEndScreenTest {
     ViewEndScreen view;
     EndScreenModel model;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         model=mock(EndScreenModel.class);

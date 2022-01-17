@@ -24,7 +24,7 @@ class SmallCoinTest extends Assertions {
         assertEquals(2, map.getSmallCoins().size());
 
         // List of each small coin position on the map "mapTest"
-        ArrayList<SmallCoin> smallCoinsList = new ArrayList<SmallCoin>();
+        ArrayList<SmallCoin> smallCoinsList = new ArrayList<>();
         smallCoinsList.add(new SmallCoin(new Position(2 * 8 + 1, 14 * 12 - 1)));
         smallCoinsList.add(new SmallCoin(new Position(2 * 8 + 1, 16 * 12 - 1)));
 

@@ -31,22 +31,22 @@ public class GhostsTest extends Assertions {
 
     // The following 4 tests, test if each ghost is being read correctly
     @Test
-    void readRedTest() throws IOException {
+    void readRedTest() {
         assertEquals(map.getRed().getPosition(), new Position(1 * 8+1, 2 * 12));
     }
 
     @Test
-    void readPinkTest() throws IOException {
+    void readPinkTest() {
         assertEquals(map.getPink().getPosition(), new Position(1 * 8+1, 3 * 12));
     }
 
     @Test
-    void readOrangeTest() throws IOException {
+    void readOrangeTest() {
         assertEquals(map.getOrange().getPosition(), new Position(1 * 8+1, 4 * 12));
     }
 
     @Test
-    void readCyanTest() throws IOException {
+    void readCyanTest() {
         assertEquals(map.getCyan().getPosition(), new Position(1 * 8+1, 5 * 12));
     }
 

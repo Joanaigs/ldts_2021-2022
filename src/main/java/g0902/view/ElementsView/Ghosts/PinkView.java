@@ -11,7 +11,7 @@ import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Pink;
 import java.io.IOException;
 
 public class PinkView extends GhostView {
-    private Pink pink;
+    private final Pink pink;
 
     public PinkView(Ghost pink, TextGraphics graphics) {
         super(graphics);

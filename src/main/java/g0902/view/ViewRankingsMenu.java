@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class ViewRankingsMenu extends Viewer {
-    RankingsMenuModel rankingsMenuModel;
+    final RankingsMenuModel rankingsMenuModel;
     public ViewRankingsMenu(RankingsMenuModel rankingsMenuModel, Screen screen) {
         super(rankingsMenuModel, screen);
         this.rankingsMenuModel=rankingsMenuModel;

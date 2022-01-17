@@ -51,10 +51,10 @@ public class RankingsMenuModel implements Model, MenuModel {
     }
 
     public void sortD(){
-        Collections.sort(scores, Comparator.comparing(p -> -p.getR()));
+        scores.sort(Comparator.comparing(p -> -p.getR()));
     }
 
-    public void addScore(String str, int score) throws IOException {
+    public void addScore(String str, int score) {
         scores.add(new Pair<>(str, score));
     }
 

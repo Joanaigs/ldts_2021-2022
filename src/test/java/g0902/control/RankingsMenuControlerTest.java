@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 
 public class RankingsMenuControlerTest {
     @Test
-    public void test() throws IOException, InterruptedException {
+    public void test() {
         RankingsMenuModel model=mock(RankingsMenuModel.class);
         RankingsMenuControler rankingsMenuControler=new RankingsMenuControler(model);
         KeyStroke keyStroke= mock(KeyStroke.class);

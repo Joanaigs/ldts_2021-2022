@@ -7,7 +7,7 @@ import java.io.IOException;
 
 
 public class Controller {
-    Thread thread;
+    final Thread thread;
     ReadKeys readKeys;
     State state;
     Viewer viewer;

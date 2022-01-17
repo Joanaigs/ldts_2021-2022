@@ -6,9 +6,6 @@ public final class Constants {
     public static final int GAME_SCREEN_WIDTH = 468;
     public static final int GAME_SCREEN_HEIGHT = 335;
 
-    /*
-    depois podemos mudar isto para outros nomes. Ainda nao coloquei em lado nenhum
-     */
 
     // COLORS IN GAME
     public static final String YELLOW = "#EECD40";

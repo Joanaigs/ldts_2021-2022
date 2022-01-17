@@ -9,7 +9,7 @@ import g0902.model.Menu.EndScreenModel;
 import java.io.IOException;
 
 public class ViewEndScreen extends Viewer {
-    EndScreenModel endScreenModel;
+    final EndScreenModel endScreenModel;
     public ViewEndScreen(EndScreenModel model, Screen screen) {
         super(model, screen);
         this.endScreenModel=model;

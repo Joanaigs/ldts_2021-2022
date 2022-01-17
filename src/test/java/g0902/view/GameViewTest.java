@@ -12,7 +12,6 @@ import org.mockito.Mockito;
 import java.io.IOException;
 
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.times;
 
 public class GameViewTest {
     private Screen screen;

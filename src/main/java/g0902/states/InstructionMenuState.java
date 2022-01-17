@@ -1,13 +1,9 @@
 package g0902.states;
 
-import g0902.control.EndScreenControler;
 import g0902.control.InstructionMenuController;
-import g0902.control.MenuController;
 import g0902.control.Observer;
 import g0902.gui.LanternaGUI;
-import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.InstructionMenuModel;
-import g0902.model.Menu.MainMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewInstructionMenu;
 import g0902.view.Viewer;
@@ -15,9 +11,9 @@ import g0902.view.Viewer;
 import java.io.IOException;
 
 public class InstructionMenuState extends State{
-    ViewInstructionMenu viewInstructionMenu;
-    InstructionMenuModel instructionMenuModel;
-    InstructionMenuController instructionMenuController;
+    final ViewInstructionMenu viewInstructionMenu;
+    final InstructionMenuModel instructionMenuModel;
+    final InstructionMenuController instructionMenuController;
     LanternaGUI gui;
 
     public InstructionMenuState(){
@@ -37,13 +33,10 @@ public class InstructionMenuState extends State{
     }
 
     @Override
-    public Viewer getViewer() {
-        return viewInstructionMenu;
-    }
-
+    public Viewer getViewer() {return viewInstructionMenu;}
 
     @Override
-    public Observer getObserver() throws IOException {return instructionMenuController;}
+    public Observer getObserver() {return instructionMenuController;}
 
     @Override
     public Model getModel() {

@@ -8,10 +8,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static g0902.model.Direction.*;
-import static g0902.model.Direction.None;
 
 public abstract class MovingBehaviour{
-    protected Ghost ghost;
+    protected final Ghost ghost;
 
     public MovingBehaviour(Ghost ghost) {
         this.ghost = ghost;

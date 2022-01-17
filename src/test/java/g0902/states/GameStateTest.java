@@ -1,23 +1,16 @@
 package g0902.states;
 
 import g0902.Configuration;
-import g0902.control.Controller;
-import g0902.control.MenuController;
 import g0902.control.PacmanController;
-import g0902.gui.LanternaGUI;
 import g0902.model.Game.GameModel;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
-import g0902.model.Menu.MainMenuModel;
 import g0902.view.ElementsView.GameView;
-import g0902.view.ViewRankingsMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 import java.io.IOException;
 

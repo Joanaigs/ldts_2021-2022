@@ -1,6 +1,5 @@
 package g0902.model.Game.MapElements;
 
-import g0902.view.ElementsView.Collider;
 import g0902.model.Position;
 
 public class Wall extends Element{

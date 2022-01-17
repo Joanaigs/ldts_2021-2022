@@ -2,7 +2,6 @@ package g0902.model;
 
 import g0902.model.Game.GameModel;
 import g0902.model.Game.Map.Map;
-import g0902.model.Game.MapElements.Coins.SmallCoin;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Cyan;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Orange;
@@ -16,28 +15,26 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
 
 public class GameModelTest {
     private Map map;
-    private List<Ghost> ghosts = new ArrayList<>();
+    private final List<Ghost> ghosts = new ArrayList<>();
     private Red red;
     private Pink pink;
     private Cyan cyan;
     private Orange orange;
     private Pacman pacman;
-    private Position position;
     private GameModel gameModel;
-    long deltatime = 20;
+    final long deltatime = 20;
 
     @BeforeEach
     public void setUp() throws IOException {
         map = mock(Map.class);
         pacman = mock(Pacman.class);
-        position = new Position(1, 1);
+        Position position = new Position(1, 1);
         Mockito.when(map.getPacman()).thenReturn(pacman);
         red = mock(Red.class);
         pink = mock(Pink.class);

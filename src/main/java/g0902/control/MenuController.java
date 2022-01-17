@@ -8,14 +8,14 @@ import java.io.IOException;
 import static java.lang.System.exit;
 
 public class MenuController implements Observer{
-    MainMenuModel mainMenuModel;
+    final MainMenuModel mainMenuModel;
 
     public MenuController(MainMenuModel mainMenuModel) {
         this.mainMenuModel=mainMenuModel;
     }
 
     @Override
-    public void processKey(KeyStroke key) throws IOException, InterruptedException {
+    public void processKey(KeyStroke key) {
         switch(key.getKeyType()){
             case ArrowUp -> mainMenuModel.selectPrevious();
             case ArrowDown -> mainMenuModel.selectNext();

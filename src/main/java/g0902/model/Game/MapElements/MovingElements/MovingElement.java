@@ -1,7 +1,6 @@
 package g0902.model.Game.MapElements.MovingElements;
 
 import g0902.Constants;
-import g0902.Draws;
 import g0902.model.Direction;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.Element;
@@ -55,17 +54,13 @@ public class MovingElement extends Element {
     }
 
     public Position move(long deltatime, Direction direction){
-        switch(direction){
-            case Up:
-                return new Position(position.getRow()- (int)(velocityY*deltatime/1000), position.getCol());
-            case Down:
-                return new Position(position.getRow()+ (int)(velocityY*deltatime/1000), position.getCol());
-            case Left:
-                return new Position(position.getRow(), position.getCol() - (int)(velocityX*deltatime/1000));
-            case Right:
-                return new Position(position.getRow(), position.getCol() + (int)(velocityX*deltatime/1000));
-        }
-        return new Position(position.getRow(), position.getCol());
+        return switch (direction) {
+            case Up -> new Position(position.getRow() - (int) (velocityY * deltatime / 1000), position.getCol());
+            case Down -> new Position(position.getRow() + (int) (velocityY * deltatime / 1000), position.getCol());
+            case Left -> new Position(position.getRow(), position.getCol() - (int) (velocityX * deltatime / 1000));
+            case Right -> new Position(position.getRow(), position.getCol() + (int) (velocityX * deltatime / 1000));
+            default -> new Position(position.getRow(), position.getCol());
+        };
     }
 
     public double getVelocityX() {

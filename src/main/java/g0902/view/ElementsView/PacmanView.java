@@ -11,7 +11,7 @@ import g0902.model.Game.MapElements.MovingElements.Pacman;
 
 public class PacmanView extends View {
 
-    private Pacman pacman;
+    private final Pacman pacman;
 
     public PacmanView(Pacman pacman, TextGraphics graphics) {
         super(graphics);
@@ -28,7 +28,7 @@ public class PacmanView extends View {
                 case None -> pacDraw = Draws.PAC_CLOSE;
             }
         }
-            else pacDraw = Draws.PAC_CLOSE;;
+            else pacDraw = Draws.PAC_CLOSE;
         return pacDraw;
     }
 

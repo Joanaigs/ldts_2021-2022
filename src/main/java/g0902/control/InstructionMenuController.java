@@ -7,7 +7,7 @@ import g0902.model.Menu.InstructionMenuModel;
 import static java.lang.System.exit;
 
 public class InstructionMenuController implements Observer{
-    InstructionMenuModel instructionMenuModel;
+    final InstructionMenuModel instructionMenuModel;
     public InstructionMenuController(InstructionMenuModel instructionMenuModel) {
         this.instructionMenuModel=instructionMenuModel;}
     @Override

@@ -9,7 +9,7 @@ import g0902.Draws;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 
 public class PowerCoinView extends CoinsView {
-    private PowerCoin powerCoin;
+    private final PowerCoin powerCoin;
 
     public PowerCoinView(PowerCoin powerCoin, TextGraphics graphics) {
         super(graphics);

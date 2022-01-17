@@ -1,12 +1,8 @@
 package g0902.model.Menu.Options;
 
-import g0902.model.Menu.MainMenuModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
-import static org.mockito.Mockito.mock;
 
 public class MenuElementTest {
     private MenuElement element;

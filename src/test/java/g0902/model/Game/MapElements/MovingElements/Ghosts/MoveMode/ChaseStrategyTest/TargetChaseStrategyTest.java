@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static java.lang.Math.round;
-import static org.mockito.Mockito.mock;
 
 public class TargetChaseStrategyTest {
     Map map;

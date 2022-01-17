@@ -4,7 +4,6 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.MainMenuModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import org.mockito.Mockito;
 import java.io.IOException;
 
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.times;
 
 public class ViewMainMenuTest {
     private Screen screen;
@@ -21,7 +19,7 @@ public class ViewMainMenuTest {
     ViewMainMenu view;
     MainMenuModel model;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         model=new MainMenuModel();

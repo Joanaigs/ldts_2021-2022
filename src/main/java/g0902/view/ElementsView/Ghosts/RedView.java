@@ -11,7 +11,7 @@ import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Red;
 import java.io.IOException;
 
 public class RedView extends GhostView {
-    private Red red;
+    private final Red red;
 
     public RedView(Ghost red, TextGraphics graphics) {
         super(graphics);

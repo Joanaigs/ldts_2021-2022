@@ -26,7 +26,7 @@ public class RandomChaseStrategyTest {
         pink.setCurrentDirection(Direction.Left);
         RandomChaseStrategy a=new RandomChaseStrategy(pink);
         Assertions.assertEquals(Direction.Left,  a.chase(20));
-        Assertions.assertThrows(IllegalArgumentException.class, ()->{a.getRandomNumberInRange(10, 5);}, "max must be greater than min");
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> a.getRandomNumberInRange(10, 5), "max must be greater than min");
 
     }
 }

@@ -11,7 +11,7 @@ import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 import java.io.IOException;
 
 public class FrightenedView extends GhostView {
-    private Ghost ghost;
+    private final Ghost ghost;
 
 
     public FrightenedView(Ghost ghost, TextGraphics graphics) {
@@ -20,7 +20,7 @@ public class FrightenedView extends GhostView {
     }
 
     @Override
-    public void draw() throws IOException {
+    public void draw() {
         int y = 0;
         for (String s : Draws.FRIGHTENED_GHOST) {
             for (int x = 0; x < s.length(); x++) {

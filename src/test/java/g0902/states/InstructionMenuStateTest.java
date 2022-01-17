@@ -1,12 +1,7 @@
 package g0902.states;
 
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
 import g0902.control.InstructionMenuController;
-import g0902.control.MenuController;
 import g0902.model.Menu.InstructionMenuModel;
-import g0902.model.Menu.MainMenuModel;
 import g0902.view.ViewInstructionMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

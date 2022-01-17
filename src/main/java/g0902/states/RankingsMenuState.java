@@ -12,9 +12,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class RankingsMenuState extends State{
-    private RankingsMenuModel rankingsMenuModel;
-    private RankingsMenuControler rankingsMenuControler;
-    private ViewRankingsMenu viewRankingsMenu;
+    private final RankingsMenuModel rankingsMenuModel;
+    private final RankingsMenuControler rankingsMenuControler;
+    private final ViewRankingsMenu viewRankingsMenu;
     LanternaGUI gui;
 
     public RankingsMenuState() throws FileNotFoundException {
@@ -26,7 +26,7 @@ public class RankingsMenuState extends State{
         viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel, gui.getScreen());
     }
     //for test purpose only
-    public RankingsMenuState(ViewRankingsMenu view, RankingsMenuModel rankingsMenuModel, RankingsMenuControler rankingsMenuControler) throws FileNotFoundException {
+    public RankingsMenuState(ViewRankingsMenu view, RankingsMenuModel rankingsMenuModel, RankingsMenuControler rankingsMenuControler) {
         super();
         viewRankingsMenu=view;
         this.rankingsMenuControler=rankingsMenuControler;

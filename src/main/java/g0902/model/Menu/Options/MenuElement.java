@@ -2,7 +2,7 @@ package g0902.model.Menu.Options;
 import com.googlecode.lanterna.TextColor;
 
 public class MenuElement<T> {
-    private T id;
+    private final T id;
     private boolean selected;
     private TextColor fillColor;
     private TextColor borderColor;

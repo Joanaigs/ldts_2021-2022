@@ -4,7 +4,8 @@ import g0902.view.ElementsView.Collider;
 import g0902.model.Position;
 
 public abstract class Element {
-    private int width, height;
+    private final int width;
+    private final int height;
 
     protected Position position;
     public Element(Position position, int width, int height) {
@@ -13,7 +14,7 @@ public abstract class Element {
         this.height =height;
     }
 
-    public Position getPosition(){ return position;};
+    public Position getPosition(){ return position;}
 
     public void setPosition(Position position){ this.position=position;}
 

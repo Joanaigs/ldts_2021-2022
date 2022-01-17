@@ -12,7 +12,7 @@ import java.io.IOException;
 
 
 public class OrangeView extends GhostView {
-    private Orange orange;
+    private final Orange orange;
 
     public OrangeView(Ghost orange, TextGraphics graphics) {
         super(graphics);

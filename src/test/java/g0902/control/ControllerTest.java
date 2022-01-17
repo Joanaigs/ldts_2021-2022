@@ -1,14 +1,6 @@
 package g0902.control;
 
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.screen.Screen;
-import g0902.model.Game.MapElements.MovingElements.Pacman;
-import g0902.model.Menu.EndScreenModel;
-import g0902.model.Menu.MainMenuModel;
-import g0902.states.EndScreenState;
 import g0902.states.MainMenuState;
-import g0902.states.State;
-import g0902.view.ViewMainMenu;
 import g0902.view.Viewer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +18,7 @@ public class ControllerTest {
     private ReadKeys readKeys;
 
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         state =mock(MainMenuState.class);
         viewer=mock(Viewer.class);
         readKeys=mock(ReadKeys.class);

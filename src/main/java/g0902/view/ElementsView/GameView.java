@@ -1,6 +1,5 @@
 package g0902.view.ElementsView;
 
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
@@ -24,7 +23,7 @@ public  class GameView extends Viewer<GameModel> {
     private  PinkView pinkViewer;
     private  OrangeView orangeViewer;
     private  CyanView cyanViewer;
-    private GameModel gameModel;
+    private final GameModel gameModel;
     private ScoreView scoreView;
     private LivesView livesView;
 
@@ -43,13 +42,13 @@ public  class GameView extends Viewer<GameModel> {
             wallsViewers[i++]= new WallView(wall, graphics);
     }
 
-    public GameView(GameModel gameModel, Screen screen) throws IOException {
+    public GameView(GameModel gameModel, Screen screen) {
         super(gameModel, screen);
         this.gameModel=gameModel;
         create();
     }
 
-    public GameView(GameModel gameModel, Screen screen, TextGraphics graphics) throws IOException {
+    public GameView(GameModel gameModel, Screen screen, TextGraphics graphics) {
         super(gameModel, screen);
         this.gameModel=gameModel;
         this.graphics=graphics;

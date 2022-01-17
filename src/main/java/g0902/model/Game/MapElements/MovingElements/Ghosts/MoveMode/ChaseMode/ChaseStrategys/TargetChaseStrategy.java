@@ -9,7 +9,7 @@ import g0902.model.Position;
 import java.util.ArrayList;
 
 public class TargetChaseStrategy extends MovingBehaviour implements ChaseStrategy {
-    TargetStrategy targetStrategy;
+    final TargetStrategy targetStrategy;
 
     public TargetChaseStrategy(TargetStrategy targetStrategy, Ghost ghost) {
         super(ghost);

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ReadKeys implements Runnable {
     volatile Screen screen = null;
-    volatile ArrayList<Observer> observers;
+    final ArrayList<Observer> observers;
 
     public ReadKeys(){
         observers = new ArrayList<>();
@@ -37,7 +37,7 @@ public class ReadKeys implements Runnable {
                     observer.processKey(keyStroke);
                 }
             }
-        } catch (IOException | InterruptedException e) { e.printStackTrace();}
+        } catch (IOException e) { e.printStackTrace();}
     }
     public ArrayList<Observer> getObservers(){return observers;}
 }

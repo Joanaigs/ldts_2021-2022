@@ -10,7 +10,7 @@ import g0902.model.Game.MapElements.Coins.SmallCoin;
 
 public class SmallCoinView extends CoinsView {
 
-    private SmallCoin smallCoin;
+    private final SmallCoin smallCoin;
 
     public SmallCoinView(SmallCoin smallCoin, TextGraphics graphics) {
         super(graphics);

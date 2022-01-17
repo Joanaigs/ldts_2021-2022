@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class ReadKeysTest {
@@ -14,7 +13,7 @@ public class ReadKeysTest {
     InstructionMenuController instructionMenuController;
     MenuController menuController;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         menuController=new MenuController(new MainMenuModel());
         instructionMenuController=new InstructionMenuController(new InstructionMenuModel());
         readKeys=new ReadKeys();
@@ -26,7 +25,7 @@ public class ReadKeysTest {
         Assertions.assertEquals(2,readKeys.getObservers().size());
     }
     @Test
-    public void RemoveObserver() throws IOException {
+    public void RemoveObserver() {
         readKeys.removeObserver(instructionMenuController);
         Assertions.assertEquals(1,readKeys.getObservers().size());
         Assertions.assertEquals(menuController,readKeys.getObservers().get(0));

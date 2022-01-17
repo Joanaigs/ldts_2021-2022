@@ -2,18 +2,11 @@ package g0902.model.Menu;
 
 import g0902.model.Pair;
 import org.junit.jupiter.api.*;
-import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.*;
 
 public class RankingsMenuModelTest {
     private RankingsMenuModel rankingsMenuModel;
@@ -92,9 +85,7 @@ public class RankingsMenuModelTest {
     @Test
     public void readTest() throws IOException {
         destroy();
-        Assertions.assertThrows(FileNotFoundException.class, () -> {
-            rankingsMenuModel.readFile("aaaa");
-        });
+        Assertions.assertThrows(FileNotFoundException.class, () -> rankingsMenuModel.readFile("aaaa"));
     }
 
 }

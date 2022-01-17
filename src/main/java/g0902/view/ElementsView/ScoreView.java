@@ -14,8 +14,8 @@ import java.util.List;
 
 public class ScoreView extends View {
     static final int height= 2, width = 2;
-    List<String[]>  numbers;
-    Pacman pacman;
+    final List<String[]>  numbers;
+    final Pacman pacman;
 
     public ScoreView(Pacman pacman, TextGraphics graphics) {
         super(graphics);
@@ -29,7 +29,7 @@ public class ScoreView extends View {
     }
 
     @Override
-    public void draw() throws IOException {
+    public void draw() {
         drawScore();
 
         int pacmanScore = pacman.getScore();

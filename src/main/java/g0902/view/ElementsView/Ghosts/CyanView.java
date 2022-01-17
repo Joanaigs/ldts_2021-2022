@@ -11,7 +11,7 @@ import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 import java.io.IOException;
 
 public class CyanView extends GhostView{
-    private Cyan cyan;
+    private final Cyan cyan;
 
     public CyanView(Ghost cyan, TextGraphics graphics) {
         super(graphics);

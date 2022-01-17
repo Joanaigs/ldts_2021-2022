@@ -2,9 +2,7 @@ package g0902.states;
 
 import g0902.control.EndScreenControler;
 import g0902.control.Observer;
-import g0902.control.PacmanController;
 import g0902.gui.LanternaGUI;
-import g0902.model.Game.GameModel;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Model;
@@ -14,9 +12,9 @@ import g0902.view.Viewer;
 import java.io.IOException;
 
 public class EndScreenState extends State{
-    ViewEndScreen viewEndScreen;
-    EndScreenModel endScreenModel;
-    EndScreenControler endScreenControler;
+    final ViewEndScreen viewEndScreen;
+    final EndScreenModel endScreenModel;
+    final EndScreenControler endScreenControler;
     LanternaGUI gui;
 
     public EndScreenState() {

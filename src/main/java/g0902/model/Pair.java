@@ -1,7 +1,5 @@
 package g0902.model;
 
-import g0902.model.Menu.RankingsMenuModel;
-
 import java.util.Objects;
 
 public class Pair<L,R> {
@@ -19,8 +17,7 @@ public class Pair<L,R> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Pair)) return false;
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        if (!(o instanceof Pair<?, ?> pair)) return false;
         return Objects.equals(getL(), pair.getL()) && Objects.equals(getR(), pair.getR());
     }
 

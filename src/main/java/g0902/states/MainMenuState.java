@@ -3,10 +3,8 @@ package g0902.states;
 
 import g0902.control.MenuController;
 import g0902.control.Observer;
-import g0902.control.RankingsMenuControler;
 import g0902.gui.LanternaGUI;
 import g0902.model.Menu.MainMenuModel;
-import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Model;
 import g0902.view.ViewMainMenu;
 import g0902.view.Viewer;
@@ -16,9 +14,9 @@ import java.io.IOException;
 import static java.lang.System.exit;
 
 public class MainMenuState extends State{
-    private ViewMainMenu viewMainMenu;
-    private MenuController menuController;
-    private MainMenuModel mainMenuModel;
+    private final ViewMainMenu viewMainMenu;
+    private final MenuController menuController;
+    private final MainMenuModel mainMenuModel;
     LanternaGUI gui;
 
     public MainMenuState(){

@@ -6,10 +6,8 @@ import g0902.model.Menu.EndScreenModel;
 
 import java.io.IOException;
 
-import static java.lang.System.exit;
-
 public class EndScreenControler implements Observer {
-    EndScreenModel endScreenModel;
+    final EndScreenModel endScreenModel;
     int nameSize;
 
     public EndScreenControler(EndScreenModel endScreenModel) {
@@ -17,7 +15,7 @@ public class EndScreenControler implements Observer {
         nameSize=0;
     }
     @Override
-    public void processKey(KeyStroke key) throws IOException, InterruptedException {
+    public void processKey(KeyStroke key) {
         if(nameSize<3){
             if (key.getKeyType() == KeyType.Character) {
                 endScreenModel.addLetter(key.getCharacter());

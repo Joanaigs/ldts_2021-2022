@@ -11,7 +11,7 @@ import g0902.model.Menu.Options.MenuOption;
 import java.io.IOException;
 
 public class ViewMainMenu extends Viewer {
-    MainMenuModel mainMenuModel;
+    final MainMenuModel mainMenuModel;
 
     public ViewMainMenu(MainMenuModel model, Screen screen) {
         super(model, screen);

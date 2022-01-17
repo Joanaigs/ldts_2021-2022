@@ -1,6 +1,5 @@
 package g0902.model.Game.MapElements.Coins;
 
-import g0902.view.ElementsView.Collider;
 import g0902.model.Position;
 
 public class PowerCoin extends Coin {

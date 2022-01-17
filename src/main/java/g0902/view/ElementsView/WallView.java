@@ -8,7 +8,7 @@ import g0902.Constants;
 import g0902.model.Game.MapElements.Wall;
 
 public class WallView extends View {
-    private Wall wall;
+    private final Wall wall;
 
     public WallView(Wall wall, TextGraphics graphics){
         super(graphics);

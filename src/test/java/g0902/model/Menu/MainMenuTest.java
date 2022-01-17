@@ -6,21 +6,17 @@ import g0902.model.Menu.Options.MenuOption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 
 public class MainMenuTest {
     private MainMenuModel main;
-    private MainMenuModel mainMock;
-    private MenuElement menuElement;
 
     @BeforeEach
     public void setup(){
         main=new MainMenuModel();
-        mainMock = mock(MainMenuModel.class);
-        menuElement = mock(MenuElement.class);
+        MainMenuModel mainMock = mock(MainMenuModel.class);
+        MenuElement menuElement = mock(MenuElement.class);
     }
 
     @Test
@@ -38,7 +34,7 @@ public class MainMenuTest {
         }
         main.selectNext();
         main.selectNext();
-        Assertions.assertEquals("EXIT", main.getSelected());;
+        Assertions.assertEquals("EXIT", main.getSelected());
     }
     @Test
     public void selectPrevious(){

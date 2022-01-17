@@ -4,7 +4,6 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import g0902.Constants;
-import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.InstructionMenuModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +19,7 @@ public class ViewInstructionMenuTest<T> {
     ViewInstructionMenu view;
     InstructionMenuModel model;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         model=mock(InstructionMenuModel.class);
@@ -32,9 +31,9 @@ public class ViewInstructionMenuTest<T> {
     public void InsDrawTest() throws IOException {
         view.draw();
         Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
+        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         Mockito.verify(tg, Mockito.times(1)).putString(anyInt(), anyInt(), anyString(),any(), any());
-        Mockito.verify(tg, Mockito.times(17)).putString(anyInt(), anyInt(), anyString());
+        Mockito.verify(tg, Mockito.times(20)).putString(anyInt(), anyInt(), anyString());
         Mockito.verify(tg, Mockito.times(1)).putString(20, 7, "      ___      ");
         Mockito.verify(screen, Mockito.times(1)).refresh();
     }

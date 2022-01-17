@@ -1,7 +1,6 @@
 package g0902.model.Game.MapElements;
 
 import g0902.Constants;
-import g0902.Draws;
 import g0902.model.Direction;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.MovingElement;
@@ -35,8 +34,8 @@ public class MovingElementTest extends Assertions {
 
         Assertions.assertEquals(new Position(3*8+1-(50*20/1000), 3*12-1), element.move(20, Direction.Up));
         Assertions.assertEquals(new Position(3*8+1+(50*20/1000), 3*12-1), element.move(20, Direction.Down));
-        Assertions.assertEquals(new Position(3*8+1, (int)3*12-3), element.move(20, Direction.Left));
-        Assertions.assertEquals(new Position(3*8+1, (int)3*12+1), element.move(20, Direction.Right));
+        Assertions.assertEquals(new Position(3*8+1, 3 *12-3), element.move(20, Direction.Left));
+        Assertions.assertEquals(new Position(3*8+1, 3 *12+1), element.move(20, Direction.Right));
         Assertions.assertEquals(new Position(3*8+1, 3*12-1), element.move(20, Direction.None));
 
         element.setBeginPositionPosition(new Position(8, 12));

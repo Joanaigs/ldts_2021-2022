@@ -2,9 +2,7 @@ package g0902.states;
 
 
 import g0902.control.EndScreenControler;
-import g0902.control.MenuController;
 import g0902.model.Menu.EndScreenModel;
-import g0902.model.Menu.MainMenuModel;
 import g0902.view.ViewEndScreen;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +12,6 @@ import org.mockito.Mockito;
 import java.io.IOException;
 
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.mock;
 
 public class EndScreenStateTest {
     ViewEndScreen view;
@@ -22,7 +19,7 @@ public class EndScreenStateTest {
     EndScreenModel model;
     EndScreenControler controller;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         view=mock(ViewEndScreen.class);
         model=mock(EndScreenModel.class);
         controller=mock(EndScreenControler.class);

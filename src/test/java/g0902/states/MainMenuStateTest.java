@@ -1,10 +1,7 @@
 package g0902.states;
 
 import g0902.control.MenuController;
-import g0902.control.RankingsMenuControler;
 import g0902.model.Menu.MainMenuModel;
-import g0902.model.Menu.RankingsMenuModel;
-import g0902.view.ViewEndScreen;
 import g0902.view.ViewMainMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +18,7 @@ public class MainMenuStateTest {
     MenuController controller;
     MainMenuModel model;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         view=mock(ViewMainMenu.class);
         controller=mock(MenuController.class);
         model=mock(MainMenuModel.class);

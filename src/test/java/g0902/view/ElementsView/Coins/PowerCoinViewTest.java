@@ -16,22 +16,21 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 
 public class PowerCoinViewTest {
-    private Screen screen;
     private TextGraphics tg;
     PowerCoinView view;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         Position position=mock(Position.class);
         Mockito.when(position.getCol()).thenReturn(1);
         Mockito.when(position.getRow()).thenReturn(2);
-        screen = mock(Screen.class);
+        Screen screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         view=new PowerCoinView(new PowerCoin(position), tg);
         view.setGraphics(tg);
     }
 
     @Test
-    public void InsDrawTest() throws IOException {
+    public void InsDrawTest() {
         view.draw();
         Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(any());
         Mockito.verify(tg, Mockito.times(1)).fillRectangle(new TerminalPosition( 4, 2),  new TerminalSize(2, 1), ' ');

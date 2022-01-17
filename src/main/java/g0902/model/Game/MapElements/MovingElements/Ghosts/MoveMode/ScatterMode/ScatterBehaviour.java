@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScatterBehaviour extends MovingBehaviour {
-    List<Position> keyPoints;
+    final List<Position> keyPoints;
     Position toGoPosition;
 
     public ScatterBehaviour(Ghost ghost, List<Position> keyPoints) {

@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 public class PacmanControllerTest {
     @Test
-    public void test() throws IOException, InterruptedException {
+    public void test() {
         Pacman model=mock(Pacman.class);
         GameModel gameModel=mock(GameModel.class);
         PacmanController pacmanController=new PacmanController(model, gameModel);

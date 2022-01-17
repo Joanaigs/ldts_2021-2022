@@ -14,20 +14,19 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 
 public class WallViewTest {
-    private Screen screen;
     private TextGraphics tg;
     WallView view;
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         Position position=mock(Position.class);
-        screen = mock(Screen.class);
+        Screen screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         view=new WallView(new Wall(position, 39, 39), tg);
         view.setGraphics(tg);
     }
 
     @Test
-    public void InsDrawTest() throws IOException {
+    public void InsDrawTest() {
         view.draw();
         Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(any());}
 }
