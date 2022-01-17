@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import g0902.Constants;
 import g0902.model.Game.MapElements.Wall;
 
 public class WallView extends View {
@@ -17,7 +18,7 @@ public class WallView extends View {
     @Override
     public void draw() {
         //00008b
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#181B70"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString(Constants.WALLS));
         graphics.fillRectangle(new TerminalPosition(wall.getPosition().getCol(), wall.getPosition().getRow()),
                 new TerminalSize(wall.getWidth(), wall.getHeight()), ' ');
     }

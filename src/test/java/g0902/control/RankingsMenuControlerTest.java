@@ -16,7 +16,7 @@ public class RankingsMenuControlerTest {
         RankingsMenuModel model=mock(RankingsMenuModel.class);
         RankingsMenuControler rankingsMenuControler=new RankingsMenuControler(model);
         KeyStroke keyStroke= mock(KeyStroke.class);
-        Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.Enter);
+        Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.Escape);
         rankingsMenuControler.processKey(keyStroke);
         verify(model, times(1)).setRunning(false);
     }

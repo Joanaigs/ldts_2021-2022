@@ -3,6 +3,7 @@ package g0902.view;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.Constants;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.InstructionMenuModel;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,11 +31,10 @@ public class ViewInstructionMenuTest<T> {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         Mockito.verify(tg, Mockito.times(1)).putString(anyInt(), anyInt(), anyString(),any(), any());
-        Mockito.verify(tg, Mockito.times(14)).putString(anyInt(), anyInt(), anyString());
+        Mockito.verify(tg, Mockito.times(17)).putString(anyInt(), anyInt(), anyString());
         Mockito.verify(tg, Mockito.times(1)).putString(20, 7, "      ___      ");
         Mockito.verify(screen, Mockito.times(1)).refresh();
     }

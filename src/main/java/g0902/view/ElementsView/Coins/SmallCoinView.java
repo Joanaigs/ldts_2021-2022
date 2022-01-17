@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import g0902.Constants;
 import g0902.Draws;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
 
@@ -19,7 +20,7 @@ public class SmallCoinView extends CoinsView {
 
     @Override
     public void draw() {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#FFC6B6")); // set color to salmon
+        graphics.setBackgroundColor(TextColor.Factory.fromString(Constants.SMALL_COIN)); // set color to salmon
         int y = 0;
 
         for (String s : Draws.SMALL_COIN){

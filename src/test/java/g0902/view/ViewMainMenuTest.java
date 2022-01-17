@@ -32,8 +32,8 @@ public class ViewMainMenuTest {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, Mockito.times(3)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
-        Mockito.verify(tg, Mockito.times(6)).putString(anyInt(), anyInt(), anyString());
+        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
+        Mockito.verify(tg, Mockito.times(4)).putString(anyInt(), anyInt(), anyString());
         Mockito.verify(tg, Mockito.times(1)).putString(27, 12,"START" , SGR.BOLD);
         Mockito.verify(tg, Mockito.times(1)).putString(27, 13,"-----" , SGR.BLINK);
         Mockito.verify(tg, Mockito.times(1)).putString(23, 15,"INSTRUCTIONS" , SGR.BOLD);

@@ -4,6 +4,7 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.Constants;
 import g0902.model.Menu.InstructionMenuModel;
 import g0902.model.Menu.RankingsMenuModel;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,9 +34,8 @@ public class ViewRankingsMenuTest {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         Mockito.verify(tg, Mockito.times(1)).putString(6, 2, " __              _         _                 _ ", SGR.BOLD);
         Mockito.verify(tg, Mockito.times(1)).putString(8, 14, "1", SGR.BOLD);
         Mockito.verify(tg, Mockito.times(1)).putString(8, 15, "2", SGR.BOLD);

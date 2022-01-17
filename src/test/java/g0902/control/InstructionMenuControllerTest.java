@@ -25,7 +25,7 @@ public class InstructionMenuControllerTest {
     }
     @Test
     public void test() throws IOException, InterruptedException {
-        Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.Enter);
+        Mockito.when(keyStroke.getKeyType()).thenReturn(KeyType.Escape);
         controler.processKey(keyStroke);
         verify(model, times(1)).setRunning(false);
     }

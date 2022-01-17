@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import g0902.Constants;
 import g0902.Draws;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 
@@ -33,7 +34,7 @@ public class PacmanView extends View {
 
     @Override
     public void draw() {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#EECD40")); // set color to yellow
+        graphics.setBackgroundColor(TextColor.Factory.fromString(Constants.YELLOW));
         String[] pacDraw = new String[0];
         pacDraw = setPacDraw(pacDraw);
 
