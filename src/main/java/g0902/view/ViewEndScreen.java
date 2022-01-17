@@ -3,6 +3,7 @@ package g0902.view;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.Constants;
 import g0902.model.Menu.EndScreenModel;
 
 import java.io.IOException;
@@ -80,17 +81,17 @@ public class ViewEndScreen extends Viewer {
     }
     @Override
     public void draw() throws IOException {
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffca18"));
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
         if(endScreenModel.hasLost()){
            gameOverDraw();
         }
         else{
             winGameDraw();
         }
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         scoreDraw();
         nameDraw();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
         graphics.putString(26, 25, "CONTINUE", SGR.BOLD, SGR.BLINK);
         screen.refresh();
     }

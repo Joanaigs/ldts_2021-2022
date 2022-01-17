@@ -4,6 +4,8 @@ import com.googlecode.lanterna.input.KeyStroke;
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 
+import static java.lang.System.exit;
+
 public class PacmanController implements Observer {
     private final Pacman pacman;
 
@@ -21,7 +23,7 @@ public class PacmanController implements Observer {
             case ArrowDown  -> pacman.setNextDirection(Direction.Down);
             case ArrowLeft  -> pacman.setNextDirection(Direction.Left);
             case ArrowRight -> pacman.setNextDirection(Direction.Right);
+            case EOF -> exit(0);
         }
     }
-
 }

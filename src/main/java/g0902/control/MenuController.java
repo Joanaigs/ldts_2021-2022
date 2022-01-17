@@ -5,6 +5,8 @@ import g0902.model.Menu.MainMenuModel;
 
 import java.io.IOException;
 
+import static java.lang.System.exit;
+
 public class MenuController implements Observer{
     MainMenuModel mainMenuModel;
 
@@ -18,6 +20,7 @@ public class MenuController implements Observer{
             case ArrowUp -> mainMenuModel.selectPrevious();
             case ArrowDown -> mainMenuModel.selectNext();
             case Enter -> mainMenuModel.setRunning(false);
+            case EOF -> exit(0);
         }
     }
 

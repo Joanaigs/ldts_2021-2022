@@ -3,6 +3,7 @@ package g0902.view;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.Constants;
 import g0902.model.Menu.InstructionMenuModel;
 
 import java.io.IOException;
@@ -15,10 +16,10 @@ public class ViewInstructionMenu extends Viewer {
 
     public void intructrionsDraw(){
         String s1 = " _         _               _   _             ";
-        String s2 = "|_|___ ___| |_ ___ _ _ ___| |_|_|___ ___ ___ ";
+        String s2 = "| |___ ___| |_ ___ _ _ ___| |_|_|___ ___ ___ ";
         String s3 = "| |   |_ -|  _|  _| | |  _|  _| | . |   |_ -|";
         String s4 = "|_|_|_|___|_| |_| |___|___|_| |_|___|_|_|___|";
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffca18"));//yellow
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));//yellow
         graphics.putString(6, 2, s1);
         graphics.putString(6, 3, s2);
         graphics.putString(6, 4, s3);
@@ -42,15 +43,18 @@ public class ViewInstructionMenu extends Viewer {
     }
 
     public void draw() throws IOException {
-        graphics.setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
         graphics.putString(1, 1, "<-BACK", SGR.BLINK);
         intructrionsDraw();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         arrowsDraw();
         graphics.putString(5, 16, "The game goal in our version is that Pac-Man");
         graphics.putString(5, 17, "eats all the coins without being caught by the");
         graphics.putString(5, 18, "different ghosts.");
         graphics.putString(2, 20, "Run from the ghosts while they are trying to catch you!");
+        graphics.putString(2, 22, "To leave the instruction menu and leaderboard press esc.");
+        graphics.putString(2, 23, "When the game is over you have to insert a 3 letter name");
+        graphics.putString(2, 24, "and press enter.");
         screen.refresh();
     }
 }

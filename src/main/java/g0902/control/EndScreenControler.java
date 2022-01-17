@@ -6,6 +6,8 @@ import g0902.model.Menu.EndScreenModel;
 
 import java.io.IOException;
 
+import static java.lang.System.exit;
+
 public class EndScreenControler implements Observer {
     EndScreenModel endScreenModel;
     int nameSize;
@@ -23,6 +25,9 @@ public class EndScreenControler implements Observer {
             }
         } else if(key.getKeyType() == KeyType.Enter) {
             endScreenModel.setRunning(false);
+        }
+        if(key.getKeyType() == KeyType.EOF){
+            exit(0);
         }
     }
 }

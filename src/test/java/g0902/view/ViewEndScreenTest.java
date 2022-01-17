@@ -4,6 +4,7 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.Constants;
 import g0902.model.Menu.EndScreenModel;
 import g0902.model.Menu.MainMenuModel;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,16 +33,14 @@ public class ViewEndScreenTest {
     @Test
     public void InsDrawTest() throws IOException {
         view.draw();
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         Mockito.verify(tg, Mockito.times(19)).putString(anyInt(), anyInt(), anyString(),any(), any());
         Mockito.when(model.hasLost()).thenReturn(false);
         //if player loses
         view.draw();
-        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString("#ffca18"));
-        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        Mockito.verify(tg, Mockito.times(4)).setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
+        Mockito.verify(tg, Mockito.times(2)).setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         Mockito.verify(tg, Mockito.times(39)).putString(anyInt(), anyInt(), anyString(),any(), any());
         Mockito.verify(screen, Mockito.times(2)).refresh();
 

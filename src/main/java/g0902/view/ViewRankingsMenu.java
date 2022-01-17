@@ -3,6 +3,7 @@ package g0902.view;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.Constants;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.model.Pair;
 
@@ -22,7 +23,6 @@ public class ViewRankingsMenu extends Viewer {
         String s3 = "|  |__| -_| .'| . | -_|  _| . | . | .'|  _| . |";
         String s4 = "|_____|___|__,|___|___|_| |___|___|__,|_| |___|";
 
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffca18"));//yellow
         graphics.putString(6, 2, s1, SGR.BOLD);
         graphics.putString(6, 3, s2, SGR.BOLD);
         graphics.putString(6, 4, s3, SGR.BOLD);
@@ -33,7 +33,7 @@ public class ViewRankingsMenu extends Viewer {
         String s5 = " _  _             _     __    __ __ _  _  __";
         String s6 = "|_)|_||\\||/   |\\||_||V||_    (_ /  / \\|_)|_ ";
         String s7 = "| \\| || ||\\   | || || ||__   __)\\__\\_/| \\|__";
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         graphics.putString(8, 10, s5, SGR.BOLD);
         graphics.putString(8, 11, s6, SGR.BOLD);
         graphics.putString(8, 12, s7, SGR.BOLD);
@@ -50,7 +50,7 @@ public class ViewRankingsMenu extends Viewer {
 
     @Override
     public void draw() throws IOException {
-        graphics.setForegroundColor(TextColor.Factory.fromString("#08ecd9"));
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
         titleDraw();
         graphics.putString(1, 1, "<-MAIN MENU", SGR.BLINK);
         rankDraw();

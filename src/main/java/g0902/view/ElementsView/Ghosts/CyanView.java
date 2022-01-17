@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import g0902.Constants;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Cyan;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 
@@ -27,10 +28,10 @@ public class CyanView extends GhostView{
             for (String s : ghostDraw) {
                 for (int x = 0; x < s.length(); x++) {
                     switch (s.charAt(x)) {
-                        case '#' -> graphics.setBackgroundColor(TextColor.Factory.fromString("#00FFFF"));
-                        case '0' -> graphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
-                        case '1' -> graphics.setBackgroundColor(TextColor.Factory.fromString("#2121DE"));
-                        default -> graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
+                        case '#' -> graphics.setBackgroundColor(TextColor.Factory.fromString(Constants.CYAN));
+                        case '0' -> graphics.setBackgroundColor(TextColor.Factory.fromString(Constants.WHITE));
+                        case '1' -> graphics.setBackgroundColor(TextColor.Factory.fromString(Constants.DARK_BLUE));
+                        default -> graphics.setBackgroundColor(TextColor.Factory.fromString(Constants.BLACK));
 
                     }
 

@@ -3,6 +3,7 @@ package g0902.view;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
+import g0902.Constants;
 import g0902.model.Menu.MainMenuModel;
 import g0902.model.Menu.Options.MenuElement;
 import g0902.model.Menu.Options.MenuOption;
@@ -18,19 +19,17 @@ public class ViewMainMenu extends Viewer {
     }
 
     public void drawSymbol(){
-        String s1=" _ __   __ _  ___ _ __ ___   __ _ _ __ ";
-        String s2="| '_ \\ / _` |/ __| '_ ` _ \\ / _` | '_ \\";
-        String s3="| |_) | (_| | (__| | | | | | (_| | | | |";
-        String s4="| .__/ \\__,_|\\___|_| |_| |_|\\__,_|_| |_|";
-        String s5="| | ";
-        String s6="|_|  ";
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffca18"));//yellow
-        graphics.putString(10, 2, s1);
-        graphics.putString(10, 3, s2);
-        graphics.putString(10, 4, s3);
-        graphics.putString(10, 5, s4);
-        graphics.putString(10, 6, s5);
-        graphics.putString(10, 7, s6);
+        String s1=" ___  ___  ___       __ __  ___  _ _ ";
+        String s2="| . \\| . ||  _> ___ |  \\  \\| . || \\ |";
+        String s3="|  _/|   || <__|___||     ||   ||   |";
+        String s4="|_|  |_|_|`___/     |_|_|_||_|_||_\\_|";
+
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));//yellow
+        graphics.putString(12, 4, s1);
+        graphics.putString(12, 5, s2);
+        graphics.putString(12, 6, s3);
+        graphics.putString(12, 7, s4);
+
     }
 
     @Override
