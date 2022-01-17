@@ -1,5 +1,6 @@
 package g0902.model.Game.MapElements.MovingElements.Ghosts;
 
+import g0902.Configuration;
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.ChaseMode.ChaseStrategys.ChaseStrategy;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.MoveMode.FrightenedMode.FrightenedBehaviour;
@@ -22,17 +23,19 @@ public class Ghost extends MovingElement {
         super(position, width, height);
         setCurrentDirection(Direction.None);
         setBeginPositionPosition(position);
-        setVelocity(50*1.8, 50);
+        setVelocity(55*1.8, 55);
         frightenedModeOn = false;
         counterTime = 0;
     }
 
     public void update(long deltatime) {
-        if(frightenedTime > 9000)
+        Configuration config = Configuration.getInstance();
+
+        if(frightenedTime > config.getFrightenedTime())
             frightenedModeOn = false;
         if(!frightenedModeOn) {
             counterTime += deltatime;
-            if( counterTime > 20000)  counterTime -= 20000;
+            if( counterTime > config.getChaseTime())  counterTime -= config.getChaseTime();
             if (counterTime < 7000) setCurrentDirection(getScatterBehaviour().Scatter(deltatime));
             else setCurrentDirection(getChaseStrategy().chase(deltatime));
         }

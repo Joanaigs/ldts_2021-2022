@@ -16,7 +16,7 @@ public class Pacman extends MovingElement {
         score = 0;
         setCurrentDirection(Direction.Down);
         setBeginPositionPosition(position);
-        setVelocity(100, 50);
+        setVelocity(55*2, 55);
         nextDirection = Direction.None;
         mouthOpen = true;
         lives = 3;
@@ -93,4 +93,6 @@ public class Pacman extends MovingElement {
     public void setLives(int lives) {
         this.lives = lives;
     }
+
+    public void setScore(int score) {this.score = score;}
 }
