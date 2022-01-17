@@ -10,6 +10,7 @@
 - [Controls](#controls)
 - [Implemented Features](#implemented-features) 
     - [Menu](#menu)
+    - [Music](#music)
     - [Pac-Man Movement](#pac-man-movement)
     - [Game mode](#game-mode)
     - [Ghosts](#ghosts)
@@ -22,9 +23,9 @@
 - [Design Patterns](#design-patterns)
   - [Strategy Pattern](#strategy-pattern)
   - [Observer Pattern](#observer-pattern)
-  - [States Pattern](#states-pattern)
-  - [Planned Features](#planned-features)
-  - [Known code smells and refactoring suggestions](#known-code-smells-and-refactoring-suggestions)
+  - [State Pattern](#state-pattern)
+- [Known code smells and refactoring suggestions](#known-code-smells-and-refactoring-suggestions)
+- [Planned Features](#planned-features)
 - [Tests](#tests)
   - [Coverage Report](#coverage-report)
 - [Self-evaluation](#self-evaluation)
@@ -40,6 +41,12 @@
 
 `<`: Moves Pac-Man to the left.
 
+`X`: Closes the window where the game is playing.
+
+`ESC`: Press ESC if you are in the instructions, or the leaderboard and want to return to the main menu.
+
+`ENTER`: Press ENTER when you're playing if you want to finish the game and jump to the leaderboard.
+
 ## IMPLEMENTED FEATURES
 
 
@@ -50,6 +57,9 @@ When starting the program, appears an initial menu where the user can choose to 
  - Instructions - Shows the basic controls and the goal of the game;
  - Leaderboard - Shows previous and recent scores;
  - Exit game;
+
+### Music
+
 
 ### Pac-Man Movement
 
@@ -205,7 +215,7 @@ In this case the class ReadKeys is the publisher and the classes MenuController 
 
 When implementing this pattern it enables objects to establish relations between them at runtime and respects the Open/Closed Principle since it's easy to introduce new subscriber classes without having to change the publisher's code (class [ReadKeys](../src/main/java/g0902/control/ReadKeys.java)).
 
-### States Pattern
+### State Pattern
 
 **Problem in context**
 
@@ -220,6 +230,28 @@ The State pattern allows an object to alter its behavior when its internal state
 **Implementation**
 
 <img src="resources/state_pattern.png" width="1100" height="500" />
+
+- Abstract class: [State](../src/main/java/g0902/states/State.java);
+
+- Classes that extend State: [EndScreenState](../src/main/java/g0902/states/EndScreenState.java), [GameState](../src/main/java/g0902/states/GameState.java), [InstructionMenuState](../src/main/java/g0902/states/InstructionMenuState.java), [MainMenuState](../src/main/java/g0902/states/MainMenuState.java), [RankingsMenuState](../src/main/java/g0902/states/RankingsMenuState.java).
+
+**Consequences**
+
+By implementing the State pattern, the bulky state machine conditionals are eliminated and the code becomes more organized because the code related to different behaviors is moved into separate classes (Single Responsibility Principle) and finally, when introducing new states there's no need to change existing states (Open/Closed Principle).
+
+### Singleton Pattern
+
+**Problem in context**
+
+The classe [Configuration](../src/main/java/g0902/Configuration.java) is what implements the increasing of difficulty and advancing levels. Therefore, it is an important class and its instances are utilized many times and in different ways all along the code. That being said, controlling various instances of the same class is harder to manage and doesn't benefit the program.
+
+**Pattern**
+
+The Singleton pattern ensures that a class, in this case the Configuration class, has just a single instance ("the official one"). It also allows access to that object throught out the whole code while protecting that instance from being
+
+**Implementation**
+
+<img src="resources/singleton_pattern.png" width="1100" height="500" />
 
 - Abstract class: [State](../src/main/java/g0902/states/State.java);
 
