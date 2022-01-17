@@ -146,5 +146,9 @@ public class GameModel implements Model {
     public void setRunning(boolean running) {
         isRunning = running;
     }
+
+    public void setLost(boolean lost) {
+        this.lost = lost;
+    }
 }
 

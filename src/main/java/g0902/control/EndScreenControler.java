@@ -26,8 +26,5 @@ public class EndScreenControler implements Observer {
         } else if(key.getKeyType() == KeyType.Enter) {
             endScreenModel.setRunning(false);
         }
-        if(key.getKeyType() == KeyType.EOF){
-            exit(0);
-        }
     }
 }

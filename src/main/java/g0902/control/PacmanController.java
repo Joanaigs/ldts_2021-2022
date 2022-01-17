@@ -9,7 +9,7 @@ import static java.lang.System.exit;
 
 public class PacmanController implements Observer {
     private final Pacman pacman;
-    private GameModel gameModel;
+    private final GameModel gameModel;
     public PacmanController(Pacman pacman, GameModel gameModel){
         this.pacman = pacman;
         this.gameModel=gameModel;
@@ -21,12 +21,26 @@ public class PacmanController implements Observer {
 
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
-            case ArrowUp    -> pacman.setNextDirection(Direction.Up);
-            case ArrowDown  -> pacman.setNextDirection(Direction.Down);
-            case ArrowLeft  -> pacman.setNextDirection(Direction.Left);
-            case ArrowRight -> pacman.setNextDirection(Direction.Right);
-            case EOF -> exit(0);
-            case Enter -> gameModel.setRunning(false);
+            case ArrowUp    :
+                pacman.setNextDirection(Direction.Up);
+                break;
+            case ArrowDown  :
+                pacman.setNextDirection(Direction.Down);
+                break;
+            case ArrowLeft  :
+                pacman.setNextDirection(Direction.Left);
+                break;
+            case ArrowRight :
+                pacman.setNextDirection(Direction.Right);
+                break;
+            case Character :
+                if(key.getCharacter()=='x' ||  key.getCharacter()=='X')
+                    exit(0);
+                break;
+            case Enter:
+                    gameModel.setRunning(false);
+                    gameModel.setLost(true);
+                    break;
         }
     }
 }

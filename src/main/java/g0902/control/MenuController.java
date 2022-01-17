@@ -20,7 +20,10 @@ public class MenuController implements Observer{
             case ArrowUp -> mainMenuModel.selectPrevious();
             case ArrowDown -> mainMenuModel.selectNext();
             case Enter -> mainMenuModel.setRunning(false);
-            case EOF -> exit(0);
+            case Character -> {
+                if(key.getCharacter()=='x' ||  key.getCharacter()=='X')
+                                    exit(0);
+            }
         }
     }
 

@@ -55,6 +55,9 @@ public class ViewInstructionMenu extends Viewer {
         graphics.putString(2, 22, "To leave the instruction menu and leaderboard press esc.");
         graphics.putString(2, 23, "When the game is over you have to insert a 3 letter name");
         graphics.putString(2, 24, "and press enter.");
+        graphics.putString(2, 25, "You can close de game at any moment by pressing x on the keyboard");
+        graphics.putString(2, 26, "keyboard.");
+        graphics.putString(2, 27, "You can leave the game mode by pressing enter.");
         screen.refresh();
     }
 }

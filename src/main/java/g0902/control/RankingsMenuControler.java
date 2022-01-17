@@ -16,8 +16,9 @@ public class RankingsMenuControler implements Observer {
         if(key.getKeyType() == KeyType.Escape){
             rankingsMenuModel.setRunning(false);
         }
-        if(key.getKeyType() == KeyType.EOF){
-            exit(0);
+        if(key.getKeyType() == KeyType.Character){
+            if(key.getCharacter()=='x' ||  key.getCharacter()=='X')
+                exit(0);
         }
     }
 }
