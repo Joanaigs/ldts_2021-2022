@@ -43,8 +43,9 @@ public class ViewInstructionMenu extends Viewer {
     }
 
     public void draw() throws IOException {
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
+        graphics.putString(1, 1, "<-ESC", SGR.BLINK);
         graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
-        graphics.putString(1, 1, "<-BACK", SGR.BLINK);
         intructrionsDraw();
         graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         arrowsDraw();
