@@ -166,8 +166,7 @@ TargetChaseStrategy has a TargetStrategy that is either an [AmbushTargetStrategy
 
 **Implementation**
 
-<img src="resources/strategy_pattern1.png" width="550" height="300" />
-<img src="resources/strategy_pattern2.png" width="550" height="300" />
+<img src="resources/strategy_pattern.png" width="1100" height="550" />
 
 **Interfaces**: [ChaseStrategy](../src/main/java/g0902/model/MapElements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java), [TargetStrategy](../src/main/java/g0902/model/MapElements/Ghosts/MoveMode/ChaseMode/TargetStrategys/TargetStrategy.java).
 
@@ -197,10 +196,10 @@ In this case the class ReadKeys is the publisher and the classes MenuController 
 
 **Implementation**
 
-<img src="resources/observer_pattern.png" width="1100" height="400" />
+<img src="resources/observer_pattern.png" width="1200" height="300" />
 
-- Subscriber classes: [MenuController](../src/main/java/g0902/control/MenuController.java), [PacmanController](../src/main/java/g0902/control/PacmanController.java);
-- Publisher class: [ReadKeys](../src/main/java/g0902/control/ReadKeys.java). 
+- Observer classes: [EndScreenController](../src/main/java/g0902/control/EndScreenControler.java), [PacmanController](../src/main/java/g0902/control/PacmanController.java), [InstructionMenuController](../src/main/java/g0902/control/InstructionMenuController.java), [RankingsMenuController](../src/main/java/g0902/control/RankingsMenuControler.java), [MenuController](../src/main/java/g0902/control/MenuController.java);
+- Subject class: [ReadKeys](../src/main/java/g0902/control/ReadKeys.java). 
 
 **Consequences**
 
@@ -220,7 +219,7 @@ The State pattern allows an object to alter its behavior when its internal state
 
 **Implementation**
 
-<img src="resources/states_pattern.png" width="700" height="300" />
+<img src="resources/states_pattern.png" width="1100" height="500" />
 
 - Abstract class: [State](../src/main/java/g0902/states/State.java);
 
@@ -232,7 +231,7 @@ By implementing the State pattern, the bulky state machine conditionals are elim
 
 ## Known code smells and refactoring suggestions
 
-###Some things we would like to change in the future
+### Some things we would like to change in the future
 
 - The game mode classes that were previously explained: [ChaseMode](../src/main/java/model/Elements/Pacman.java), [ScatterMode](../src/main/java/model/Elements/Pacman.java) and [FrightenedMode](../src/main/java/model/Elements/Pacman.java) extend the abstract class [MovingBehaviour](../src/main/java/model/Elements/Pacman.java) since they all share some functions and we think there could be a cleaner way to do it.
 
