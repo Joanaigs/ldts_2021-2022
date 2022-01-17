@@ -1,8 +1,12 @@
 package g0902.states;
 
+import g0902.Configuration;
+import g0902.control.Controller;
 import g0902.control.MenuController;
 import g0902.control.PacmanController;
+import g0902.gui.LanternaGUI;
 import g0902.model.Game.GameModel;
+import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.model.Menu.MainMenuModel;
 import g0902.view.ElementsView.GameView;
@@ -10,7 +14,10 @@ import g0902.view.ViewRankingsMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import java.io.IOException;
 
@@ -21,19 +28,28 @@ public class GameStateTest {
     GameView view;
     PacmanController controller;
     GameModel model;
+    Pacman pacman;
+    Map map;
+
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp(){
         view=mock(GameView.class);
         controller=mock(PacmanController.class);
-        Pacman pacman=mock(Pacman.class);
-        when(controller.getPacman()).thenReturn(pacman);
-        when(pacman.getScore()).thenReturn(1000);
+        pacman=mock(Pacman.class);
         model=mock(GameModel.class);
-        state=new GameState(view, model, controller);
+        map=mock(Map.class);
+
+        Mockito.when(model.getPacman()).thenReturn(pacman);
+        when(map.getPacman()).thenReturn(pacman);
+        when(controller.getPacman()).thenReturn(pacman);
+        when(model.getMap()).thenReturn(map);
+        when(pacman.getScore()).thenReturn(1000);
+        when(pacman.getLives()).thenReturn(3);
+        state = Mockito.spy(new GameState(view, model, controller));
     }
 
     @Test
-    public void InsDrawTest() throws IOException {
+    void InsDrawTest() throws IOException {
         state.step();
         Mockito.verify(view, times(1)).draw();
         Assertions.assertEquals(view, state.getViewer());
@@ -44,4 +60,24 @@ public class GameStateTest {
         Assertions.assertEquals(controller, state.getObserver());
         Assertions.assertEquals(model, state.getModel());
     }
+
+
+    @Test
+    void nextLevelTest() throws IOException {
+        Mockito.when(model.hasLost()).thenReturn(false);    // to enter else
+        Mockito.doAnswer( invocation -> {
+            state = new GameState(view, model, controller);
+            return null;
+        }).when(state).initializing();
+
+       Configuration configuration = Mockito.mock(Configuration.class);
+        try(MockedStatic<Configuration> configurationMockedStatic=Mockito.mockStatic(Configuration.class)){
+            configurationMockedStatic.when(Configuration::getInstance).thenReturn(configuration);
+            state.nextState();
+            Assertions.assertEquals(3, ((GameModel)state.getModel()).getPacman().getLives());
+            Assertions.assertEquals(1000, ((GameModel)state.getModel()).getPacman().getScore());
+            Mockito.verify(configuration, times(1)).nextLevel();
+        }
+    }
+
 }
