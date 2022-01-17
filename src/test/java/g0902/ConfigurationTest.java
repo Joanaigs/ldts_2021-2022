@@ -1,14 +1,14 @@
 package g0902;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ConfigurationTest extends Assertions {
-    Configuration configuration = Configuration.getInstance();
 
     @Test
     void nextLevel(){
+        Configuration.clearConfiguration();
+        Configuration configuration = Configuration.getInstance();
         assertEquals(9000,configuration.getFrightenedTime());
         assertEquals(20000,configuration.getChaseTime());
         configuration.nextLevel();
