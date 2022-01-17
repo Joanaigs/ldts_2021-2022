@@ -52,7 +52,8 @@ public class ViewRankingsMenu extends Viewer {
     public void draw() throws IOException {
         graphics.setForegroundColor(TextColor.Factory.fromString(Constants.YELLOW));
         titleDraw();
-        graphics.putString(1, 1, "<-MAIN MENU", SGR.BLINK);
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
+        graphics.putString(1, 1, "<-ESC", SGR.BLINK);
         rankDraw();
         screen.refresh();
 
