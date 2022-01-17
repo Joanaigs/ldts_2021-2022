@@ -269,11 +269,15 @@ By implementing the Singleton pattern, as said before, it's ensured that the cla
 
 ## Known code smells and refactoring suggestions
 
-### Some things we would like to change in the future
+**Data classes - Dispensables**
 
-- The game mode classes that were previously explained: [ChaseMode](../src/main/java/model/Elements/Pacman.java), [ScatterMode](../src/main/java/model/Elements/Pacman.java) and [FrightenedMode](../src/main/java/model/Elements/Pacman.java) extend the abstract class [MovingBehaviour](../src/main/java/model/Elements/Pacman.java) since they all share some functions and we think there could be a cleaner way to do it.
+Some of the classes that implement the interface [Observer](src/main/java/g0902/control/Observer.java): [PacmanController](../src/main/java/g0902/control/PacmanController.java), [MenuController](../src/main/java/g0902/control/MenuControler.java), [RankingsMenuController](../src/main/java/g0902/control/RankingsMenuController.java), [InstructionMenuController](../src/main/java/g0902/control/InstructionMenuController.java) are considered data holders or data classes because they only have setters and getters for private fields. They could be converted to records or composed with other class using the Extract method. We decided to have them be their own classes since it's easier to visualize and implement the observer pattern the classes participate in.
 
-- We want to implement the game loop design pattern. 
+**Lazy classes - Dispensables**
+
+There are two classes: [Constants](../src/main/java/g0902/Constants.java) and [Draws](../src/main/java/g0902/Draws.java) that can be considered lazy classes since they don't do anything. They only have public static fields and don't have methods. However, both classes were created to support possible future changes. 
+
+For example, if in the future we want Pac-Man to be a different color, instead of having to change the color code in every instance Pac-Man's view is drawn we simply have to go to the Constants class and alter the respective field. The same happens with the Draws class. If we want to change an object's draw its easier and faster if we just have to change it in one place.
 
 
 ## Tests
