@@ -219,7 +219,7 @@ The State pattern allows an object to alter its behavior when its internal state
 
 **Implementation**
 
-<img src="resources/states_pattern.png" width="1100" height="500" />
+<img src="resources/state_pattern.png" width="1100" height="500" />
 
 - Abstract class: [State](../src/main/java/g0902/states/State.java);
 
