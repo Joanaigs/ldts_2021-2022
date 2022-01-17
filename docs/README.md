@@ -24,8 +24,8 @@
   - [Strategy Pattern](#strategy-pattern)
   - [Observer Pattern](#observer-pattern)
   - [State Pattern](#state-pattern)
+  - [Singleton Pattern](#singleton-pattern)
 - [Known code smells and refactoring suggestions](#known-code-smells-and-refactoring-suggestions)
-- [Planned Features](#planned-features)
 - [Tests](#tests)
   - [Coverage Report](#coverage-report)
 - [Self-evaluation](#self-evaluation)
@@ -247,23 +247,22 @@ By implementing the State pattern, the bulky state machine conditionals are elim
 
 **Problem in context**
 
-The classe [Configuration](../src/main/java/g0902/Configuration.java) is what implements the increasing of difficulty and advancing levels. Therefore, it is an important class and its instances are utilized many times and in different ways all along the code. That being said, controlling various instances of the same class is harder to manage and doesn't benefit the program.
+The class [Configuration](../src/main/java/g0902/Configuration.java) is what implements the increasing of difficulty and advancing levels. Therefore, it is an important class and its instances are utilized many times and in different ways all along the code. That being said, controlling various instances of the same class is harder to manage and doesn't benefit the program.
 
 **Pattern**
 
-The Singleton pattern ensures that a class, in this case the Configuration class, has just a single instance ("the official one"). It also allows access to that object throught out the whole code while protecting that instance from being
+The Singleton pattern ensures that a class, in this case the Configuration class, has just a single instance ("the official one"). It also allows access to that object throught out the whole code while protecting that instance from being overwritten. This is achieved by making the default constructor private, to prevent other objects from using the new operator with the Configuration class and by adding a static creation method that acts as a special constructor. This method calls the private constructor to create an object and saves it in a static field (our's is called config). When this method is called, that static object is returned.
 
 **Implementation**
 
-<img src="resources/singleton_pattern.png" width="1100" height="500" />
+<img src="resources/singleton_pattern.png" width="600" height="300" />
 
-- Abstract class: [State](../src/main/java/g0902/states/State.java);
-
-- Classes that extend State: [EndScreenState](../src/main/java/g0902/states/EndScreenState.java), [GameState](../src/main/java/g0902/states/GameState.java), [InstructionMenuState](../src/main/java/g0902/states/InstructionMenuState.java), [MainMenuState](../src/main/java/g0902/states/MainMenuState.java), [RankingsMenuState](../src/main/java/g0902/states/RankingsMenuState.java).
+- Class implementing singleton: [Configuration](../src/main/java/g0902/Configuration.java).
+- Client classes: [Ghost](../src/main/java/g0902/model/Game/MapElements/MovingElements/Ghosts/Ghost.java), [GameState](../src/main/java/g0902/states/GameState.java), [GameModel](../src/main/java/g0902/model/Game/GameModel.java), [MainMenuState](../src/main/java/g0902/states/MainMenuState.java) and [EndScreenState](../src/main/java/g0902/states/EndScreenState.java).
 
 **Consequences**
 
-By implementing the State pattern, the bulky state machine conditionals are eliminated and the code becomes more organized because the code related to different behaviors is moved into separate classes (Single Responsibility Principle) and finally, when introducing new states there's no need to change existing states (Open/Closed Principle).
+By implementing the Singleton pattern, as said before, it's ensured that the class Configuration has only a single instance. There is global access to that instance and that object is only initialized when it's requested fo the first time. However, there are negative consequences when implementing the singleton pattern: the Single Responsibility Pattern is violated and bad designing can be masked.
 
 ## Known code smells and refactoring suggestions
 
@@ -273,10 +272,6 @@ By implementing the State pattern, the bulky state machine conditionals are elim
 
 - We want to implement the game loop design pattern. 
 
-
-## Planned Features
-
-- **Pac-Man**: Implementing lives for Pac-Man. In the beginning of the game, Pac-Man will start with 3 lives. Each time Pac-Man is eaten by a ghost he loses one life and both Pac-Man and the ghosts return to their original positions. However, the amount of coins eaten and the coins left remain the same. The game ends only when Pac-Man loses his third life or when he eats all the coins in the map.
 
 ## Tests
 
