@@ -17,6 +17,7 @@
     - [Coins](#coins)
     - [Collisions](#collisions)
     - [Score](#score)
+    - [Levels](#levels)
     - [End of Game](#end-of-game)
     - [Leaderboard](#leaderboard)
 - [Architectural Pattern](#architectural-pattern)
@@ -137,6 +138,8 @@ Pacman can gain points to increase his score in several ways:
 
 ### Levels
 After all coins were eaten by pacman, we move up a level, where everything is the same but the time of the frightened mode, that is reduced, and the time of scatter mode, that is enhanced. We also have a limmit of 15 levels and if you can beat them all you are anounced the winner of the game!
+
+The levels are changed in [GameState](../src/main/java/g0902/states/GameState.java) that call the function next level in [Configuration](../src/main/java/g0902/Configuration.java)
 
 ### End of Game
 When Pac-Man eats all the coins without being caught by ghosts appears a message to the player saying "You win". When the player is eaten by a ghost the final message is "Game Over". The player is proceeded to the Leaderboard.
