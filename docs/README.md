@@ -166,7 +166,7 @@ TargetChaseStrategy has a TargetStrategy that is either an [AmbushTargetStrategy
 
 **Implementation**
 
-<img src="resources/strategy_pattern.png" width="1150" height="650" />
+<img src="resources/strategy_pattern.png" width="1100" height="550" />
 
 **Interfaces**: [ChaseStrategy](../src/main/java/g0902/model/MapElements/Ghosts/MoveMode/ChaseMode/ChaseStrategys/ChaseStrategy.java), [TargetStrategy](../src/main/java/g0902/model/MapElements/Ghosts/MoveMode/ChaseMode/TargetStrategys/TargetStrategy.java).
 
@@ -196,7 +196,7 @@ In this case the class ReadKeys is the publisher and the classes MenuController 
 
 **Implementation**
 
-<img src="resources/observer_pattern.png" width="1100" height="510" />
+<img src="resources/observer_pattern.png" width="1200" height="300" />
 
 - Observer classes: [EndScreenController](../src/main/java/g0902/control/EndScreenControler.java), [PacmanController](../src/main/java/g0902/control/PacmanController.java), [InstructionMenuController](../src/main/java/g0902/control/InstructionMenuController.java), [RankingsMenuController](../src/main/java/g0902/control/RankingsMenuControler.java), [MenuController](../src/main/java/g0902/control/MenuController.java);
 - Subject class: [ReadKeys](../src/main/java/g0902/control/ReadKeys.java). 
