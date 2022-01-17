@@ -25,4 +25,9 @@ public class Configuration {
             frightenedTime -= 2000;
         chaseTime += 2000;
     }
+
+    //only for tests:
+    public static void clearConfiguration(){
+        config = null;
+    }
 }
