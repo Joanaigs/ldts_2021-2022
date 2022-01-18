@@ -2,6 +2,7 @@ package g0902.states;
 
 
 import g0902.Configuration;
+import g0902.Music;
 import g0902.control.Observer;
 import g0902.control.PacmanController;
 import g0902.gui.LanternaGUI;
@@ -22,6 +23,7 @@ public class GameState extends State{
     public static final long TIME_FIXED = 20;
     private int levels=50;
     LanternaGUI gui;
+    Music music;
 
     public void initializing() throws IOException {
         gameModel = new GameModel("map");
@@ -31,6 +33,7 @@ public class GameState extends State{
         gui=new LanternaGUI();
         gui.createScreenGame();
         gameView = new GameView(gameModel, gui.getScreen());
+        music = Configuration.getInstance().getMenuMusic();
     }
 
     public GameState() throws IOException {
@@ -38,13 +41,14 @@ public class GameState extends State{
         initializing();
     }
     //for test use only
-    public GameState(GameView view, GameModel model, PacmanController controller){
+    public GameState(GameView view, GameModel model, PacmanController controller, Music music){
         super();
         gameModel=model;
         totalTime = 0;
         pastTime = System.currentTimeMillis();
         pacmanController=controller;
         gameView=view;
+        this.music=music;
     }
 
     @Override
@@ -67,6 +71,9 @@ public class GameState extends State{
 
     @Override
     public void step() throws IOException {
+        if(music.isPlaying()){
+            music.stop();
+        }
         long now = System.currentTimeMillis();
         totalTime += now-pastTime;
         while(totalTime >= TIME_FIXED) {
@@ -75,6 +82,7 @@ public class GameState extends State{
         }
         gameView.draw();
         pastTime = now;
+
     }
 
     @Override
@@ -101,5 +109,9 @@ public class GameState extends State{
         pacman.setScore(score);
         pacman.setLives(lives);
         gameModel.setPacman(pacman);
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
     }
 }
