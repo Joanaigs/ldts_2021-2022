@@ -259,7 +259,7 @@ The Singleton pattern ensures that a class, in this case the Configuration class
 
 **Implementation**
 
-<img src="resources/singleton_pattern.png" width="600" height="300" />
+<img src="resources/singleton_pattern.png" width="1046" height="686" />
 
 - Class implementing singleton: [Configuration](../src/main/java/g0902/Configuration.java).
 - Client classes: [Ghost](../src/main/java/g0902/model/Game/MapElements/MovingElements/Ghosts/Ghost.java), [GameState](../src/main/java/g0902/states/GameState.java), [GameModel](../src/main/java/g0902/model/Game/GameModel.java), [MainMenuState](../src/main/java/g0902/states/MainMenuState.java) and [EndScreenState](../src/main/java/g0902/states/EndScreenState.java).
