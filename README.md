@@ -10,7 +10,7 @@ The game goal in our version is that Pac-Man eats all the coins without being ca
 **Good luck trying to escape the ghosts and collecting as many coins as you can!**
 
 <p align="center">
-  <img src="docs/resources/demo.gif" width="300" height="500" />
+  <img src="docs/resources/demo.gif" width="380" height="580" />
 </p>
 
 This project was developed by Inês Cardoso ([up202005435@fe.up.pt](mailto:up202005435@fe.up.pt)), Joana Santos ([up202006279@fe.up.pt](mailto:up202006279@fe.up.pt)) and Mariana Carvalho ([up202007620@fe.up.pt](mailto:up202007620@fe.up.pt)) for LDTS 2021/2022.
