@@ -284,7 +284,11 @@ For example, if in the future we want Pac-Man to be a different color, instead o
 
 ### Coverage Report
 
-<img src="resources/test_coverage.png" width="750" height="300" />
+<img src="resources/test_coverage.png" width="1000" height="300" />
+
+### Pitest report
+
+<img src="resources/pitest.png" width="800" height="300" />
 
 ## Self-evaluation
 
