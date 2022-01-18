@@ -1,9 +1,11 @@
 package g0902.states;
 
+import g0902.Configuration;
 import g0902.control.RankingsMenuControler;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.view.ViewMainMenu;
 import g0902.view.ViewRankingsMenu;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,4 +41,5 @@ public class RankingsMenuStateTest {
         Assertions.assertEquals(model, state.getModel());
 
     }
+
 }

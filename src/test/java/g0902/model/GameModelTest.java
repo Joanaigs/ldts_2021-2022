@@ -1,5 +1,6 @@
 package g0902.model;
 
+import g0902.Configuration;
 import g0902.model.Game.GameModel;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
@@ -9,9 +10,7 @@ import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Orange;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Pink;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Red;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 
 import java.io.IOException;
@@ -102,10 +101,10 @@ public class GameModelTest {
         Mockito.verify(pink, Mockito.times(1)).update(deltatime);
         Mockito.verify(cyan, Mockito.times(1)).update(deltatime);
         Mockito.verify(orange, Mockito.times(1)).update(deltatime);
-        Mockito.verify(red, Mockito.times(5)).getFrightenedModeOn();
-        Mockito.verify(pink, Mockito.times(5)).getFrightenedModeOn();
-        Mockito.verify(cyan, Mockito.times(5)).getFrightenedModeOn();
-        Mockito.verify(orange, Mockito.times(5)).getFrightenedModeOn();
+        Mockito.verify(red, Mockito.times(6)).getFrightenedModeOn();
+        Mockito.verify(pink, Mockito.times(6)).getFrightenedModeOn();
+        Mockito.verify(cyan, Mockito.times(6)).getFrightenedModeOn();
+        Mockito.verify(orange, Mockito.times(6)).getFrightenedModeOn();
     }
 
     @Test
@@ -184,5 +183,10 @@ public class GameModelTest {
         gameModel.ghostPacmanCollisions(gameModel.getGhosts().get(0));
         Assertions.assertEquals(true, gameModel.hasLost());
         Assertions.assertEquals(false, gameModel.isRunning());
+    }
+
+    @AfterEach
+    public void stop(){
+        Configuration.getInstance().stopAllMusic();
     }
 }
