@@ -1,5 +1,6 @@
 package g0902.states;
 
+import g0902.Configuration;
 import g0902.control.Observer;
 import g0902.control.RankingsMenuControler;
 import g0902.gui.LanternaGUI;
@@ -60,5 +61,9 @@ public class RankingsMenuState extends State{
     }
 
     @Override
-    public State nextState() {return new MainMenuState();}
+    public State nextState() {
+        if(Configuration.getInstance().getEndScreenMusic().isPlaying())
+            Configuration.getInstance().getEndScreenMusic().stop();
+        return new MainMenuState();
+    }
 }
