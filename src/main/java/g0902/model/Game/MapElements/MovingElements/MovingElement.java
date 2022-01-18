@@ -1,12 +1,12 @@
 package g0902.model.Game.MapElements.MovingElements;
 
-import g0902.Constants;
+import g0902.view.Constants;
 import g0902.model.Direction;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.Element;
 import g0902.model.Game.MapElements.Wall;
 import g0902.model.Position;
-import g0902.view.ElementsView.Collider;
+import g0902.model.Collider;
 
 public class MovingElement extends Element {
     private Map map;

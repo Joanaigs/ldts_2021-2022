@@ -2,7 +2,7 @@ package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Draws;
+import g0902.view.Draws;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

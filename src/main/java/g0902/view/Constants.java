@@ -1,4 +1,4 @@
-package g0902;
+package g0902.view;
 
 public final class Constants {
 

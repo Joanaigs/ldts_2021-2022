@@ -1,6 +1,6 @@
 package g0902.model.Game.MapElements;
 
-import g0902.view.ElementsView.Collider;
+import g0902.model.Collider;
 import g0902.model.Position;
 
 public abstract class Element {

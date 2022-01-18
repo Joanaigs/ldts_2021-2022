@@ -1,7 +1,7 @@
 package g0902.model.Game.MapElements;
 
 import g0902.model.Game.MapElements.MovingElements.Pacman;
-import g0902.view.ElementsView.Collider;
+import g0902.model.Collider;
 import g0902.model.Game.MapElements.Coins.Coin;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
 import g0902.model.Game.MapElements.Coins.SmallCoin;
@@ -9,8 +9,6 @@ import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
 import g0902.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
 
 
 public class ColliderTest extends Assertions {

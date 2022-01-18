@@ -1,7 +1,7 @@
 package g0902.model.Game.MapElements.MovingElements.Ghosts;
 
 
-import g0902.Constants;
+import g0902.view.Constants;
 import g0902.model.Direction;
 import g0902.model.Game.Map.Builders.MapBuilder;
 import g0902.model.Game.Map.Builders.MapReader;

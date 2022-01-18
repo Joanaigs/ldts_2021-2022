@@ -3,7 +3,6 @@ package g0902.view;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import g0902.Constants;
 import g0902.model.Menu.EndScreenModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

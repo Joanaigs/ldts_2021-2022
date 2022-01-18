@@ -1,7 +1,7 @@
 package g0902.view.ElementsView;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Draws;
+import g0902.view.Draws;
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Types.Cyan;
 import g0902.view.ElementsView.Ghosts.CyanView;

@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Draws;
+import g0902.view.Draws;
 import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.model.Position;

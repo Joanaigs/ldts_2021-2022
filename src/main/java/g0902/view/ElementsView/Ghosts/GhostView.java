@@ -1,7 +1,7 @@
 package g0902.view.ElementsView.Ghosts;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import g0902.Draws;
+import g0902.view.Draws;
 import g0902.model.Direction;
 import g0902.view.ElementsView.View;
 

@@ -17,7 +17,7 @@ import g0902.model.Game.MapElements.MovingElements.Pacman;
 
 import g0902.model.Model;
 import g0902.model.Position;
-import g0902.view.ElementsView.Collider;
+import g0902.model.Collider;
 
 import java.io.IOException;
 import java.util.ArrayList;

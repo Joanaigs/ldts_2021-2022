@@ -1,5 +1,5 @@
 package g0902.model.Game.MapElements.MovingElements;
-import g0902.view.ElementsView.Collider;
+import g0902.model.Collider;
 import g0902.model.Direction;
 import g0902.model.Position;
 

@@ -1,6 +1,4 @@
-package g0902.view.ElementsView;
-
-import g0902.model.Position;
+package g0902.model;
 
 import java.awt.*;
 
