@@ -62,7 +62,7 @@ When starting the program, appears an initial menu where the user can choose to 
 
 ### Music
 
-Throughout the gameplay there is backgroud music that inhances the whole experience. When the program is started we are faced with a beautiful song that continues throughout all menus (instructions and leaderboard) and that changes when we finaly decide to start the game. In the gameplay itself we come across the relaxing sound of the ghost trying to kill us whilst we're running for our lives trying to collect all the money(when the ghosts are in the chase and scatter mode). We can also experience the sound of ghosts screaming while we take our revenge on them (when we eat the power coin and they enter frightened mode). After we win or lose the game we can also hear an amazing tune while our score is being presented.
+Throughout the gameplay there is backgroud music that enhances the whole experience. When the program is started we are faced with a beautiful song that continues throughout all menus (instructions and leaderboard) and that changes when we finaly decide to start the game. In the gameplay itself we come across the relaxing sound of the ghost trying to kill us whilst we're running for our lives trying to collect all the money(when the ghosts are in the chase and scatter mode). We can also experience the sound of ghosts screaming while we take our revenge on them (when we eat the power coin and they enter frightened mode). After we win or lose the game we can also hear an amazing tune while our score is being presented.
 
 ### Pac-Man Movement
 
@@ -272,7 +272,14 @@ By implementing the Singleton pattern, as said before, it's ensured that the cla
 
 **Data classes - Dispensables**
 
-Some of the classes that implement the interface [Observer](src/main/java/g0902/control/Observer.java): [PacmanController](../src/main/java/g0902/control/PacmanController.java), [MenuController](../src/main/java/g0902/control/MenuControler.java), [RankingsMenuController](../src/main/java/g0902/control/RankingsMenuController.java), [InstructionMenuController](../src/main/java/g0902/control/InstructionMenuController.java) are considered data holders or data classes because they only have setters and getters for private fields. They could be converted to records or composed with other class using the Extract method. We decided to have them be their own classes since it's easier to visualize and implement the observer pattern the classes participate in.
+Some of the classes that implement the interface [Observer](src/main/java/g0902/control/Observer.java): [PacmanController](../src/main/java/g0902/control/PacmanController.java), [MenuController](../src/main/java/g0902/control/MenuControler.java), [RankingsMenuController](../src/main/java/g0902/control/RankingsMenuController.java), [InstructionMenuController](../src/main/java/g0902/control/InstructionMenuController.java) are considered data holders or data classes because they only have setters and getters for private fields. They could be converted to records or composed with other class using the Extract method. 
+
+We believe this happens because of our way of implementing the MVC architectural pattern. However, we don't consider that our way of implementing it is wrong. We started working considering the Model the central component of the pattern being a more "active Model". That said, we have this component manage the data, logic and rules od the application. On the other side, our Controller is responsible for accepcting input and converting it to commands for the Model and the View.
+Besides
+
+After further analyzing we've understood why our Controller classes are being considered Data classes. If we wanted to reedo some parts of the project's structure we could implement some classes and methods that we now have in the Model component of the MVC in the Controller component. This way we would have a more passive Model and the problem of all the classes only having getters and setters for private fields would be solved. The controller classes would participate more in the actual controlling of the game.
+ 
+ To backup our way of implementing MVC we researched in these sites and articles:
 
 **Lazy classes - Dispensables**
 
