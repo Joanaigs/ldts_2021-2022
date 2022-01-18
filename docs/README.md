@@ -162,7 +162,7 @@ This particular pattern is useful for games and web applications because it help
 
 **Implementation**
 
-<img src="resources/MVC.png" width="500" height="300" />
+<img src="resources/MVC.png" width="700" height="300" />
 
 **Consequences**
 
@@ -237,7 +237,7 @@ The State pattern allows an object to alter its behavior when its internal state
 
 **Implementation**
 
-<img src="resources/state_pattern.png" width="1100" height="500" />
+<img src="resources/state_pattern.png" width="1300" height="500" />
 
 - Abstract class: [State](../src/main/java/g0902/states/State.java);
 
@@ -259,7 +259,7 @@ The Singleton pattern ensures that a class, in this case the Configuration class
 
 **Implementation**
 
-<img src="resources/singleton_pattern.png" width="1046" height="686" />
+<img src="resources/singleton_pattern.png" width="1046" height="386" />
 
 - Class implementing singleton: [Configuration](../src/main/java/g0902/Configuration.java).
 - Client classes: [Ghost](../src/main/java/g0902/model/Game/MapElements/MovingElements/Ghosts/Ghost.java), [GameState](../src/main/java/g0902/states/GameState.java), [GameModel](../src/main/java/g0902/model/Game/GameModel.java), [MainMenuState](../src/main/java/g0902/states/MainMenuState.java) and [EndScreenState](../src/main/java/g0902/states/EndScreenState.java).
