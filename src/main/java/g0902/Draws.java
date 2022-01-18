@@ -125,6 +125,7 @@ public final class Draws {
             "     #####"};
 
 
+
     public static final String[] PAC_OPEN_UP = {
             "   #       #",
             "  ###     ###",
@@ -137,6 +138,7 @@ public final class Draws {
             "  ##########",
             "   ########",
             "    ######"};
+
 
     public static final String[] PAC_OPEN_DOWN = {
 

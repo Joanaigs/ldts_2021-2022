@@ -87,6 +87,8 @@ public class GameState extends State{
 
     @Override
     public State nextState() throws IOException {
+        if(Configuration.getInstance().getFrightenedModeMusic().isPlaying())
+            Configuration.getInstance().getFrightenedModeMusic().stop();
         boolean lost=gameModel.hasLost();
         int score = gameModel.getMap().getPacman().getScore();
         int lives= gameModel.getMap().getPacman().getLives();
