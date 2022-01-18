@@ -29,6 +29,7 @@
 - [Known code smells and refactoring suggestions](#known-code-smells-and-refactoring-suggestions)
 - [Tests](#tests)
   - [Coverage Report](#coverage-report)
+  - [Pitest Report](#pitest-report)
 - [Self-evaluation](#self-evaluation)
 
 
