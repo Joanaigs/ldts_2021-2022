@@ -76,6 +76,7 @@ public class GameStateTest {
         }).when(state).initializing();
 
        Configuration configuration = Mockito.mock(Configuration.class);
+       when(configuration.getFrightenedModeMusic()).thenReturn(mock(Music.class));
         try(MockedStatic<Configuration> configurationMockedStatic=Mockito.mockStatic(Configuration.class)){
             configurationMockedStatic.when(Configuration::getInstance).thenReturn(configuration);
             state.nextState();
