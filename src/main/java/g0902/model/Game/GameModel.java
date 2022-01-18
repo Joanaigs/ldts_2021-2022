@@ -1,13 +1,20 @@
 package g0902.model.Game;
 
+import g0902.Configuration;
+import g0902.Music;
+
 import g0902.model.Direction;
+import g0902.model.Game.Map.Builders.MapBuilder;
+import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.Coins.PowerCoin;
+
+
+import g0902.model.Game.Map.Builders.MapReader;
+
 import g0902.model.Game.MapElements.Coins.SmallCoin;
 import g0902.model.Game.MapElements.MovingElements.Ghosts.Ghost;
-import g0902.model.Game.Map.Builders.MapBuilder;
-import g0902.model.Game.Map.Builders.MapReader;
-import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
+
 import g0902.model.Model;
 import g0902.model.Position;
 import g0902.view.ElementsView.Collider;
@@ -22,6 +29,7 @@ public class GameModel implements Model {
     Pacman pacman;
     boolean isRunning;
     boolean lost;
+    Music music = Configuration.getInstance().getNormalModeMusic();
 
     public GameModel(String mapName) throws IOException {
         MapBuilder mapBuilder = new MapReader();
@@ -37,6 +45,7 @@ public class GameModel implements Model {
     }
 
     public void update(long deltatime) {
+        if(!music.isPlaying()) music.start();
 
         pacman.update(deltatime);
 
@@ -48,7 +57,25 @@ public class GameModel implements Model {
 
         for( Ghost ghost: ghosts)
             ghost.update(deltatime);
+
+        musicUpdate();
    }
+
+    public void musicUpdate() {
+        Music newMusic= Configuration.getInstance().getNormalModeMusic();
+        for (Ghost ghost : ghosts) {
+            if (ghost.getFrightenedModeOn()) {
+                newMusic= Configuration.getInstance().getFrightenedModeMusic();
+                break;
+            }
+        }
+
+        if(newMusic!=music){
+            music.stop();
+            music= newMusic;
+        }
+    }
+
 
    private void allCoinsEaten(){
         if(map.getSmallCoins().isEmpty()&&map.getPowerCoins().isEmpty()){
@@ -142,12 +169,7 @@ public class GameModel implements Model {
 
     public List<Ghost> getGhosts() {return ghosts;}
 
-    public void setRunning(boolean running) {
-        isRunning = running;
-    }
+    public void setRunning(boolean running) {isRunning = running;}
 
-    public void setLost(boolean lost) {
-        this.lost = lost;
-    }
+    public void setLost(boolean lost) {this.lost = lost;}
 }
-

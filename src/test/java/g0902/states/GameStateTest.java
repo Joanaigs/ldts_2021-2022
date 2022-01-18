@@ -1,11 +1,16 @@
 package g0902.states;
 
 import g0902.Configuration;
+import g0902.Music;
+import g0902.control.Controller;
+import g0902.control.MenuController;
 import g0902.control.PacmanController;
 import g0902.model.Game.GameModel;
 import g0902.model.Game.Map.Map;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.view.ElementsView.GameView;
+import g0902.view.ViewRankingsMenu;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,6 +28,7 @@ public class GameStateTest {
     GameModel model;
     Pacman pacman;
     Map map;
+    Music music;
 
     @BeforeEach
     void setUp(){
@@ -31,6 +37,7 @@ public class GameStateTest {
         pacman=mock(Pacman.class);
         model=mock(GameModel.class);
         map=mock(Map.class);
+        music=mock(Music.class);
 
         Mockito.when(model.getPacman()).thenReturn(pacman);
         when(map.getPacman()).thenReturn(pacman);
@@ -38,12 +45,17 @@ public class GameStateTest {
         when(model.getMap()).thenReturn(map);
         when(pacman.getScore()).thenReturn(1000);
         when(pacman.getLives()).thenReturn(3);
-        state = Mockito.spy(new GameState(view, model, controller));
+        when(music.isPlaying()).thenReturn(true);
+        state = Mockito.spy(new GameState(view, model, controller, music));
     }
 
     @Test
     void InsDrawTest() throws IOException {
         state.step();
+
+        verify(music, times(0)).start();
+        verify(music, times(1)).isPlaying();
+
         Mockito.verify(view, times(1)).draw();
         Assertions.assertEquals(view, state.getViewer());
         when(model.isRunning()).thenReturn(true);
@@ -59,7 +71,7 @@ public class GameStateTest {
     void nextLevelTest() throws IOException {
         Mockito.when(model.hasLost()).thenReturn(false);    // to enter else
         Mockito.doAnswer( invocation -> {
-            state = new GameState(view, model, controller);
+            state = new GameState(view, model, controller, music);
             return null;
         }).when(state).initializing();
 

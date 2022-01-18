@@ -1,7 +1,9 @@
 package g0902.states;
 
 
+import g0902.Configuration;
 import g0902.control.MenuController;
+import g0902.Music;
 import g0902.control.Observer;
 import g0902.gui.LanternaGUI;
 import g0902.model.Menu.MainMenuModel;
@@ -18,6 +20,7 @@ public class MainMenuState extends State{
     private final MenuController menuController;
     private final MainMenuModel mainMenuModel;
     LanternaGUI gui;
+    Music music;
 
     public MainMenuState(){
         super();
@@ -26,13 +29,15 @@ public class MainMenuState extends State{
         gui=new LanternaGUI();
         gui.createScreenMenu();
         viewMainMenu=new ViewMainMenu(mainMenuModel, gui.getScreen());
+        music = Configuration.getInstance().getMenuMusic();
     }
     //for test use only
-    public MainMenuState(ViewMainMenu view, MainMenuModel model, MenuController controler){
+    public MainMenuState(ViewMainMenu view, MainMenuModel model, MenuController controler, Music music){
         super();
         mainMenuModel=model;
         menuController=controler;
         viewMainMenu=view;
+        this.music=music;
     }
     @Override
     public Viewer getViewer() {
@@ -56,6 +61,8 @@ public class MainMenuState extends State{
     @Override
     public void step() throws IOException {
         viewMainMenu.draw();
+        if(!music.isPlaying())
+            music.start();
     }
 
     @Override
@@ -74,4 +81,5 @@ public class MainMenuState extends State{
 
         return null;
     }
+
 }

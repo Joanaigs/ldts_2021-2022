@@ -1,9 +1,12 @@
 package g0902.states;
 
 
+import g0902.Configuration;
+import g0902.Music;
 import g0902.control.EndScreenControler;
 import g0902.model.Menu.EndScreenModel;
 import g0902.view.ViewEndScreen;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,18 +21,28 @@ public class EndScreenStateTest {
     EndScreenState state;
     EndScreenModel model;
     EndScreenControler controller;
+    Music music;
     @BeforeEach
     void setUp() {
         view=mock(ViewEndScreen.class);
         model=mock(EndScreenModel.class);
         controller=mock(EndScreenControler.class);
-        state=new EndScreenState(view, model, controller);
+        music=mock(Music.class);
+        when(music.isPlaying()).thenReturn(true);
+        state=new EndScreenState(view, model, controller, music);
     }
 
     @Test
     public void Test() throws IOException {
         state.step();
-        Mockito.verify(view, times(1)).draw();
+        verify(music, times(0)).start();
+        when(music.isPlaying()).thenReturn(false);
+        state.setMusic(music);
+        state.step();
+        verify(music, times(1)).start();
+        verify(music, times(2)).isPlaying();
+
+        Mockito.verify(view, times(2)).draw();
         Assertions.assertEquals(view, state.getViewer());
         when(model.isRunning()).thenReturn(true);
         Assertions.assertEquals(true, state.isRunning());
@@ -39,4 +52,5 @@ public class EndScreenStateTest {
         Assertions.assertEquals(model, state.getModel());
 
     }
+
 }
