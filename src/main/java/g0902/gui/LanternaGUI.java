@@ -38,7 +38,7 @@ public class LanternaGUI {
     }
     public void createScreenMenu(){
         try {
-            TerminalSize terminalSize = new TerminalSize(59, 29);
+            TerminalSize terminalSize = new TerminalSize(Constants.MENU_SCREEN_WIDTH, Constants.MENU_SCREEN_HEIGHT);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             terminalFactory.setTerminalEmulatorFrameAutoCloseTrigger(TerminalEmulatorAutoCloseTrigger.CloseOnExitPrivateMode);
             Terminal terminal = terminalFactory.createTerminal();

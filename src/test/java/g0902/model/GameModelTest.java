@@ -110,7 +110,6 @@ public class GameModelTest {
     }
 
 
-    /*
     @Test
     public void powerCoinCollisionsTest(){
         updateTest();
@@ -132,7 +131,6 @@ public class GameModelTest {
         Assertions.assertEquals(false, gameModel.getGhosts().get(0).getFrightenedModeOn());
         Assertions.assertEquals(gameModel.getGhosts().get(0).getBeginPosition(), gameModel.getGhosts().get(0).getPosition());
     }
-    */
 
 
     @Test
