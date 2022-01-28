@@ -32,8 +32,8 @@ public class LanternaGUI {
             screen.clear();
             graphics=screen.newTextGraphics();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
     public void createScreenMenu(){
@@ -48,14 +48,11 @@ public class LanternaGUI {
             screen.doResizeIfNecessary();
             graphics=screen.newTextGraphics();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 
-    private void closeScreen() throws IOException {
-        screen.close();
-    }
 
     public Screen getScreen() {
         return screen;

@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'info.solidsoft.pitest' version '1.7.0'
+    id "org.kordamp.gradle.errorprone" version "0.47.0"
 }
 
 group 'g0902'
@@ -20,6 +21,7 @@ dependencies {
 
 pitest {
     junit5PluginVersion = '0.12'
+    excludedClasses = ["g0902.gui.LanternaGUI", "g0902.Main"]
 }
 
 test {

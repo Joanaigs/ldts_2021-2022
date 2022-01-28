@@ -3,7 +3,6 @@ package g0902.control;
 import com.googlecode.lanterna.input.KeyStroke;
 import g0902.model.Menu.MainMenuModel;
 
-import java.io.IOException;
 
 import static java.lang.System.exit;
 
@@ -15,6 +14,7 @@ public class MenuController implements Observer{
     }
 
     @Override
+    @SuppressWarnings("MissingCasesInEnumSwitch")
     public void processKey(KeyStroke key) {
         switch(key.getKeyType()){
             case ArrowUp -> mainMenuModel.selectPrevious();

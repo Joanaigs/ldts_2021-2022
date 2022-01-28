@@ -26,6 +26,7 @@ public class ReadKeys implements Runnable {
 
     public Screen getScreen() {return screen;}
 
+    @Override
     public void run() {
         try {
             while (true) {
@@ -37,7 +38,9 @@ public class ReadKeys implements Runnable {
                     observer.processKey(keyStroke);
                 }
             }
-        } catch (IOException e) { e.printStackTrace();}
+        }catch (Exception e) {
+        System.out.println("Erro: " + e.getMessage());
+    }
     }
     public ArrayList<Observer> getObservers(){return observers;}
 }

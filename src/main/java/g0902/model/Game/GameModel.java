@@ -92,7 +92,7 @@ public class GameModel implements Model {
     public boolean smallCoinCollisions(){
         for(int i= -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                Position p = new Position((pacman.getPosition().getRow()) / 8 + i, (pacman.getPosition().getCol()) /12 + j);
+                Position p = new Position(pacman.getPosition().getRow() / 8 + i, pacman.getPosition().getCol() /12 + j);
                 SmallCoin smallCoin = map.getSmallCoins().get(p);
                 if (smallCoin != null) {
                     if (smallCoin.getCollider().collision(pacman.getCollider())) {

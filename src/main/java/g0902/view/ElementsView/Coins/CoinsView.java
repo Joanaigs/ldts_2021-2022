@@ -9,5 +9,6 @@ public abstract class CoinsView extends View {
         super(graphics);
     }
 
+    @Override
     public abstract void draw();
 }

@@ -41,6 +41,7 @@ public class ViewInstructionMenu extends Viewer {
         graphics.putString(20, 12, s9);
     }
 
+    @Override
     public void draw() throws IOException {
         graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
         graphics.putString(1, 1, "<-ESC", SGR.BLINK);

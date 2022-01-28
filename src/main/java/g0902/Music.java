@@ -3,7 +3,9 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
+
 import java.io.File;
+
 
 public class Music {
     private Clip sound;
@@ -16,7 +18,9 @@ public class Music {
 
     public Clip loadSound(String sound) throws NullPointerException{
         try {
-            File musicFile = new File(getClass().getClassLoader().getResource(sound).toURI());
+            String rootPath = new File(System.getProperty("user.dir")).getPath();
+            String musicPath = rootPath + "/src/main/resources/" + sound;
+            File musicFile = new File(musicPath);
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
             Clip musicClip = AudioSystem.getClip();
             musicClip.open(audioInput);
@@ -24,7 +28,7 @@ public class Music {
             gainControl.setValue(-25.0f);
             return musicClip;
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Erro: " + e.getMessage());
         }
         return null;
     }
@@ -41,4 +45,5 @@ public class Music {
         this.sound = sound;
     }
 
+    public Clip getSound() {return sound;}
 }

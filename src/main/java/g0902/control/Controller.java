@@ -20,8 +20,10 @@ public class Controller {
     }
 
     public void run() throws IOException {
-        if (state == null)
+        if (state == null) {
             state = new MainMenuState();
+            state.initScreen();
+        }
 
         while(state!=null) {
             viewer = state.getViewer();
@@ -35,6 +37,8 @@ public class Controller {
             readKeys.removeObserver(state.getObserver());
             viewer.closeScreen();
             setState(state.nextState());
+            if(state != null)
+                state.initScreen();
         }
     }
 

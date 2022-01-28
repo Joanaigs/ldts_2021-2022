@@ -1,7 +1,10 @@
 package g0902.states;
 
+import com.googlecode.lanterna.screen.Screen;
 import g0902.Configuration;
+import g0902.Music;
 import g0902.control.RankingsMenuControler;
+import g0902.gui.LanternaGUI;
 import g0902.model.Menu.RankingsMenuModel;
 import g0902.view.ViewRankingsMenu;
 import org.junit.jupiter.api.AfterEach;
@@ -19,12 +22,19 @@ public class RankingsMenuStateTest {
     ViewRankingsMenu view;
     RankingsMenuControler controller;
     RankingsMenuModel model;
+    LanternaGUI gui;
+    Music music;
+
     @BeforeEach
     void setUp() throws IOException {
         view=mock(ViewRankingsMenu.class);
         controller=mock(RankingsMenuControler.class);
         model=mock(RankingsMenuModel.class);
-        state=new RankingsMenuState(view, model, controller);
+        gui = mock(LanternaGUI.class);
+        music=mock(Music.class);
+
+        state=new RankingsMenuState(view, model, controller,music, gui);
+        when(music.isPlaying()).thenReturn(true);
     }
 
     @Test
@@ -38,7 +48,37 @@ public class RankingsMenuStateTest {
         Assertions.assertEquals(false, state.isRunning());
         Assertions.assertEquals(controller, state.getObserver());
         Assertions.assertEquals(model, state.getModel());
+    }
 
+    @Test
+    void initScreen(){
+        when(gui.getScreen()).thenReturn(Mockito.mock(Screen.class));
+        state.initScreen();
+        Mockito.verify(gui, times(1)).createScreenMenu();
+    }
+
+    @Test
+    void nextState(){
+        State returned = state.nextState();
+        Assertions.assertTrue(returned instanceof MainMenuState);
+    }
+
+    @Test
+    void setStartMusic(){
+        Mockito.when(music.isPlaying()).thenReturn(false);
+        state.nextState();
+        verify(music, times(0)).stop();
+        verify(music, times(1)).isPlaying();
+    }
+
+
+    @Test
+    void setStopMusic(){
+        Mockito.when(music.isPlaying()).thenReturn(true);
+        state.nextState();
+
+        verify(music, times(1)).stop();
+        verify(music, times(1)).isPlaying();
     }
 
 }

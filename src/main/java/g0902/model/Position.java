@@ -1,5 +1,7 @@
 package g0902.model;
 
+import g0902.model.Game.MapElements.Wall;
+
 import java.util.Objects;
 
 public class Position {
@@ -27,7 +29,7 @@ public class Position {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Position)) return false;
         Position position = (Position) o;
         return row == position.row && col == position.col;
     }

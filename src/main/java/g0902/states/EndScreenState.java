@@ -14,7 +14,7 @@ import g0902.view.Viewer;
 import java.io.IOException;
 
 public class EndScreenState extends State{
-    final ViewEndScreen viewEndScreen;
+    ViewEndScreen viewEndScreen;
     final EndScreenModel endScreenModel;
     final EndScreenControler endScreenControler;
     LanternaGUI gui;
@@ -25,17 +25,23 @@ public class EndScreenState extends State{
         endScreenModel= new EndScreenModel();
         endScreenControler=new EndScreenControler(endScreenModel);
         gui=new LanternaGUI();
-        gui.createScreenMenu();
         music = Configuration.getInstance().getEndScreenMusic();
-        viewEndScreen= new ViewEndScreen(endScreenModel, gui.getScreen());
     }
+
     //for testing only
-    public EndScreenState(ViewEndScreen view, EndScreenModel model, EndScreenControler controller, Music music) {
+    public EndScreenState(ViewEndScreen view, EndScreenModel model, EndScreenControler controller, Music music, LanternaGUI gui) {
         super();
         endScreenControler=controller;
         endScreenModel=model;
         this.viewEndScreen=view;
         this.music=music;
+        this.gui=gui;
+    }
+
+    @Override
+    public void initScreen(){
+        gui.createScreenMenu();
+        viewEndScreen= new ViewEndScreen(endScreenModel, gui.getScreen());
     }
 
     @Override

@@ -10,9 +10,10 @@ public class Wall extends Element{
     }
 
     @Override
+    @SuppressWarnings("EqualsHashCode")
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Wall)) return false;
         Wall wall = (Wall) o;
         return getWidth() == wall.getWidth() && getHeight() == wall.getHeight() &&  wall.getPosition().equals(position);
     }

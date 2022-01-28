@@ -22,6 +22,7 @@ public class Pacman extends MovingElement {
         lives = 3;
     }
 
+    @SuppressWarnings("MissingCasesInEnumSwitch")
     public void update(long deltatime){
         Position oldPosition = new Position(getPosition().getRow(), getPosition().getCol());
 

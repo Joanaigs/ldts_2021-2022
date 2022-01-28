@@ -53,6 +53,7 @@ public class MovingElement extends Element {
             getPosition().setCol(Constants.GAME_SCREEN_WIDTH);
     }
 
+    @SuppressWarnings("UnnecessaryParentheses")
     public Position move(long deltatime, Direction direction){
         return switch (direction) {
             case Up -> new Position(position.getRow() - (int) (velocityY * deltatime / 1000), position.getCol());

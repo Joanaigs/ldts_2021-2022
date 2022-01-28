@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 
 public class ScatterBehaviourTest {
     MapBuilder mapBuilder;
@@ -28,6 +29,18 @@ public class ScatterBehaviourTest {
     void setUp() throws IOException {
         mapBuilder = new MapReader();
         map = mapBuilder.createMap("map");
+        red = ((Red)map.getRed());
+        scatterBehaviour = new ScatterBehaviour(red, List.of(new Position(13 * 8, 14),
+                new Position(38 * 8, 12),
+                new Position(38 * 8, 17 * 12),
+                new Position(35 * 8, 17 * 12)));
+    }
+
+    @Test
+    void numFindGoToPosition(){
+        scatterBehaviour = Mockito.spy(scatterBehaviour);
+        scatterBehaviour.Scatter(100);
+        Mockito.verify(scatterBehaviour, times(1)).findToGoPosition();
     }
 
     @Test

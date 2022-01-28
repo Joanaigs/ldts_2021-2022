@@ -31,8 +31,6 @@ public class GameState extends State{
         totalTime = 0;
         pastTime = System.currentTimeMillis();
         gui=new LanternaGUI();
-        gui.createScreenGame();
-        gameView = new GameView(gameModel, gui.getScreen());
         music = Configuration.getInstance().getMenuMusic();
     }
 
@@ -40,8 +38,9 @@ public class GameState extends State{
         super();
         initializing();
     }
+
     //for test use only
-    public GameState(GameView view, GameModel model, PacmanController controller, Music music){
+    public GameState(GameView view, GameModel model, PacmanController controller, Music music, LanternaGUI gui){
         super();
         gameModel=model;
         totalTime = 0;
@@ -49,6 +48,13 @@ public class GameState extends State{
         pacmanController=controller;
         gameView=view;
         this.music=music;
+        this.gui=gui;
+    }
+
+    @Override
+    public void initScreen(){
+        gui.createScreenGame();
+        gameView = new GameView(gameModel, gui.getScreen());
     }
 
     @Override
@@ -74,15 +80,13 @@ public class GameState extends State{
         if(music.isPlaying()){
             music.stop();
         }
-        long now = System.currentTimeMillis();
-        totalTime += now-pastTime;
+
+        totalTime += getTimePassed();
         while(totalTime >= TIME_FIXED) {
             gameModel.update(TIME_FIXED);
             totalTime-=TIME_FIXED;
         }
         gameView.draw();
-        pastTime = now;
-
     }
 
     @Override
@@ -113,7 +117,17 @@ public class GameState extends State{
         gameModel.setPacman(pacman);
     }
 
+    public int getLevels(){ return levels;}
+
     public void setMusic(Music music) {
         this.music = music;
     }
+
+    public long getTimePassed() {
+        long now = System.currentTimeMillis();
+        long timePassed = now-pastTime;
+        pastTime = now;
+        return timePassed;
+    }
+
 }

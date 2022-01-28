@@ -1,5 +1,6 @@
 package g0902.view;
 
+@SuppressWarnings("MutablePublicArray")
 public final class Draws {
 
     /**********************************************************

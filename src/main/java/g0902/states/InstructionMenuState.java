@@ -11,7 +11,7 @@ import g0902.view.Viewer;
 import java.io.IOException;
 
 public class InstructionMenuState extends State{
-    final ViewInstructionMenu viewInstructionMenu;
+    ViewInstructionMenu viewInstructionMenu;
     final InstructionMenuModel instructionMenuModel;
     final InstructionMenuController instructionMenuController;
     LanternaGUI gui;
@@ -21,15 +21,20 @@ public class InstructionMenuState extends State{
         instructionMenuModel=new InstructionMenuModel();
         instructionMenuController=new InstructionMenuController(instructionMenuModel);
         gui=new LanternaGUI();
-        gui.createScreenMenu();
-        viewInstructionMenu=new ViewInstructionMenu(instructionMenuModel, gui.getScreen());
     }
     //for testing only
-    public InstructionMenuState(ViewInstructionMenu viewInstructionMenu, InstructionMenuModel model, InstructionMenuController controller){
+    public InstructionMenuState(ViewInstructionMenu viewInstructionMenu, InstructionMenuModel model, InstructionMenuController controller, LanternaGUI gui){
         super();
         instructionMenuModel=model;
         instructionMenuController=controller;
         this.viewInstructionMenu=viewInstructionMenu;
+        this.gui=gui;
+    }
+
+    @Override
+    public void initScreen(){
+        gui.createScreenMenu();
+        viewInstructionMenu=new ViewInstructionMenu(instructionMenuModel, gui.getScreen());
     }
 
     @Override

@@ -5,7 +5,6 @@ import g0902.model.Direction;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.model.Position;
 
-import java.io.IOException;
 
 public class LivesView extends View{
     final Pacman pacman;

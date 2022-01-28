@@ -19,4 +19,6 @@ public abstract class State{
     public abstract void step() throws IOException;
 
     public abstract State nextState() throws IOException;
+
+    public abstract void initScreen();
 }

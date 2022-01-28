@@ -16,7 +16,7 @@ import java.io.IOException;
 import static java.lang.System.exit;
 
 public class MainMenuState extends State{
-    private final ViewMainMenu viewMainMenu;
+    private ViewMainMenu viewMainMenu;
     private final MenuController menuController;
     private final MainMenuModel mainMenuModel;
     LanternaGUI gui;
@@ -27,18 +27,24 @@ public class MainMenuState extends State{
         mainMenuModel=new MainMenuModel();
         menuController=new MenuController(mainMenuModel);
         gui=new LanternaGUI();
-        gui.createScreenMenu();
-        viewMainMenu=new ViewMainMenu(mainMenuModel, gui.getScreen());
         music = Configuration.getInstance().getMenuMusic();
     }
     //for test use only
-    public MainMenuState(ViewMainMenu view, MainMenuModel model, MenuController controler, Music music){
+    public MainMenuState(ViewMainMenu view, MainMenuModel model, MenuController controler, Music music, LanternaGUI gui){
         super();
         mainMenuModel=model;
         menuController=controler;
         viewMainMenu=view;
         this.music=music;
+        this.gui= gui;
     }
+
+    @Override
+    public void initScreen(){
+        gui.createScreenMenu();
+        viewMainMenu=new ViewMainMenu(mainMenuModel, gui.getScreen());
+    }
+
     @Override
     public Viewer getViewer() {
         return viewMainMenu;

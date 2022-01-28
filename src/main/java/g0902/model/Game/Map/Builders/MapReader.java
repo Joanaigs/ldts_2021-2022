@@ -12,6 +12,9 @@ import g0902.model.Game.MapElements.MovingElements.Pacman;
 import g0902.model.Position;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 public class MapReader implements MapBuilder {
@@ -38,8 +41,7 @@ public class MapReader implements MapBuilder {
         String rootPath = new File(System.getProperty("user.dir")).getPath();
         String mapLocation = rootPath + "/src/main/resources/" + mapName;
 
-        FileReader fr = new FileReader(mapLocation);
-        BufferedReader br = new BufferedReader(fr);
+        BufferedReader br = Files.newBufferedReader(Paths.get(mapLocation), Charset.defaultCharset());
 
         int width = Integer.parseInt(br.readLine());
         height = Integer.parseInt(br.readLine());
@@ -48,7 +50,7 @@ public class MapReader implements MapBuilder {
         return m;
     }
 
-
+    @SuppressWarnings("MissingCasesInEnumSwitch")
     private void readElements(Map map, BufferedReader br) throws IOException {
         for (int i = 0; i < height; i++) {
             String line = br.readLine();

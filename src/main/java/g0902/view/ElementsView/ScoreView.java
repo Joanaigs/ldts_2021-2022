@@ -9,6 +9,9 @@ import g0902.view.Draws;
 import g0902.model.Game.MapElements.MovingElements.Pacman;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +26,8 @@ public class ScoreView extends View {
         numbers = new ArrayList<>();
         try {
             loadNumbers();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 
@@ -46,8 +49,7 @@ public class ScoreView extends View {
     public void loadNumbers() throws IOException {
         String rootPath = new File(System.getProperty("user.dir")).getPath();
         String mapLocation = rootPath + "/src/main/resources/numbers.font";
-        FileReader fr = new FileReader(mapLocation);
-        BufferedReader br = new BufferedReader(fr);
+        BufferedReader br = Files.newBufferedReader(Paths.get(mapLocation), Charset.defaultCharset());
         int height = Integer.parseInt(br.readLine());
 
         for (int n = 0; n <= 9; n++) {

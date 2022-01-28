@@ -1,6 +1,7 @@
 package g0902.states;
 
 import g0902.Configuration;
+import g0902.Music;
 import g0902.control.Observer;
 import g0902.control.RankingsMenuControler;
 import g0902.gui.LanternaGUI;
@@ -15,23 +16,32 @@ import java.io.IOException;
 public class RankingsMenuState extends State{
     private final RankingsMenuModel rankingsMenuModel;
     private final RankingsMenuControler rankingsMenuControler;
-    private final ViewRankingsMenu viewRankingsMenu;
+    private ViewRankingsMenu viewRankingsMenu;
     LanternaGUI gui;
+    Music music;
 
     public RankingsMenuState() throws FileNotFoundException {
         super();
         rankingsMenuModel=new RankingsMenuModel();
         rankingsMenuControler=new RankingsMenuControler(rankingsMenuModel);
         gui=new LanternaGUI();
-        gui.createScreenMenu();
-        viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel, gui.getScreen());
+        music = Configuration.getInstance().getEndScreenMusic();
     }
+
     //for test purpose only
-    public RankingsMenuState(ViewRankingsMenu view, RankingsMenuModel rankingsMenuModel, RankingsMenuControler rankingsMenuControler) {
+    public RankingsMenuState(ViewRankingsMenu view, RankingsMenuModel rankingsMenuModel, RankingsMenuControler rankingsMenuControler, Music music, LanternaGUI gui) {
         super();
         viewRankingsMenu=view;
         this.rankingsMenuControler=rankingsMenuControler;
         this.rankingsMenuModel=rankingsMenuModel;
+        this.gui=gui;
+        this.music=music;
+    }
+
+    @Override
+    public void initScreen(){
+        gui.createScreenMenu();
+        viewRankingsMenu=new ViewRankingsMenu(rankingsMenuModel, gui.getScreen());
     }
 
     @Override
@@ -62,8 +72,8 @@ public class RankingsMenuState extends State{
 
     @Override
     public State nextState() {
-        if(Configuration.getInstance().getEndScreenMusic().isPlaying())
-            Configuration.getInstance().getEndScreenMusic().stop();
+        if(music.isPlaying())
+            music.stop();
         return new MainMenuState();
     }
 }

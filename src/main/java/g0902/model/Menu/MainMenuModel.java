@@ -49,7 +49,9 @@ public class MainMenuModel implements Model, MenuModel {
 
     public List<MenuElement<MenuOption>> getOptions(){return options;}
 
+    @Override
     public void setRunning(boolean running){this.running=running;}
 
+    @Override
     public boolean isRunning(){return running;}
 }

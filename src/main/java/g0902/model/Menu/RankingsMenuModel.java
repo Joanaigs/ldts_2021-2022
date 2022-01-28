@@ -5,6 +5,9 @@ import g0902.model.Pair;
 
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -26,7 +29,7 @@ public class RankingsMenuModel implements Model, MenuModel {
         fileLocation = rootPath + "/src/main/resources/"+filename ;
 
         File file = new File(fileLocation);
-        Scanner myReader = new Scanner(file);
+        Scanner myReader = new Scanner(file, Charset.defaultCharset().name());
         if(!myReader.hasNext())
             return;
         myReader.nextLine();
@@ -60,7 +63,7 @@ public class RankingsMenuModel implements Model, MenuModel {
 
     public void updateFile() throws IOException {
         sortD();
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileLocation));
+        BufferedWriter writer = Files.newBufferedWriter(Paths.get(fileLocation), Charset.defaultCharset());
         writer.write("score name\n");
         for(Pair<String, Integer> pair: scores)
         {

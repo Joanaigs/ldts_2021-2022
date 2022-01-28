@@ -4,7 +4,6 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import g0902.model.Menu.EndScreenModel;
 
-import java.io.IOException;
 
 public class EndScreenControler implements Observer {
     final EndScreenModel endScreenModel;

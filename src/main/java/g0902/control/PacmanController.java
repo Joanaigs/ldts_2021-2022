@@ -19,6 +19,8 @@ public class PacmanController implements Observer {
         return pacman;
     }
 
+    @Override
+    @SuppressWarnings("MissingCasesInEnumSwitch")
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowUp    :

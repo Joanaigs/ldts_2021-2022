@@ -58,6 +58,13 @@ public class MainMenuTest {
         Assertions.assertEquals(true, main.isRunning());
         main.setRunning(false);
         Assertions.assertEquals(false, main.isRunning());
+    }
 
+    @Test
+    public void menuOption(){
+        Assertions.assertEquals("START", MenuOption.START.getText() );
+        Assertions.assertEquals( "INSTRUCTIONS", MenuOption.INSTRUCTIONS.getText() );
+        Assertions.assertEquals( "LEADERBOARD", MenuOption.LEADERBOARD.getText());
+        Assertions.assertEquals( "EXIT",MenuOption.EXIT.getText());
     }
 }
