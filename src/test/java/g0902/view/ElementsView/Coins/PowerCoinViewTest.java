@@ -23,7 +23,6 @@ public class PowerCoinViewTest {
         Position position=mock(Position.class);
         Mockito.when(position.getCol()).thenReturn(1);
         Mockito.when(position.getRow()).thenReturn(2);
-        Screen screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         view=new PowerCoinView(new PowerCoin(position), tg);
         view.setGraphics(tg);

@@ -19,7 +19,6 @@ public class WallViewTest {
     @BeforeEach
     void setUp() {
         Position position=mock(Position.class);
-        Screen screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         view=new WallView(new Wall(position, 39, 39), tg);
         view.setGraphics(tg);

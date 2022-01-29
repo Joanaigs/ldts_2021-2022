@@ -21,7 +21,6 @@ public class SmallCoinViewTest {
     @BeforeEach
     void setUp() {
         Position position=mock(Position.class);
-        Screen screen = mock(Screen.class);
         tg = mock(TextGraphics.class);
         view=new SmallCoinView(new SmallCoin(position), tg);
         view.setGraphics(tg);

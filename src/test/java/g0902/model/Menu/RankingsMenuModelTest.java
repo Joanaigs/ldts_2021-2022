@@ -59,8 +59,8 @@ public class RankingsMenuModelTest {
         rankingsMenuModel.addScore("Ply", 100);
         rankingsMenuModel.sortD();
         List<Pair<String, Integer>> scores = new ArrayList<>();
-        scores.add((new Pair<>("Ply", 100)));
-        scores.add((new Pair<>("Pla", 30)));
+        scores.add(new Pair<>("Ply", 100));
+        scores.add(new Pair<>("Pla", 30));
 
         Assertions.assertTrue(rankingsMenuModel.getScores().get(0).equals(scores.get(0)));
         Assertions.assertTrue(rankingsMenuModel.getScores().get(1).equals(scores.get(1)));
