@@ -278,43 +278,44 @@ By implementing the Singleton pattern, as said before, it's ensured that the cla
 Refractoring: **Model.Ghost and Model.Pacman**
  - Extracted super class MovingObject from Pacman and Ghost.
  - Code smell eliminated: Duplicated Code and Long Classes.
- - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/56634656e442030a4734477e8eb3a7549888e36a)
+ - [Click here to see commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/56634656e442030a4734477e8eb3a7549888e36a)
 
 Refractoring: **Model.Ghost**
  - Renamed variable "score" to "ghost value on Model.Ghost.
  - Renamed function getScore to getGhostValue on Model.Ghost.
- - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/0a2d9497e3304037ee8f67b4289a0ead116cdefc)
+ - [Click here to see commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/0a2d9497e3304037ee8f67b4289a0ead116cdefc)
 
 Refractoring: **Model.Pacman**
  - Renamed variable "highScore" to "Score" on Model.Pacman.
  - Renamed function "getHighscore" to "getScore" on Model.Pacman.
- - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/0a2d9497e3304037ee8f67b4289a0ead116cdefc)
+ - [Click here to see commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/0a2d9497e3304037ee8f67b4289a0ead116cdefc)
 
 Refractoring: **Model.MapReader**
  - Substitute algorithm to read Map Elements, and create Map.
  - Code smell eliminated: Duplicated Code and Long Method.
  - Created enum for MapElements symbols, so code would be cleaner.
- - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/873fa8129559cea8dff0fa9910ede511406df329)
+ - [Click here to see commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/873fa8129559cea8dff0fa9910ede511406df329)
 
 Refractoring: **Model.GameModel** - 
  - Extrated methods: powerCoinCollisions and smallCoinCollisions from coinCollisions.
  - Code smell eliminated: Long method with high complexity.
- - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/ffef36333e5894c9b8147bee5fa2efcc91958a14)
+ - [Click here to see commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/ffef36333e5894c9b8147bee5fa2efcc91958a14)
 
 Refractoring: **LanternaGui**
  - Replaced magic numbers with symbolic constants (MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT, GAME_SCREEN_WIDTH AND GAME_SCREEN_HEIGHT).
-- [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/2813d934ba7686e081a0afb8a838a1184002d4e7)
+ - [Click here to see commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/2813d934ba7686e081a0afb8a838a1184002d4e7)
 
 Refractoring: **Model.MainMenuModel**
  - Removed repeated code from selectPrevious and selectNext on MainMenuModel, and putted it on MenuElement.
  - Code smell eliminated: Duplicated code.
-- [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/51da8271117d5926b3825a2751af12b1aa920fc2)
+- [Click here to see commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/51da8271117d5926b3825a2751af12b1aa920fc2)
 
 Refractoring: **Model.ScatterMode, Model.ChaseMode, Model.FrightenedMode**
  - Many of the functions related to the ghost's movement mode had repeated code, so extracted it and moved to the class MovingBehaviour
- - Commit: 
-    - [Frightened Mode refractoring commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/881137ae9e3f00f492276760c50e2a37e838c7bf)
-    - [Scatter Mode refractoring commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/28bcea7fc6391c5a9ba416c3b28a3c9594e080c5)
+ - Commits: 
+    - [Click here to see Frightened Mode refractoring commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/881137ae9e3f00f492276760c50e2a37e838c7bf)
+    - [Click here to see Scatter Mode refractoring commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/28bcea7fc6391c5a9ba416c3b28a3c9594e080c5)
+    - [Click here to see Chase Mode refractoring commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/44338a7bd8c5f75be543bad08a9a92ef4a070403)
 
 Refractoring: **Functions responsible for drawing elements**
  - Eliminated the magic numbers by putting the colors code on constants.
