@@ -26,7 +26,8 @@
   - [Observer Pattern](#observer-pattern)
   - [State Pattern](#state-pattern)
   - [Singleton Pattern](#singleton-pattern)
-- [Known code smells and refactoring suggestions](#known-code-smells-and-refactoring-suggestions)
+- [Refactoring List](#refactoring-list)
+- [Code Smells](#code-smells)
 - [Tests](#tests)
   - [Coverage Report](#coverage-report)
   - [Pitest Report](#pitest-report)
@@ -160,6 +161,10 @@ Without any structural pattern the Single Principle Responsibility could be brok
 
 This particular pattern is useful for games and web applications because it helps separate the input logic that is converted to commands for either the Model or View (handled by the Controller); the data, game logic and rules of the game (handled by the Model) and the user interface that outputs information (handled by the View).
 
+We started working considering the Model the central component of the pattern being a more "active Model". That said, we have this component manage the data, logic and rules of the application. On the other side, our Controller is responsible for accepcting input and converting it to commands for the Model and the View.
+
+If we wanted to reedo some parts of the project's structure we could implement some classes and methods that we now have in the Model component of the MVC in the Controller component.
+
 **Implementation**
 
 <img src="resources/MVC.png" width="700" height="300" />
@@ -268,18 +273,61 @@ The Singleton pattern ensures that a class, in this case the Configuration class
 
 By implementing the Singleton pattern, as said before, it's ensured that the class Configuration has only a single instance. There is global access to that instance and that object is only initialized when it's requested fo the first time. However, there are negative consequences when implementing the singleton pattern: the Single Responsibility Pattern is violated and bad designing can be masked.
 
-## Known code smells and refactoring suggestions
+## Refactoring List
 
-**Data classes - Dispensables**
+Refractoring: **Model.Ghost and Model.Pacman**
+ - Extracted super class MovingObject from Pacman and Ghost.
+ - Code smell eliminated: Duplicated Code and Long Classes.
+ - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/56634656e442030a4734477e8eb3a7549888e36a)
 
-Some of the classes that implement the interface [Observer](src/main/java/g0902/control/Observer.java): [PacmanController](../src/main/java/g0902/control/PacmanController.java), [MenuController](../src/main/java/g0902/control/MenuControler.java), [RankingsMenuController](../src/main/java/g0902/control/RankingsMenuController.java), [InstructionMenuController](../src/main/java/g0902/control/InstructionMenuController.java) are considered data holders or data classes because they only have setters and getters for private fields. They could be converted to records or composed with other class using the Extract method. 
+Refractoring: **Model.Ghost**
+ - Renamed variable "score" to "ghost value on Model.Ghost.
+ - Renamed function getScore to getGhostValue on Model.Ghost.
+ - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/0a2d9497e3304037ee8f67b4289a0ead116cdefc)
 
-We believe this happens because of our way of implementing the MVC architectural pattern. However, we don't consider that our way of implementing it is wrong. We started working considering the Model the central component of the pattern being a more "active Model". That said, we have this component manage the data, logic and rules od the application. On the other side, our Controller is responsible for accepcting input and converting it to commands for the Model and the View.
-Besides
+Refractoring: **Model.Pacman**
+ - Renamed variable "highScore" to "Score" on Model.Pacman.
+ - Renamed function "getHighscore" to "getScore" on Model.Pacman.
+ - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/0a2d9497e3304037ee8f67b4289a0ead116cdefc)
 
-After further analyzing we've understood why our Controller classes are being considered Data classes. If we wanted to reedo some parts of the project's structure we could implement some classes and methods that we now have in the Model component of the MVC in the Controller component. This way we would have a more passive Model and the problem of all the classes only having getters and setters for private fields would be solved. The controller classes would participate more in the actual controlling of the game.
- 
- To backup our way of implementing MVC we researched in these sites and articles:
+Refractoring: **Model.MapReader**
+ - Substitute algorithm to read Map Elements, and create Map.
+ - Code smell eliminated: Duplicated Code and Long Method.
+ - Created enum for MapElements symbols, so code would be cleaner.
+ - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/873fa8129559cea8dff0fa9910ede511406df329)
+
+Refractoring: **Model.GameModel** - 
+ - Extrated methods: powerCoinCollisions and smallCoinCollisions from coinCollisions.
+ - Code smell eliminated: Long method with high complexity.
+ - [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/ffef36333e5894c9b8147bee5fa2efcc91958a14)
+
+Refractoring: **LanternaGui**
+ - Replaced magic numbers with symbolic constants (MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT, GAME_SCREEN_WIDTH AND GAME_SCREEN_HEIGHT).
+- [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/2813d934ba7686e081a0afb8a838a1184002d4e7)
+
+Refractoring: **Model.MainMenuModel**
+ - Removed repeated code from selectPrevious and selectNext on MainMenuModel, and putted it on MenuElement.
+ - Code smell eliminated: Duplicated code.
+- [Commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/51da8271117d5926b3825a2751af12b1aa920fc2)
+
+Refractoring: **Model.ScatterMode, Model.ChaseMode, Model.FrightenedMode**
+ - Many of the functions related to the ghost's movement mode had repeated code, so extracted it and moved to the class MovingBehaviour
+ - Commit: 
+    - [Frightened Mode refractoring commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/881137ae9e3f00f492276760c50e2a37e838c7bf)
+    - [Scatter Mode refractoring commit](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-G0902/commit/28bcea7fc6391c5a9ba416c3b28a3c9594e080c5)
+
+Refractoring: **Functions responsible for drawing elements**
+ - Eliminated the magic numbers by putting the colors code on constants.
+
+**Error Prone Warnings:**
+Thanks to error prone we were also able to fix some troubles in our code such as:
+   - Classes importing unused classes.
+   - Lack of "@Override" in some functions.
+   - In functions with catch and try, instead of "e.printstacktrace()", we changed to System.out.println("Erro: " + e.getMessage())
+   - In fucntions reading the files, instead of having a file reader and a buffered reader, changed it to "BufferedReader br = Files.newBufferedReader(Paths.get(mapLocation), Charset.defaultCharset());"
+   
+   
+## Code Smells
 
 **Lazy classes - Dispensables**
 
@@ -297,7 +345,7 @@ For example, if in the future we want Pac-Man to be a different color, instead o
 ### Pitest report
 
 <img src="resources/pitest1.png" width="818" height="309" />
-<img src="resources/pitest2.png" width="1372" height="706" />
+<img src="resources/pitest2.png" width="1450" height="650" />
 
 ## Self-evaluation
 
