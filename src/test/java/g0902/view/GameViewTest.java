@@ -32,7 +32,7 @@ public class GameViewTest {
         view.draw();
         Mockito.verify(screen, times(1)).clear();
         Mockito.verify(tg, times(1181)).setBackgroundColor(any());
-        Mockito.verify(tg, Mockito.times(4051)).fillRectangle(any(), any(), anyChar());
+        Mockito.verify(tg, Mockito.times(4028)).fillRectangle(any(), any(), anyChar());
         Mockito.verify(screen, times(1)).refresh(Screen.RefreshType.AUTOMATIC);
     }
 
