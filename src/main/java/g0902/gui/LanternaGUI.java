@@ -13,7 +13,6 @@ import g0902.view.Constants;
 
 import java.awt.*;
 
-import java.io.IOException;
 
 public class LanternaGUI {
     Screen screen;
